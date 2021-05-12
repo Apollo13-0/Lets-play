@@ -1,14 +1,34 @@
-//
-// Created by ignacio on 11/5/21.
-//
+#ifndef LIST_H
+#define LIST_H
 
-#ifndef LETS_PLAY_LIST_H
-#define LETS_PLAY_LIST_H
+#include <iostream>
+#include "Node.h"
 
+using namespace std;
 
+template <class T>
 class List {
+private:
+    Node<T> *head;
+    int size;
+
+public:
+    List();
+
+    ~List(){};
+
+    bool isEmpty();
+
+    void insertLast(T);
+
+    void insertFirst(T);
+
+    void deleteNode(T);
+
+    void printList();
 
 };
 
 
-#endif //LETS_PLAY_LIST_H
+
+#endif //LIST_H
