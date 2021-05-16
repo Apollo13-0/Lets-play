@@ -1,6 +1,0 @@
-/home/ingrid/Desktop/ConsoleApplicationServer/ConsoleApplicationServer/obj/Debug/ConsoleApplicationServer.csprojAssemblyReference.cache
-/home/ingrid/Desktop/ConsoleApplicationServer/ConsoleApplicationServer/obj/Debug/ConsoleApplicationServer.csproj.CoreCompileInputs.cache
-/home/ingrid/Desktop/ConsoleApplicationServer/ConsoleApplicationServer/bin/Debug/ConsoleApplicationServer.exe
-/home/ingrid/Desktop/ConsoleApplicationServer/ConsoleApplicationServer/bin/Debug/ConsoleApplicationServer.pdb
-/home/ingrid/Desktop/ConsoleApplicationServer/ConsoleApplicationServer/obj/Debug/ConsoleApplicationServer.exe
-/home/ingrid/Desktop/ConsoleApplicationServer/ConsoleApplicationServer/obj/Debug/ConsoleApplicationServer.pdb
