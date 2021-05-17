@@ -27,7 +27,7 @@ public:
 
     void printList();
 
-    Node<T> find(int pos);
+    Node<T>* find(int pos);
 };
 
 

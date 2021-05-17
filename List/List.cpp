@@ -94,17 +94,15 @@ void List<T>::printList() {
 }
 
 template<typename T>
-Node<T> List<T>::find(int pos) {
-    if (size <= pos){
-        return;
-    }
-    Node<T> current = head;
+Node<T>* List<T>::find(int pos) {
+    Node<T> *current = head;
     int count = 0;
     while (current != NULL){
         if (count == pos){
-            return current.getValue();
+            return current;
+        } else {
+            count++;
+            current = current->getNext();
         }
-        count++;
-        current = current.getNext();
     }
 }
