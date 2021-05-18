@@ -106,3 +106,25 @@ Node<T>* List<T>::find(int pos) {
         }
     }
 }
+
+template<typename T>
+int List<T>::getSize()
+{
+    return size;
+}
+
+template<typename T>
+bool List<T>::findValue(T value_) {
+    Node<T> *current = head;
+    bool result = false;
+    while (current != NULL){
+        if (value_ == current->getValue()){
+            result = true;
+            return result;
+        } else {
+            result = false;
+            current = current->getNext();
+        }
+    }
+}
+
