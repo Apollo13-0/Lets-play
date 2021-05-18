@@ -6,7 +6,6 @@
 using namespace std;
 
 template <class T>
-
 class Node {
 private:
     Node *next;
@@ -27,6 +26,8 @@ public:
     void setValue(T value);
 
     void printNode();
+
+    void delete_all();
 };
 
 

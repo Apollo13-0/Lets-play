@@ -5,6 +5,7 @@
 
 using namespace std;
 
+
 // Constructor por defecto
 template<typename T>
 List<T>::List()
@@ -12,14 +13,14 @@ List<T>::List()
     size = 0;
     head = NULL;
 }
-template<typename T>
+template<typename  T>
 bool List<T>::isEmpty()
 {
     return head == NULL;
 }
 
 // Insertar al inicio
-template<typename T>
+template<typename  T>
 void List<T>::insertFirst(T data_)
 {
     Node<T> *new_node = new Node<T> (data_);
@@ -38,8 +39,9 @@ void List<T>::insertFirst(T data_)
     size++;
 }
 
+
 // Insertar al final
-template<typename T>
+template<typename  T>
 void List<T>::insertLast(T data_) {
     Node<T> *new_node = new Node<T> (data_);
     Node<T> *temp = head;
@@ -56,7 +58,7 @@ void List<T>::insertLast(T data_) {
 }
 
 // Eliminar por data del nodo
-template<typename T>
+template<typename  T>
 void List<T>::deleteNode(T data_) {
     Node<T> *temp = head;
     Node<T> *temp1 = head->getNext();
@@ -78,7 +80,7 @@ void List<T>::deleteNode(T data_) {
 }
 
 // Imprimir la Lista
-template<typename T>
+template<typename  T>
 void List<T>::printList() {
     Node<T> *temp = head;
     if (isEmpty()) {
@@ -93,7 +95,7 @@ void List<T>::printList() {
     cout << endl << endl;
 }
 
-template<typename T>
+template<typename  T>
 Node<T>* List<T>::find(int pos) {
     Node<T> *current = head;
     int count = 0;
@@ -107,13 +109,13 @@ Node<T>* List<T>::find(int pos) {
     }
 }
 
-template<typename T>
+template<typename  T>
 int List<T>::getSize()
 {
     return size;
 }
 
-template<typename T>
+template<typename  T>
 bool List<T>::findValue(T value_) {
     Node<T> *current = head;
     bool result = false;
@@ -126,5 +128,13 @@ bool List<T>::findValue(T value_) {
             current = current->getNext();
         }
     }
+}
+
+template<typename  T>
+void List<T>::delete_all()
+{
+    head->delete_all();
+    head = 0;
+    size = 0;
 }
 

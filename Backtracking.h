@@ -3,6 +3,7 @@
 
 #include "List/List.h"
 
+
 class Backtracking {
 
 public:
@@ -10,7 +11,7 @@ public:
     //ver si es mejor hacerlo singleton
     Backtracking();
 
-    //List<List<int>> getConnectionList(int board[][]);
+    List<List<int>> getConnectionList(int gameMatrix[][10]);
 
     bool findRoute(List<List<int>> connectionList, int start, int finish, List<int> &visited, List<int> &path);
 

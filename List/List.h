@@ -32,6 +32,8 @@ public:
     bool findValue(T);
 
     int getSize();
+
+    void delete_all();
 };
 
 
