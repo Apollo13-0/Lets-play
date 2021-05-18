@@ -92,3 +92,39 @@ void List<T>::printList() {
     }
     cout << endl << endl;
 }
+
+template<typename T>
+Node<T>* List<T>::find(int pos) {
+    Node<T> *current = head;
+    int count = 0;
+    while (current != NULL){
+        if (count == pos){
+            return current;
+        } else {
+            count++;
+            current = current->getNext();
+        }
+    }
+}
+
+template<typename T>
+int List<T>::getSize()
+{
+    return size;
+}
+
+template<typename T>
+bool List<T>::findValue(T value_) {
+    Node<T> *current = head;
+    bool result = false;
+    while (current != NULL){
+        if (value_ == current->getValue()){
+            result = true;
+            return result;
+        } else {
+            result = false;
+            current = current->getNext();
+        }
+    }
+}
+

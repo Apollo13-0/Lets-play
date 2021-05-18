@@ -27,6 +27,11 @@ public:
 
     void printList();
 
+    Node<T>* find(int pos);
+
+    bool findValue(T);
+
+    int getSize();
 };
 
 
