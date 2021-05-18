@@ -5,8 +5,11 @@
 #include <sys/socket.h>
 #include <string.h>
 #include <unistd.h>
+#include "json.hpp"
+#include "BPGameLogic.h"
 
 using namespace std;
+using json = nlohmann::json;
 
 
 int StartListenign(){
@@ -60,11 +63,12 @@ int StartListenign(){
         }
 
         string messageR = string(buf, 0, bytesReceived);
-        string message = "Server: " + messageR;
-        cout<<message<<endl;
-
-        send(clientSocket, message.c_str(), message.size() + 1, 0);
-
+        json jmessageR = json::parse(messageR);
+        string game = jmessageR.value("Game", "oops");
+        if (game == "BP"){
+            string message = bpLogic(jmessageR);
+            send(clientSocket, message.c_str(), message.size() + 1, 0);
+        }
         close(clientSocket);
     }
 

@@ -2,11 +2,15 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using UnityEngine;
+
 
 namespace Client
 {
+    
     public class SocketClient
     {
+        public static string MessageR;
         public static void StartClient(string txt)
         {
             byte[] bytes = new byte[1024];
@@ -37,9 +41,8 @@ namespace Client
 
                     // Receive the response from the remote device.  
                     int bytesRec = sender.Receive(bytes);
-                    Console.WriteLine("Echoed test = {0}",
-                        Encoding.ASCII.GetString(bytes, 0, bytesRec));
-
+                    MessageR = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                    
                     // Release the socket.  
                     sender.Shutdown(SocketShutdown.Both);
                     sender.Close();
