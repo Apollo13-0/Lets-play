@@ -3,7 +3,6 @@
 
 #include "List/List.h"
 
-
 class Backtracking {
 
 public:
