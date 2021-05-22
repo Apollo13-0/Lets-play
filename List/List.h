@@ -6,24 +6,47 @@
 
 using namespace std;
 
+
 template <class T>
+//! Class that handles the list logic
 class List {
+
 private:
+
+    //! head pointer indicates the first positon of the list
     Node<T> *head;
+
+    //! indicates the len of the list
     int size;
 
 public:
+
+    /*!
+     * \brief Construct a new List object and initialize the head and the size in zero
+     *
+     */
     List(){
         size = 0;
         head = NULL;
     };
 
+    /*!
+     * \brief destructor
+     */
     ~List(){};
 
+    /*!
+     * \brief Indicates if the list is empty
+     * \return bool True if the list is empty
+     */
     bool isEmpty(){
         return head == NULL;
     };
 
+    /*!
+     * \brief add a new node to the tail of the list
+     * \param Template <T> data that will be stored
+     */
     void insertLast(T data_){
         Node<T> *new_node = new Node<T> (data_);
         Node<T> *temp = head;
@@ -39,6 +62,10 @@ public:
         size++;
     };
 
+    /*!
+     * \brief add a new node to the head of the list
+     * \param Template <T> data that will be stored
+     */
     void insertFirst(T data_){
         Node<T> *new_node = new Node<T> (data_);
         Node<T> *temp = head;
@@ -56,6 +83,10 @@ public:
         size++;
     };
 
+    /*!
+     * \brief finds a node given and deletes it
+     * \param Template <T> data that will be deleted
+     */
     void deleteNode(T data_){
         Node<T> *temp = head;
         Node<T> *temp1 = head->getNext();
@@ -76,6 +107,9 @@ public:
         }
     };
 
+    /*!
+     * \brief prints the list on console
+     */
     void printList(){
         Node<T> *temp = head;
         if (isEmpty()) {
@@ -90,6 +124,11 @@ public:
         cout << endl << endl;
     };
 
+    /*!
+     * \brief find the node pointer with the given index
+     * \param int with the index of the node
+     * \return Node<T>* node pointer
+     */
     Node<T>* find(int pos){
         Node<T> *current = head;
         int count = 0;
@@ -103,6 +142,11 @@ public:
         }
     };
 
+    /*!
+     * \brief add a new node to the tail of the list
+     * \param Template <T> data that will be stored
+     * \return bool indicating the existance of the value
+     */
     bool findValue(T value_){
         Node<T> *current = head;
         bool result = false;
@@ -117,10 +161,17 @@ public:
         }
     };
 
+    /*!
+     * \brief indicates the len of the list
+     * \return int with the len of the list
+     */
     int getSize(){
         return size;
     };
 
+    /*!
+     * \brief deletes all the list
+     */
     void delete_all(){
         Node<T>* current = head;
         while (current) {
