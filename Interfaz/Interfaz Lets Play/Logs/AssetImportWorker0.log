@@ -77,3 +77,19 @@ Received Import Request.
 Start importing Assets/ConsoleClient/Client/Program.cs using Guid(65cf54c8674e183e9874305389cf0a5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57163d8e698e9af996e568e0007125e0') in 0,024476 seconds
   Import took 0,027277 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 3573,711134 seconds.
+  path: Assets/Config BP/ButtonBPGame.cs
+  artifactKey: Guid(797ef0365ac5393eaaaa38c0effa6900) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Config BP/ButtonBPGame.cs using Guid(797ef0365ac5393eaaaa38c0effa6900) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f14d5efbc8468f8bc6ca935f0254702') in 0,000974 seconds
+  Import took 0,004695 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,027616 seconds.
+  path: Assets/Config BP/ButtonBPGame.cs
+  artifactKey: Guid(797ef0365ac5393eaaaa38c0effa6900) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Config BP/ButtonBPGame.cs using Guid(797ef0365ac5393eaaaa38c0effa6900) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f14d5efbc8468f8bc6ca935f0254702') in 0,000590 seconds
+  Import took 0,003074 seconds .
+
