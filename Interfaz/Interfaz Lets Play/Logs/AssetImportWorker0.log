@@ -129,3 +129,11 @@ Received Import Request.
 Start importing Assets/Scenes/Config Puzzle.unity using Guid(d7a2ce3c424402adda7140161f96d921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '506fa9bed6625a0f3dd060595a664658') in 0,009001 seconds
   Import took 0,011836 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 908,653284 seconds.
+  path: Assets/Scenes/GeneticPuzzle.unity
+  artifactKey: Guid(ae3100c151ca4e015a533dc0c68ae208) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GeneticPuzzle.unity using Guid(ae3100c151ca4e015a533dc0c68ae208) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4dce38e5ad4f1b4d4c91fff8ff451dd6') in 0,001129 seconds
+  Import took 0,003582 seconds .
+
