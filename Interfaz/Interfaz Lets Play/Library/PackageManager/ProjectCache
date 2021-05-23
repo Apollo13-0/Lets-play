@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637569113380000000
+      ticks: 637573287050000000
     m_Hash: 2284794657
   m_LockFileStatus:
     m_FilePath: /home/ignacio/Datos2/Lets-play/Interfaz/Interfaz Lets Play/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637569113380000000
+      ticks: 637573287050000000
     m_Hash: 2628775375
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -1390,7 +1390,7 @@ m_PackageAssets:
       hasRepository: 1
       repository:
         type: git
-        url: https://github.com/Unity-Technologies/com.unity.sysroot.git
+        url: git+https://github.com/Unity-Technologies/com.unity.sysroot.git
         revision: 8717ab9c5b4f758bc542184e1872ed3fcce1e1f9
         path: 
     - packageId: com.unity.ugui@1.0.0
@@ -3268,7 +3268,7 @@ m_PackageAssets:
       hasRepository: 1
       repository:
         type: git
-        url: https://github.com/Unity-Technologies/com.unity.sysroot.git
+        url: git+https://github.com/Unity-Technologies/com.unity.sysroot.git
         revision: 8717ab9c5b4f758bc542184e1872ed3fcce1e1f9
         path: 
     - packageId: com.unity.sysroot.linux-x86_64@0.1.14-preview
@@ -3340,7 +3340,7 @@ m_PackageAssets:
       hasRepository: 1
       repository:
         type: git
-        url: https://github.com/Unity-Technologies/com.unity.sysroot.git
+        url: git+https://github.com/Unity-Technologies/com.unity.sysroot.git
         revision: 0d5e7b07c95f3ae15d6d80931a071b042e97189b
         path: 
     - packageId: com.unity.ext.nunit@1.0.6
