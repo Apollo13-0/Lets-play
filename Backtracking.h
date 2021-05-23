@@ -3,11 +3,11 @@
 
 #include "List/List.h"
 
+//! Class that find the shortest path between 2 points in a matrix
 class Backtracking {
 
 public:
 
-    //ver si es mejor hacerlo singleton
     Backtracking();
 
     List<List<int>> getConnectionList(int gameMatrix[][10]);

@@ -1,7 +1,11 @@
 #include "Backtracking.h"
 
 
-
+/*!
+ * \brief method that finds the path
+ *
+ * \return bool indicating the path has been found
+ */
 bool Backtracking::findRoute(List<List<int>> connectionList, int start, int finish, List<int> &visited,List<int> &path)
 {
     if (start == finish){
@@ -26,6 +30,11 @@ bool Backtracking::findRoute(List<List<int>> connectionList, int start, int fini
     return false;
 }
 
+/*!
+ * \brief creates the solution path and the visited list
+ *
+ * \return List<int> the solution path
+ */
 List<int> Backtracking::ShortestRoute(List<List<int>> connectionList, int start,int finish)
 {
     List<int> visited;
@@ -34,6 +43,11 @@ List<int> Backtracking::ShortestRoute(List<List<int>> connectionList, int start,
     return solution_path;
 }
 
+/*!
+ * \brief generates a list with the connections for each point
+ *
+ * \return List<List<int>> matrix with the connections for each node
+ */
 List<List<int>> Backtracking::getConnectionList(int (*gameMatrix)[10]) {
 
     List<List<int>> connectionList;

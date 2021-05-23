@@ -20,7 +20,6 @@ public:
 
     /*!
      * \brief Construct a new Node object and initialize the value and the next pointer in NULL
-     *
      */
     Node(){
         value = NULL;
@@ -44,6 +43,7 @@ public:
 
     /*!
      * \brief get the next pointer
+     *
      * \return Node pointer
      */
     Node *getNext() const{
@@ -52,6 +52,7 @@ public:
 
     /*!
      * \brief sets the new pointer
+     *
      * \param next_ Node new pointer
      */
     void setNext(Node *next_){
@@ -60,6 +61,7 @@ public:
 
     /*!
      * \brief gets the value of the node
+     *
      * \return T value
      */
     T getValue() const{
@@ -68,6 +70,7 @@ public:
 
     /*!
      * \brief sets the new data
+     *
      * \param value_ new data
      */
     void setValue(T value_){
