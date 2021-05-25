@@ -1,11 +1,7 @@
-//
-// Created by usuario on 5/18/21.
-//
-
 #ifndef SERVER_BPCREATEOBSTACULES_H
 #define SERVER_BPCREATEOBSTACULES_H
 
-#endif //SERVER_BPCREATEOBSTACULES_H
+#endif //BPCREATEOBSTACULES_H
 #include <string>
 #include "Matrix.h"
 
