@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/GeneticPuzzle.unity
+- path: Assets/Scenes/Config Puzzle.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
