@@ -57,10 +57,10 @@ public class Ball : MonoBehaviour
                 string column = (((int)transform.position.x +9)/2).ToString();
                 string row = (((int)transform.position.y -4)/-2).ToString();
                 string message = parseJson("BP", "J1Path", row+column , "");
-                Debug.Log(message);
                 SocketClient.StartClient(message);
                 flag = false;
-                Field.Field.UpdatePath();
+                Debug.Log(SocketClient.MessageR);
+                Field.Field.UpdatePath(transform.position);
             }
         }
         else

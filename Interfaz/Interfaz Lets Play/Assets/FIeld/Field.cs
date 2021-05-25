@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 using Client;
+using UnityEngine.UIElements;
+
 namespace Field
 {
     public class Field : MonoBehaviour
@@ -11,6 +13,7 @@ namespace Field
         private static LineRenderer _lineRenderer;
         [SerializeField] private GameObject _obstaculeP1Prefab;
         [SerializeField] private GameObject _obstaculeP2Prefab;
+
         void Awake()
         {
             _lineRenderer = GetComponent<LineRenderer>();
@@ -46,12 +49,13 @@ namespace Field
             return count;
         }
 
-        public static void UpdatePath()
+        public static void UpdatePath(Vector3 ballPosition)
         {
             int limit = HowMany(SocketClient.MessageR);
-            _lineRenderer.positionCount = limit+2;
+            _lineRenderer.positionCount = limit+1;
             string positionS="";
-            int j=2;
+            _lineRenderer.SetPosition(0, ballPosition);
+            int j=1;
             for (int i=3; i < SocketClient.MessageR.Length; i++)
             {
                 if (SocketClient.MessageR[i] == '$')
