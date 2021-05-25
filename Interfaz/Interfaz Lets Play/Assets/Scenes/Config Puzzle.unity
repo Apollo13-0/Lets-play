@@ -633,10 +633,10 @@ RectTransform:
   m_Father: {fileID: 972654725}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1222085938
 GameObject:
@@ -650,7 +650,6 @@ GameObject:
   - component: {fileID: 1222085942}
   - component: {fileID: 1222085941}
   - component: {fileID: 1222085940}
-  - component: {fileID: 1222085943}
   m_Layer: 0
   m_Name: up_button
   m_TagString: Untagged
@@ -675,8 +674,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 393, y: 0}
-  m_SizeDelta: {x: -940, y: -454}
+  m_AnchoredPosition: {x: 396.1807, y: 6.800003}
+  m_SizeDelta: {x: -808.0052, y: -459.8443}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1222085940
 MonoBehaviour:
@@ -721,7 +720,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1222085941}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1319044172}
+        m_TargetAssemblyTypeName: ConfigGenetic, Assembly-CSharp
+        m_MethodName: OpenExplorer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1222085941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,20 +771,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222085938}
   m_CullTransparentMesh: 1
---- !u!114 &1222085943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222085938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 956464ace0c072950ac79ff945305efe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 1485359458}
-  ButtonUpload: {fileID: 0}
 --- !u!1 &1319044170
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,6 +780,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1319044171}
+  - component: {fileID: 1319044172}
   m_Layer: 0
   m_Name: upload_button
   m_TagString: Untagged
@@ -810,6 +808,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1319044172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319044170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956464ace0c072950ac79ff945305efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 1485359458}
 --- !u!1 &1485359456
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,7 +855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -356.29, y: 67.17}
+  m_AnchoredPosition: {x: -103, y: 62}
   m_SizeDelta: {x: 273.3924, y: 234.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1485359458
@@ -1172,8 +1183,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -93.6107, y: 5.2738}
-  m_SizeDelta: {x: 187.2214, y: -10.5477}
+  m_AnchoredPosition: {x: 0.000030517578, y: -0.000015258789}
+  m_SizeDelta: {x: -0.000045776, y: 0.000015259}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1978112192
 MonoBehaviour:
@@ -1413,7 +1424,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -128, y: -99}
+  m_AnchoredPosition: {x: -103, y: -99}
   m_SizeDelta: {x: 729.971, y: 44.728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2099956361

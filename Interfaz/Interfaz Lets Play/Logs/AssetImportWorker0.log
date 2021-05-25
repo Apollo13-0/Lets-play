@@ -569,3 +569,131 @@ System memory in use after: 80,3 MB.
 Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2356.
 Total: 2,408136 ms (FindLiveObjects: 0,187561 ms CreateObjectMapping: 0,062355 ms MarkObjects: 2,054239 ms  DeleteObjects: 0,102328 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 1674,425280 seconds.
+  path: Assets/Scenes/Config Puzzle.unity
+  artifactKey: Guid(d7a2ce3c424402adda7140161f96d921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Config Puzzle.unity using Guid(d7a2ce3c424402adda7140161f96d921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f5cf2cef3a2b01d595177c7657c5e6b') in 0,011928 seconds
+  Import took 0,015353 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0,000822 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,31 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0,732 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,30 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 1817 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 80,3 MB.
+System memory in use after: 80,3 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2360.
+Total: 2,438081 ms (FindLiveObjects: 0,184227 ms CreateObjectMapping: 0,063289 ms MarkObjects: 2,089620 ms  DeleteObjects: 0,100061 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0,000905 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,32 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0,743 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,31 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 1817 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 80,3 MB.
+System memory in use after: 80,3 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2364.
+Total: 2,470870 ms (FindLiveObjects: 0,186957 ms CreateObjectMapping: 0,053841 ms MarkObjects: 2,128611 ms  DeleteObjects: 0,100149 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 553,820565 seconds.
+  path: Assets/Scenes/GeneticPuzzle.unity
+  artifactKey: Guid(ae3100c151ca4e015a533dc0c68ae208) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GeneticPuzzle.unity using Guid(ae3100c151ca4e015a533dc0c68ae208) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '784fd56400db47fee4f2543984f2e0fc') in 0,008998 seconds
+  Import took 0,011966 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,122908 seconds.
+  path: Assets/Scenes/GeneticPuzzle.unity
+  artifactKey: Guid(ae3100c151ca4e015a533dc0c68ae208) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GeneticPuzzle.unity using Guid(ae3100c151ca4e015a533dc0c68ae208) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '784fd56400db47fee4f2543984f2e0fc') in 0,001059 seconds
+  Import took 0,003945 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0,000747 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,33 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0,749 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,31 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 1817 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 80,3 MB.
+System memory in use after: 80,3 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2368.
+Total: 5,836786 ms (FindLiveObjects: 0,485713 ms CreateObjectMapping: 0,163051 ms MarkObjects: 4,977591 ms  DeleteObjects: 0,207395 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0,000852 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Refreshing native plugins compatible for Editor in 0,31 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0,739 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0,31 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 1817 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 80,3 MB.
+System memory in use after: 80,3 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2372.
+Total: 2,435335 ms (FindLiveObjects: 0,197169 ms CreateObjectMapping: 0,065442 ms MarkObjects: 2,067347 ms  DeleteObjects: 0,103666 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 830,857866 seconds.
+  path: Assets/Scenes/Config Puzzle.unity
+  artifactKey: Guid(d7a2ce3c424402adda7140161f96d921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Config Puzzle.unity using Guid(d7a2ce3c424402adda7140161f96d921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4d5d227eec7f54807421e727c512c60') in 0,012638 seconds
+  Import took 0,015818 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 214,883137 seconds.
+  path: Assets/FIeld/Field.cs
+  artifactKey: Guid(a10d6d73388380cc58b8d3729790d1ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FIeld/Field.cs using Guid(a10d6d73388380cc58b8d3729790d1ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad72f86dfd49dba14a82a65816c99791') in 0,000621 seconds
+  Import took 0,003204 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0,005718 seconds.
+  path: Assets/FIeld/Field.cs
+  artifactKey: Guid(a10d6d73388380cc58b8d3729790d1ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FIeld/Field.cs using Guid(a10d6d73388380cc58b8d3729790d1ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad72f86dfd49dba14a82a65816c99791') in 0,000705 seconds
+  Import took 0,003523 seconds .
+
