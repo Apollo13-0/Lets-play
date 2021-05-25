@@ -1,5 +1,5 @@
 Using pre-set license
-Desktop is 1920 x 1848 @ 60 Hz
+Desktop is 1920 x 1080 @ 60 Hz
 
  COMMAND LINE ARGUMENTS:
 Unity
@@ -9,21 +9,21 @@ Unity
 -name
 AssetImportWorker0
 -projectPath
-/home/usuario/Proyectos/Lets-play/Interfaz/Interfaz Lets Play
+/home/ignacio/Datos2/Lets-play/Interfaz/Interfaz Lets Play
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-44201
-Successfully changed project path to: /home/usuario/Proyectos/Lets-play/Interfaz/Interfaz Lets Play
-/home/usuario/Proyectos/Lets-play/Interfaz/Interfaz Lets Play
+45967
+Successfully changed project path to: /home/ignacio/Datos2/Lets-play/Interfaz/Interfaz Lets Play
+/home/ignacio/Datos2/Lets-play/Interfaz/Interfaz Lets Play
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 48.92 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Refreshing native plugins compatible for Editor in 27,71 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Initialize engine version: 2020.3.7f1 (dd97f2c94397)
-[Subsystems] Discovering subsystems at path /home/usuario/Unity/Hub/Editor/2020.3.7f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path /home/usuario/Proyectos/Lets-play/Interfaz/Interfaz Lets Play/Assets
+[Subsystems] Discovering subsystems at path /home/ignacio/Unity/Hub/Editor/2020.3.7f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /home/ignacio/Datos2/Lets-play/Interfaz/Interfaz Lets Play/Assets
 GLX Extensions: GLX_ARB_create_context GLX_ARB_create_context_no_error GLX_ARB_create_context_profile GLX_ARB_create_context_robustness GLX_ARB_fbconfig_float GLX_ARB_framebuffer_sRGB GLX_ARB_get_proc_address GLX_ARB_multisample GLX_EXT_buffer_age GLX_EXT_create_context_es2_profile GLX_EXT_create_context_es_profile GLX_EXT_fbconfig_packed_float GLX_EXT_framebuffer_sRGB GLX_EXT_import_context GLX_EXT_texture_from_pixmap GLX_EXT_visual_info GLX_EXT_visual_rating GLX_INTEL_swap_event GLX_MESA_copy_sub_buffer GLX_MESA_query_renderer GLX_MESA_swap_control GLX_OML_swap_method GLX_OML_sync_control GLX_SGIS_multisample GLX_SGIX_fbconfig GLX_SGIX_pbuffer GLX_SGIX_visual_select_group GLX_SGI_make_current_read GLX_SGI_swap_control GLX_SGI_video_sync 
-Renderer: Mesa Intel(R) UHD Graphics 620 (KBL GT2)
+Renderer: Mesa Intel(R) UHD Graphics 630 (CFL GT2)
 Vendor:   Intel
 Version:  4.6 (Core Profile) Mesa 20.2.6
 GLES:     0
@@ -33,159 +33,108 @@ int_sprite GL_ARB_polygon_offset_clamp GL_ARB_post_depth_coverage GL_ARB_program
 L_ARB_texture_buffer_object GL_ARB_texture_buffer_object_rgb32 GL_ARB_texture_buffer_range GL_ARB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map_array GL_ARB_texture_filter_anisotropic GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewpor
 t_array GL_ATI_blend_equation_separate GL_ATI_texture_float GL_EXT_EGL_image_storage GL_EXT_EGL_sync GL_EXT_abgr GL_EXT_blend_equation_separate GL_EXT_demote_to_helper_invocation GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_pixel_buffer_object GL_EXT_polygon_offset_clamp GL_EXT_provoking_vertex GL_EXT_shader_framebuffer_fetch GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_shader_integer_mix GL_EXT_shader_samples_identical GL_EXT_texture_array GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_filter_anisotropic GL_EXT_texture_integer GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback G
 L_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_IBM_multimode_draw_arrays GL_INTEL_blackhole_render GL_INTEL_conservative_rasterization GL_INTEL_performance_query GL_INTEL_shader_atomic_float_minmax GL_INTEL_shader_integer_functions2 GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_parallel_shader_compile GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_MESA_pack_invert GL_MESA_shader_integer_functions GL_MESA_texture_signed_rgba GL_NV_compute_shader_derivatives GL_NV_conditional_render GL_NV_copy_image GL_NV_depth_clamp GL_NV_fragment_shader_interlock GL_NV_packed_depth_stencil GL_NV_texture_barrier GL_OES_EGL_image GL_S3_s3tc
-OPENGL LOG: Creating OpenGL 4.6 graphics device ; Context level  <OpenGL 4.5> ; Context handle 2108549296
+OPENGL LOG: Creating OpenGL 4.6 graphics device ; Context level  <OpenGL 4.5> ; Context handle -1126249584
 Initialize mono
-Mono path[0] = '/home/usuario/Unity/Hub/Editor/2020.3.7f1/Editor/Data/Managed'
-Mono path[1] = '/home/usuario/Unity/Hub/Editor/2020.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = '/home/usuario/Unity/Hub/Editor/2020.3.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56901
+Mono path[0] = '/home/ignacio/Unity/Hub/Editor/2020.3.7f1/Editor/Data/Managed'
+Mono path[1] = '/home/ignacio/Unity/Hub/Editor/2020.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/home/ignacio/Unity/Hub/Editor/2020.3.7f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56759
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: /home/usuario/Unity/Hub/Editor/2020.3.7f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.002375 seconds.
+Register platform support module: /home/ignacio/Unity/Hub/Editor/2020.3.7f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0,001121 seconds.
 Native extension for LinuxStandalone target not found
-Refreshing native plugins compatible for Editor in 39.79 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Refreshing native plugins compatible for Editor in 28,93 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.042 seconds
+- Completed reload, in  0,943 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000852 seconds.
+Registered in 0,000538 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
-Refreshing native plugins compatible for Editor in 37.94 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Refreshing native plugins compatible for Editor in 28,96 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.145 seconds
+- Completed reload, in  0,782 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
-Refreshing native plugins compatible for Editor in 0.44 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0,31 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Unloading 1821 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 80.0 MB.
-System memory in use after: 80.0 MB.
+System memory in use before: 80,1 MB.
+System memory in use after: 80,0 MB.
 
 Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 2271.
-Total: 3.693733 ms (FindLiveObjects: 0.265076 ms CreateObjectMapping: 0.101450 ms MarkObjects: 3.006664 ms  DeleteObjects: 0.318631 ms)
+Total: 2,579555 ms (FindLiveObjects: 0,180942 ms CreateObjectMapping: 0,067240 ms MarkObjects: 2,105755 ms  DeleteObjects: 0,224873 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Obstacle/Obstacule P1.prefab
-  artifactKey: Guid(fb0f1a26de88fc077ad7db6b1b254b57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obstacle/Obstacule P1.prefab using Guid(fb0f1a26de88fc077ad7db6b1b254b57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7ab4d849b7baefbd61e7af962c15f82') in 0.115622 seconds
-  Import took 0.125836 seconds .
+  path: Assets/Scenes/Config Puzzle.unity
+  artifactKey: Guid(d7a2ce3c424402adda7140161f96d921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Config Puzzle.unity using Guid(d7a2ce3c424402adda7140161f96d921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c97aa06e7fc51bbee3d025b417a28b8a') in 0,009688 seconds
+  Import took 0,012452 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000211 seconds.
-  path: Assets/Obstacle/Obstacule P2.prefab
-  artifactKey: Guid(663818b91d0f2d34da60908c53b02f12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Obstacle/Obstacule P2.prefab using Guid(663818b91d0f2d34da60908c53b02f12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9709dd22d0308890f37b4bdeeab7c98') in 0.008579 seconds
-  Import took 0.012512 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 11.490835 seconds.
-  path: Assets/Scenes/Config BP Game.unity
-  artifactKey: Guid(710e373165b2f2d0e94c4ad65f39db75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Config BP Game.unity using Guid(710e373165b2f2d0e94c4ad65f39db75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02fcbcf9c65c2b1b7812e7acc4c5aa7e') in 0.001115 seconds
-  Import took 0.004524 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000817 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Refreshing native plugins compatible for Editor in 0.41 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.065 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.41 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1816 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 81.4 MB.
-System memory in use after: 81.4 MB.
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2282.
-Total: 5.349196 ms (FindLiveObjects: 0.250431 ms CreateObjectMapping: 0.103651 ms MarkObjects: 4.735122 ms  DeleteObjects: 0.258114 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001028 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Refreshing native plugins compatible for Editor in 0.49 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.156 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.67 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1816 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 81.4 MB.
-System memory in use after: 81.4 MB.
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2286.
-Total: 5.596066 ms (FindLiveObjects: 0.563817 ms CreateObjectMapping: 0.254691 ms MarkObjects: 4.590331 ms  DeleteObjects: 0.184174 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000930 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Refreshing native plugins compatible for Editor in 0.39 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.027 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.37 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1816 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 81.4 MB.
-System memory in use after: 81.4 MB.
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2290.
-Total: 3.139068 ms (FindLiveObjects: 0.226321 ms CreateObjectMapping: 0.068537 ms MarkObjects: 2.705479 ms  DeleteObjects: 0.136922 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 166.367180 seconds.
+  Time since last request: 334,434365 seconds.
   path: Assets/Scenes/BP Game.unity
   artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/BP Game.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1faa724919d4409fc49a03ef2452deb') in 0.012915 seconds
-  Import took 0.016749 seconds .
+Start importing Assets/Scenes/BP Game.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be233c7b1909ff5e08f0ba8c2e70d3a9') in 0,000984 seconds
+  Import took 0,003981 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.006076 seconds.
+  Time since last request: 0,000503 seconds.
   path: Assets/Scenes/BP Game.unity
   artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/BP Game.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1faa724919d4409fc49a03ef2452deb') in 0.001005 seconds
-  Import took 0.004212 seconds .
+Start importing Assets/Scenes/BP Game.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be233c7b1909ff5e08f0ba8c2e70d3a9') in 0,000897 seconds
+  Import took 0,003857 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 45,547825 seconds.
+  path: Assets/Scenes/Config Puzzle.unity
+  artifactKey: Guid(d7a2ce3c424402adda7140161f96d921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Config Puzzle.unity using Guid(d7a2ce3c424402adda7140161f96d921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd217b6a8e4e414c5dbcff1ca56790d83') in 0,001395 seconds
+  Import took 0,004721 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.000815 seconds.
+Registered in 0,000696 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
-Refreshing native plugins compatible for Editor in 0.49 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Refreshing native plugins compatible for Editor in 0,32 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.884 seconds
+- Completed reload, in  0,715 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.34 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Refreshing native plugins compatible for Editor in 0,30 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
 Unloading 1816 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 81.5 MB.
-System memory in use after: 81.5 MB.
+System memory in use before: 80,1 MB.
+System memory in use after: 80,1 MB.
 
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2294.
-Total: 3.737946 ms (FindLiveObjects: 0.345506 ms CreateObjectMapping: 0.105775 ms MarkObjects: 3.149067 ms  DeleteObjects: 0.135362 ms)
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2275.
+Total: 2,414978 ms (FindLiveObjects: 0,154380 ms CreateObjectMapping: 0,051849 ms MarkObjects: 2,111671 ms  DeleteObjects: 0,096119 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 1286,549521 seconds.
+  path: Assets/Scenes/Config Puzzle.unity
+  artifactKey: Guid(d7a2ce3c424402adda7140161f96d921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Config Puzzle.unity using Guid(d7a2ce3c424402adda7140161f96d921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '506fa9bed6625a0f3dd060595a664658') in 0,009001 seconds
+  Import took 0,011836 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 908,653284 seconds.
+  path: Assets/Scenes/GeneticPuzzle.unity
+  artifactKey: Guid(ae3100c151ca4e015a533dc0c68ae208) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GeneticPuzzle.unity using Guid(ae3100c151ca4e015a533dc0c68ae208) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4dce38e5ad4f1b4d4c91fff8ff451dd6') in 0,001129 seconds
+  Import took 0,003582 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
