@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: a988de112c22f7e63a33c90965237add
+  - enabled: 1
+    path: Assets/Scenes/GeneticPuzzle.unity
+    guid: ae3100c151ca4e015a533dc0c68ae208
   m_configObjects: {}

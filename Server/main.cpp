@@ -69,6 +69,11 @@ int StartListenign(){
             string message = bpLogic(jmessageR);
             send(clientSocket, message.c_str(), message.size() + 1, 0);
         }
+
+        if (game == "Genetic")
+        {
+            ;
+        }
         close(clientSocket);
     }
 
