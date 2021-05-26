@@ -134,6 +134,11 @@ Backtracking::Backtracking() {
 
 }
 
+/*!
+ * \brief generates a string with the format for printing on display
+ *
+ * \return string with the solution path
+ */
 string Backtracking::backtrakingString(List<int> path)
 {
     string resultString = "";
