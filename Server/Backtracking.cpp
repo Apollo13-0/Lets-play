@@ -17,7 +17,7 @@ bool Backtracking::findRoute(List<List<int>> connectionList, int start, int fini
 
     List<int> connections = connectionList.find(start-1)->getValue();
 
-    // recorrer columnas
+
     for (int j = 0; j < connections.getSize() ; j++) {
         int cellValue = connections.find(j)->getValue();
         if (!visited.findValue(cellValue)){
@@ -35,12 +35,12 @@ bool Backtracking::findRoute(List<List<int>> connectionList, int start, int fini
  *
  * \return List<int> the solution path
  */
-List<int> Backtracking::ShortestRoute(List<List<int>> connectionList, int start,int finish)
+string Backtracking::ShortestRoute(List<List<int>> connectionList, int start,int finish)
 {
     List<int> visited;
     List<int> solution_path;
     findRoute(connectionList,start,finish,visited,solution_path);
-    return solution_path;
+    return backtrakingString(solution_path);
 }
 
 /*!
@@ -132,4 +132,13 @@ List<List<int>> Backtracking::getConnectionList(int (*gameMatrix)[10]) {
 
 Backtracking::Backtracking() {
 
+}
+
+string Backtracking::backtrakingString(List<int> path)
+{
+    string resultString = "";
+    for (int i = 0; i < path.getSize(); i++) {
+        resultString = resultString + to_string(path.find(i)->getValue()) + "$";
+    }
+    return resultString;
 }

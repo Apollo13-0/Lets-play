@@ -14,8 +14,9 @@ public:
 
     bool findRoute(List<List<int>> connectionList, int start, int finish, List<int> &visited, List<int> &path);
 
-    List<int> ShortestRoute(List<List<int>> connectionList, int start, int finish);
+    string ShortestRoute(List<List<int>> connectionList, int start, int finish);
 
+    string backtrakingString(List<int> path);
 
 };
 
