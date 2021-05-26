@@ -138,7 +138,7 @@ string Backtracking::backtrakingString(List<int> path)
 {
     string resultString = "";
     for (int i = 0; i < path.getSize(); i++) {
-        resultString = resultString + to_string(path.find(i)->getValue()) + "$";
+        resultString = resultString + to_string(path.find(i)->getValue() - 1) + "$";
     }
     return resultString;
 }
