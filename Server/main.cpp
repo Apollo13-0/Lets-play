@@ -8,6 +8,17 @@
 #include "json.hpp"
 #include "BPGameLogic.h"
 
+//Prueba
+#include <iomanip>
+#include "GAPad.h"
+#include "GASolver.h"
+float MUTATION_CHANCE = 0.9;
+float CROSS_OVER_RATE = 0.3;
+int POPULATION_LEN = 1000;
+int MAX_ITERATION = 1000;
+//
+
+
 using namespace std;
 using json = nlohmann::json;
 
@@ -82,6 +93,52 @@ int StartListenign(){
 
 
 int main() {
+
+    //Prueba
+    srand(time(NULL));
+
+    try {
+        GAPad myPad = GAPad();
+        for (auto &item : myPad.board) {
+            for (auto &i : item) {
+
+                cout << setw(3)<< i <<" ; ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+        myPad.shuffle();
+        for (auto &item : myPad.board) {
+            for (auto &i : item) {
+
+                cout << setw(3) << i << " - ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+
+        GAChromosome par = GAChromosome(myPad, {});
+        GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
+        GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);
+        myPad.apply_chain(res.gene);
+
+        for (auto &item : myPad.board) {
+            for (auto &i : item) {
+
+                cout << setw(3)<< i << " | ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+
+    }
+
+
+    catch (exception){
+        cout<<"Ha ocurrido un error\n";
+    }
+
+    //
 
     StartListenign();
     return 0;
