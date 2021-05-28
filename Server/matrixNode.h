@@ -16,9 +16,43 @@ public:
 
     void setObstacule(bool obstacule);
 
-private:
-    int _position = 0;
+    int getY() const;
 
+    void setY(int y);
+
+    int getX() const;
+
+    void setX(int x);
+
+    int getParentX() const;
+
+    void setParentX(int parentX);
+
+    int getParentY() const;
+
+    void setParentY(int parentY);
+
+    float getGCost() const;
+
+    void setGCost(float gCost);
+
+    float getHCost() const;
+
+    void setHCost(float hCost);
+
+    float getFCost() const;
+
+    void setFCost(float fCost);
+
+private:private:
+    int _position = 0;
+    int y;
+    int x;
+    int parentX;
+    int parentY;
+    float gCost;
+    float hCost;
+    float fCost;
     bool _obstacule = false;
 };
 

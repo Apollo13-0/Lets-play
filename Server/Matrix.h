@@ -18,8 +18,9 @@ public:
     Matrix(Matrix &other) = delete;
     void operator=(const Matrix &) = delete;
     static Matrix *GetInstance();
+    matrixNode FindinPosition(int position);
 
-
+    void ResetforPathfinding();
 };
 
 

@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 using Client;
+using UnityEngine.UIElements;
+
 namespace Field
 {
     public class Field : MonoBehaviour
     {
-
+        private static LineRenderer _lineRenderer;
         [SerializeField] private GameObject _obstaculeP1Prefab;
         [SerializeField] private GameObject _obstaculeP2Prefab;
+
         void Awake()
         {
+            _lineRenderer = GetComponent<LineRenderer>();
             int j=0;
             Debug.Log(SocketClient.MessageR);
             for (int i = 0; i < SocketClient.MessageR.Length-1;)
@@ -34,6 +38,45 @@ namespace Field
                 j++;
             }
         }
-        
+        static int HowMany(string input)
+        {
+            int count = 0;
+            for (int i = 3; i < input.Length; i++)
+                if (input[i] == '$')
+                {
+                    count += 1;
+                }
+            return count;
+        }
+
+        public static void UpdatePath(Vector3 ballPosition)
+        {
+            int limit = HowMany(SocketClient.MessageR);
+            _lineRenderer.positionCount = limit+1;
+            string positionS="";
+            _lineRenderer.SetPosition(0, ballPosition);
+            int j=1;
+            for (int i=3; i < SocketClient.MessageR.Length; i++)
+            {
+                if (SocketClient.MessageR[i] == '$')
+                {
+                    int positionI = Int32.Parse(positionS);
+                    int y = 0;
+                    int x= positionI%10;
+                    if (x != positionI){
+                        y = positionI/10;
+                    }
+                    Vector3 _nextNodePosition = new Vector3(-9 + 2 * x, 4 - 2 * y);
+                    _lineRenderer.SetPosition(j, _nextNodePosition);
+                    positionS="";
+                    j++;
+                }
+                else
+                {
+                    positionS += SocketClient.MessageR[i];
+                }
+            }
+        }
     }
+    
 }

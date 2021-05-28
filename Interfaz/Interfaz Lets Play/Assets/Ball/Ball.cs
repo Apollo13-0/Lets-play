@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Client;
 using UnityEngine;
 using UnityEngine.UI;
+using Field;
 
 public class Ball : MonoBehaviour
 {
+    private bool flag = true;
     private Vector3 _launchPosition;
     private LineRenderer _lineRenderer;
     private Rigidbody2D _rigidbody2D;
@@ -43,14 +46,26 @@ public class Ball : MonoBehaviour
             transform.position = origin;
             _rigidbody2D.velocity = origin;
         }
+        
         _lineRenderer.SetPosition(0, _launchPosition);
         _lineRenderer.SetPosition(1, transform.position);
         if (_rigidbody2D.velocity.magnitude <= 0.1)
         {
             _animator.enabled = false;
+            if (flag)
+            {
+                string column = (((int)transform.position.x +9)/2).ToString();
+                string row = (((int)transform.position.y -4)/-2).ToString();
+                string message = parseJson("BP", "J1Path", row+column , "");
+                SocketClient.StartClient(message);
+                flag = false;
+                Debug.Log(SocketClient.MessageR);
+                Field.Field.UpdatePath(transform.position);
+            }
         }
         else
         {
+            flag = true;
             _animator.enabled = true;
         }
     }
@@ -97,5 +112,56 @@ public class Ball : MonoBehaviour
         }
         
     }
+    string parseJson(string game,string key,string info1, string info2)
+    {
+        string message = "{" +
+                  "\"Game\":" + "\"" + game + "\"" + "," +
+                  "\"Key\":" + "\"" + key + "\"" + "," +
+                  "\"Info1\":" + "\"" + info1 + "\"" + "," +
+                  "\"Info2\":" + "\"" + info2 + "\"" + "}";
+        return message;
+    }
+    
+    int HowMany(string input)
+    {
+        int count = 0;
+        for (int i = 3; i < input.Length; i++)
+            if (input[i] == '$')
+            {
+                count += 1;
+            }
+        return count;
+    }
+
+    void Createlines()
+    {
+        int limit = HowMany(SocketClient.MessageR);
+        _lineRenderer.positionCount = limit+2;
+        string positionS="";
+        int j=2;
+        for (int i=3; i < SocketClient.MessageR.Length; i++)
+        {
+            if (SocketClient.MessageR[i] == '$')
+            {
+                int positionI = Int32.Parse(positionS);
+                int y = 0;
+                int x= positionI%10;
+                if (x != positionI){
+                    y = positionI/10;
+                }
+                Debug.Log(x);
+                Debug.Log(y);
+                Vector3 _nextNodePosition = new Vector3(-9 + 2 * x, 4 - 2 * y);
+                _lineRenderer.SetPosition(j, _nextNodePosition);
+                positionS="";
+                j++;
+            }
+            else
+            {
+                positionS += SocketClient.MessageR[i];
+            }
+        }
+    }
+    
 }
 
