@@ -93,6 +93,7 @@ public:
 
         if (head->getValue() == data_) {
             head = temp->getNext();
+            size--;
         } else {
             while (temp1) {
                 if (temp1->getValue() == data_) {
@@ -106,6 +107,26 @@ public:
             }
         }
     };
+    void deletematrixNode(matrixNode node){
+        Node<matrixNode> *temp = head;
+        Node<matrixNode> *temp1 = head->getNext();
+        if (node.getPosition() == temp->getValue().getPosition()) {
+            head = temp->getNext();
+            size--;
+        } else {
+            while (temp1) {
+                if (node.getPosition() == temp1->getValue().getPosition()) {
+                    Node<matrixNode> *aux_node = temp1;
+                    temp->setNext(temp1->getNext());
+                    delete aux_node;
+                    size--;
+                }
+                temp = temp->getNext();
+                temp1 = temp1->getNext();
+            }
+        }
+    };
+
 
     /*!
      * \brief prints the list on console

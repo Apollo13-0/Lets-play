@@ -11,9 +11,7 @@ string createObstacules(int obs_amount){
     int i=0;
     string str_matrix_res;
     while (i < obs_amount){
-        srand (time(NULL));
         int row = rand() %5;
-        srand (time(NULL));
         int column = rand() %4;
         if ( !(row == 3 && (column == 0 || column == 9))  && !matrix->gameField[row][column].isObstacule()){
             matrix->gameField[row][column].setObstacule(true);
@@ -24,9 +22,7 @@ string createObstacules(int obs_amount){
     }
     i=0;
     while (i < obs_amount){
-        srand (time(NULL));
         int row = rand() %5;
-        srand (time(NULL));
         int column = rand() %4+5;
 
         if ( !(row == 3 && (column == 0 || column == 9))  && !matrix->gameField[row][column].isObstacule()){

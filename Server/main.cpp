@@ -93,9 +93,8 @@ int StartListenign(){
 
 
 int main() {
-
-    //Prueba
     srand(time(NULL));
+    /**
 
     try {
         GAPad myPad = GAPad();
@@ -138,7 +137,14 @@ int main() {
         cout<<"Ha ocurrido un error\n";
     }
 
-    //
+    **/
+
+//    List<GAChromosome*> prueba;
+//    GAPad myPad = GAPad();
+//    GAChromosome original = GAChromosome(myPad, {});
+//    GAChromosome par = original;
+//    GAChromosome* ptrpar= &par;
+//    prueba.insertFirst(ptrpar);
 
     StartListenign();
     return 0;
