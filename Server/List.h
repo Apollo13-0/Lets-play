@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Node.h"
+#include "matrixNode.h"
 
 using namespace std;
 

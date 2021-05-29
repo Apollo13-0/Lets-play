@@ -11,7 +11,7 @@
 #include "cfloat"
 #include "matrixNode.h"
 #include "Matrix.h"
-#include "List/List.h"
+#include "List.h"
 
 class AStar {
 public:
