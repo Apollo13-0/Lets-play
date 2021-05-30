@@ -6,25 +6,25 @@
 #define SERVER_GACHROMOSOME_H
 #include "GAPad.h"
 #include "string"
+#include "List/List.h"
 
+//! Class in charge of storing the chromosome information of each individual
 class GAChromosome {
-
 public:
     vector<string> moves;
 
-    vector<string> gene;
+    List<string> gene;
     float error;
     float error_puzzle_cost;
     float error_gene_len;
     GAPad puzzle;
 
 
-    explicit GAChromosome(GAPad ex_board, vector<string> gen);
+    explicit GAChromosome(GAPad ex_board, List<string> gen);
 
 
     void update_error();
     static vector<GAChromosome> cross_over(GAChromosome a, GAChromosome b);
     void mutate();
 };
-
 #endif //SERVER_GACHROMOSOME_H

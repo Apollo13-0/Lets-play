@@ -2,14 +2,24 @@
 // Created by ingrid on 5/27/21.
 //
 
-#include "GASolver.h"
 #include <iostream>
 #include <random>
+#include "GASolver.h"
 #include<stdlib.h>
+#include "tinyxml/tinyxml.h"
+#include "tinyxml/tinystr.h"
 
 
+/**
+ * Constructor of the Puzzle solver
+ * @param ex_board Pad of the puzzle
+ * @param POPULATION_LEN Population initial
+ * @param MUTATION_CHANCE The chance to a chromosome go to mutate
+ * @param CROSS_OVER_RATE Percentage of the population go to cross
+ * @param best The best Chromosome so far
+ */
 
-GASolver::GASolver(GAPad ex_board, int POPULATION_LEN, float MUTATION_CHANCE, float CROSS_OVER_RATE, GAChromosome best) {
+GASolver::GASolver(GAPad ex_board, int POPULATION_LEN, float MUTATION_CHANCE, float CROSS_OVER_RATE, GAChromosome best) : board(ex_board) {
     board = ex_board;
     initial_population = POPULATION_LEN;
     mutation_chance = MUTATION_CHANCE;
@@ -21,12 +31,19 @@ GASolver::GASolver(GAPad ex_board, int POPULATION_LEN, float MUTATION_CHANCE, fl
     error = NULL;
 }
 
+/**
+ * Function to init the population
+ */
 void GASolver::init_population() {
     for(int i = 0; i < initial_population; i++) {
         population.push_back(GAChromosome(board, {}));
     }
 }
 
+/**
+ * Operate to calculate the error of each Chromosome
+ * @return If it can be calculated
+ */
 bool GASolver::calculate_error() {
 
     if(population.empty()) {
@@ -51,6 +68,9 @@ bool GASolver::calculate_error() {
     error = myerror / population.size();
 }
 
+/**
+ * Function to selec best of the generation
+ */
 void GASolver::select_best() {
     vector<float> totals = {};
     float running_total = 0;
@@ -69,6 +89,12 @@ void GASolver::select_best() {
     population = result;
 }
 
+/**
+ *
+ * @param totals
+ * @param running
+ * @return
+ */
 int GASolver::select_i(vector<float> totals, float running) {
 
     float rnd = rand()%10;
@@ -80,6 +106,10 @@ int GASolver::select_i(vector<float> totals, float running) {
     }
 }
 
+/**
+ * Function to cross the population
+ * @param always
+ */
 void GASolver::cross_over(bool always) {
     if (population.size() < 2){
         return;
@@ -89,19 +119,16 @@ void GASolver::cross_over(bool always) {
     for (int i = 0; i < population.size(); ++i) {
         list_fertile.push_back(i);
     }
-
     for (int i = 0; i < cross_over_occur; i++) {
         int rnd = rand()%list_fertile.size();
         int a = list_fertile.at(rnd);
         rnd = rand()%list_fertile.size();
         int b = list_fertile.at(rnd);
-
         for (int index = 0; index < list_fertile.size(); index++) {
             if (list_fertile.at(index) == b || list_fertile.at(index) == a){
                 list_fertile.erase(list_fertile.begin() + index);
             }
         }
-
         vector <GAChromosome> offspring = GAChromosome::cross_over(population.at(a), population.at(b));
         GAChromosome offspring_a = offspring.at(0);
         GAChromosome offspring_b = offspring.at(1);
@@ -111,16 +138,23 @@ void GASolver::cross_over(bool always) {
             population.at(a) = offspring_a;
             population.at(b) = offspring_b;
         }
-
     }
-
 }
 
+/**
+ * Function to find the least number of two
+ * @param a First number
+ * @param b Second number
+ * @return Least number
+ */
 int GASolver::min(int a, int b) {
     if (a >= b){return a;}
     else {return b;}
 }
 
+/**
+ *
+ */
 void GASolver::mutate() {
     for (int i = 0; i < population.size(); ++i) {
         float rnd = rand()%10;
@@ -159,9 +193,9 @@ void GASolver::display(int iter) {
     if (isbest != 0){
         cout<<"best: "<<best.error << "   ->   p:"<< best.error_puzzle_cost<< " +  g:"<<best.error_gene_len<<endl;
     }
-    cout<<"best is: " << best.gene.size()<< "   ";
-    for (int i = 0; i < best.gene.size(); ++i) {
-        cout << best.gene.at(i)<< "  ";
+    cout<<"best is: " << best.gene.getSize()<< "   ";
+    for (int i = 0; i < best.gene.getSize(); ++i) {
+        cout << best.gene.find(i)->getValue()<< "  ";
     }
     cout<< endl<< "--------------------------------"<<endl;
 
@@ -173,17 +207,21 @@ void GASolver::display(int iter) {
     doc.LinkEndChild(decl);
     string iter = "Generacion: "  + to_string(iteration);
     TiXmlElement * root;
-    root = new TiXmlElement("iter");
-    root->SetAttribute("Generacion", iteration);
-    for (int i = 0; i < population.size(); i++) {
-        root->SetAttribute("Individuo", i);
-        string cadena;
-        for (int j = 0; j < population.at(i).gene.size(); j++) {
-            cadena += population.at(i).gene.at(j);
-        }
-        //root->SetAttribute("Gen", cadena)
-        doc.LinkEndChild(root);
-        doc.SaveFile("madeByHand.xml");
+        root = new TiXmlElement("iter");
+            root->SetAttribute("Generacion", iteration);
+            for (int i = 0; i < population.size(); i++) {
+                root->SetAttribute("Individuo", i);
+                string cadena;
+                for (int j = 0; j < population.at(i).gene.getSize(); j++) {
+                    cadena += population.at(i).gene.find(j)->getValue();
+                }
+                //root->SetAttribute("Gen", cadena)
+                doc.LinkEndChild(root);
+    doc.SaveFile("madeByHand.xml");
     }
 
 }**/
+
+
+
+

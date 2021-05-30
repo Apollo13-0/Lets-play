@@ -14,9 +14,10 @@
 #include<stdlib.h>
 //#include "tinyxml/tinyxml.h"
 
-
+/**
+ * Class to create the puzzle Solver
+ */
 class GASolver {
-
 public:
     GAPad board;
     int initial_population;
@@ -40,6 +41,4 @@ public:
     void XML(int iteration);
 
 };
-
-
 #endif //SERVER_GASOLVER_H

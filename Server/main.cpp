@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include "json.hpp"
 #include "BPGameLogic.h"
+#include "List/List.h"
 
 //Prueba
 #include <iomanip>
@@ -98,7 +99,8 @@ int main() {
     srand(time(NULL));
 
     try {
-        GAPad myPad = GAPad();
+
+        GAPad myPad = GAPad(3, 3);
         for (auto &item : myPad.board) {
             for (auto &i : item) {
 
@@ -117,7 +119,8 @@ int main() {
         }
         cout << endl;
 
-        GAChromosome par = GAChromosome(myPad, {});
+        List<string> gene;
+        GAChromosome par = GAChromosome(myPad, gene);
         GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
         GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);
         myPad.apply_chain(res.gene);
@@ -134,8 +137,9 @@ int main() {
     }
 
 
-    catch (exception){
+    catch (const std::exception &exc){
         cout<<"Ha ocurrido un error\n";
+        std::cerr << exc.what();
     }
 
     //

@@ -2,13 +2,19 @@
 // Created by ingrid on 5/27/21.
 //
 
+
 #include "GAChromosome.h"
 #include <iostream>
 #include<stdlib.h>
 #include <iomanip>
 
 
-GAChromosome::GAChromosome(GAPad ex_board, vector<string> gen) {
+/**
+ * Constructor or GAChoromosome
+ * @param ex_board GAPad of puzzle
+ * @param gen Initial gen to save
+ */
+GAChromosome::GAChromosome(GAPad ex_board, List<string> gen) : puzzle(ex_board) {
 
     moves.emplace_back("up");
     moves.emplace_back("down");
@@ -17,9 +23,9 @@ GAChromosome::GAChromosome(GAPad ex_board, vector<string> gen) {
 
     gene = gen;
 
-    if (gene.size() == 0) {
+    if (gene.getSize() == 0) {
         int a = rand() % 4;
-        gene.push_back(moves.at(a));
+        gene.insertLast(moves.at(a));
     }
 
     error = NULL;
@@ -29,44 +35,68 @@ GAChromosome::GAChromosome(GAPad ex_board, vector<string> gen) {
     update_error();
 }
 
+/**
+ * Method to update the error associated to error of the GAChromosome
+ */
 void GAChromosome::update_error() {
     GAPad temp = puzzle;
     temp.apply_chain(gene);
+    /**for (auto &item : temp.board) {
+        for (auto &i : item) {
+
+            cout << setw(2) << i << "-";
+        }
+        cout << endl;
+    }**/
 
     error_puzzle_cost = temp.cost();
-    error_gene_len = gene.size() * 0.01;
+    error_gene_len = gene.getSize() * 0.01;
     error = error_puzzle_cost + error_gene_len;
     //cout<<"puzzle:"<<error_puzzle_cost<<" gene:"<<error_gene_len<<" error:"<<error<<endl;
 }
 
+/**
+ * Method to cross two GAChromosome to create a new gene
+ * @param a First GAChromosome
+ * @param b Second GAChromosome
+ * @return Resulting genes
+ */
 vector<GAChromosome> GAChromosome::cross_over(GAChromosome a, GAChromosome b) {
-    if (b.gene.size() > a.gene.size()){
+    if (b.gene.getSize() > a.gene.getSize()){
         return GAChromosome::cross_over (b, a);
     }
+    /**cout<<"a ";
+    for (int i = 0; i < a.gene.size(); ++i) {
+        cout<<a.gene.at(i)<<" ";
+    }cout<<endl;
+    cout<<"b ";
+    for (int i = 0; i < b.gene.size(); ++i) {
+        cout<<b.gene.at(i)<<" ";
+    }cout<<endl;**/
 
-    vector<string> genA = {};
-    vector<string> genB = {};
+    List<string> genA = {};
+    List<string> genB = {};
 
-    int sizeA = a.gene.size();
-    int sizeB = b.gene.size();
+    int sizeA = a.gene.getSize();
+    int sizeB = b.gene.getSize();
 
     for (int i = 0; i < sizeB; i++){
 
         if (rand()%100 < 10){
 
-            genA.push_back(a.gene.at(i));
-            genB.push_back(b.gene.at(i));
+            genA.insertLast(a.gene.find(i)->getValue());
+            genB.insertLast(b.gene.find(i)->getValue());
             //cout<<"if "<<genA.size()<<" "<<genB.size()<<endl;
         }
         else{
-            genA.push_back(b.gene.at(i));
-            genB.push_back(a.gene.at(i));
+            genA.insertLast(b.gene.find(i)->getValue());
+            genB.insertLast(a.gene.find(i)->getValue());
             //cout<<"else "<<genA.size()<<" "<<genB.size()<<endl;
         }
     }
     if (sizeB != sizeA){
         for (int i = 0; i < (sizeA-sizeB); i++){
-            genA.push_back(a.gene.at(sizeB+i));
+            genA.insertLast(a.gene.find(sizeB+i)->getValue());
         }
     }
 
@@ -76,24 +106,26 @@ vector<GAChromosome> GAChromosome::cross_over(GAChromosome a, GAChromosome b) {
     return ret;
 }
 
+/**
+ * Function to mutate an individual's gene
+ */
 void GAChromosome::mutate() {
     float add_vs_mutate_chance = 0.5;
-    if(gene.empty()){
+    if(gene.isEmpty()){
         add_vs_mutate_chance = 1.0;
     }
     float rnd = rand()%10;
     rnd /= 10;
     if (rnd <= add_vs_mutate_chance){
         int index = rand()%4;
-        gene.push_back(moves.at(index));
+        gene.insertLast(moves.at(index));
 
     }
     else{
         int index = rand()%4;
-        if (gene.size()==0){gene.push_back(moves.at(index));}
+        if (gene.getSize()==0){gene.insertLast(moves.at(index));}
         else{
-            gene.pop_back();
-            gene.push_back(moves.at(index));
+            gene.insertLast(moves.at(index));
         }
 
     }

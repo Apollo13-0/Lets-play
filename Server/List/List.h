@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Node.h"
 
+
 using namespace std;
 
 
@@ -93,6 +94,7 @@ public:
 
         if (head->getValue() == data_) {
             head = temp->getNext();
+            size--;
         } else {
             while (temp1) {
                 if (temp1->getValue() == data_) {
