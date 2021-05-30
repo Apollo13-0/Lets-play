@@ -1,7 +1,7 @@
 #ifndef BACKTRACKING_H
 #define BACKTRACKING_H
 
-#include "List/List.h"
+#include "List.h"
 
 //! Class that find the shortest path between 2 points in a matrix
 class Backtracking {

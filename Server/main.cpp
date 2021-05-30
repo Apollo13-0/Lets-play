@@ -94,9 +94,8 @@ int StartListenign(){
 
 
 int main() {
-
-    //Prueba
-    srand(time(NULL));
+    //srand(time(NULL));
+    /**
 
     try {
 
@@ -142,7 +141,14 @@ int main() {
         std::cerr << exc.what();
     }
 
-    //
+    **/
+
+//    List<GAChromosome*> prueba;
+//    GAPad myPad = GAPad();
+//    GAChromosome original = GAChromosome(myPad, {});
+//    GAChromosome par = original;
+//    GAChromosome* ptrpar= &par;
+//    prueba.insertFirst(ptrpar);
 
     StartListenign();
     return 0;

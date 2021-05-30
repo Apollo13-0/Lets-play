@@ -56,6 +56,7 @@ public class Ball : MonoBehaviour
             {
                 string column = (((int)transform.position.x +9)/2).ToString();
                 string row = (((int)transform.position.y -4)/-2).ToString();
+                Debug.Log(row+column);
                 string message = parseJson("BP", "J1Path", row+column , "");
                 SocketClient.StartClient(message);
                 flag = false;

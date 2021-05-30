@@ -16,10 +16,16 @@ using namespace std;
 using json = nlohmann::json;
 int winCondition;
 
-string LtoS(vector<int> path){
+string LtoS(List<int> path){
     string pathS;
-    for (int i=0; i<path.size(); i++){
-        pathS+=to_string(path.at(i))+"$";
+    for (int i=0; i<path.getSize(); i++){
+        if (to_string(path.find(i)->getValue()).size() == 1){
+            pathS+="0"+to_string(path.find(i)->getValue())+"$";
+        }
+        else{
+            pathS+=to_string(path.find(i)->getValue())+"$";
+        }
+
     }
     return pathS;
 }
@@ -36,7 +42,7 @@ string bpLogic(json jmessageR){
     if (key == "J1Path"){
 
         string ballPos =  jmessageR.value("Info1", "oops");
-        vector<int> path = AStar().aStar(stoi(ballPos), 29);
+        List<int> path = AStar().aStar(stoi(ballPos), 29);
 
         return LtoS(path);
     }

@@ -11,7 +11,7 @@
 #include "cfloat"
 #include "matrixNode.h"
 #include "Matrix.h"
-
+#include "List.h"
 
 class AStar {
 public:
@@ -36,31 +36,32 @@ public:
         return H;
     }
 
-    static vector<int> makePath(matrixNode gameField [5][10], matrixNode dest) {
+    static List<int> makePath(matrixNode gameField [5][10], matrixNode dest) {
         try {
             cout << "Found a path" << endl;
             int x = dest.getX();
             int y = dest.getY();
-            stack<int> path;
-            vector<int> usablePath;
+            List<int> path;
+            List<int> usablePath;
 
             while (!(gameField[x][y].getParentX() == x && gameField[x][y].getParentY() == y)
                    && gameField[x][y].getX() != -1 && gameField[x][y].getY() != -1)
             {
-                path.push(gameField[x][y].getPosition());
+                path.insertFirst(gameField[x][y].getPosition());
                 int tempX = gameField[x][y].getParentX();
                 int tempY = gameField[x][y].getParentY();
                 x = tempX;
                 y = tempY;
 
             }
-            path.push(gameField[x][y].getPosition());
+            path.insertFirst(gameField[x][y].getPosition());
 
-            while (!path.empty()) {
-                int top = path.top();
-                path.pop();
+            while (path.getSize()!=0) {
+                Node<int> *topNode = path.find(0);
+                int top = topNode->getValue();
+                path.deleteNode(topNode->getValue());
                 //cout << top.x << " " << top.y << endl;
-                usablePath.emplace_back(top);
+                usablePath.insertLast(top);
             }
             return usablePath;
         }
@@ -70,12 +71,12 @@ public:
     }
 
 
-    static vector<int> aStar(int playerPos, int destPos) {
+    static List<int> aStar(int playerPos, int destPos) {
         Matrix *matrix = Matrix::GetInstance();
         matrixNode player = matrix->FindinPosition(playerPos);
         matrixNode dest = matrix->FindinPosition(destPos);
 
-        vector<int> empty;
+        List<int> empty;
         if (isValid(dest.getX(), dest.getY()) == false) {
             cout << "Destination is an obstacle" << endl;
             return empty;
@@ -85,6 +86,9 @@ public:
             cout << "You are the destination" << endl;
             return empty;
             //You clicked on yourself
+        }
+        if (isValid(player.getX(), player.getY()) == false) {
+            return aStar(playerPos+1,destPos);
         }
         bool closedList[5][10];
 
@@ -105,27 +109,27 @@ public:
         matrix->gameField[x][y].setParentX(x);
         matrix->gameField[x][y].setParentY(y);
 
-        vector<matrixNode> openList;
-        openList.emplace_back(matrix->gameField[x][y]);
+        List<matrixNode> openList;
+        openList.insertLast(matrix->gameField[x][y]);
         bool destinationFound = false;
-
-        while (!openList.empty()&&openList.size()<50) {
+        while (openList.getSize()!=0&&openList.getSize()<50) {
             matrixNode node;
             do {
                 float temp = FLT_MAX;
-                vector<matrixNode>::iterator itNode;
-                for (vector<matrixNode>::iterator it = openList.begin();
-                     it != openList.end(); it = next(it)) {
-                    matrixNode n = *it;
+                matrixNode itNode;
+                Node<matrixNode> *it = openList.find(0);
+                for (int i =0;i < openList.getSize(); i++) {
+                    matrixNode n = it->getValue();
                     if (n.getFCost() < temp) {
                         temp = n.getFCost();
-                        itNode = it;
+                        itNode = it->getValue();
                     }
-                }
-                node = *itNode;
-                openList.erase(itNode);
-            } while (isValid(node.getX(), node.getY()) == false);
 
+                    it = it->getNext();
+                }
+                node = itNode;
+                openList.deletematrixNode(itNode);
+            } while (isValid(node.getX(), node.getY()) == false);
             x = node.getX();
             y = node.getY();
             closedList[x][y] = true;
@@ -137,7 +141,6 @@ public:
                     if (isValid(x + newX, y + newY)) {
                         if (isDestination(x + newX, y + newY, dest))
                         {
-                            //Destination found - make path
                             matrix->gameField[x + newX][y + newY].setParentX(x);
                             matrix->gameField[x + newX][y + newY].setParentY(y);
                             destinationFound = true;
@@ -152,17 +155,17 @@ public:
                             }
                             hNew = calculateH(x + newX, y + newY, dest);
                             fNew = gNew + hNew;
-                            // Check if this path is better than the one already present
                             if (matrix->gameField[x + newX][y + newY].getFCost() == FLT_MAX ||
                                 matrix->gameField[x + newX][y + newY].getFCost() > fNew)
                             {
-                                // Update the details of this neighbour node
+                                // Actualizar datos de los vecinos
                                 matrix->gameField[x + newX][y + newY].setFCost(fNew);
                                 matrix->gameField[x + newX][y + newY].setGCost(gNew);
                                 matrix->gameField[x + newX][y + newY].setHCost(hNew);
                                 matrix->gameField[x + newX][y + newY].setParentX(x);
                                 matrix->gameField[x + newX][y + newY].setParentY(y);
-                                openList.emplace_back(matrix->gameField[x + newX][y + newY]);
+                                openList.insertLast(matrix->gameField[x + newX][y + newY]);
+
                             }
                         }
                     }
