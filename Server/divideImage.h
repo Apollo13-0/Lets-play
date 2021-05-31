@@ -86,6 +86,7 @@ int divideImage(const cv::Mat& img, int numDiv, std::vector<cv::Mat>& blocks)
 
     while (y0 < imgHeight)
     {
+        // agregar una condicion que verifique que x0 y y0 no tenga 1 o 2 pixel
         // compute the block height
         bhSize = ((y0 + blockHeight) > imgHeight) * (blockHeight - (y0 + blockHeight - imgHeight)) + ((y0 + blockHeight) <= imgHeight) * blockHeight;
 

@@ -30,6 +30,7 @@ string LtoS(List<int> path){
         }
 
     }
+    cout << pathS << endl;
     return pathS;
 }
 
@@ -43,6 +44,7 @@ string bpLogic(json jmessageR){
         return str_matrix_res;
     }
     if (key == "J1"){
+        cout << "entro a J1" << endl;
         string Info1 =  jmessageR.value("Info1", "oops");
         if (Info1 == "goal"){
             J1goals +=1;
@@ -51,6 +53,7 @@ string bpLogic(json jmessageR){
             }
         }
         else{
+            cout << "entro a J1 else" << endl;
             List<int> path = AStar().aStar(stoi(Info1), 29);
             return LtoS(path);
         }

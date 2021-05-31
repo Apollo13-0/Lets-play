@@ -101,6 +101,10 @@ int StartListenign(){
 
 int main() {
     srand(time(NULL));
+    createObstacules(4);
+    List<int> path = AStar().aStar(10, 29);
+    LtoS(path);
+    /**
 
 //    XMLDocument doc;
 //
@@ -186,7 +190,14 @@ int main() {
         std::cerr << exc.what();
     }
 
+    **/
 
+//    List<GAChromosome*> prueba;
+//    GAPad myPad = GAPad();
+//    GAChromosome original = GAChromosome(myPad, {});
+//    GAChromosome par = original;
+//    GAChromosome* ptrpar= &par;
+//    prueba.insertFirst(ptrpar);
 
     //StartListenign();
 
