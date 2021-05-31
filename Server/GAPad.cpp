@@ -130,7 +130,7 @@ vector<int> GAPad::find_0(int num) {
 */
 void GAPad::shuffle() {
 
-    int a =  rand()%30 + 10;
+    int a =  rand()%20 + 10;
     for (int i=0 ; i < a; i++) {
         int move =rand()%5;
         switch (move) {

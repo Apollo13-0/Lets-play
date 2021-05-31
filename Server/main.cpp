@@ -7,7 +7,9 @@
 #include <unistd.h>
 #include "json.hpp"
 #include "BPGameLogic.h"
-#include "List.h"
+#include "tinyxml/tinyxml.h"
+#include "tinyxml/tinystr.h"
+#include "tinyxml2.h"
 
 //Prueba
 #include <iomanip>
@@ -19,13 +21,13 @@
 float MUTATION_CHANCE = 0.9;
 float CROSS_OVER_RATE = 0.3;
 int POPULATION_LEN = 1000;
-int MAX_ITERATION = 1000;
+int MAX_ITERATION = 100;
 //
 
 
 using namespace std;
-using json = nlohmann::json;
-
+using json = nlohmann::json;;
+using namespace tinyxml2;
 
 int StartListenign(){
 
@@ -98,63 +100,83 @@ int StartListenign(){
 
 int main() {
     srand(time(NULL));
-    createObstacules(4);
-    List<int> path = AStar().aStar(10, 29);
-    LtoS(path);
-    /**
 
-    try {
+    XMLDocument doc;
 
-        GAPad myPad = GAPad(3, 3);
-        for (auto &item : myPad.board) {
-            for (auto &i : item) {
+    doc.LinkEndChild(doc.NewDeclaration("xml version=\"1.0\" encoding=\"UTF-8\""));
+    doc.LinkEndChild(doc.NewComment("hello"));
 
-                cout << setw(3)<< i <<" ; ";
-            }
-            cout << endl;
-        }
-        cout << endl;
-        myPad.shuffle();
-        for (auto &item : myPad.board) {
-            for (auto &i : item) {
+    auto htmlElement = doc.NewElement("html");
+    auto headElement = doc.NewElement("head");
+    headElement->SetText("this is a heading!");
+    auto bodyElement = doc.NewElement("body");
 
-                cout << setw(3) << i << " - ";
-            }
-            cout << endl;
-        }
-        cout << endl;
-
-        List<string> gene;
-        GAChromosome par = GAChromosome(myPad, gene);
-        GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
-        GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);
-        myPad.apply_chain(res.gene);
-
-        for (auto &item : myPad.board) {
-            for (auto &i : item) {
-
-                cout << setw(3)<< i << " | ";
-            }
-            cout << endl;
-        }
-        cout << endl;
-
-    }
+    htmlElement->LinkEndChild(headElement);
+    htmlElement->LinkEndChild(bodyElement);
 
 
-    catch (const std::exception &exc){
-        cout<<"Ha ocurrido un error\n";
-        std::cerr << exc.what();
-    }
+    auto pElement = doc.NewElement("p");
+    pElement->SetText("this is a paragraph!");
+    auto h1Element = doc.NewElement("h1");
+    h1Element->SetText("this is first heading!");
 
-    **/
+    bodyElement->LinkEndChild(pElement);
+    bodyElement->LinkEndChild(h1Element);
 
-//    List<GAChromosome*> prueba;
-//    GAPad myPad = GAPad();
-//    GAChromosome original = GAChromosome(myPad, {});
-//    GAChromosome par = original;
-//    GAChromosome* ptrpar= &par;
-//    prueba.insertFirst(ptrpar);
+    doc.LinkEndChild(htmlElement);
+
+    XMLPrinter printer;
+    doc.Print(&printer);
+    cout<< printer.CStr() << endl;
+    doc.SaveFile("xml/myXML.xml");
+
+//
+//
+//    try {
+//
+//        GAPad myPad = GAPad(3, 3);
+//        for (auto &item : myPad.board) {
+//            for (auto &i : item) {
+//
+//                cout << setw(3)<< i <<" ; ";
+//            }
+//            cout << endl;
+//        }
+//        cout << endl;
+//        myPad.shuffle();
+//        for (auto &item : myPad.board) {
+//            for (auto &i : item) {
+//
+//                cout << setw(3) << i << " - ";
+//            }
+//            cout << endl;
+//        }
+//        cout << endl;
+//
+//        List<string> gene;
+//        GAChromosome par = GAChromosome(myPad, gene);
+//        GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
+//        GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);
+//        myPad.apply_chain(res.gene);
+//
+//        for (auto &item : myPad.board) {
+//            for (auto &i : item) {
+//
+//                cout << setw(3)<< i << " | ";
+//            }
+//            cout << endl;
+//        }
+//        cout << endl;
+//
+//    }
+//
+//
+//    catch (const std::exception &exc){
+//        cout<<"Ha ocurrido un error\n";
+//        std::cerr << exc.what();
+//    }
+
+
 
     StartListenign();
 

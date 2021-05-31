@@ -6,8 +6,7 @@
 #include <random>
 #include "GASolver.h"
 #include<stdlib.h>
-#include "tinyxml/tinyxml.h"
-#include "tinyxml/tinystr.h"
+#include "tinyxml2.h"
 
 
 /**
@@ -202,12 +201,11 @@ void GASolver::display(int iter) {
 }
 
 /**void GASolver::XML(int iteration) {
-    TiXmlDocument doc;
-    TiXmlDeclaration * decl = new TiXmlDeclaration("1.0","utf-8", "");
+    tinyxml2::XMLDocument doc;
+    tinyxml2::XMLDeclaration *decl;
     doc.LinkEndChild(decl);
     string iter = "Generacion: "  + to_string(iteration);
-    TiXmlElement * root;
-        root = new TiXmlElement("iter");
+    tinyxml2::XMLElement * root;
             root->SetAttribute("Generacion", iteration);
             for (int i = 0; i < population.size(); i++) {
                 root->SetAttribute("Individuo", i);
