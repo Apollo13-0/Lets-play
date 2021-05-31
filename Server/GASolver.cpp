@@ -7,7 +7,7 @@
 #include "GASolver.h"
 #include<stdlib.h>
 #include "tinyxml2.h"
-
+#include <filesystem>
 
 /**
  * Constructor of the Puzzle solver
@@ -17,6 +17,7 @@
  * @param CROSS_OVER_RATE Percentage of the population go to cross
  * @param best The best Chromosome so far
  */
+namespace fs = std::filesystem;
 
 GASolver::GASolver(GAPad ex_board, int POPULATION_LEN, float MUTATION_CHANCE, float CROSS_OVER_RATE, GAChromosome best) : board(ex_board) {
     board = ex_board;
@@ -169,6 +170,8 @@ GAChromosome GASolver::solve(int max_iter, float optimal_error) {
 
     init_population();
     int iteration = 0;
+    fs::remove_all("/home/usuario/Proyectos/Lets-play/Server/xml");
+    fs::create_directories("/home/usuario/Proyectos/Lets-play/Server/xml");
     while (iteration < max_iter && (isbest == 0 ||
                                     best.error_puzzle_cost > optimal_error)){
         cross_over(true);
@@ -176,8 +179,8 @@ GAChromosome GASolver::solve(int max_iter, float optimal_error) {
         calculate_error();
         select_best();
         mutate();
-        display(iteration);
-        //XML(iteration);
+        //display(iteration);
+        XML(iteration);
 
         iteration += 1;
     }
@@ -200,25 +203,64 @@ void GASolver::display(int iter) {
 
 }
 
-/**void GASolver::XML(int iteration) {
-    tinyxml2::XMLDocument doc;
-    tinyxml2::XMLDeclaration *decl;
-    doc.LinkEndChild(decl);
-    string iter = "Generacion: "  + to_string(iteration);
-    tinyxml2::XMLElement * root;
-            root->SetAttribute("Generacion", iteration);
-            for (int i = 0; i < population.size(); i++) {
-                root->SetAttribute("Individuo", i);
-                string cadena;
-                for (int j = 0; j < population.at(i).gene.getSize(); j++) {
-                    cadena += population.at(i).gene.find(j)->getValue();
-                }
-                //root->SetAttribute("Gen", cadena)
-                doc.LinkEndChild(root);
-    doc.SaveFile("madeByHand.xml");
-    }
+void GASolver::XML(int iteration) {
+    string g = "Generation" + to_string(iteration +1); const char * generation = g.c_str();
 
-}**/
+    string ps = to_string(population.size()); const char * population_size = ps.c_str();
+
+    string te = to_string(error); const char * total_error = te.c_str();
+
+    string be = to_string(best.error); const char * best_error = be.c_str();
+
+    string bep = to_string(best.error_puzzle_cost); const char * best_error_puzzle = bep.c_str();
+
+    string beg = to_string(best.error_gene_len); const char * best_error_gen = beg.c_str();
+
+    string bgs = to_string(best.gene.getSize()); const char * best_gen_size = bgs.c_str();
+
+    string bg=" ";
+    for (int i = 0; i < best.gene.getSize(); ++i) { bg += best.gene.find(i)->getValue()+" ";}
+    const char * best_gen = bg.c_str();
+
+    tinyxml2::XMLDocument doc;
+
+    doc.LinkEndChild(doc.NewDeclaration("xml version=\"1.0\" encoding=\"UTF-8\""));
+    doc.LinkEndChild(doc.NewComment("Description of Generation"));
+    auto htmlElement = doc.NewElement(generation);
+    auto headElement1 = doc.NewElement("Population_lenght");
+    headElement1->SetText(population_size);
+    auto headElement2 = doc.NewElement("Total_error");
+    headElement2->SetText(total_error);
+    auto bodyElement = doc.NewElement("Best");
+    htmlElement->LinkEndChild(headElement1);
+    htmlElement->LinkEndChild(headElement2);
+    htmlElement->LinkEndChild(bodyElement);
+
+    auto pElement1 = doc.NewElement("Best_error_total");
+    pElement1->SetText(best_error);
+    bodyElement->LinkEndChild(pElement1);
+    auto pElement2 = doc.NewElement("Best_error_puzzle");
+    pElement2->SetText(best_error_puzzle);
+    bodyElement->LinkEndChild(pElement2);
+    auto pElement3 = doc.NewElement("Best_error_gen");
+    pElement3->SetText(best_error_gen);
+    bodyElement->LinkEndChild(pElement3);
+    auto pElement4 = doc.NewElement("Best_gen_lenght");
+    pElement4->SetText(best_gen_size);
+    bodyElement->LinkEndChild(pElement4);
+    auto pElement5 = doc.NewElement("Best_gen");
+    pElement5->SetText(best_gen);
+    bodyElement->LinkEndChild(pElement5);
+
+    doc.LinkEndChild(htmlElement);
+    tinyxml2::XMLPrinter printer;
+    doc.Print(&printer);
+    cout<< printer.CStr() << endl;
+
+    string dn = "/home/usuario/Proyectos/Lets-play/Server/xml/Generation"+ to_string(iteration +1)+".xml"; const char * document_name = dn.c_str();
+    doc.SaveFile(document_name);
+}
+
 
 
 

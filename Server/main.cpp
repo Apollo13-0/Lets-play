@@ -13,6 +13,7 @@
 
 //Prueba
 #include <iomanip>
+#include <fstream>
 #include "GAPad.h"
 #include "GASolver.h"
 
@@ -101,84 +102,93 @@ int StartListenign(){
 int main() {
     srand(time(NULL));
 
-    XMLDocument doc;
-
-    doc.LinkEndChild(doc.NewDeclaration("xml version=\"1.0\" encoding=\"UTF-8\""));
-    doc.LinkEndChild(doc.NewComment("hello"));
-
-    auto htmlElement = doc.NewElement("html");
-    auto headElement = doc.NewElement("head");
-    headElement->SetText("this is a heading!");
-    auto bodyElement = doc.NewElement("body");
-
-    htmlElement->LinkEndChild(headElement);
-    htmlElement->LinkEndChild(bodyElement);
-
-
-    auto pElement = doc.NewElement("p");
-    pElement->SetText("this is a paragraph!");
-    auto h1Element = doc.NewElement("h1");
-    h1Element->SetText("this is first heading!");
-
-    bodyElement->LinkEndChild(pElement);
-    bodyElement->LinkEndChild(h1Element);
-
-    doc.LinkEndChild(htmlElement);
-
-    XMLPrinter printer;
-    doc.Print(&printer);
-    cout<< printer.CStr() << endl;
-    doc.SaveFile("xml/myXML.xml");
+//    XMLDocument doc;
+//
+//    doc.LinkEndChild(doc.NewDeclaration("xml version=\"1.0\" encoding=\"UTF-8\""));
+//    doc.LinkEndChild(doc.NewComment("Description of Generation"));
+//    auto htmlElement = doc.NewElement("Generation");
+//    auto headElement1 = doc.NewElement("Population_lenght");
+//    headElement1->SetText("len:1000");
+//    auto headElement2 = doc.NewElement("Total_error");
+//    headElement2->SetText("totalerror");
+//    auto bodyElement = doc.NewElement("Best");
+//    htmlElement->LinkEndChild(headElement1);
+//    htmlElement->LinkEndChild(headElement2);
+//    htmlElement->LinkEndChild(bodyElement);
+//
+//    auto pElement1 = doc.NewElement("Best_error_total");
+//    pElement1->SetText("Best_error_total");
+//    bodyElement->LinkEndChild(pElement1);
+//    auto pElement2 = doc.NewElement("Best_error_puzzle");
+//    pElement2->SetText("Best_error_puzzle");
+//    bodyElement->LinkEndChild(pElement2);
+//    auto pElement3 = doc.NewElement("Best_error_gen");
+//    pElement3->SetText("Best_error_gen");
+//    bodyElement->LinkEndChild(pElement3);
+//    auto pElement4 = doc.NewElement("Best_gen_lenght");
+//    pElement4->SetText("Best_gen_lenght");
+//    bodyElement->LinkEndChild(pElement4);
+//    auto pElement5 = doc.NewElement("Best_gen");
+//    pElement5->SetText("Best_gen");
+//    bodyElement->LinkEndChild(pElement5);
+//
+//    doc.LinkEndChild(htmlElement);
+//
+//
+//    XMLPrinter printer;
+//    doc.Print(&printer);
+//    cout<< printer.CStr() << endl;
+//    doc.SaveFile("xml/Generation.xml");
 
 //
 //
-//    try {
-//
-//        GAPad myPad = GAPad(3, 3);
-//        for (auto &item : myPad.board) {
-//            for (auto &i : item) {
-//
-//                cout << setw(3)<< i <<" ; ";
-//            }
-//            cout << endl;
-//        }
-//        cout << endl;
-//        myPad.shuffle();
-//        for (auto &item : myPad.board) {
-//            for (auto &i : item) {
-//
-//                cout << setw(3) << i << " - ";
-//            }
-//            cout << endl;
-//        }
-//        cout << endl;
-//
-//        List<string> gene;
-//        GAChromosome par = GAChromosome(myPad, gene);
-//        GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
-//        GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);
-//        myPad.apply_chain(res.gene);
-//
-//        for (auto &item : myPad.board) {
-//            for (auto &i : item) {
-//
-//                cout << setw(3)<< i << " | ";
-//            }
-//            cout << endl;
-//        }
-//        cout << endl;
-//
-//    }
-//
-//
-//    catch (const std::exception &exc){
-//        cout<<"Ha ocurrido un error\n";
-//        std::cerr << exc.what();
-//    }
+    try {
+
+        GAPad myPad = GAPad(3, 3);
+        for (auto &item : myPad.board) {
+            for (auto &i : item) {
+
+                cout << setw(3)<< i <<" ; ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+        myPad.shuffle();
+        for (auto &item : myPad.board) {
+            for (auto &i : item) {
+
+                cout << setw(3) << i << " - ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+
+        List<string> gene;
+        GAChromosome par = GAChromosome(myPad, gene);
+        GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
+        GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);
+        myPad.apply_chain(res.gene);
+
+        for (auto &item : myPad.board) {
+            for (auto &i : item) {
+
+                cout << setw(3)<< i << " | ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+
+    }
+
+
+    catch (const std::exception &exc){
+        cout<<"Ha ocurrido un error\n";
+        std::cerr << exc.what();
+    }
 
 
 
-    StartListenign();
+    //StartListenign();
 
 //    // init vars
 //    const int blockw = 50;
@@ -186,18 +196,19 @@ int main() {
 //    std::vector<cv::Mat> blocks;
 //
 //    // read png image
-//    cv::Mat image = cv::imread("/home/ignacio/Datos2/Lets-play/Server/perrito.jpg", cv::IMREAD_UNCHANGED);
-//    cv::imshow("Display window", image);
+//    // /home/usuario/Proyectos/Lets-play/Server/perro.jpg
+//    cv::Mat image = cv::imread("/home/usuario/Proyectos/Lets-play/Server/perro.jpg", cv::IMREAD_UNCHANGED);
+//    //cv::imshow("Display window", image);
 //
 //    // divide image into multiple blocks
-//    int divideStatus = divideImage(image, 25, blocks);
+//    int divideStatus = divideImage(image, 9, blocks);
 //
 //    // debug: save blocks
-//    cv::utils::fs::createDirectory("/home/ignacio/Datos2/Lets-play/Server/blocksFolder");
+//    cv::utils::fs::createDirectory("/home/usuario/Proyectos/Lets-play/Server/blocksFolder");
 //    for (int j = 0; j < blocks.size(); j++)
 //    {
 //        std::string blockId = std::to_string(j);
-//        std::string blockImgName = "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/block#" + blockId + ".jpg";
+//        std::string blockImgName = "/home/usuario/Proyectos/Lets-play/Server/blocksFolder/block#" + blockId + ".jpg";
 //        imwrite(blockImgName, blocks[j]);
 //    }
 
