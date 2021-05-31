@@ -1,0 +1,172 @@
+\hypertarget{divideImage_8h}{}\doxysection{divide\+Image.\+h File Reference}
+\label{divideImage_8h}\index{divideImage.h@{divideImage.h}}
+{\ttfamily \#include $<$opencv2/opencv.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/imgproc.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/highgui.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/core/utils/filesystem.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/core/mat.\+hpp$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{divideImage_8h_a505b1ac1538e97fe96a73a9cbd20ed69}{is\+Square}} (int n)
+\begin{DoxyCompactList}\small\item\em Checks if given number is a perfect square. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{divideImage_8h_a4cb14d80e2dcc88ff8443e9420c26126}{is\+Power\+Of2}} (int n)
+\begin{DoxyCompactList}\small\item\em Checks if given number is a power of 2. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{divideImage_8h_ad9a0710333d67efea8c4e73395193141}{divide\+Image}} (const cv\+::\+Mat \&img, int num\+Div, std\+::vector$<$ cv\+::\+Mat $>$ \&blocks)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{divideImage_8h_ad9a0710333d67efea8c4e73395193141}\label{divideImage_8h_ad9a0710333d67efea8c4e73395193141}} 
+\index{divideImage.h@{divideImage.h}!divideImage@{divideImage}}
+\index{divideImage@{divideImage}!divideImage.h@{divideImage.h}}
+\doxysubsubsection{\texorpdfstring{divideImage()}{divideImage()}}
+{\footnotesize\ttfamily int divide\+Image (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{img,  }\item[{int}]{num\+Div,  }\item[{std\+::vector$<$ cv\+::\+Mat $>$ \&}]{blocks }\end{DoxyParamCaption})}
+
+
+
+Definition at line 49 of file divide\+Image.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     \textcolor{comment}{// Checking if the image was passed correctly}}
+\DoxyCodeLine{52     \textcolor{keywordflow}{if} (!img.data || img.empty())}
+\DoxyCodeLine{53     \{}
+\DoxyCodeLine{54         std::wcout << \textcolor{stringliteral}{"{}Image Error: Cannot load image to divide."{}} << std::endl;}
+\DoxyCodeLine{55         \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{comment}{// init image dimensions}}
+\DoxyCodeLine{59     \textcolor{keywordtype}{int} imgWidth = img.cols;}
+\DoxyCodeLine{60     \textcolor{keywordtype}{int} imgHeight = img.rows;}
+\DoxyCodeLine{61     std::wcout << \textcolor{stringliteral}{"{}IMAGE SIZE: "{}} << \textcolor{stringliteral}{"{}("{}} << imgWidth << \textcolor{stringliteral}{"{},"{}} << imgHeight << \textcolor{stringliteral}{"{})"{}} << std::endl;}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{comment}{// init block dimensions}}
+\DoxyCodeLine{65     \textcolor{keywordtype}{int} bhSize; \textcolor{comment}{// These are going to be the size of each chunk's rows and columns (width and height)}}
+\DoxyCodeLine{66     \textcolor{keywordtype}{int} bwSize;}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{int} blockWidth;}
+\DoxyCodeLine{69     \textcolor{keywordtype}{int} blockHeight;}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keywordflow}{if} (\mbox{\hyperlink{divideImage_8h_a505b1ac1538e97fe96a73a9cbd20ed69}{isSquare}}(numDiv))}
+\DoxyCodeLine{72     \{}
+\DoxyCodeLine{73         blockHeight = floor(imgHeight / sqrt(numDiv));}
+\DoxyCodeLine{74         blockWidth = floor(imgWidth / sqrt(numDiv));}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{divideImage_8h_a4cb14d80e2dcc88ff8443e9420c26126}{isPowerOf2}}(numDiv))}
+\DoxyCodeLine{77     \{}
+\DoxyCodeLine{78         blockHeight = floor(imgHeight / sqrt(numDiv / 2));}
+\DoxyCodeLine{79         blockWidth = floor(imgWidth / sqrt(numDiv * 2));}
+\DoxyCodeLine{80     \}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \textcolor{keywordtype}{int} y0 = 0;}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \textcolor{keywordflow}{while} (y0 < imgHeight)}
+\DoxyCodeLine{88     \{}
+\DoxyCodeLine{89         \textcolor{comment}{// compute the block height}}
+\DoxyCodeLine{90         bhSize = ((y0 + blockHeight) > imgHeight) * (blockHeight -\/ (y0 + blockHeight -\/ imgHeight)) + ((y0 + blockHeight) <= imgHeight) * blockHeight;}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92         \textcolor{keywordtype}{int} x0 = 0;}
+\DoxyCodeLine{93         \textcolor{keywordflow}{while} (x0 < imgWidth)}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95         \{}
+\DoxyCodeLine{96             \textcolor{comment}{// compute the block height}}
+\DoxyCodeLine{97             bwSize = ((x0 + blockWidth) > imgWidth) * (blockWidth -\/ (x0 + blockWidth -\/ imgWidth)) + ((x0 + blockWidth) <= imgWidth) * blockWidth;}
+\DoxyCodeLine{98             std::cout<< bwSize << \textcolor{stringliteral}{"{}    "{}} << imgWidth;}
+\DoxyCodeLine{99             \textcolor{comment}{// crop block}}
+\DoxyCodeLine{100             blocks.push\_back(img(cv::Rect(x0, y0, bwSize, bhSize)).clone());}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102             \textcolor{comment}{// update x-\/coordinate}}
+\DoxyCodeLine{103             x0 = x0 + blockWidth;}
+\DoxyCodeLine{104             std::cout<< x0 <<endl;}
+\DoxyCodeLine{105         \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107         \textcolor{comment}{// update y-\/coordinate}}
+\DoxyCodeLine{108         y0 = y0 + blockHeight;}
+\DoxyCodeLine{109     \}}
+\DoxyCodeLine{110     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{111 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{divideImage_8h_a4cb14d80e2dcc88ff8443e9420c26126}\label{divideImage_8h_a4cb14d80e2dcc88ff8443e9420c26126}} 
+\index{divideImage.h@{divideImage.h}!isPowerOf2@{isPowerOf2}}
+\index{isPowerOf2@{isPowerOf2}!divideImage.h@{divideImage.h}}
+\doxysubsubsection{\texorpdfstring{isPowerOf2()}{isPowerOf2()}}
+{\footnotesize\ttfamily bool is\+Power\+Of2 (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Checks if given number is a power of 2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & int to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if n is a power of 2 
+
+false if n is not a power of 2 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file divide\+Image.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38 \{}
+\DoxyCodeLine{39     \textcolor{keywordflow}{if} (ceil(log2(n)) == floor(log2(n)))}
+\DoxyCodeLine{40     \{}
+\DoxyCodeLine{41         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{divideImage_8h_a505b1ac1538e97fe96a73a9cbd20ed69}\label{divideImage_8h_a505b1ac1538e97fe96a73a9cbd20ed69}} 
+\index{divideImage.h@{divideImage.h}!isSquare@{isSquare}}
+\index{isSquare@{isSquare}!divideImage.h@{divideImage.h}}
+\doxysubsubsection{\texorpdfstring{isSquare()}{isSquare()}}
+{\footnotesize\ttfamily bool is\+Square (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Checks if given number is a perfect square. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & int to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if n is a perfect square 
+
+false if n is not a perfect square 
+\end{DoxyReturn}
+
+
+Definition at line 18 of file divide\+Image.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     \textcolor{keywordflow}{if} (ceil((\textcolor{keywordtype}{double})sqrt(n)) == floor((\textcolor{keywordtype}{double})sqrt(n)))}
+\DoxyCodeLine{21     \{}
+\DoxyCodeLine{22         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{23     \}}
+\DoxyCodeLine{24     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{25     \{}
+\DoxyCodeLine{26         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28 \}}
+
+\end{DoxyCode}

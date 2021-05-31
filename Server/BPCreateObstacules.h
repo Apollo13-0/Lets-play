@@ -6,6 +6,10 @@
 #include "Matrix.h"
 
 using namespace std;
+
+/**
+ * Method to randomly create the obstacles in the matrix
+ */
 string createObstacules(int obs_amount){
     Matrix *matrix = Matrix::GetInstance();
     matrix->ResetObstaculesMatrix();

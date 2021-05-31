@@ -1,0 +1,268 @@
+\hypertarget{main_8cpp}{}\doxysection{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}json.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}BPGame\+Logic.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}List.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include \char`\"{}GAPad.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}GASolver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}divide\+Image.\+h\char`\"{}}\newline
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} = \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a0544f8cc1cac41dde16aab35b1183c7d}{Start\+Listenign}} ()
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{main_8cpp_a8b2d3995161eb62b836776ef0d311046}{MUTATION\+\_\+\+CHANCE}} = 0.\+9
+\item 
+float \mbox{\hyperlink{main_8cpp_adb7b8767ce8e5e2039660af73bca99ee}{CROSS\+\_\+\+OVER\+\_\+\+RATE}} = 0.\+3
+\item 
+int \mbox{\hyperlink{main_8cpp_aaedcc0e752bf812bfc936dadd6fb5eff}{POPULATION\+\_\+\+LEN}} = 1000
+\item 
+int \mbox{\hyperlink{main_8cpp_add18cf1b3d789763919a27550f5980a0}{MAX\+\_\+\+ITERATION}} = 1000
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}\label{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}} 
+\index{main.cpp@{main.cpp}!json@{json}}
+\index{json@{json}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{json}{json}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} =  \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}}
+
+
+
+Definition at line 27 of file main.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+try \{ \begin{DoxyVerb}GAPad myPad = GAPad(3, 3);
+for (auto &item : myPad.board) {
+    for (auto &i : item) {
+
+        cout << setw(3)<< i <<" ; ";
+    }
+    cout << endl;
+}
+cout << endl;
+myPad.shuffle();
+for (auto &item : myPad.board) {
+    for (auto &i : item) {
+
+        cout << setw(3) << i << " - ";
+    }
+    cout << endl;
+}
+cout << endl;
+
+List<string> gene;
+GAChromosome par = GAChromosome(myPad, gene);
+GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
+GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);
+myPad.apply_chain(res.gene);
+
+for (auto &item : myPad.board) {
+    for (auto &i : item) {
+
+        cout << setw(3)<< i << " | ";
+    }
+    cout << endl;
+}
+cout << endl;
+\end{DoxyVerb}
+ \}
+
+catch (const std\+::exception \&exc)\{ cout$<$$<$\char`\"{}\+Ha ocurrido un error\textbackslash{}n\char`\"{}; std\+::cerr $<$$<$ exc.\+what(); \}
+
+Definition at line 99 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{99            \{}
+\DoxyCodeLine{100     srand(time(NULL));}
+\DoxyCodeLine{101     \mbox{\hyperlink{BPCreateObstacules_8h_a4774bfb260da3e17ad710bbb4a6e2c84}{createObstacules}}(4);}
+\DoxyCodeLine{102     \mbox{\hyperlink{classList}{List<int>}} path = \mbox{\hyperlink{classAStar}{AStar}}().\mbox{\hyperlink{classAStar_aee1c5e0dd32f62091277d86d7985ab76}{aStar}}(10, 29);}
+\DoxyCodeLine{103     \mbox{\hyperlink{BPGameLogic_8h_a4d5d934cffd53ef765c311e961927320}{LtoS}}(path);}
+\DoxyCodeLine{152 \textcolor{comment}{//    List<GAChromosome*> prueba;}}
+\DoxyCodeLine{153 \textcolor{comment}{//    GAPad myPad = GAPad();}}
+\DoxyCodeLine{154 \textcolor{comment}{//    GAChromosome original = GAChromosome(myPad, \{\});}}
+\DoxyCodeLine{155 \textcolor{comment}{//    GAChromosome par = original;}}
+\DoxyCodeLine{156 \textcolor{comment}{//    GAChromosome* ptrpar= \&par;}}
+\DoxyCodeLine{157 \textcolor{comment}{//    prueba.insertFirst(ptrpar);}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159     \mbox{\hyperlink{main_8cpp_a0544f8cc1cac41dde16aab35b1183c7d}{StartListenign}}();}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \textcolor{comment}{//    // init vars}}
+\DoxyCodeLine{162 \textcolor{comment}{//    const int blockw = 50;}}
+\DoxyCodeLine{163 \textcolor{comment}{//    const int blockh = 50;}}
+\DoxyCodeLine{164 \textcolor{comment}{//    std::vector<cv::Mat> blocks;}}
+\DoxyCodeLine{165 \textcolor{comment}{//}}
+\DoxyCodeLine{166 \textcolor{comment}{//    // read png image}}
+\DoxyCodeLine{167 \textcolor{comment}{//    cv::Mat image = cv::imread("{}/home/ignacio/Datos2/Lets-\/play/Server/perrito.jpg"{}, cv::IMREAD\_UNCHANGED);}}
+\DoxyCodeLine{168 \textcolor{comment}{//    cv::imshow("{}Display window"{}, image);}}
+\DoxyCodeLine{169 \textcolor{comment}{//}}
+\DoxyCodeLine{170 \textcolor{comment}{//    // divide image into multiple blocks}}
+\DoxyCodeLine{171 \textcolor{comment}{//    int divideStatus = divideImage(image, 25, blocks);}}
+\DoxyCodeLine{172 \textcolor{comment}{//}}
+\DoxyCodeLine{173 \textcolor{comment}{//    // debug: save blocks}}
+\DoxyCodeLine{174 \textcolor{comment}{//    cv::utils::fs::createDirectory("{}/home/ignacio/Datos2/Lets-\/play/Server/blocksFolder"{});}}
+\DoxyCodeLine{175 \textcolor{comment}{//    for (int j = 0; j < blocks.size(); j++)}}
+\DoxyCodeLine{176 \textcolor{comment}{//    \{}}
+\DoxyCodeLine{177 \textcolor{comment}{//        std::string blockId = std::to\_string(j);}}
+\DoxyCodeLine{178 \textcolor{comment}{//        std::string blockImgName = "{}/home/ignacio/Datos2/Lets-\/play/Server/blocksFolder/block\#"{} + blockId + "{}.jpg"{};}}
+\DoxyCodeLine{179 \textcolor{comment}{//        imwrite(blockImgName, blocks[j]);}}
+\DoxyCodeLine{180 \textcolor{comment}{//    \}}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{185 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_a0544f8cc1cac41dde16aab35b1183c7d}\label{main_8cpp_a0544f8cc1cac41dde16aab35b1183c7d}} 
+\index{main.cpp@{main.cpp}!StartListenign@{StartListenign}}
+\index{StartListenign@{StartListenign}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{StartListenign()}{StartListenign()}}
+{\footnotesize\ttfamily int Start\+Listenign (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 30 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30                     \{}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{int} listening = socket(AF\_INET, SOCK\_STREAM, 0);}
+\DoxyCodeLine{33     \textcolor{keywordflow}{if} (listening == -\/1)}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35         cerr << \textcolor{stringliteral}{"{}No se pudo crear el Socket. Cerrando..."{}} << endl;}
+\DoxyCodeLine{36         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{37     \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     sockaddr\_in hint;}
+\DoxyCodeLine{40     hint.sin\_family = AF\_INET;}
+\DoxyCodeLine{41     hint.sin\_port = htons(11000);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     inet\_pton(AF\_INET, \textcolor{stringliteral}{"{}0.0.0.0"{}}, \&hint.sin\_addr);}
+\DoxyCodeLine{44     bind(listening, (sockaddr*)\&hint, \textcolor{keyword}{sizeof}(hint));}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     listen(listening, SOMAXCONN);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordflow}{while}(\textcolor{keyword}{true})\{}
+\DoxyCodeLine{49         sockaddr\_in client;}
+\DoxyCodeLine{50         socklen\_t clientSize = \textcolor{keyword}{sizeof}(client);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52         \textcolor{keywordtype}{int} clientSocket = accept(listening, (sockaddr *) \&client, \&clientSize);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54         \textcolor{keywordtype}{char} host[NI\_MAXHOST];      \textcolor{comment}{// Nombre del cliente remoto}}
+\DoxyCodeLine{55         \textcolor{keywordtype}{char} service[NI\_MAXSERV];}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         memset(host, 0, NI\_MAXHOST);}
+\DoxyCodeLine{58         memset(service, 0, NI\_MAXSERV);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         \textcolor{keywordflow}{if} (getnameinfo((sockaddr *) \&client, \textcolor{keyword}{sizeof}(client), host, NI\_MAXHOST, service, NI\_MAXSERV, 0) == 0) \{}
+\DoxyCodeLine{61             cout << host << \textcolor{stringliteral}{"{} conectado "{}} << endl;}
+\DoxyCodeLine{62         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{63             inet\_ntop(AF\_INET, \&client.sin\_addr, host, NI\_MAXHOST);}
+\DoxyCodeLine{64             cout << host << \textcolor{stringliteral}{"{} conectado al puerto "{}} << ntohs(client.sin\_port) << endl;}
+\DoxyCodeLine{65         \}}
+\DoxyCodeLine{66         \textcolor{keywordtype}{char} buf[4096];}
+\DoxyCodeLine{67         memset(buf, 0, 4096);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69         \textcolor{keywordtype}{int} bytesReceived = recv(clientSocket, buf, 4096, 0);}
+\DoxyCodeLine{70         \textcolor{keywordflow}{if} (bytesReceived == -\/1) \{}
+\DoxyCodeLine{71             cerr << \textcolor{stringliteral}{"{}Error al recibir mensaje. Cerrando..."{}} << endl;}
+\DoxyCodeLine{72             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{73         \}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75         \textcolor{keywordflow}{if} (bytesReceived == 0) \{}
+\DoxyCodeLine{76             cout << \textcolor{stringliteral}{"{}Cliente desconectado "{}} << endl;}
+\DoxyCodeLine{77             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{78         \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80         \textcolor{keywordtype}{string} messageR = \mbox{\hyperlink{namespacenlohmann_1_1detail_a1ed8fc6239da25abcaf681d30ace4985ab45cffe084dd3d20d928bee85e7b0f21}{string}}(buf, 0, bytesReceived);}
+\DoxyCodeLine{81         \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} jmessageR = \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(messageR);}
+\DoxyCodeLine{82         \textcolor{keywordtype}{string} game = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}Game"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{83         \textcolor{keywordflow}{if} (game == \textcolor{stringliteral}{"{}BP"{}})\{}
+\DoxyCodeLine{84             \textcolor{keywordtype}{string} message = \mbox{\hyperlink{BPGameLogic_8h_a1657e726a132e4f0d82fb2264f11716f}{bpLogic}}(jmessageR);}
+\DoxyCodeLine{85             send(clientSocket, message.c\_str(), message.size() + 1, 0);}
+\DoxyCodeLine{86         \}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88         \textcolor{keywordflow}{if} (game == \textcolor{stringliteral}{"{}Genetic"{}})}
+\DoxyCodeLine{89         \{}
+\DoxyCodeLine{90             ;}
+\DoxyCodeLine{91         \}}
+\DoxyCodeLine{92         close(clientSocket);}
+\DoxyCodeLine{93     \}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{96 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_adb7b8767ce8e5e2039660af73bca99ee}\label{main_8cpp_adb7b8767ce8e5e2039660af73bca99ee}} 
+\index{main.cpp@{main.cpp}!CROSS\_OVER\_RATE@{CROSS\_OVER\_RATE}}
+\index{CROSS\_OVER\_RATE@{CROSS\_OVER\_RATE}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{CROSS\_OVER\_RATE}{CROSS\_OVER\_RATE}}
+{\footnotesize\ttfamily float CROSS\+\_\+\+OVER\+\_\+\+RATE = 0.\+3}
+
+
+
+Definition at line 20 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_add18cf1b3d789763919a27550f5980a0}\label{main_8cpp_add18cf1b3d789763919a27550f5980a0}} 
+\index{main.cpp@{main.cpp}!MAX\_ITERATION@{MAX\_ITERATION}}
+\index{MAX\_ITERATION@{MAX\_ITERATION}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_ITERATION}{MAX\_ITERATION}}
+{\footnotesize\ttfamily int MAX\+\_\+\+ITERATION = 1000}
+
+
+
+Definition at line 22 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a8b2d3995161eb62b836776ef0d311046}\label{main_8cpp_a8b2d3995161eb62b836776ef0d311046}} 
+\index{main.cpp@{main.cpp}!MUTATION\_CHANCE@{MUTATION\_CHANCE}}
+\index{MUTATION\_CHANCE@{MUTATION\_CHANCE}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{MUTATION\_CHANCE}{MUTATION\_CHANCE}}
+{\footnotesize\ttfamily float MUTATION\+\_\+\+CHANCE = 0.\+9}
+
+
+
+Definition at line 19 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_aaedcc0e752bf812bfc936dadd6fb5eff}\label{main_8cpp_aaedcc0e752bf812bfc936dadd6fb5eff}} 
+\index{main.cpp@{main.cpp}!POPULATION\_LEN@{POPULATION\_LEN}}
+\index{POPULATION\_LEN@{POPULATION\_LEN}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{POPULATION\_LEN}{POPULATION\_LEN}}
+{\footnotesize\ttfamily int POPULATION\+\_\+\+LEN = 1000}
+
+
+
+Definition at line 21 of file main.\+cpp.
+

@@ -1,0 +1,219 @@
+\hypertarget{classMatrix}{}\doxysection{Matrix Class Reference}
+\label{classMatrix}\index{Matrix@{Matrix}}
+
+
+{\ttfamily \#include $<$Matrix.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMatrix_aaefd6daa229068b68a414c09d2ad6277}{Matrix}} (\mbox{\hyperlink{classMatrix}{Matrix}} \&other)=delete
+\item 
+void \mbox{\hyperlink{classMatrix_ab611ea1621eebb266e9d354edfbd9f05}{operator=}} (const \mbox{\hyperlink{classMatrix}{Matrix}} \&)=delete
+\item 
+\mbox{\hyperlink{classmatrixNode}{matrix\+Node}} \mbox{\hyperlink{classMatrix_ae0bd8774b34666c75f1e5d1070ca130f}{Findin\+Position}} (int position)
+\item 
+void \mbox{\hyperlink{classMatrix_a4eee454438d97332dce65a0e0620f393}{Resetfor\+Pathfinding}} ()
+\item 
+void \mbox{\hyperlink{classMatrix_affb9c26c90e3ba882592d73752a23ded}{Reset\+Obstacules\+Matrix}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classMatrix}{Matrix}} $\ast$ \mbox{\hyperlink{classMatrix_a3199a435ea1e14351be773612d9ed1b1}{Get\+Instance}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmatrixNode}{matrix\+Node}} \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{game\+Field}} \mbox{[}5\mbox{]}\mbox{[}10\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMatrix_a2dba13c45127354c9f75ef576f49269b}{Matrix}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classMatrix}{Matrix}} $\ast$ \mbox{\hyperlink{classMatrix_adbe13eefa6a6ea2f02f45da26400f22e}{instance}} = NULL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 11 of file Matrix.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMatrix_a2dba13c45127354c9f75ef576f49269b}\label{classMatrix_a2dba13c45127354c9f75ef576f49269b}} 
+\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Matrix\+::\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 11 of file Matrix.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11                \{}
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} rows = (\textcolor{keyword}{sizeof} (\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}})/\textcolor{keyword}{sizeof} (\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}} [0]));}
+\DoxyCodeLine{13     \textcolor{keywordtype}{int} columns = (\textcolor{keyword}{sizeof} (\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[0])/\textcolor{keyword}{sizeof} (\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}} [0][0]));}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} position =0;}
+\DoxyCodeLine{15     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i < rows; i++ )\{}
+\DoxyCodeLine{16         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j < columns; j++)\{}
+\DoxyCodeLine{17             \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}} [i][j].\mbox{\hyperlink{classmatrixNode_a64546b79c737c452b1b54ce0a1a352b7}{setPosition}}(position);}
+\DoxyCodeLine{18             \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[i][j].\mbox{\hyperlink{classmatrixNode_ab1d98baa2d439e979ac9a656c36d9568}{setFCost}}(FLT\_MAX);}
+\DoxyCodeLine{19             \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[i][j].\mbox{\hyperlink{classmatrixNode_ac3f861f062d314c0ba1234f11aed654c}{setGCost}}(FLT\_MAX);}
+\DoxyCodeLine{20             \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[i][j].\mbox{\hyperlink{classmatrixNode_afb03f3a36b9722ee633b59a62792aa32}{setHCost}}(FLT\_MAX);}
+\DoxyCodeLine{21             \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[i][j].\mbox{\hyperlink{classmatrixNode_a4b559fab13fb1e6476d4b4af99230bd3}{setParentX}}(-\/1);}
+\DoxyCodeLine{22             \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[i][j].\mbox{\hyperlink{classmatrixNode_a6b393df2df65cf559d9a46e0dba3dd84}{setParentY}}(-\/1);}
+\DoxyCodeLine{23             \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[i][j].\mbox{\hyperlink{classmatrixNode_a0f068360ab2520cc46b7b97e507425ca}{setX}}(i);}
+\DoxyCodeLine{24             \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[i][j].\mbox{\hyperlink{classmatrixNode_a0e7f58de900351c1eaf25f4f67c05510}{setY}}(j);}
+\DoxyCodeLine{25             position++;}
+\DoxyCodeLine{26         \}}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMatrix_aaefd6daa229068b68a414c09d2ad6277}\label{classMatrix_aaefd6daa229068b68a414c09d2ad6277}} 
+\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Matrix\+::\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatrix}{Matrix}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMatrix_ae0bd8774b34666c75f1e5d1070ca130f}\label{classMatrix_ae0bd8774b34666c75f1e5d1070ca130f}} 
+\index{Matrix@{Matrix}!FindinPosition@{FindinPosition}}
+\index{FindinPosition@{FindinPosition}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{FindinPosition()}{FindinPosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmatrixNode}{matrix\+Node}} Matrix\+::\+Findin\+Position (\begin{DoxyParamCaption}\item[{int}]{position }\end{DoxyParamCaption})}
+
+
+
+Definition at line 45 of file Matrix.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45                                              \{}
+\DoxyCodeLine{46     \textcolor{keywordtype}{int} row=0;}
+\DoxyCodeLine{47     \textcolor{keywordtype}{int} column= position\%10;}
+\DoxyCodeLine{48     \textcolor{keywordflow}{if} (column != position)\{}
+\DoxyCodeLine{49         row = position/10;}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}} [row][column];}
+\DoxyCodeLine{53 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMatrix_a3199a435ea1e14351be773612d9ed1b1}\label{classMatrix_a3199a435ea1e14351be773612d9ed1b1}} 
+\index{Matrix@{Matrix}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}} $\ast$ Matrix\+::\+Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 38 of file Matrix.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38                             \{}
+\DoxyCodeLine{39     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMatrix_adbe13eefa6a6ea2f02f45da26400f22e}{instance}} == NULL)\{}
+\DoxyCodeLine{40         \mbox{\hyperlink{classMatrix_adbe13eefa6a6ea2f02f45da26400f22e}{instance}} = \textcolor{keyword}{new} \mbox{\hyperlink{classMatrix_a2dba13c45127354c9f75ef576f49269b}{Matrix}}();}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42     \textcolor{keywordflow}{return} \mbox{\hyperlink{classMatrix_adbe13eefa6a6ea2f02f45da26400f22e}{instance}};}
+\DoxyCodeLine{43 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMatrix_ab611ea1621eebb266e9d354edfbd9f05}\label{classMatrix_ab611ea1621eebb266e9d354edfbd9f05}} 
+\index{Matrix@{Matrix}!operator=@{operator=}}
+\index{operator=@{operator=}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Matrix\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatrix}{Matrix}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{classMatrix_a4eee454438d97332dce65a0e0620f393}\label{classMatrix_a4eee454438d97332dce65a0e0620f393}} 
+\index{Matrix@{Matrix}!ResetforPathfinding@{ResetforPathfinding}}
+\index{ResetforPathfinding@{ResetforPathfinding}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{ResetforPathfinding()}{ResetforPathfinding()}}
+{\footnotesize\ttfamily void Matrix\+::\+Resetfor\+Pathfinding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 55 of file Matrix.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55                                  \{}
+\DoxyCodeLine{56     \textcolor{keywordtype}{int} rows = (\textcolor{keyword}{sizeof} (\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}})/\textcolor{keyword}{sizeof} (\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}} [0]));}
+\DoxyCodeLine{57     \textcolor{keywordtype}{int} columns = (\textcolor{keyword}{sizeof} (\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[0])/\textcolor{keyword}{sizeof} (\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}} [0][0]));}
+\DoxyCodeLine{58     \textcolor{keywordtype}{int} position =0;}
+\DoxyCodeLine{59     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i < rows; i++ )\{}
+\DoxyCodeLine{60         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j < columns; j++)\{}
+\DoxyCodeLine{61             \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[i][j].\mbox{\hyperlink{classmatrixNode_ab1d98baa2d439e979ac9a656c36d9568}{setFCost}}(FLT\_MAX);}
+\DoxyCodeLine{62             \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[i][j].\mbox{\hyperlink{classmatrixNode_ac3f861f062d314c0ba1234f11aed654c}{setGCost}}(FLT\_MAX);}
+\DoxyCodeLine{63             \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[i][j].\mbox{\hyperlink{classmatrixNode_afb03f3a36b9722ee633b59a62792aa32}{setHCost}}(FLT\_MAX);}
+\DoxyCodeLine{64             \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[i][j].\mbox{\hyperlink{classmatrixNode_a4b559fab13fb1e6476d4b4af99230bd3}{setParentX}}(-\/1);}
+\DoxyCodeLine{65             \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[i][j].\mbox{\hyperlink{classmatrixNode_a6b393df2df65cf559d9a46e0dba3dd84}{setParentY}}(-\/1);}
+\DoxyCodeLine{66         \}}
+\DoxyCodeLine{67     \}}
+\DoxyCodeLine{68 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMatrix_affb9c26c90e3ba882592d73752a23ded}\label{classMatrix_affb9c26c90e3ba882592d73752a23ded}} 
+\index{Matrix@{Matrix}!ResetObstaculesMatrix@{ResetObstaculesMatrix}}
+\index{ResetObstaculesMatrix@{ResetObstaculesMatrix}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{ResetObstaculesMatrix()}{ResetObstaculesMatrix()}}
+{\footnotesize\ttfamily void Matrix\+::\+Reset\+Obstacules\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 29 of file Matrix.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29                                   \{}
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} rows = (\textcolor{keyword}{sizeof} (\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}})/\textcolor{keyword}{sizeof} (\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}} [0]));}
+\DoxyCodeLine{31     \textcolor{keywordtype}{int} columns = (\textcolor{keyword}{sizeof} (\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}}[0])/\textcolor{keyword}{sizeof} (\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}} [0][0]));}
+\DoxyCodeLine{32     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i < rows; i++ )\{}
+\DoxyCodeLine{33         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j < columns; j++)\{}
+\DoxyCodeLine{34             \mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{Matrix::gameField}} [i][j].\mbox{\hyperlink{classmatrixNode_a480901ea284d77f12e2d9e11860bb8dc}{setObstacule}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{35         \}}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMatrix_a32f0e6e497f925f38776b320697cd99f}\label{classMatrix_a32f0e6e497f925f38776b320697cd99f}} 
+\index{Matrix@{Matrix}!gameField@{gameField}}
+\index{gameField@{gameField}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{gameField}{gameField}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmatrixNode}{matrix\+Node}} Matrix\+::game\+Field\mbox{[}5\mbox{]}\mbox{[}10\mbox{]}}
+
+
+
+Definition at line 17 of file Matrix.\+h.
+
+\mbox{\Hypertarget{classMatrix_adbe13eefa6a6ea2f02f45da26400f22e}\label{classMatrix_adbe13eefa6a6ea2f02f45da26400f22e}} 
+\index{Matrix@{Matrix}!instance@{instance}}
+\index{instance@{instance}!Matrix@{Matrix}}
+\doxysubsubsection{\texorpdfstring{instance}{instance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatrix}{Matrix}} $\ast$ Matrix\+::instance = NULL\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 15 of file Matrix.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Matrix_8h}{Matrix.\+h}}\item 
+\mbox{\hyperlink{Matrix_8cpp}{Matrix.\+cpp}}\end{DoxyCompactItemize}

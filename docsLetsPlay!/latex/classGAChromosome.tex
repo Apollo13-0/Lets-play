@@ -1,0 +1,281 @@
+\hypertarget{classGAChromosome}{}\doxysection{GAChromosome Class Reference}
+\label{classGAChromosome}\index{GAChromosome@{GAChromosome}}
+
+
+Class in charge of storing the chromosome information of each individual.  
+
+
+
+
+{\ttfamily \#include $<$GAChromosome.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGAChromosome_a08b9f04af612b4166fea6ef2a755c903}{GAChromosome}} (\mbox{\hyperlink{classGAPad}{GAPad}} ex\+\_\+board, \mbox{\hyperlink{classList}{List}}$<$ string $>$ gen)
+\item 
+void \mbox{\hyperlink{classGAChromosome_a5261b6718d94bb383c1d67c874e60f49}{update\+\_\+error}} ()
+\item 
+void \mbox{\hyperlink{classGAChromosome_abdf9bccec29e2e26d7a3a40cd0c2cda5}{mutate}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static vector$<$ \mbox{\hyperlink{classGAChromosome}{GAChromosome}} $>$ \mbox{\hyperlink{classGAChromosome_ae36bcb40457fbeef02bd0e6103f7527c}{cross\+\_\+over}} (\mbox{\hyperlink{classGAChromosome}{GAChromosome}} a, \mbox{\hyperlink{classGAChromosome}{GAChromosome}} b)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{classGAChromosome_ad0d7a699b54246c7ad56ecf745b8fef6}{moves}}
+\item 
+\mbox{\hyperlink{classList}{List}}$<$ string $>$ \mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}
+\item 
+float \mbox{\hyperlink{classGAChromosome_a19eb653f7a24841b6b9117a835cf4f84}{error}}
+\item 
+float \mbox{\hyperlink{classGAChromosome_affff7777229ed2c0498587397ec8190a}{error\+\_\+puzzle\+\_\+cost}}
+\item 
+float \mbox{\hyperlink{classGAChromosome_a585a6dc1cd7752107096a366d63429ea}{error\+\_\+gene\+\_\+len}}
+\item 
+\mbox{\hyperlink{classGAPad}{GAPad}} \mbox{\hyperlink{classGAChromosome_a75acaf343cad9f8bf511e469e41a4972}{puzzle}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class in charge of storing the chromosome information of each individual. 
+
+Definition at line 12 of file GAChromosome.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGAChromosome_a08b9f04af612b4166fea6ef2a755c903}\label{classGAChromosome_a08b9f04af612b4166fea6ef2a755c903}} 
+\index{GAChromosome@{GAChromosome}!GAChromosome@{GAChromosome}}
+\index{GAChromosome@{GAChromosome}!GAChromosome@{GAChromosome}}
+\doxysubsubsection{\texorpdfstring{GAChromosome()}{GAChromosome()}}
+{\footnotesize\ttfamily GAChromosome\+::\+GAChromosome (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGAPad}{GAPad}}}]{ex\+\_\+board,  }\item[{\mbox{\hyperlink{classList}{List}}$<$ string $>$}]{gen }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Constructor or GAChoromosome 
+\begin{DoxyParams}{Parameters}
+{\em ex\+\_\+board} & \mbox{\hyperlink{classGAPad}{GAPad}} of puzzle \\
+\hline
+{\em gen} & Initial gen to save \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 17 of file GAChromosome.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                                                            : \mbox{\hyperlink{classGAChromosome_a75acaf343cad9f8bf511e469e41a4972}{puzzle}}(ex\_board) \{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \mbox{\hyperlink{classGAChromosome_ad0d7a699b54246c7ad56ecf745b8fef6}{moves}}.emplace\_back(\textcolor{stringliteral}{"{}up"{}});}
+\DoxyCodeLine{20     \mbox{\hyperlink{classGAChromosome_ad0d7a699b54246c7ad56ecf745b8fef6}{moves}}.emplace\_back(\textcolor{stringliteral}{"{}down"{}});}
+\DoxyCodeLine{21     \mbox{\hyperlink{classGAChromosome_ad0d7a699b54246c7ad56ecf745b8fef6}{moves}}.emplace\_back(\textcolor{stringliteral}{"{}left"{}});}
+\DoxyCodeLine{22     \mbox{\hyperlink{classGAChromosome_ad0d7a699b54246c7ad56ecf745b8fef6}{moves}}.emplace\_back(\textcolor{stringliteral}{"{}right"{}});}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}} = gen;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize() == 0) \{}
+\DoxyCodeLine{27         \textcolor{keywordtype}{int} a = rand() \% 4;}
+\DoxyCodeLine{28         \mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.insertLast(\mbox{\hyperlink{classGAChromosome_ad0d7a699b54246c7ad56ecf745b8fef6}{moves}}.at(a));}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \mbox{\hyperlink{classGAChromosome_a19eb653f7a24841b6b9117a835cf4f84}{error}} = NULL;}
+\DoxyCodeLine{32     \mbox{\hyperlink{classGAChromosome_affff7777229ed2c0498587397ec8190a}{error\_puzzle\_cost}} = 0;}
+\DoxyCodeLine{33     \mbox{\hyperlink{classGAChromosome_a585a6dc1cd7752107096a366d63429ea}{error\_gene\_len}} = NULL;}
+\DoxyCodeLine{34     \mbox{\hyperlink{classGAChromosome_a75acaf343cad9f8bf511e469e41a4972}{puzzle}} = ex\_board;}
+\DoxyCodeLine{35     \mbox{\hyperlink{classGAChromosome_a5261b6718d94bb383c1d67c874e60f49}{update\_error}}();}
+\DoxyCodeLine{36 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGAChromosome_ae36bcb40457fbeef02bd0e6103f7527c}\label{classGAChromosome_ae36bcb40457fbeef02bd0e6103f7527c}} 
+\index{GAChromosome@{GAChromosome}!cross\_over@{cross\_over}}
+\index{cross\_over@{cross\_over}!GAChromosome@{GAChromosome}}
+\doxysubsubsection{\texorpdfstring{cross\_over()}{cross\_over()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classGAChromosome}{GAChromosome}} $>$ GAChromosome\+::cross\+\_\+over (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGAChromosome}{GAChromosome}}}]{a,  }\item[{\mbox{\hyperlink{classGAChromosome}{GAChromosome}}}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Method to cross two \mbox{\hyperlink{classGAChromosome}{GAChromosome}} to create a new gene 
+\begin{DoxyParams}{Parameters}
+{\em a} & First \mbox{\hyperlink{classGAChromosome}{GAChromosome}} \\
+\hline
+{\em b} & Second \mbox{\hyperlink{classGAChromosome}{GAChromosome}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Resulting genes 
+\end{DoxyReturn}
+cout$<$$<$\char`\"{}a \char`\"{}; for (int i = 0; i $<$ a.\+gene.\+size(); ++i) \{ cout$<$$<$a.\+gene.\+at(i)$<$$<$\char`\"{} \char`\"{}; \}cout$<$$<$endl; cout$<$$<$\char`\"{}b \char`\"{}; for (int i = 0; i $<$ b.\+gene.\+size(); ++i) \{ cout$<$$<$b.\+gene.\+at(i)$<$$<$\char`\"{} \char`\"{}; \}cout$<$$<$endl;
+
+Definition at line 64 of file GAChromosome.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64                                                                             \{}
+\DoxyCodeLine{65     \textcolor{keywordflow}{if} (b.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize() > a.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize())\{}
+\DoxyCodeLine{66         \textcolor{keywordflow}{return} \mbox{\hyperlink{classGAChromosome_ae36bcb40457fbeef02bd0e6103f7527c}{GAChromosome::cross\_over}} (b, a);}
+\DoxyCodeLine{67     \}}
+\DoxyCodeLine{77     \mbox{\hyperlink{classList}{List<string>}} genA = \{\};}
+\DoxyCodeLine{78     \mbox{\hyperlink{classList}{List<string>}} genB = \{\};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \textcolor{keywordtype}{int} sizeA = a.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize();}
+\DoxyCodeLine{81     \textcolor{keywordtype}{int} sizeB = b.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize();}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < sizeB; i++)\{}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85         \textcolor{keywordflow}{if} (rand()\%100 < 10)\{}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87             genA.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(a.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.find(i)-\/>getValue());}
+\DoxyCodeLine{88             genB.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(b.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.find(i)-\/>getValue());}
+\DoxyCodeLine{89             \textcolor{comment}{//cout<<"{}if "{}<<genA.size()<<"{} "{}<<genB.size()<<endl;}}
+\DoxyCodeLine{90         \}}
+\DoxyCodeLine{91         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{92             genA.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(b.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.find(i)-\/>getValue());}
+\DoxyCodeLine{93             genB.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(a.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.find(i)-\/>getValue());}
+\DoxyCodeLine{94             \textcolor{comment}{//cout<<"{}else "{}<<genA.size()<<"{} "{}<<genB.size()<<endl;}}
+\DoxyCodeLine{95         \}}
+\DoxyCodeLine{96     \}}
+\DoxyCodeLine{97     \textcolor{keywordflow}{if} (sizeB != sizeA)\{}
+\DoxyCodeLine{98         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < (sizeA-\/sizeB); i++)\{}
+\DoxyCodeLine{99             genA.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(a.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.find(sizeB+i)-\/>getValue());}
+\DoxyCodeLine{100         \}}
+\DoxyCodeLine{101     \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     vector<GAChromosome> ret = \{\};}
+\DoxyCodeLine{104     ret.push\_back(\mbox{\hyperlink{classGAChromosome_a08b9f04af612b4166fea6ef2a755c903}{GAChromosome}}(b.\mbox{\hyperlink{classGAChromosome_a75acaf343cad9f8bf511e469e41a4972}{puzzle}}, genA));}
+\DoxyCodeLine{105     ret.push\_back(\mbox{\hyperlink{classGAChromosome_a08b9f04af612b4166fea6ef2a755c903}{GAChromosome}}(a.\mbox{\hyperlink{classGAChromosome_a75acaf343cad9f8bf511e469e41a4972}{puzzle}}, genB));}
+\DoxyCodeLine{106     \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{107 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGAChromosome_abdf9bccec29e2e26d7a3a40cd0c2cda5}\label{classGAChromosome_abdf9bccec29e2e26d7a3a40cd0c2cda5}} 
+\index{GAChromosome@{GAChromosome}!mutate@{mutate}}
+\index{mutate@{mutate}!GAChromosome@{GAChromosome}}
+\doxysubsubsection{\texorpdfstring{mutate()}{mutate()}}
+{\footnotesize\ttfamily void GAChromosome\+::mutate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Function to mutate an individual\textquotesingle{}s gene 
+
+Definition at line 112 of file GAChromosome.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112                           \{}
+\DoxyCodeLine{113     \textcolor{keywordtype}{float} add\_vs\_mutate\_chance = 0.5;}
+\DoxyCodeLine{114     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.isEmpty())\{}
+\DoxyCodeLine{115         add\_vs\_mutate\_chance = 1.0;}
+\DoxyCodeLine{116     \}}
+\DoxyCodeLine{117     \textcolor{keywordtype}{float} rnd = rand()\%10;}
+\DoxyCodeLine{118     rnd /= 10;}
+\DoxyCodeLine{119     \textcolor{keywordflow}{if} (rnd <= add\_vs\_mutate\_chance)\{}
+\DoxyCodeLine{120         \textcolor{keywordtype}{int} index = rand()\%4;}
+\DoxyCodeLine{121         \mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.insertLast(\mbox{\hyperlink{classGAChromosome_ad0d7a699b54246c7ad56ecf745b8fef6}{moves}}.at(index));}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123     \}}
+\DoxyCodeLine{124     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{125         \textcolor{keywordtype}{int} index = rand()\%4;}
+\DoxyCodeLine{126         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize()==0)\{\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.insertLast(\mbox{\hyperlink{classGAChromosome_ad0d7a699b54246c7ad56ecf745b8fef6}{moves}}.at(index));\}}
+\DoxyCodeLine{127         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{128             \mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.insertLast(\mbox{\hyperlink{classGAChromosome_ad0d7a699b54246c7ad56ecf745b8fef6}{moves}}.at(index));}
+\DoxyCodeLine{129         \}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131     \}}
+\DoxyCodeLine{132 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGAChromosome_a5261b6718d94bb383c1d67c874e60f49}\label{classGAChromosome_a5261b6718d94bb383c1d67c874e60f49}} 
+\index{GAChromosome@{GAChromosome}!update\_error@{update\_error}}
+\index{update\_error@{update\_error}!GAChromosome@{GAChromosome}}
+\doxysubsubsection{\texorpdfstring{update\_error()}{update\_error()}}
+{\footnotesize\ttfamily void GAChromosome\+::update\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to update the error associated to error of the \mbox{\hyperlink{classGAChromosome}{GAChromosome}} for (auto \&item \+: temp.\+board) \{ for (auto \&i \+: item) \{ \begin{DoxyVerb}cout << setw(2) << i << "-";
+\end{DoxyVerb}
+ \} cout $<$$<$ endl; \}
+
+Definition at line 41 of file GAChromosome.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41                                 \{}
+\DoxyCodeLine{42     \mbox{\hyperlink{classGAPad}{GAPad}} temp = \mbox{\hyperlink{classGAChromosome_a75acaf343cad9f8bf511e469e41a4972}{puzzle}};}
+\DoxyCodeLine{43     temp.\mbox{\hyperlink{classGAPad_a1ac8ee3b4f0809c4e8115151abe92a14}{apply\_chain}}(\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}});}
+\DoxyCodeLine{52     \mbox{\hyperlink{classGAChromosome_affff7777229ed2c0498587397ec8190a}{error\_puzzle\_cost}} = temp.\mbox{\hyperlink{classGAPad_a36568c2d7c25ddeaec8a5503ea23c7ec}{cost}}();}
+\DoxyCodeLine{53     \mbox{\hyperlink{classGAChromosome_a585a6dc1cd7752107096a366d63429ea}{error\_gene\_len}} = \mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize() * 0.01;}
+\DoxyCodeLine{54     \mbox{\hyperlink{classGAChromosome_a19eb653f7a24841b6b9117a835cf4f84}{error}} = \mbox{\hyperlink{classGAChromosome_affff7777229ed2c0498587397ec8190a}{error\_puzzle\_cost}} + \mbox{\hyperlink{classGAChromosome_a585a6dc1cd7752107096a366d63429ea}{error\_gene\_len}};}
+\DoxyCodeLine{55     \textcolor{comment}{//cout<<"{}puzzle:"{}<<error\_puzzle\_cost<<"{} gene:"{}<<error\_gene\_len<<"{} error:"{}<<error<<endl;}}
+\DoxyCodeLine{56 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classGAChromosome_a19eb653f7a24841b6b9117a835cf4f84}\label{classGAChromosome_a19eb653f7a24841b6b9117a835cf4f84}} 
+\index{GAChromosome@{GAChromosome}!error@{error}}
+\index{error@{error}!GAChromosome@{GAChromosome}}
+\doxysubsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily float GAChromosome\+::error}
+
+
+
+Definition at line 17 of file GAChromosome.\+h.
+
+\mbox{\Hypertarget{classGAChromosome_a585a6dc1cd7752107096a366d63429ea}\label{classGAChromosome_a585a6dc1cd7752107096a366d63429ea}} 
+\index{GAChromosome@{GAChromosome}!error\_gene\_len@{error\_gene\_len}}
+\index{error\_gene\_len@{error\_gene\_len}!GAChromosome@{GAChromosome}}
+\doxysubsubsection{\texorpdfstring{error\_gene\_len}{error\_gene\_len}}
+{\footnotesize\ttfamily float GAChromosome\+::error\+\_\+gene\+\_\+len}
+
+
+
+Definition at line 19 of file GAChromosome.\+h.
+
+\mbox{\Hypertarget{classGAChromosome_affff7777229ed2c0498587397ec8190a}\label{classGAChromosome_affff7777229ed2c0498587397ec8190a}} 
+\index{GAChromosome@{GAChromosome}!error\_puzzle\_cost@{error\_puzzle\_cost}}
+\index{error\_puzzle\_cost@{error\_puzzle\_cost}!GAChromosome@{GAChromosome}}
+\doxysubsubsection{\texorpdfstring{error\_puzzle\_cost}{error\_puzzle\_cost}}
+{\footnotesize\ttfamily float GAChromosome\+::error\+\_\+puzzle\+\_\+cost}
+
+
+
+Definition at line 18 of file GAChromosome.\+h.
+
+\mbox{\Hypertarget{classGAChromosome_a58693da80cef37866a75a60571d1f202}\label{classGAChromosome_a58693da80cef37866a75a60571d1f202}} 
+\index{GAChromosome@{GAChromosome}!gene@{gene}}
+\index{gene@{gene}!GAChromosome@{GAChromosome}}
+\doxysubsubsection{\texorpdfstring{gene}{gene}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classList}{List}}$<$string$>$ GAChromosome\+::gene}
+
+
+
+Definition at line 16 of file GAChromosome.\+h.
+
+\mbox{\Hypertarget{classGAChromosome_ad0d7a699b54246c7ad56ecf745b8fef6}\label{classGAChromosome_ad0d7a699b54246c7ad56ecf745b8fef6}} 
+\index{GAChromosome@{GAChromosome}!moves@{moves}}
+\index{moves@{moves}!GAChromosome@{GAChromosome}}
+\doxysubsubsection{\texorpdfstring{moves}{moves}}
+{\footnotesize\ttfamily vector$<$string$>$ GAChromosome\+::moves}
+
+
+
+Definition at line 14 of file GAChromosome.\+h.
+
+\mbox{\Hypertarget{classGAChromosome_a75acaf343cad9f8bf511e469e41a4972}\label{classGAChromosome_a75acaf343cad9f8bf511e469e41a4972}} 
+\index{GAChromosome@{GAChromosome}!puzzle@{puzzle}}
+\index{puzzle@{puzzle}!GAChromosome@{GAChromosome}}
+\doxysubsubsection{\texorpdfstring{puzzle}{puzzle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGAPad}{GAPad}} GAChromosome\+::puzzle}
+
+
+
+Definition at line 20 of file GAChromosome.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{GAChromosome_8h}{GAChromosome.\+h}}\item 
+\mbox{\hyperlink{GAChromosome_8cpp}{GAChromosome.\+cpp}}\end{DoxyCompactItemize}

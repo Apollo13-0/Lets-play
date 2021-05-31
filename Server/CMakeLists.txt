@@ -4,7 +4,7 @@ project(Server)
 set(CMAKE_CXX_STANDARD 14)
 
 
-# include OpenCV
+#include OpenCV
 find_package(OpenCV REQUIRED)
 
 message(STATUS "OpenCV library status:")

@@ -1,0 +1,311 @@
+\hypertarget{classAStar}{}\doxysection{AStar Class Reference}
+\label{classAStar}\index{AStar@{AStar}}
+
+
+{\ttfamily \#include $<$A$\ast$ Pathfindig.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classAStar_a91d5a9627d610fbb1c66b9179ba0fd69}{is\+Valid}} (int x, int y)
+\item 
+static bool \mbox{\hyperlink{classAStar_a01c1426e97c4abcf6c4797f118fc3d2b}{is\+Destination}} (int x, int y, \mbox{\hyperlink{classmatrixNode}{matrix\+Node}} dest)
+\item 
+static double \mbox{\hyperlink{classAStar_a2f31749735493dca105fc41083e97c28}{calculateH}} (int x, int y, \mbox{\hyperlink{classmatrixNode}{matrix\+Node}} dest)
+\item 
+static \mbox{\hyperlink{classList}{List}}$<$ int $>$ \mbox{\hyperlink{classAStar_ada9cf7432f823a2486bc2d5366b000a1}{make\+Path}} (\mbox{\hyperlink{classmatrixNode}{matrix\+Node}} game\+Field\mbox{[}5\mbox{]}\mbox{[}10\mbox{]}, \mbox{\hyperlink{classmatrixNode}{matrix\+Node}} dest)
+\item 
+static \mbox{\hyperlink{classList}{List}}$<$ int $>$ \mbox{\hyperlink{classAStar_aee1c5e0dd32f62091277d86d7985ab76}{a\+Star}} (int player\+Pos, int dest\+Pos)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class of Pathfindig A$\ast$ to search the route of player 
+
+Definition at line 19 of file A$\ast$ Pathfindig.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAStar_aee1c5e0dd32f62091277d86d7985ab76}\label{classAStar_aee1c5e0dd32f62091277d86d7985ab76}} 
+\index{AStar@{AStar}!aStar@{aStar}}
+\index{aStar@{aStar}!AStar@{AStar}}
+\doxysubsubsection{\texorpdfstring{aStar()}{aStar()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classList}{List}}$<$int$>$ AStar\+::a\+Star (\begin{DoxyParamCaption}\item[{int}]{player\+Pos,  }\item[{int}]{dest\+Pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Function to apply the A$\ast$ to search the optimal route 
+\begin{DoxyParams}{Parameters}
+{\em player\+Pos} & Box where the ball is \\
+\hline
+{\em dest\+Pos} & Court location \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classList}{List}} of route positions to follow 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file A$\ast$ Pathfindig.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112                                                        \{}
+\DoxyCodeLine{113         \mbox{\hyperlink{classMatrix}{Matrix}} *matrix = \mbox{\hyperlink{classMatrix_a3199a435ea1e14351be773612d9ed1b1}{Matrix::GetInstance}}();}
+\DoxyCodeLine{114         \mbox{\hyperlink{classmatrixNode}{matrixNode}} player = matrix-\/>\mbox{\hyperlink{classMatrix_ae0bd8774b34666c75f1e5d1070ca130f}{FindinPosition}}(playerPos);}
+\DoxyCodeLine{115         \mbox{\hyperlink{classmatrixNode}{matrixNode}} dest = matrix-\/>\mbox{\hyperlink{classMatrix_ae0bd8774b34666c75f1e5d1070ca130f}{FindinPosition}}(destPos);}
+\DoxyCodeLine{116         \mbox{\hyperlink{classList}{List<int>}} empty;}
+\DoxyCodeLine{117         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a91d5a9627d610fbb1c66b9179ba0fd69}{isValid}}(dest.\mbox{\hyperlink{classmatrixNode_a67ce686fa2540764cb3387f18b4331b2}{getX}}(), dest.\mbox{\hyperlink{classmatrixNode_a1bee60af8ea35579ef2b512c1841276d}{getY}}()) == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{118             cout << \textcolor{stringliteral}{"{}Destination is an obstacle"{}} << endl;}
+\DoxyCodeLine{119             \textcolor{keywordflow}{return} empty;}
+\DoxyCodeLine{120             \textcolor{comment}{//Destination is invalid}}
+\DoxyCodeLine{121         \}}
+\DoxyCodeLine{122         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a01c1426e97c4abcf6c4797f118fc3d2b}{isDestination}}(player.\mbox{\hyperlink{classmatrixNode_a67ce686fa2540764cb3387f18b4331b2}{getX}}(), player.\mbox{\hyperlink{classmatrixNode_a1bee60af8ea35579ef2b512c1841276d}{getY}}(), dest)) \{}
+\DoxyCodeLine{123             cout << \textcolor{stringliteral}{"{}You are the destination"{}} << endl;}
+\DoxyCodeLine{124             \textcolor{keywordflow}{return} empty;}
+\DoxyCodeLine{125             \textcolor{comment}{//You clicked on yourself}}
+\DoxyCodeLine{126         \}}
+\DoxyCodeLine{127         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a91d5a9627d610fbb1c66b9179ba0fd69}{isValid}}(player.\mbox{\hyperlink{classmatrixNode_a67ce686fa2540764cb3387f18b4331b2}{getX}}(), player.\mbox{\hyperlink{classmatrixNode_a1bee60af8ea35579ef2b512c1841276d}{getY}}()) == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{128             \textcolor{keywordflow}{return} \mbox{\hyperlink{classAStar_aee1c5e0dd32f62091277d86d7985ab76}{aStar}}(playerPos+1,destPos);}
+\DoxyCodeLine{129         \}}
+\DoxyCodeLine{130         \textcolor{keywordtype}{bool} closedList[5][10];}
+\DoxyCodeLine{131         \textcolor{comment}{//Initialize whole map}}
+\DoxyCodeLine{132         matrix-\/>\mbox{\hyperlink{classMatrix_a4eee454438d97332dce65a0e0620f393}{ResetforPathfinding}}();}
+\DoxyCodeLine{133         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 5; i++) \{}
+\DoxyCodeLine{134             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 10; j++) \{}
+\DoxyCodeLine{135                 closedList[i][j] = \textcolor{keyword}{false};}
+\DoxyCodeLine{136             \}}
+\DoxyCodeLine{137         \}}
+\DoxyCodeLine{138         \textcolor{comment}{//Initialize our starting list}}
+\DoxyCodeLine{139         \textcolor{keywordtype}{int} x = player.\mbox{\hyperlink{classmatrixNode_a67ce686fa2540764cb3387f18b4331b2}{getX}}();}
+\DoxyCodeLine{140         \textcolor{keywordtype}{int} y = player.\mbox{\hyperlink{classmatrixNode_a1bee60af8ea35579ef2b512c1841276d}{getY}}();}
+\DoxyCodeLine{141         matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x][y].\mbox{\hyperlink{classmatrixNode_ab1d98baa2d439e979ac9a656c36d9568}{setFCost}}(0.0);}
+\DoxyCodeLine{142         matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x][y].\mbox{\hyperlink{classmatrixNode_ac3f861f062d314c0ba1234f11aed654c}{setGCost}}(0.0);}
+\DoxyCodeLine{143         matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x][y].\mbox{\hyperlink{classmatrixNode_afb03f3a36b9722ee633b59a62792aa32}{setHCost}}(0.0);}
+\DoxyCodeLine{144         matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x][y].\mbox{\hyperlink{classmatrixNode_a4b559fab13fb1e6476d4b4af99230bd3}{setParentX}}(x);}
+\DoxyCodeLine{145         matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x][y].\mbox{\hyperlink{classmatrixNode_a6b393df2df65cf559d9a46e0dba3dd84}{setParentY}}(y);}
+\DoxyCodeLine{146         \mbox{\hyperlink{classList}{List<matrixNode>}} openList;}
+\DoxyCodeLine{147         openList.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x][y]);}
+\DoxyCodeLine{148         \textcolor{keywordtype}{bool} destinationFound = \textcolor{keyword}{false};}
+\DoxyCodeLine{149         \textcolor{keywordflow}{while} (openList.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}()!=0\&\&openList.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}()<50) \{}
+\DoxyCodeLine{150             \mbox{\hyperlink{classmatrixNode}{matrixNode}} node;}
+\DoxyCodeLine{151             \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{152                 \textcolor{keywordtype}{float} temp = FLT\_MAX;}
+\DoxyCodeLine{153                 \mbox{\hyperlink{classmatrixNode}{matrixNode}} itNode;}
+\DoxyCodeLine{154                 \mbox{\hyperlink{classNode}{Node<matrixNode>}} *it = openList.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(0);}
+\DoxyCodeLine{155                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i =0;i < openList.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}(); i++) \{}
+\DoxyCodeLine{156                     \mbox{\hyperlink{classmatrixNode}{matrixNode}} n = it-\/>\mbox{\hyperlink{classNode_aecea97aa9915521fe092d92a8e7fc8b8}{getValue}}();}
+\DoxyCodeLine{157                     \textcolor{keywordflow}{if} (n.\mbox{\hyperlink{classmatrixNode_a78ac2459a1bd63daf18576fc4b076c63}{getFCost}}() < temp) \{}
+\DoxyCodeLine{158                         temp = n.\mbox{\hyperlink{classmatrixNode_a78ac2459a1bd63daf18576fc4b076c63}{getFCost}}();}
+\DoxyCodeLine{159                         itNode = it-\/>\mbox{\hyperlink{classNode_aecea97aa9915521fe092d92a8e7fc8b8}{getValue}}();}
+\DoxyCodeLine{160                     \}}
+\DoxyCodeLine{161                     it = it-\/>\mbox{\hyperlink{classNode_aa3ef08c649398c76dc38011a91b08d4b}{getNext}}();}
+\DoxyCodeLine{162                 \}}
+\DoxyCodeLine{163                 node = itNode;}
+\DoxyCodeLine{164                 openList.\mbox{\hyperlink{classList_aacd7b81f4e55b99082dd8d16751ac906}{deletematrixNode}}(itNode);}
+\DoxyCodeLine{165             \} \textcolor{keywordflow}{while} (\mbox{\hyperlink{classAStar_a91d5a9627d610fbb1c66b9179ba0fd69}{isValid}}(node.\mbox{\hyperlink{classmatrixNode_a67ce686fa2540764cb3387f18b4331b2}{getX}}(), node.\mbox{\hyperlink{classmatrixNode_a1bee60af8ea35579ef2b512c1841276d}{getY}}()) == \textcolor{keyword}{false});}
+\DoxyCodeLine{166             x = node.\mbox{\hyperlink{classmatrixNode_a67ce686fa2540764cb3387f18b4331b2}{getX}}();}
+\DoxyCodeLine{167             y = node.\mbox{\hyperlink{classmatrixNode_a1bee60af8ea35579ef2b512c1841276d}{getY}}();}
+\DoxyCodeLine{168             closedList[x][y] = \textcolor{keyword}{true};}
+\DoxyCodeLine{169             \textcolor{comment}{//For each neighbour starting from North-\/West to South-\/East}}
+\DoxyCodeLine{170             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} newX = -\/1; newX <= 1; newX++) \{}
+\DoxyCodeLine{171                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} newY = -\/1; newY <= 1; newY++) \{}
+\DoxyCodeLine{172                     \textcolor{keywordtype}{double} gNew, hNew, fNew;}
+\DoxyCodeLine{173                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a91d5a9627d610fbb1c66b9179ba0fd69}{isValid}}(x + newX, y + newY)) \{}
+\DoxyCodeLine{174                         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classAStar_a01c1426e97c4abcf6c4797f118fc3d2b}{isDestination}}(x + newX, y + newY, dest))}
+\DoxyCodeLine{175                         \{}
+\DoxyCodeLine{176                             matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x + newX][y + newY].\mbox{\hyperlink{classmatrixNode_a4b559fab13fb1e6476d4b4af99230bd3}{setParentX}}(x);}
+\DoxyCodeLine{177                             matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x + newX][y + newY].\mbox{\hyperlink{classmatrixNode_a6b393df2df65cf559d9a46e0dba3dd84}{setParentY}}(y);}
+\DoxyCodeLine{178                             destinationFound = \textcolor{keyword}{true};}
+\DoxyCodeLine{179                             \textcolor{keywordflow}{return} \mbox{\hyperlink{classAStar_ada9cf7432f823a2486bc2d5366b000a1}{makePath}}(matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}, dest);}
+\DoxyCodeLine{180                         \}}
+\DoxyCodeLine{181                         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (closedList[x + newX][y + newY] == \textcolor{keyword}{false})}
+\DoxyCodeLine{182                         \{}
+\DoxyCodeLine{183                             \textcolor{keywordflow}{if}(abs(newX) == abs(newY))\{}
+\DoxyCodeLine{184                                 gNew = node.\mbox{\hyperlink{classmatrixNode_acbe5e3e5cae06b2b383978cf726fdb46}{getGCost}}() + 1.4;}
+\DoxyCodeLine{185                             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{186                                 gNew = node.\mbox{\hyperlink{classmatrixNode_acbe5e3e5cae06b2b383978cf726fdb46}{getGCost}}() + 1.0;}
+\DoxyCodeLine{187                             \}}
+\DoxyCodeLine{188                             hNew = \mbox{\hyperlink{classAStar_a2f31749735493dca105fc41083e97c28}{calculateH}}(x + newX, y + newY, dest);}
+\DoxyCodeLine{189                             fNew = gNew + hNew;}
+\DoxyCodeLine{190                             \textcolor{keywordflow}{if} (matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x + newX][y + newY].\mbox{\hyperlink{classmatrixNode_a78ac2459a1bd63daf18576fc4b076c63}{getFCost}}() == FLT\_MAX ||}
+\DoxyCodeLine{191                                 matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x + newX][y + newY].\mbox{\hyperlink{classmatrixNode_a78ac2459a1bd63daf18576fc4b076c63}{getFCost}}() > fNew)}
+\DoxyCodeLine{192                             \{}
+\DoxyCodeLine{193                                 \textcolor{comment}{// Actualizar datos de los vecinos}}
+\DoxyCodeLine{194                                 matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x + newX][y + newY].\mbox{\hyperlink{classmatrixNode_ab1d98baa2d439e979ac9a656c36d9568}{setFCost}}(fNew);}
+\DoxyCodeLine{195                                 matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x + newX][y + newY].\mbox{\hyperlink{classmatrixNode_ac3f861f062d314c0ba1234f11aed654c}{setGCost}}(gNew);}
+\DoxyCodeLine{196                                 matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x + newX][y + newY].\mbox{\hyperlink{classmatrixNode_afb03f3a36b9722ee633b59a62792aa32}{setHCost}}(hNew);}
+\DoxyCodeLine{197                                 matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x + newX][y + newY].\mbox{\hyperlink{classmatrixNode_a4b559fab13fb1e6476d4b4af99230bd3}{setParentX}}(x);}
+\DoxyCodeLine{198                                 matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x + newX][y + newY].\mbox{\hyperlink{classmatrixNode_a6b393df2df65cf559d9a46e0dba3dd84}{setParentY}}(y);}
+\DoxyCodeLine{199                                 openList.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x + newX][y + newY]);}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201                             \}}
+\DoxyCodeLine{202                         \}}
+\DoxyCodeLine{203                     \}}
+\DoxyCodeLine{204                 \}}
+\DoxyCodeLine{205             \}}
+\DoxyCodeLine{206         \}}
+\DoxyCodeLine{207         \textcolor{keywordflow}{if} (destinationFound == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{208             cout << \textcolor{stringliteral}{"{}Destination not found"{}} << endl;}
+\DoxyCodeLine{209             \textcolor{keywordflow}{return} empty;}
+\DoxyCodeLine{210         \}}
+\DoxyCodeLine{211     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAStar_a2f31749735493dca105fc41083e97c28}\label{classAStar_a2f31749735493dca105fc41083e97c28}} 
+\index{AStar@{AStar}!calculateH@{calculateH}}
+\index{calculateH@{calculateH}!AStar@{AStar}}
+\doxysubsubsection{\texorpdfstring{calculateH()}{calculateH()}}
+{\footnotesize\ttfamily static double AStar\+::calculateH (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{classmatrixNode}{matrix\+Node}}}]{dest }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Function to calculate the heuristic cost 
+\begin{DoxyParams}{Parameters}
+{\em x} & Row \\
+\hline
+{\em y} & Column \\
+\hline
+{\em dest} & Box to finish \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the cost 
+\end{DoxyReturn}
+
+
+Definition at line 60 of file A$\ast$ Pathfindig.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60                                                             \{}
+\DoxyCodeLine{61         \textcolor{keywordtype}{double} H = (sqrt((x -\/ dest.\mbox{\hyperlink{classmatrixNode_a67ce686fa2540764cb3387f18b4331b2}{getX}}())*(x -\/ dest.\mbox{\hyperlink{classmatrixNode_a67ce686fa2540764cb3387f18b4331b2}{getX}}())}
+\DoxyCodeLine{62                          + (y -\/ dest.\mbox{\hyperlink{classmatrixNode_a1bee60af8ea35579ef2b512c1841276d}{getY}}())*(y -\/ dest.\mbox{\hyperlink{classmatrixNode_a1bee60af8ea35579ef2b512c1841276d}{getY}}())));}
+\DoxyCodeLine{63         \textcolor{keywordflow}{return} H;}
+\DoxyCodeLine{64     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAStar_a01c1426e97c4abcf6c4797f118fc3d2b}\label{classAStar_a01c1426e97c4abcf6c4797f118fc3d2b}} 
+\index{AStar@{AStar}!isDestination@{isDestination}}
+\index{isDestination@{isDestination}!AStar@{AStar}}
+\doxysubsubsection{\texorpdfstring{isDestination()}{isDestination()}}
+{\footnotesize\ttfamily static bool AStar\+::is\+Destination (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{classmatrixNode}{matrix\+Node}}}]{dest }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Valued if the box is the goal 
+\begin{DoxyParams}{Parameters}
+{\em x} & Row \\
+\hline
+{\em y} & Column \\
+\hline
+{\em dest} & Goal \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the box is the finish 
+\end{DoxyReturn}
+
+
+Definition at line 46 of file A$\ast$ Pathfindig.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46                                                              \{}
+\DoxyCodeLine{47         \textcolor{keywordflow}{if} (x == dest.\mbox{\hyperlink{classmatrixNode_a67ce686fa2540764cb3387f18b4331b2}{getX}}() \&\& y == dest.\mbox{\hyperlink{classmatrixNode_a1bee60af8ea35579ef2b512c1841276d}{getY}}()) \{}
+\DoxyCodeLine{48             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{49         \}}
+\DoxyCodeLine{50         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{51     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAStar_a91d5a9627d610fbb1c66b9179ba0fd69}\label{classAStar_a91d5a9627d610fbb1c66b9179ba0fd69}} 
+\index{AStar@{AStar}!isValid@{isValid}}
+\index{isValid@{isValid}!AStar@{AStar}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily static bool AStar\+::is\+Valid (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Define if the box is a obstacle or is free 
+\begin{DoxyParams}{Parameters}
+{\em x} & Row of box \\
+\hline
+{\em y} & Columns of box \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the box is free 
+\end{DoxyReturn}
+
+
+Definition at line 28 of file A$\ast$ Pathfindig.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                                       \{ \textcolor{comment}{//If our Node is an obstacle it is not valid}}
+\DoxyCodeLine{29         \textcolor{keywordflow}{if} ((y >= 0 \&\& y < 10) \&\& (x >= 0 \&\& x < 5))\{}
+\DoxyCodeLine{30             \mbox{\hyperlink{classMatrix}{Matrix}} *matrix = \mbox{\hyperlink{classMatrix_a3199a435ea1e14351be773612d9ed1b1}{Matrix::GetInstance}}();}
+\DoxyCodeLine{31             matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x][y].\mbox{\hyperlink{classmatrixNode_ae2b3dccc1a045e83d5d14c5ffd02963c}{isObstacule}}();}
+\DoxyCodeLine{32             \textcolor{keywordflow}{return} !matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[x][y].\mbox{\hyperlink{classmatrixNode_ae2b3dccc1a045e83d5d14c5ffd02963c}{isObstacule}}();}
+\DoxyCodeLine{33         \}}
+\DoxyCodeLine{34         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{35             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{36         \}}
+\DoxyCodeLine{37     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAStar_ada9cf7432f823a2486bc2d5366b000a1}\label{classAStar_ada9cf7432f823a2486bc2d5366b000a1}} 
+\index{AStar@{AStar}!makePath@{makePath}}
+\index{makePath@{makePath}!AStar@{AStar}}
+\doxysubsubsection{\texorpdfstring{makePath()}{makePath()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classList}{List}}$<$int$>$ AStar\+::make\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmatrixNode}{matrix\+Node}}}]{game\+Field\mbox{[}5\mbox{]}\mbox{[}10\mbox{]},  }\item[{\mbox{\hyperlink{classmatrixNode}{matrix\+Node}}}]{dest }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Constructor of the expected route 
+\begin{DoxyParams}{Parameters}
+{\em game\+Field} & Playing field matrix \\
+\hline
+{\em dest} & the final box \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classList}{List}} of route positions to follow 
+\end{DoxyReturn}
+
+
+Definition at line 72 of file A$\ast$ Pathfindig.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72                                                                              \{}
+\DoxyCodeLine{73         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{74             cout << \textcolor{stringliteral}{"{}Found a path"{}} << endl;}
+\DoxyCodeLine{75             \textcolor{keywordtype}{int} x = dest.\mbox{\hyperlink{classmatrixNode_a67ce686fa2540764cb3387f18b4331b2}{getX}}();}
+\DoxyCodeLine{76             \textcolor{keywordtype}{int} y = dest.\mbox{\hyperlink{classmatrixNode_a1bee60af8ea35579ef2b512c1841276d}{getY}}();}
+\DoxyCodeLine{77             \mbox{\hyperlink{classList}{List<int>}} path;}
+\DoxyCodeLine{78             \mbox{\hyperlink{classList}{List<int>}} usablePath;}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80             \textcolor{keywordflow}{while} (!(gameField[x][y].getParentX() == x \&\& gameField[x][y].getParentY() == y)}
+\DoxyCodeLine{81                    \&\& gameField[x][y].getX() != -\/1 \&\& gameField[x][y].getY() != -\/1)}
+\DoxyCodeLine{82             \{}
+\DoxyCodeLine{83                 path.\mbox{\hyperlink{classList_a7a9622632b67aff2e2e57abc4fae72f6}{insertFirst}}(gameField[x][y].getPosition());}
+\DoxyCodeLine{84                 \textcolor{keywordtype}{int} tempX = gameField[x][y].\mbox{\hyperlink{classmatrixNode_a963b35c4d3a9d80ee74979f710ee47c1}{getParentX}}();}
+\DoxyCodeLine{85                 \textcolor{keywordtype}{int} tempY = gameField[x][y].\mbox{\hyperlink{classmatrixNode_ac7ab4ad29f0ab904f026b9378c145065}{getParentY}}();}
+\DoxyCodeLine{86                 x = tempX;}
+\DoxyCodeLine{87                 y = tempY;}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89             \}}
+\DoxyCodeLine{90             path.\mbox{\hyperlink{classList_a7a9622632b67aff2e2e57abc4fae72f6}{insertFirst}}(gameField[x][y].getPosition());}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92             \textcolor{keywordflow}{while} (path.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}()!=0) \{}
+\DoxyCodeLine{93                 \mbox{\hyperlink{classNode}{Node<int>}} *topNode = path.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(0);}
+\DoxyCodeLine{94                 \textcolor{keywordtype}{int} top = topNode-\/>\mbox{\hyperlink{classNode_aecea97aa9915521fe092d92a8e7fc8b8}{getValue}}();}
+\DoxyCodeLine{95                 path.\mbox{\hyperlink{classList_a3f675bfe51871f26d048be5d314ab4a0}{deleteNode}}(topNode-\/>\mbox{\hyperlink{classNode_aecea97aa9915521fe092d92a8e7fc8b8}{getValue}}());}
+\DoxyCodeLine{96                 usablePath.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(top);}
+\DoxyCodeLine{97             \}}
+\DoxyCodeLine{98             \textcolor{keywordflow}{return} usablePath;}
+\DoxyCodeLine{99         \}}
+\DoxyCodeLine{100         \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} exception\& e)\{}
+\DoxyCodeLine{101             cout << e.what() << endl;}
+\DoxyCodeLine{102         \}}
+\DoxyCodeLine{103     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{A_5_01Pathfindig_8h}{A$\ast$ Pathfindig.\+h}}\end{DoxyCompactItemize}

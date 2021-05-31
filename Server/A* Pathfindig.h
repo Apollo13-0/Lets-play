@@ -13,9 +13,18 @@
 #include "Matrix.h"
 #include "List.h"
 
+/**
+ * Class of Pathfinding A* to search the route of the player
+ */
 class AStar {
 public:
 
+    /**
+     * Define if the box is a obstacle or is out of bounds
+     * @param x Row of box
+     * @param y Column of box
+     * @return True if the A* can use the box
+     */
     static bool isValid(int x, int y) { //If our Node is an obstacle it is not valid
         if ((y >= 0 && y < 10) && (x >= 0 && x < 5)){
             Matrix *matrix = Matrix::GetInstance();
@@ -27,6 +36,13 @@ public:
         }
     }
 
+    /**
+     * Valued if the box is the goal
+     * @param x Row
+     * @param y Column
+     * @param dest Goal
+     * @return True if the box is the finish
+     */
     static bool isDestination(int x, int y, matrixNode dest) {
         if (x == dest.getX() && y == dest.getY()) {
             return true;
@@ -34,12 +50,25 @@ public:
         return false;
     }
 
+    /**
+     * Function to calculate the heuristic cost
+     * @param x Row
+     * @param y Column
+     * @param dest Box to finish
+     * @return the cost
+     */
     static double calculateH(int x, int y, matrixNode dest) {
         double H = (sqrt((x - dest.getX())*(x - dest.getX())
                          + (y - dest.getY())*(y - dest.getY())));
         return H;
     }
 
+    /**
+     * Constructor of the expected route
+     * @param gameField Playing field matrix
+     * @param dest the final box
+     * @return List of route positions to follow
+     */
     static List<int> makePath(matrixNode gameField [5][10], matrixNode dest) {
         try {
             cout << "Found a path" << endl;
@@ -64,7 +93,6 @@ public:
                 Node<int> *topNode = path.find(0);
                 int top = topNode->getValue();
                 path.deleteNode(topNode->getValue());
-                //cout << top.x << " " << top.y << endl;
                 usablePath.insertLast(top);
             }
             return usablePath;
@@ -75,6 +103,12 @@ public:
     }
 
 
+    /**
+     * Function to apply the A* to search the optimal route
+     * @param playerPos Box where the ball is
+     * @param destPos Court location
+     * @return List of route positions to follow
+     */
     static List<int> aStar(int playerPos, int destPos) {
         Matrix *matrix = Matrix::GetInstance();
         matrixNode player = matrix->FindinPosition(playerPos);

@@ -7,7 +7,15 @@
 #include "cfloat"
 
 using namespace std;
+
+/**
+ * Init the matrix Singleton
+ */
 Matrix* Matrix::instance= NULL;
+
+/**
+ * Constructor of the Matrix
+ */
 Matrix::Matrix() {
     int rows = (sizeof (Matrix::gameField)/sizeof (Matrix::gameField [0]));
     int columns = (sizeof (Matrix::gameField[0])/sizeof (Matrix::gameField [0][0]));
@@ -26,6 +34,10 @@ Matrix::Matrix() {
         }
     }
 }
+
+/**
+ * Remove all the obstacles in the matrix
+ */
 void Matrix::ResetObstaculesMatrix(){
     int rows = (sizeof (Matrix::gameField)/sizeof (Matrix::gameField [0]));
     int columns = (sizeof (Matrix::gameField[0])/sizeof (Matrix::gameField [0][0]));
@@ -35,6 +47,7 @@ void Matrix::ResetObstaculesMatrix(){
         }
     }
 }
+
 Matrix *Matrix::GetInstance() {
     if (instance == NULL){
         instance = new Matrix();
@@ -42,6 +55,11 @@ Matrix *Matrix::GetInstance() {
     return instance;
 }
 
+/**
+ * Find the node in the position provided
+ * @param position
+ * @return
+ */
 matrixNode Matrix::FindinPosition(int position){
     int row=0;
     int column= position%10;
@@ -52,6 +70,9 @@ matrixNode Matrix::FindinPosition(int position){
     return Matrix::gameField [row][column];
 }
 
+/**
+ * Reset all atributes of the Pathfinding
+ */
 void Matrix::ResetforPathfinding (){
     int rows = (sizeof (Matrix::gameField)/sizeof (Matrix::gameField [0]));
     int columns = (sizeof (Matrix::gameField[0])/sizeof (Matrix::gameField [0][0]));

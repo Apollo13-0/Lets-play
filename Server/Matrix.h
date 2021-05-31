@@ -8,6 +8,9 @@
 
 #include "matrixNode.h"
 
+/**
+ * Class of the Pathfinding
+ */
 class Matrix {
 
 protected:

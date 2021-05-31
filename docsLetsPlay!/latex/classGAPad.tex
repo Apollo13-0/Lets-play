@@ -1,0 +1,398 @@
+\hypertarget{classGAPad}{}\doxysection{GAPad Class Reference}
+\label{classGAPad}\index{GAPad@{GAPad}}
+
+
+{\ttfamily \#include $<$GAPad.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+$\ast$ \mbox{\hyperlink{classGAPad_a3d480247838fd3aeb7e0831e95caffd9}{GAPad}} (int rows\+\_\+, int columns\+\_\+)
+\item 
+void \mbox{\hyperlink{classGAPad_a369c63cd053742835b822bd1bcd84fd6}{swap}} (vector$<$ int $>$ a, vector$<$ int $>$ b)
+\item 
+bool \mbox{\hyperlink{classGAPad_a6e90c7c893e1a9e1c3c759d95227d2dc}{move\+\_\+left}} ()
+\item 
+bool \mbox{\hyperlink{classGAPad_a5d051d246cf92dfaa20cd6110a008998}{move\+\_\+right}} ()
+\item 
+bool \mbox{\hyperlink{classGAPad_ad4aae2c1f5edbe49c11dd91016578308}{move\+\_\+up}} ()
+\item 
+bool \mbox{\hyperlink{classGAPad_a53b5ccb245089c7f5b9e563537c79c37}{move\+\_\+down}} ()
+\item 
+vector$<$ int $>$ \mbox{\hyperlink{classGAPad_a376eaf694fe6f1143627e2e261771413}{find\+\_\+0}} (int num)
+\item 
+void \mbox{\hyperlink{classGAPad_ad71aaea96ad0bd0675234a2d60fb961a}{shuffle}} ()
+\item 
+void \mbox{\hyperlink{classGAPad_a1ac8ee3b4f0809c4e8115151abe92a14}{apply\+\_\+chain}} (\mbox{\hyperlink{classList}{List}}$<$ string $>$ chain)
+\item 
+float \mbox{\hyperlink{classGAPad_a36568c2d7c25ddeaec8a5503ea23c7ec}{cost}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}{rows}}
+\item 
+int \mbox{\hyperlink{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}{columns}}
+\item 
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{classGAPad_ac329937dcebceccf93a326f8ab49a06f}{board}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Initial pad constructor 
+
+Definition at line 16 of file GAPad.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGAPad_a3d480247838fd3aeb7e0831e95caffd9}\label{classGAPad_a3d480247838fd3aeb7e0831e95caffd9}} 
+\index{GAPad@{GAPad}!GAPad@{GAPad}}
+\index{GAPad@{GAPad}!GAPad@{GAPad}}
+\doxysubsubsection{\texorpdfstring{GAPad()}{GAPad()}}
+{\footnotesize\ttfamily $\ast$ GAPad\+::\+GAPad (\begin{DoxyParamCaption}\item[{int}]{rows\+\_\+,  }\item[{int}]{columns\+\_\+ }\end{DoxyParamCaption})}
+
+Initial pad constructor 
+
+Definition at line 19 of file GAPad.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19                                      \{}
+\DoxyCodeLine{20     \mbox{\hyperlink{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}{rows}} = rows\_;}
+\DoxyCodeLine{21     \mbox{\hyperlink{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}{columns}} = columns\_;}
+\DoxyCodeLine{22     vector<vector<int>> vector\_board(\mbox{\hyperlink{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}{GAPad::rows}}, vector<int> (\mbox{\hyperlink{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}{GAPad::columns}}, 0));}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} index = 0;}
+\DoxyCodeLine{24     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&item : vector\_board) \{}
+\DoxyCodeLine{25         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&i : item) \{}
+\DoxyCodeLine{26             i = index;}
+\DoxyCodeLine{27             index += 1;}
+\DoxyCodeLine{28         \}}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30     \mbox{\hyperlink{classGAPad_ac329937dcebceccf93a326f8ab49a06f}{GAPad::board}} = vector\_board;}
+\DoxyCodeLine{31 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGAPad_a1ac8ee3b4f0809c4e8115151abe92a14}\label{classGAPad_a1ac8ee3b4f0809c4e8115151abe92a14}} 
+\index{GAPad@{GAPad}!apply\_chain@{apply\_chain}}
+\index{apply\_chain@{apply\_chain}!GAPad@{GAPad}}
+\doxysubsubsection{\texorpdfstring{apply\_chain()}{apply\_chain()}}
+{\footnotesize\ttfamily void GAPad\+::apply\+\_\+chain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classList}{List}}$<$ string $>$}]{chain }\end{DoxyParamCaption})}
+
+function to apply a series of movements to the pad 
+\begin{DoxyParams}{Parameters}
+{\em chain} & to the movements \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 160 of file GAPad.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{160                                           \{}
+\DoxyCodeLine{161     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < chain.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}(); ++i) \{}
+\DoxyCodeLine{162         \textcolor{keywordtype}{string} apply = chain.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(i)-\/>getValue();}
+\DoxyCodeLine{163         \textcolor{keywordflow}{if} (apply == \textcolor{stringliteral}{"{}up"{}})\{\mbox{\hyperlink{classGAPad_ad4aae2c1f5edbe49c11dd91016578308}{move\_up}}();\}}
+\DoxyCodeLine{164         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (apply == \textcolor{stringliteral}{"{}down"{}})\{ \mbox{\hyperlink{classGAPad_a53b5ccb245089c7f5b9e563537c79c37}{move\_down}}();\}}
+\DoxyCodeLine{165         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (apply == \textcolor{stringliteral}{"{}left"{}})\{ \mbox{\hyperlink{classGAPad_a6e90c7c893e1a9e1c3c759d95227d2dc}{move\_left}}();\}}
+\DoxyCodeLine{166         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (apply == \textcolor{stringliteral}{"{}right"{}})\{\mbox{\hyperlink{classGAPad_a5d051d246cf92dfaa20cd6110a008998}{move\_right}}();\}}
+\DoxyCodeLine{167     \}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGAPad_a36568c2d7c25ddeaec8a5503ea23c7ec}\label{classGAPad_a36568c2d7c25ddeaec8a5503ea23c7ec}} 
+\index{GAPad@{GAPad}!cost@{cost}}
+\index{cost@{cost}!GAPad@{GAPad}}
+\doxysubsubsection{\texorpdfstring{cost()}{cost()}}
+{\footnotesize\ttfamily float GAPad\+::cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Function to calculate the error associated to the Pad (fitness) \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+vector$<$vector$<$int$>$$>$ reference; reference.\+push\+\_\+back(\{0,0\}); reference.\+push\+\_\+back(\{0,1\}); reference.\+push\+\_\+back(\{0,2\}); reference.\+push\+\_\+back(\{1,0\}); reference.\+push\+\_\+back(\{1,1\}); reference.\+push\+\_\+back(\{1,2\}); reference.\+push\+\_\+back(\{2,0\}); reference.\+push\+\_\+back(\{2,1\}); reference.\+push\+\_\+back(\{2,2\});
+
+Definition at line 175 of file GAPad.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{175                   \{}
+\DoxyCodeLine{187     vector <vector<int>> reference ;}
+\DoxyCodeLine{188     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}{rows}}; i++) \{}
+\DoxyCodeLine{189         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}{columns}}; j++) \{}
+\DoxyCodeLine{190             reference.push\_back(\{i,j\});}
+\DoxyCodeLine{191         \}}
+\DoxyCodeLine{192     \}}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194     \textcolor{keywordtype}{float} \mbox{\hyperlink{namespacenlohmann_1_1detail_a58bb1ef1a9ad287a9cfaf1855784d9acacb5e100e5a9a3e7f6d1fd97512215282}{error}} = 0.0;}
+\DoxyCodeLine{195     vector<int>index = \{\};}
+\DoxyCodeLine{196     vector<int>ref\_ind = \{\};}
+\DoxyCodeLine{197     \textcolor{comment}{//for (int i = 0; i < 9; ++i) \{}}
+\DoxyCodeLine{198     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < (\mbox{\hyperlink{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}{rows}}*\mbox{\hyperlink{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}{columns}}); ++i) \{}
+\DoxyCodeLine{199         index = \mbox{\hyperlink{classGAPad_a376eaf694fe6f1143627e2e261771413}{find\_0}}(i);}
+\DoxyCodeLine{200         ref\_ind = reference.at(i);}
+\DoxyCodeLine{201         \mbox{\hyperlink{namespacenlohmann_1_1detail_a58bb1ef1a9ad287a9cfaf1855784d9acacb5e100e5a9a3e7f6d1fd97512215282}{error}} += pow((index.at(0) -\/ ref\_ind.at(0)), 2)}
+\DoxyCodeLine{202                  + pow((index.at(1) -\/ ref\_ind.at(1)), 2);}
+\DoxyCodeLine{203     \}}
+\DoxyCodeLine{204     \textcolor{keywordtype}{float} test = \mbox{\hyperlink{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}{rows}}*\mbox{\hyperlink{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}{columns}};}
+\DoxyCodeLine{205     \mbox{\hyperlink{namespacenlohmann_1_1detail_a58bb1ef1a9ad287a9cfaf1855784d9acacb5e100e5a9a3e7f6d1fd97512215282}{error}} /= test;}
+\DoxyCodeLine{206     \textcolor{comment}{//error /= 9.0;}}
+\DoxyCodeLine{207     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacenlohmann_1_1detail_a58bb1ef1a9ad287a9cfaf1855784d9acacb5e100e5a9a3e7f6d1fd97512215282}{error}};}
+\DoxyCodeLine{208 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGAPad_a376eaf694fe6f1143627e2e261771413}\label{classGAPad_a376eaf694fe6f1143627e2e261771413}} 
+\index{GAPad@{GAPad}!find\_0@{find\_0}}
+\index{find\_0@{find\_0}!GAPad@{GAPad}}
+\doxysubsubsection{\texorpdfstring{find\_0()}{find\_0()}}
+{\footnotesize\ttfamily vector$<$ int $>$ GAPad\+::find\+\_\+0 (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})}
+
+Funtion to localizate a piece in the Pad 
+\begin{DoxyParams}{Parameters}
+{\em num} & Piece to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Position in the pad 
+\end{DoxyReturn}
+
+
+Definition at line 110 of file GAPad.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110                                  \{}
+\DoxyCodeLine{111     \textcolor{keywordtype}{int} x = -\/1;}
+\DoxyCodeLine{112     \textcolor{keywordtype}{int} y = -\/1;}
+\DoxyCodeLine{113     vector<int> myvector = \{0,0\};}
+\DoxyCodeLine{114     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&item : \mbox{\hyperlink{classGAPad_ac329937dcebceccf93a326f8ab49a06f}{GAPad::board}}) \{}
+\DoxyCodeLine{115         x++;}
+\DoxyCodeLine{116         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&i : item) \{}
+\DoxyCodeLine{117             y++;}
+\DoxyCodeLine{118             \textcolor{keywordflow}{if} (i == num) \{}
+\DoxyCodeLine{119                 vector<int> myvector = \{x, y\};}
+\DoxyCodeLine{120                 \textcolor{keywordflow}{return} myvector;}
+\DoxyCodeLine{121             \}}
+\DoxyCodeLine{122         \}}
+\DoxyCodeLine{123         y = -\/1;}
+\DoxyCodeLine{124     \}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGAPad_a53b5ccb245089c7f5b9e563537c79c37}\label{classGAPad_a53b5ccb245089c7f5b9e563537c79c37}} 
+\index{GAPad@{GAPad}!move\_down@{move\_down}}
+\index{move\_down@{move\_down}!GAPad@{GAPad}}
+\doxysubsubsection{\texorpdfstring{move\_down()}{move\_down()}}
+{\footnotesize\ttfamily bool GAPad\+::move\+\_\+down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Funtion to move the bottom piece \begin{DoxyReturn}{Returns}
+If possible 
+\end{DoxyReturn}
+
+
+Definition at line 95 of file GAPad.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{95                       \{}
+\DoxyCodeLine{96     vector<int> index = \mbox{\hyperlink{classGAPad_a376eaf694fe6f1143627e2e261771413}{find\_0}}(0);}
+\DoxyCodeLine{97     \textcolor{keywordflow}{if} (index[0] == 0)\{}
+\DoxyCodeLine{98         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{99     \}}
+\DoxyCodeLine{100     vector<int> move\_to = \{index[0] -\/ 1, index[1]\};}
+\DoxyCodeLine{101     \mbox{\hyperlink{classGAPad_a369c63cd053742835b822bd1bcd84fd6}{swap}}(index, move\_to);}
+\DoxyCodeLine{102     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{103 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGAPad_a6e90c7c893e1a9e1c3c759d95227d2dc}\label{classGAPad_a6e90c7c893e1a9e1c3c759d95227d2dc}} 
+\index{GAPad@{GAPad}!move\_left@{move\_left}}
+\index{move\_left@{move\_left}!GAPad@{GAPad}}
+\doxysubsubsection{\texorpdfstring{move\_left()}{move\_left()}}
+{\footnotesize\ttfamily bool GAPad\+::move\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Funtion to move the left piece \begin{DoxyReturn}{Returns}
+If possible 
+\end{DoxyReturn}
+
+
+Definition at line 53 of file GAPad.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53                       \{}
+\DoxyCodeLine{54     vector<int> index = \mbox{\hyperlink{classGAPad_a376eaf694fe6f1143627e2e261771413}{find\_0}}(0);}
+\DoxyCodeLine{55     \textcolor{keywordflow}{if} (index[1] >= (\mbox{\hyperlink{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}{GAPad::columns}} -\/ 1))\{}
+\DoxyCodeLine{56         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58     vector<int> move\_to = \{index[0], index[1] + 1\};}
+\DoxyCodeLine{59     \mbox{\hyperlink{classGAPad_a369c63cd053742835b822bd1bcd84fd6}{swap}}(index, move\_to);}
+\DoxyCodeLine{60     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{61 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGAPad_a5d051d246cf92dfaa20cd6110a008998}\label{classGAPad_a5d051d246cf92dfaa20cd6110a008998}} 
+\index{GAPad@{GAPad}!move\_right@{move\_right}}
+\index{move\_right@{move\_right}!GAPad@{GAPad}}
+\doxysubsubsection{\texorpdfstring{move\_right()}{move\_right()}}
+{\footnotesize\ttfamily bool GAPad\+::move\+\_\+right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Funtion to move the right piece \begin{DoxyReturn}{Returns}
+If possible 
+\end{DoxyReturn}
+
+
+Definition at line 67 of file GAPad.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67                        \{}
+\DoxyCodeLine{68     vector<int> index = \mbox{\hyperlink{classGAPad_a376eaf694fe6f1143627e2e261771413}{find\_0}}(0);}
+\DoxyCodeLine{69     \textcolor{keywordflow}{if} (index[1] == 0)\{}
+\DoxyCodeLine{70         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{71     \}}
+\DoxyCodeLine{72     vector<int> move\_to = \{index[0], index[1] -\/ 1\};}
+\DoxyCodeLine{73     \mbox{\hyperlink{classGAPad_a369c63cd053742835b822bd1bcd84fd6}{swap}}(index, move\_to);}
+\DoxyCodeLine{74     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{75 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGAPad_ad4aae2c1f5edbe49c11dd91016578308}\label{classGAPad_ad4aae2c1f5edbe49c11dd91016578308}} 
+\index{GAPad@{GAPad}!move\_up@{move\_up}}
+\index{move\_up@{move\_up}!GAPad@{GAPad}}
+\doxysubsubsection{\texorpdfstring{move\_up()}{move\_up()}}
+{\footnotesize\ttfamily bool GAPad\+::move\+\_\+up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Funtion to move the top piece \begin{DoxyReturn}{Returns}
+If possible 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file GAPad.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81                     \{}
+\DoxyCodeLine{82     vector<int> index = \mbox{\hyperlink{classGAPad_a376eaf694fe6f1143627e2e261771413}{find\_0}}(0);}
+\DoxyCodeLine{83     \textcolor{keywordflow}{if} (index[0] >= (\mbox{\hyperlink{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}{GAPad::rows}} -\/ 1))\{}
+\DoxyCodeLine{84         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{85     \}}
+\DoxyCodeLine{86     vector<int> move\_to = \{index[0] + 1, index[1] \};}
+\DoxyCodeLine{87     \mbox{\hyperlink{classGAPad_a369c63cd053742835b822bd1bcd84fd6}{swap}}(index, move\_to);}
+\DoxyCodeLine{88     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{89 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGAPad_ad71aaea96ad0bd0675234a2d60fb961a}\label{classGAPad_ad71aaea96ad0bd0675234a2d60fb961a}} 
+\index{GAPad@{GAPad}!shuffle@{shuffle}}
+\index{shuffle@{shuffle}!GAPad@{GAPad}}
+\doxysubsubsection{\texorpdfstring{shuffle()}{shuffle()}}
+{\footnotesize\ttfamily void GAPad\+::shuffle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Function in charge of mixing the Pad created to start the puzzle 
+
+Definition at line 131 of file GAPad.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{131                     \{}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     \textcolor{keywordtype}{int} a =  rand()\%30 + 10;}
+\DoxyCodeLine{134     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0 ; i < a; i++) \{}
+\DoxyCodeLine{135         \textcolor{keywordtype}{int} move =rand()\%5;}
+\DoxyCodeLine{136         \textcolor{keywordflow}{switch} (move) \{}
+\DoxyCodeLine{137             \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{138                 \mbox{\hyperlink{classGAPad_a6e90c7c893e1a9e1c3c759d95227d2dc}{GAPad::move\_left}}();}
+\DoxyCodeLine{139                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{140             \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{141                 \mbox{\hyperlink{classGAPad_a5d051d246cf92dfaa20cd6110a008998}{GAPad::move\_right}}();}
+\DoxyCodeLine{142                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{143             \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{144                 \mbox{\hyperlink{classGAPad_ad4aae2c1f5edbe49c11dd91016578308}{GAPad::move\_up}}();}
+\DoxyCodeLine{145                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{146             \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{147                 \mbox{\hyperlink{classGAPad_a53b5ccb245089c7f5b9e563537c79c37}{GAPad::move\_down}}();}
+\DoxyCodeLine{148                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{149             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{150                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{151         \}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153     \}}
+\DoxyCodeLine{154 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGAPad_a369c63cd053742835b822bd1bcd84fd6}\label{classGAPad_a369c63cd053742835b822bd1bcd84fd6}} 
+\index{GAPad@{GAPad}!swap@{swap}}
+\index{swap@{swap}!GAPad@{GAPad}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily void GAPad\+::swap (\begin{DoxyParamCaption}\item[{vector$<$ int $>$}]{a,  }\item[{vector$<$ int $>$}]{b }\end{DoxyParamCaption})}
+
+Function in charge of change the position of two pieces 
+\begin{DoxyParams}{Parameters}
+{\em a} & Position of piece one \\
+\hline
+{\em b} & Position of piece two \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file GAPad.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38                                             \{}
+\DoxyCodeLine{39     \textcolor{keywordtype}{int} a1 = a.at(0);}
+\DoxyCodeLine{40     \textcolor{keywordtype}{int} a2 = a.at(1);}
+\DoxyCodeLine{41     \textcolor{keywordtype}{int} b1 = b.at(0);}
+\DoxyCodeLine{42     \textcolor{keywordtype}{int} b2 = b.at(1);}
+\DoxyCodeLine{43     \textcolor{keywordtype}{int} aux = \mbox{\hyperlink{classGAPad_ac329937dcebceccf93a326f8ab49a06f}{GAPad::board}}[a1][a2];}
+\DoxyCodeLine{44     \mbox{\hyperlink{classGAPad_ac329937dcebceccf93a326f8ab49a06f}{GAPad::board}}[a1][a2] = \mbox{\hyperlink{classGAPad_ac329937dcebceccf93a326f8ab49a06f}{GAPad::board}}[b1][b2];}
+\DoxyCodeLine{45     \mbox{\hyperlink{classGAPad_ac329937dcebceccf93a326f8ab49a06f}{GAPad::board}}[b1][b2] = aux;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classGAPad_ac329937dcebceccf93a326f8ab49a06f}\label{classGAPad_ac329937dcebceccf93a326f8ab49a06f}} 
+\index{GAPad@{GAPad}!board@{board}}
+\index{board@{board}!GAPad@{GAPad}}
+\doxysubsubsection{\texorpdfstring{board}{board}}
+{\footnotesize\ttfamily vector$<$vector$<$int$>$ $>$ GAPad\+::board}
+
+
+
+Definition at line 21 of file GAPad.\+h.
+
+\mbox{\Hypertarget{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}\label{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}} 
+\index{GAPad@{GAPad}!columns@{columns}}
+\index{columns@{columns}!GAPad@{GAPad}}
+\doxysubsubsection{\texorpdfstring{columns}{columns}}
+{\footnotesize\ttfamily int GAPad\+::columns}
+
+
+
+Definition at line 20 of file GAPad.\+h.
+
+\mbox{\Hypertarget{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}\label{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}} 
+\index{GAPad@{GAPad}!rows@{rows}}
+\index{rows@{rows}!GAPad@{GAPad}}
+\doxysubsubsection{\texorpdfstring{rows}{rows}}
+{\footnotesize\ttfamily int GAPad\+::rows}
+
+
+
+Definition at line 19 of file GAPad.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{GAPad_8h}{GAPad.\+h}}\item 
+\mbox{\hyperlink{GAPad_8cpp}{GAPad.\+cpp}}\end{DoxyCompactItemize}

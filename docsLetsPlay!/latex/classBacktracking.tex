@@ -1,0 +1,264 @@
+\hypertarget{classBacktracking}{}\doxysection{Backtracking Class Reference}
+\label{classBacktracking}\index{Backtracking@{Backtracking}}
+
+
+Class that find the shortest path between 2 points in a matrix.  
+
+
+
+
+{\ttfamily \#include $<$Backtracking.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBacktracking_a9afe4ead7d455ef7bd132f21470a20d3}{Backtracking}} ()
+\item 
+\mbox{\hyperlink{classList}{List}}$<$ \mbox{\hyperlink{classList}{List}}$<$ int $>$ $>$ \mbox{\hyperlink{classBacktracking_a7e8de75451f95cae14428afd6261da76}{get\+Connection\+List}} (\mbox{\hyperlink{classmatrixNode}{matrix\+Node}}\mbox{[}$\,$\mbox{]}\mbox{[}10\mbox{]})
+\begin{DoxyCompactList}\small\item\em generates a list with the connections for each point \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBacktracking_a9e5e67cec2bea74a8d0fe36bc40dd524}{find\+Route}} (\mbox{\hyperlink{classList}{List}}$<$ \mbox{\hyperlink{classList}{List}}$<$ int $>$$>$ connection\+List, int start, int finish, \mbox{\hyperlink{classList}{List}}$<$ int $>$ \&visited, \mbox{\hyperlink{classList}{List}}$<$ int $>$ \&path)
+\begin{DoxyCompactList}\small\item\em method that finds the path \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classBacktracking_a13a31ff7e198486dc1595e611dd782ba}{Shortest\+Route}} (\mbox{\hyperlink{classList}{List}}$<$ \mbox{\hyperlink{classList}{List}}$<$ int $>$$>$ connection\+List, int start, int finish)
+\begin{DoxyCompactList}\small\item\em creates the solution path and the visited list \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classBacktracking_a8ca8808db019937ac0b9e27d1f4834c9}{backtraking\+String}} (\mbox{\hyperlink{classList}{List}}$<$ int $>$ path)
+\begin{DoxyCompactList}\small\item\em generates a string with the format for printing on display \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that find the shortest path between 2 points in a matrix. 
+
+Definition at line 7 of file Backtracking.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBacktracking_a9afe4ead7d455ef7bd132f21470a20d3}\label{classBacktracking_a9afe4ead7d455ef7bd132f21470a20d3}} 
+\index{Backtracking@{Backtracking}!Backtracking@{Backtracking}}
+\index{Backtracking@{Backtracking}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{Backtracking()}{Backtracking()}}
+{\footnotesize\ttfamily Backtracking\+::\+Backtracking (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 132 of file Backtracking.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{132                            \{}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBacktracking_a8ca8808db019937ac0b9e27d1f4834c9}\label{classBacktracking_a8ca8808db019937ac0b9e27d1f4834c9}} 
+\index{Backtracking@{Backtracking}!backtrakingString@{backtrakingString}}
+\index{backtrakingString@{backtrakingString}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{backtrakingString()}{backtrakingString()}}
+{\footnotesize\ttfamily string Backtracking\+::backtraking\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classList}{List}}$<$ int $>$}]{path }\end{DoxyParamCaption})}
+
+
+
+generates a string with the format for printing on display 
+
+\begin{DoxyReturn}{Returns}
+string with the solution path 
+\end{DoxyReturn}
+
+
+Definition at line 141 of file Backtracking.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{142 \{}
+\DoxyCodeLine{143     \textcolor{keywordtype}{string} resultString = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{144     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < path.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}(); i++) \{}
+\DoxyCodeLine{145         \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(path.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(i)-\/>getValue()).size() == 1)\{}
+\DoxyCodeLine{146             resultString+=\textcolor{stringliteral}{"{}0"{}}+\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(path.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(i)-\/>getValue()-\/1)+\textcolor{stringliteral}{"{}\$"{}};}
+\DoxyCodeLine{147         \}}
+\DoxyCodeLine{148         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{149             resultString+=\mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(path.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(i)-\/>getValue()-\/1)+\textcolor{stringliteral}{"{}\$"{}};}
+\DoxyCodeLine{150         \}}
+\DoxyCodeLine{151     \}}
+\DoxyCodeLine{152     \textcolor{keywordflow}{return} resultString;}
+\DoxyCodeLine{153 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBacktracking_a9e5e67cec2bea74a8d0fe36bc40dd524}\label{classBacktracking_a9e5e67cec2bea74a8d0fe36bc40dd524}} 
+\index{Backtracking@{Backtracking}!findRoute@{findRoute}}
+\index{findRoute@{findRoute}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{findRoute()}{findRoute()}}
+{\footnotesize\ttfamily bool Backtracking\+::find\+Route (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classList}{List}}$<$ \mbox{\hyperlink{classList}{List}}$<$ int $>$$>$}]{connection\+List,  }\item[{int}]{start,  }\item[{int}]{finish,  }\item[{\mbox{\hyperlink{classList}{List}}$<$ int $>$ \&}]{visited,  }\item[{\mbox{\hyperlink{classList}{List}}$<$ int $>$ \&}]{path }\end{DoxyParamCaption})}
+
+
+
+method that finds the path 
+
+\begin{DoxyReturn}{Returns}
+bool indicating the path has been found 
+\end{DoxyReturn}
+
+
+Definition at line 9 of file Backtracking.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keywordflow}{if} (start == finish)\{}
+\DoxyCodeLine{12         path.\mbox{\hyperlink{classList_a7a9622632b67aff2e2e57abc4fae72f6}{insertFirst}}(start);}
+\DoxyCodeLine{13         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{14     \}}
+\DoxyCodeLine{15     visited.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(start);}
+\DoxyCodeLine{16     \mbox{\hyperlink{classList}{List<int>}} connections = connectionList.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(start-\/1)-\/>getValue();}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < connections.\mbox{\hyperlink{classList_ae2afa15a07b88a3a678969522cc14988}{getSize}}() ; j++) \{}
+\DoxyCodeLine{20         \textcolor{keywordtype}{int} cellValue = connections.\mbox{\hyperlink{classList_a43244a74a3f3b1a79c94963e2c267694}{find}}(j)-\/>getValue();}
+\DoxyCodeLine{21         \textcolor{keywordflow}{if} (!visited.\mbox{\hyperlink{classList_a698480f9ae06037c3c467c8fc3a37527}{findValue}}(cellValue))\{}
+\DoxyCodeLine{22             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classBacktracking_a9e5e67cec2bea74a8d0fe36bc40dd524}{findRoute}}(connectionList, cellValue, finish, visited, path))\{}
+\DoxyCodeLine{23                 path.\mbox{\hyperlink{classList_a7a9622632b67aff2e2e57abc4fae72f6}{insertFirst}}(start);}
+\DoxyCodeLine{24                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{25             \}}
+\DoxyCodeLine{26         \}}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{30 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBacktracking_a7e8de75451f95cae14428afd6261da76}\label{classBacktracking_a7e8de75451f95cae14428afd6261da76}} 
+\index{Backtracking@{Backtracking}!getConnectionList@{getConnectionList}}
+\index{getConnectionList@{getConnectionList}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{getConnectionList()}{getConnectionList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classList}{List}}$<$ \mbox{\hyperlink{classList}{List}}$<$ int $>$ $>$ Backtracking\+::get\+Connection\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmatrixNode}{matrix\+Node}}}]{\mbox{[}$\,$\mbox{]}\mbox{[}10\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+generates a list with the connections for each point 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classList}{List}}$<$List$<$int$>$$>$ matrix with the connections for each node 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file Backtracking.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50                                                                             \{}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \mbox{\hyperlink{classList}{List<List<int>}}> connectionList;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 5; i++) \{}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 10; j++) \{}
+\DoxyCodeLine{57             \mbox{\hyperlink{classList}{List<int>}} nodeConnection;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59             \textcolor{keywordflow}{if} (j -\/ 1 != -\/1)\{ \textcolor{comment}{// 1}}
+\DoxyCodeLine{60                 \textcolor{keywordflow}{if} (!gameMatrix[i][j -\/ 1].isObstacule())}
+\DoxyCodeLine{61                 \{}
+\DoxyCodeLine{62                     \textcolor{comment}{//cout << "{}horizontal 2"{} << endl;}}
+\DoxyCodeLine{63                     nodeConnection.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(gameMatrix[i][j -\/ 1].getPosition()+1);}
+\DoxyCodeLine{64                 \}}
+\DoxyCodeLine{65             \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67             \textcolor{keywordflow}{if} (i-\/1 != -\/1 \&\& j -\/1 != -\/1)\{ \textcolor{comment}{//2}}
+\DoxyCodeLine{68                 \textcolor{keywordflow}{if} (!gameMatrix[i -\/ 1][j -\/ 1].isObstacule())}
+\DoxyCodeLine{69                 \{}
+\DoxyCodeLine{70                     \textcolor{comment}{//cout << "{}diagonal 2"{} << endl;}}
+\DoxyCodeLine{71                     nodeConnection.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(gameMatrix[i -\/ 1][j -\/ 1].getPosition()+1);}
+\DoxyCodeLine{72                 \}}
+\DoxyCodeLine{73             \}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75             \textcolor{keywordflow}{if} (i + 1 != 5 \&\& j -\/ 1 != -\/1)\{ \textcolor{comment}{//3}}
+\DoxyCodeLine{76                 \textcolor{keywordflow}{if} (!gameMatrix[i + 1][j -\/ 1].isObstacule())}
+\DoxyCodeLine{77                 \{}
+\DoxyCodeLine{78                     \textcolor{comment}{//cout << "{}diagonal 1.1"{} << endl;}}
+\DoxyCodeLine{79                     nodeConnection.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(gameMatrix[i + 1][j -\/ 1].getPosition()+1);}
+\DoxyCodeLine{80                 \}}
+\DoxyCodeLine{81             \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83             \textcolor{keywordflow}{if} (i + 1 != 5)\{ \textcolor{comment}{// 4}}
+\DoxyCodeLine{84                 \textcolor{keywordflow}{if} (!gameMatrix[i + 1][j].isObstacule())}
+\DoxyCodeLine{85                 \{}
+\DoxyCodeLine{86                     \textcolor{comment}{//cout << "{}vertical 1"{} << endl;}}
+\DoxyCodeLine{87                     nodeConnection.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(gameMatrix[i + 1][j].getPosition()+1);}
+\DoxyCodeLine{88                 \}}
+\DoxyCodeLine{89             \}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91             \textcolor{keywordflow}{if} (i -\/ 1 != -\/1)\{ \textcolor{comment}{// 5}}
+\DoxyCodeLine{92                 \textcolor{keywordflow}{if} (!gameMatrix[i -\/ 1][j].isObstacule())}
+\DoxyCodeLine{93                 \{}
+\DoxyCodeLine{94                     \textcolor{comment}{//cout << "{}vertical 2"{} << endl;}}
+\DoxyCodeLine{95                     nodeConnection.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(gameMatrix[i -\/ 1][j].getPosition()+1);}
+\DoxyCodeLine{96                 \}}
+\DoxyCodeLine{97             \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99             \textcolor{keywordflow}{if} (j + 1 != 10)\{ \textcolor{comment}{// 6}}
+\DoxyCodeLine{100                 \textcolor{keywordflow}{if} (!gameMatrix[i][j + 1].isObstacule())}
+\DoxyCodeLine{101                 \{}
+\DoxyCodeLine{102                     \textcolor{comment}{//cout << "{}horizontal 1"{} << endl;}}
+\DoxyCodeLine{103                     nodeConnection.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(gameMatrix[i][j + 1].getPosition()+1);}
+\DoxyCodeLine{104                     \textcolor{comment}{//nodeConnection.printList();}}
+\DoxyCodeLine{105                 \}}
+\DoxyCodeLine{106             \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108             \textcolor{keywordflow}{if} (i -\/ 1 != -\/1 \&\& j +1 != 10)\{ \textcolor{comment}{// 7}}
+\DoxyCodeLine{109                 \textcolor{keywordflow}{if} (!gameMatrix[i -\/ 1][j + 1].isObstacule())}
+\DoxyCodeLine{110                 \{}
+\DoxyCodeLine{111                     \textcolor{comment}{//cout << "{}diagonal 1"{} << endl;}}
+\DoxyCodeLine{112                     nodeConnection.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(gameMatrix[i -\/ 1][j + 1].getPosition()+1);}
+\DoxyCodeLine{113                 \}}
+\DoxyCodeLine{114             \}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116             \textcolor{keywordflow}{if} (i + 1 != 5 \&\& j + 1 != 10)\{ \textcolor{comment}{//8}}
+\DoxyCodeLine{117                 \textcolor{keywordflow}{if} (!gameMatrix[i + 1][j + 1].isObstacule())}
+\DoxyCodeLine{118                 \{}
+\DoxyCodeLine{119                     \textcolor{comment}{//cout << "{}diagonal 2.2"{} << endl;}}
+\DoxyCodeLine{120                     nodeConnection.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(gameMatrix[i + 1][j + 1].getPosition()+1);}
+\DoxyCodeLine{121                 \}}
+\DoxyCodeLine{122             \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124             connectionList.\mbox{\hyperlink{classList_a7d67bf157798afbdcb98177bcf28ece2}{insertLast}}(nodeConnection);}
+\DoxyCodeLine{125             \textcolor{comment}{//nodeConnection.delete\_all();}}
+\DoxyCodeLine{126         \}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128     \}}
+\DoxyCodeLine{129     \textcolor{keywordflow}{return} connectionList;}
+\DoxyCodeLine{130 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBacktracking_a13a31ff7e198486dc1595e611dd782ba}\label{classBacktracking_a13a31ff7e198486dc1595e611dd782ba}} 
+\index{Backtracking@{Backtracking}!ShortestRoute@{ShortestRoute}}
+\index{ShortestRoute@{ShortestRoute}!Backtracking@{Backtracking}}
+\doxysubsubsection{\texorpdfstring{ShortestRoute()}{ShortestRoute()}}
+{\footnotesize\ttfamily string Backtracking\+::\+Shortest\+Route (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classList}{List}}$<$ \mbox{\hyperlink{classList}{List}}$<$ int $>$$>$}]{connection\+List,  }\item[{int}]{start,  }\item[{int}]{finish }\end{DoxyParamCaption})}
+
+
+
+creates the solution path and the visited list 
+
+\begin{DoxyReturn}{Returns}
+List$<$int$>$ the solution path 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file Backtracking.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38 \{}
+\DoxyCodeLine{39     \mbox{\hyperlink{classList}{List<int>}} visited;}
+\DoxyCodeLine{40     \mbox{\hyperlink{classList}{List<int>}} solution\_path;}
+\DoxyCodeLine{41     \mbox{\hyperlink{classBacktracking_a9e5e67cec2bea74a8d0fe36bc40dd524}{findRoute}}(connectionList,start,finish,visited,solution\_path);}
+\DoxyCodeLine{42     \textcolor{keywordflow}{return} \mbox{\hyperlink{classBacktracking_a8ca8808db019937ac0b9e27d1f4834c9}{backtrakingString}}(solution\_path);}
+\DoxyCodeLine{43 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Backtracking_8h}{Backtracking.\+h}}\item 
+\mbox{\hyperlink{Backtracking_8cpp}{Backtracking.\+cpp}}\end{DoxyCompactItemize}

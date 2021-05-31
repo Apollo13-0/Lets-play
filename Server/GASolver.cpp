@@ -90,7 +90,7 @@ void GASolver::select_best() {
 }
 
 /**
- *
+ * Auxiliar method of select_best for selection a random position in the population
  * @param totals
  * @param running
  * @return
@@ -153,7 +153,7 @@ int GASolver::min(int a, int b) {
 }
 
 /**
- *
+ *Function to determinate if a individual go to mutate
  */
 void GASolver::mutate() {
     for (int i = 0; i < population.size(); ++i) {
@@ -166,6 +166,12 @@ void GASolver::mutate() {
     }
 }
 
+/**
+ * Method to search the solution
+ * @param max_iter Number of maximum iterations
+ * @param optimal_error 
+ * @return
+ */
 GAChromosome GASolver::solve(int max_iter, float optimal_error) {
 
     init_population();

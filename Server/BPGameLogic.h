@@ -19,6 +19,9 @@ int winCondition;
 int J1goals;
 int J2goals;
 
+/**
+ * Parse List of string to string
+ */
 string LtoS(List<int> path){
     string pathS;
     for (int i=0; i<path.getSize(); i++){
@@ -33,6 +36,11 @@ string LtoS(List<int> path){
     return pathS;
 }
 
+/**
+ * Manage game events of BP Game
+ * @param jmessageR Event
+ * @return Instrucctions to do
+ */
 string bpLogic(json jmessageR){
     string key = jmessageR.value("Key", "oops");
     if (key == "Config"){

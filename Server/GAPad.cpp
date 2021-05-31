@@ -173,16 +173,6 @@ void GAPad::apply_chain(List<string> chain) {
 * @return
 */
 float GAPad::cost() {
-    /**vector<vector<int>> reference;
-    reference.push_back({0,0});
-    reference.push_back({0,1});
-    reference.push_back({0,2});
-    reference.push_back({1,0});
-    reference.push_back({1,1});
-    reference.push_back({1,2});
-    reference.push_back({2,0});
-    reference.push_back({2,1});
-    reference.push_back({2,2});**/
 
     vector <vector<int>> reference ;
     for (int i = 0; i < rows; i++) {

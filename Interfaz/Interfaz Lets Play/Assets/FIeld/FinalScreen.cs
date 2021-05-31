@@ -8,8 +8,6 @@ public class FinalScreen : MonoBehaviour
 {
     private void OnMouseDown()
     {
-
         SceneManager.LoadScene("Menu");
-
     }
 }

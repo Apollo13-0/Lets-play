@@ -1,0 +1,367 @@
+\hypertarget{classmatrixNode}{}\doxysection{matrix\+Node Class Reference}
+\label{classmatrixNode}\index{matrixNode@{matrixNode}}
+
+
+{\ttfamily \#include $<$matrix\+Node.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classmatrixNode_acaf4b3d4e24e4fd997c7cc65bf458996}{get\+Position}} () const
+\item 
+void \mbox{\hyperlink{classmatrixNode_a64546b79c737c452b1b54ce0a1a352b7}{set\+Position}} (int position)
+\item 
+bool \mbox{\hyperlink{classmatrixNode_ae2b3dccc1a045e83d5d14c5ffd02963c}{is\+Obstacule}} () const
+\item 
+void \mbox{\hyperlink{classmatrixNode_a480901ea284d77f12e2d9e11860bb8dc}{set\+Obstacule}} (bool obstacule)
+\item 
+int \mbox{\hyperlink{classmatrixNode_a1bee60af8ea35579ef2b512c1841276d}{getY}} () const
+\item 
+void \mbox{\hyperlink{classmatrixNode_a0e7f58de900351c1eaf25f4f67c05510}{setY}} (int y)
+\item 
+int \mbox{\hyperlink{classmatrixNode_a67ce686fa2540764cb3387f18b4331b2}{getX}} () const
+\item 
+void \mbox{\hyperlink{classmatrixNode_a0f068360ab2520cc46b7b97e507425ca}{setX}} (int x)
+\item 
+int \mbox{\hyperlink{classmatrixNode_a963b35c4d3a9d80ee74979f710ee47c1}{get\+ParentX}} () const
+\item 
+void \mbox{\hyperlink{classmatrixNode_a4b559fab13fb1e6476d4b4af99230bd3}{set\+ParentX}} (int parentX)
+\item 
+int \mbox{\hyperlink{classmatrixNode_ac7ab4ad29f0ab904f026b9378c145065}{get\+ParentY}} () const
+\item 
+void \mbox{\hyperlink{classmatrixNode_a6b393df2df65cf559d9a46e0dba3dd84}{set\+ParentY}} (int parentY)
+\item 
+float \mbox{\hyperlink{classmatrixNode_acbe5e3e5cae06b2b383978cf726fdb46}{get\+GCost}} () const
+\item 
+void \mbox{\hyperlink{classmatrixNode_ac3f861f062d314c0ba1234f11aed654c}{set\+GCost}} (float g\+Cost)
+\item 
+float \mbox{\hyperlink{classmatrixNode_a33fa767d9759e3e2c1ac2866f5f1f897}{get\+HCost}} () const
+\item 
+void \mbox{\hyperlink{classmatrixNode_afb03f3a36b9722ee633b59a62792aa32}{set\+HCost}} (float h\+Cost)
+\item 
+float \mbox{\hyperlink{classmatrixNode_a78ac2459a1bd63daf18576fc4b076c63}{get\+FCost}} () const
+\item 
+void \mbox{\hyperlink{classmatrixNode_ab1d98baa2d439e979ac9a656c36d9568}{set\+FCost}} (float f\+Cost)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 9 of file matrix\+Node.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmatrixNode_a78ac2459a1bd63daf18576fc4b076c63}\label{classmatrixNode_a78ac2459a1bd63daf18576fc4b076c63}} 
+\index{matrixNode@{matrixNode}!getFCost@{getFCost}}
+\index{getFCost@{getFCost}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{getFCost()}{getFCost()}}
+{\footnotesize\ttfamily float matrix\+Node\+::get\+FCost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 71 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{71                                  \{}
+\DoxyCodeLine{72     \textcolor{keywordflow}{return} fCost;}
+\DoxyCodeLine{73 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_acbe5e3e5cae06b2b383978cf726fdb46}\label{classmatrixNode_acbe5e3e5cae06b2b383978cf726fdb46}} 
+\index{matrixNode@{matrixNode}!getGCost@{getGCost}}
+\index{getGCost@{getGCost}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{getGCost()}{getGCost()}}
+{\footnotesize\ttfamily float matrix\+Node\+::get\+GCost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 55 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55                                  \{}
+\DoxyCodeLine{56     \textcolor{keywordflow}{return} gCost;}
+\DoxyCodeLine{57 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_a33fa767d9759e3e2c1ac2866f5f1f897}\label{classmatrixNode_a33fa767d9759e3e2c1ac2866f5f1f897}} 
+\index{matrixNode@{matrixNode}!getHCost@{getHCost}}
+\index{getHCost@{getHCost}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{getHCost()}{getHCost()}}
+{\footnotesize\ttfamily float matrix\+Node\+::get\+HCost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 63 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63                                  \{}
+\DoxyCodeLine{64     \textcolor{keywordflow}{return} hCost;}
+\DoxyCodeLine{65 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_a963b35c4d3a9d80ee74979f710ee47c1}\label{classmatrixNode_a963b35c4d3a9d80ee74979f710ee47c1}} 
+\index{matrixNode@{matrixNode}!getParentX@{getParentX}}
+\index{getParentX@{getParentX}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{getParentX()}{getParentX()}}
+{\footnotesize\ttfamily int matrix\+Node\+::get\+ParentX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 39 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39                                  \{}
+\DoxyCodeLine{40     \textcolor{keywordflow}{return} parentX;}
+\DoxyCodeLine{41 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_ac7ab4ad29f0ab904f026b9378c145065}\label{classmatrixNode_ac7ab4ad29f0ab904f026b9378c145065}} 
+\index{matrixNode@{matrixNode}!getParentY@{getParentY}}
+\index{getParentY@{getParentY}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{getParentY()}{getParentY()}}
+{\footnotesize\ttfamily int matrix\+Node\+::get\+ParentY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 47 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47                                  \{}
+\DoxyCodeLine{48     \textcolor{keywordflow}{return} parentY;}
+\DoxyCodeLine{49 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_acaf4b3d4e24e4fd997c7cc65bf458996}\label{classmatrixNode_acaf4b3d4e24e4fd997c7cc65bf458996}} 
+\index{matrixNode@{matrixNode}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily int matrix\+Node\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 7 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{7                                   \{}
+\DoxyCodeLine{8     \textcolor{keywordflow}{return} \_position;}
+\DoxyCodeLine{9 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_a67ce686fa2540764cb3387f18b4331b2}\label{classmatrixNode_a67ce686fa2540764cb3387f18b4331b2}} 
+\index{matrixNode@{matrixNode}!getX@{getX}}
+\index{getX@{getX}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{getX()}{getX()}}
+{\footnotesize\ttfamily int matrix\+Node\+::getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 31 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31                            \{}
+\DoxyCodeLine{32     \textcolor{keywordflow}{return} x;}
+\DoxyCodeLine{33 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_a1bee60af8ea35579ef2b512c1841276d}\label{classmatrixNode_a1bee60af8ea35579ef2b512c1841276d}} 
+\index{matrixNode@{matrixNode}!getY@{getY}}
+\index{getY@{getY}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{getY()}{getY()}}
+{\footnotesize\ttfamily int matrix\+Node\+::getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 23 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23                            \{}
+\DoxyCodeLine{24     \textcolor{keywordflow}{return} y;}
+\DoxyCodeLine{25 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_ae2b3dccc1a045e83d5d14c5ffd02963c}\label{classmatrixNode_ae2b3dccc1a045e83d5d14c5ffd02963c}} 
+\index{matrixNode@{matrixNode}!isObstacule@{isObstacule}}
+\index{isObstacule@{isObstacule}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{isObstacule()}{isObstacule()}}
+{\footnotesize\ttfamily bool matrix\+Node\+::is\+Obstacule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 15 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15                                    \{}
+\DoxyCodeLine{16     \textcolor{keywordflow}{return} \_obstacule;}
+\DoxyCodeLine{17 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_ab1d98baa2d439e979ac9a656c36d9568}\label{classmatrixNode_ab1d98baa2d439e979ac9a656c36d9568}} 
+\index{matrixNode@{matrixNode}!setFCost@{setFCost}}
+\index{setFCost@{setFCost}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{setFCost()}{setFCost()}}
+{\footnotesize\ttfamily void matrix\+Node\+::set\+FCost (\begin{DoxyParamCaption}\item[{float}]{f\+Cost }\end{DoxyParamCaption})}
+
+
+
+Definition at line 75 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75                                      \{}
+\DoxyCodeLine{76     matrixNode::fCost = fCost;}
+\DoxyCodeLine{77 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_ac3f861f062d314c0ba1234f11aed654c}\label{classmatrixNode_ac3f861f062d314c0ba1234f11aed654c}} 
+\index{matrixNode@{matrixNode}!setGCost@{setGCost}}
+\index{setGCost@{setGCost}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{setGCost()}{setGCost()}}
+{\footnotesize\ttfamily void matrix\+Node\+::set\+GCost (\begin{DoxyParamCaption}\item[{float}]{g\+Cost }\end{DoxyParamCaption})}
+
+
+
+Definition at line 59 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59                                      \{}
+\DoxyCodeLine{60     matrixNode::gCost = gCost;}
+\DoxyCodeLine{61 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_afb03f3a36b9722ee633b59a62792aa32}\label{classmatrixNode_afb03f3a36b9722ee633b59a62792aa32}} 
+\index{matrixNode@{matrixNode}!setHCost@{setHCost}}
+\index{setHCost@{setHCost}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{setHCost()}{setHCost()}}
+{\footnotesize\ttfamily void matrix\+Node\+::set\+HCost (\begin{DoxyParamCaption}\item[{float}]{h\+Cost }\end{DoxyParamCaption})}
+
+
+
+Definition at line 67 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67                                      \{}
+\DoxyCodeLine{68     matrixNode::hCost = hCost;}
+\DoxyCodeLine{69 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_a480901ea284d77f12e2d9e11860bb8dc}\label{classmatrixNode_a480901ea284d77f12e2d9e11860bb8dc}} 
+\index{matrixNode@{matrixNode}!setObstacule@{setObstacule}}
+\index{setObstacule@{setObstacule}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{setObstacule()}{setObstacule()}}
+{\footnotesize\ttfamily void matrix\+Node\+::set\+Obstacule (\begin{DoxyParamCaption}\item[{bool}]{obstacule }\end{DoxyParamCaption})}
+
+
+
+Definition at line 19 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19                                             \{}
+\DoxyCodeLine{20     \_obstacule = obstacule;}
+\DoxyCodeLine{21 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_a4b559fab13fb1e6476d4b4af99230bd3}\label{classmatrixNode_a4b559fab13fb1e6476d4b4af99230bd3}} 
+\index{matrixNode@{matrixNode}!setParentX@{setParentX}}
+\index{setParentX@{setParentX}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{setParentX()}{setParentX()}}
+{\footnotesize\ttfamily void matrix\+Node\+::set\+ParentX (\begin{DoxyParamCaption}\item[{int}]{parentX }\end{DoxyParamCaption})}
+
+
+
+Definition at line 43 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43                                        \{}
+\DoxyCodeLine{44     matrixNode::parentX = parentX;}
+\DoxyCodeLine{45 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_a6b393df2df65cf559d9a46e0dba3dd84}\label{classmatrixNode_a6b393df2df65cf559d9a46e0dba3dd84}} 
+\index{matrixNode@{matrixNode}!setParentY@{setParentY}}
+\index{setParentY@{setParentY}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{setParentY()}{setParentY()}}
+{\footnotesize\ttfamily void matrix\+Node\+::set\+ParentY (\begin{DoxyParamCaption}\item[{int}]{parentY }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51                                        \{}
+\DoxyCodeLine{52     matrixNode::parentY = parentY;}
+\DoxyCodeLine{53 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_a64546b79c737c452b1b54ce0a1a352b7}\label{classmatrixNode_a64546b79c737c452b1b54ce0a1a352b7}} 
+\index{matrixNode@{matrixNode}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void matrix\+Node\+::set\+Position (\begin{DoxyParamCaption}\item[{int}]{position }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11                                          \{}
+\DoxyCodeLine{12     \_position = position;}
+\DoxyCodeLine{13 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_a0f068360ab2520cc46b7b97e507425ca}\label{classmatrixNode_a0f068360ab2520cc46b7b97e507425ca}} 
+\index{matrixNode@{matrixNode}!setX@{setX}}
+\index{setX@{setX}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{setX()}{setX()}}
+{\footnotesize\ttfamily void matrix\+Node\+::setX (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 35 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35                            \{}
+\DoxyCodeLine{36     matrixNode::x = x;}
+\DoxyCodeLine{37 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmatrixNode_a0e7f58de900351c1eaf25f4f67c05510}\label{classmatrixNode_a0e7f58de900351c1eaf25f4f67c05510}} 
+\index{matrixNode@{matrixNode}!setY@{setY}}
+\index{setY@{setY}!matrixNode@{matrixNode}}
+\doxysubsubsection{\texorpdfstring{setY()}{setY()}}
+{\footnotesize\ttfamily void matrix\+Node\+::setY (\begin{DoxyParamCaption}\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 27 of file matrix\+Node.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27                            \{}
+\DoxyCodeLine{28     matrixNode::y = y;}
+\DoxyCodeLine{29 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{matrixNode_8h}{matrix\+Node.\+h}}\item 
+\mbox{\hyperlink{matrixNode_8cpp}{matrix\+Node.\+cpp}}\end{DoxyCompactItemize}
