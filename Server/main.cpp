@@ -76,7 +76,6 @@ int StartListenign(){
             cout << "Cliente desconectado " << endl;
             break;
         }
-
         string messageR = string(buf, 0, bytesReceived);
         json jmessageR = json::parse(messageR);
         string game = jmessageR.value("Game", "oops");
@@ -98,9 +97,9 @@ int StartListenign(){
 
 int main() {
     srand(time(NULL));
-    createObstacules(4);
-    List<int> path = AStar().aStar(10, 29);
-    LtoS(path);
+//    createObstacules(4);
+//    List<int> path = AStar().aStar(10, 29);
+//    LtoS(path);
     /**
 
     try {
@@ -156,28 +155,28 @@ int main() {
 //    GAChromosome* ptrpar= &par;
 //    prueba.insertFirst(ptrpar);
 
-    StartListenign();
+    //StartListenign();
 
-//    // init vars
-//    const int blockw = 50;
-//    const int blockh = 50;
-//    std::vector<cv::Mat> blocks;
-//
-//    // read png image
-//    cv::Mat image = cv::imread("/home/ignacio/Datos2/Lets-play/Server/perrito.jpg", cv::IMREAD_UNCHANGED);
-//    cv::imshow("Display window", image);
-//
-//    // divide image into multiple blocks
-//    int divideStatus = divideImage(image, 25, blocks);
-//
-//    // debug: save blocks
-//    cv::utils::fs::createDirectory("/home/ignacio/Datos2/Lets-play/Server/blocksFolder");
-//    for (int j = 0; j < blocks.size(); j++)
-//    {
-//        std::string blockId = std::to_string(j);
-//        std::string blockImgName = "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/block#" + blockId + ".jpg";
-//        imwrite(blockImgName, blocks[j]);
-//    }
+    // init vars
+    const int blockw = 50;
+    const int blockh = 50;
+    std::vector<cv::Mat> blocks;
+
+    // read png image
+    cv::Mat image = cv::imread("/home/ignacio/Datos2/Lets-play/Server/perrito.jpg", cv::IMREAD_UNCHANGED);
+    cv::imshow("Display window", image);
+
+    // divide image into multiple blocks
+    int divideStatus = divideImage(image, 9, blocks);
+
+    // debug: save blocks
+    cv::utils::fs::createDirectory("/home/ignacio/Datos2/Lets-play/Server/blocksFolder");
+    for (int j = 0; j < blocks.size(); j++)
+    {
+        std::string blockId = std::to_string(j);
+        std::string blockImgName = "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/block#" + blockId + ".jpg";
+        imwrite(blockImgName, blocks[j]);
+    }
 
 
 

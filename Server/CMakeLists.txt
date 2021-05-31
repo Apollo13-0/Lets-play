@@ -17,6 +17,6 @@ if(CMAKE_VERSION VERSION_LESS "2.8.11")
     include_directories(${OpenCV_INCLUDE_DIRS})
 endif()
 
-add_executable(main divideImage.h Backtracking.h Backtracking.cpp main.cpp GAPad.cpp GAPad.h GASolver.cpp GASolver.h GAChromosome.cpp GAChromosome.h Matrix.cpp Matrix.h matrixNode.cpp matrixNode.h BPGameLogic.h BPCreateObstacules.h "A* Pathfindig.h")
-target_link_libraries(main ${OpenCV_LIBS})
+add_executable(Server divideImage.h Backtracking.h Backtracking.cpp main.cpp GAPad.cpp GAPad.h GASolver.cpp GASolver.h GAChromosome.cpp GAChromosome.h Matrix.cpp Matrix.h matrixNode.cpp matrixNode.h BPGameLogic.h BPCreateObstacules.h "A* Pathfindig.h")
+target_link_libraries(Server ${OpenCV_LIBS})
 
