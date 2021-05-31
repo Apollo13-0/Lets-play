@@ -8,7 +8,7 @@
 #include <random>
 #include<stdlib.h>
 #include <iostream>
-#include "List/List.h"
+#include "List.h"
 
 
 using namespace std;

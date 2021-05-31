@@ -8,12 +8,13 @@
 using namespace std;
 string createObstacules(int obs_amount){
     Matrix *matrix = Matrix::GetInstance();
+    matrix->ResetObstaculesMatrix();
     int i=0;
     string str_matrix_res;
     while (i < obs_amount){
         int row = rand() %5;
         int column = rand() %4;
-        if ( !(row == 3 && (column == 0 || column == 9))  && !matrix->gameField[row][column].isObstacule()){
+        if ( !(row == 2 && (column == 0 || column == 9))  && !matrix->gameField[row][column].isObstacule()){
             matrix->gameField[row][column].setObstacule(true);
             str_matrix_res += to_string(row);
             str_matrix_res += to_string(column);
@@ -25,7 +26,7 @@ string createObstacules(int obs_amount){
         int row = rand() %5;
         int column = rand() %4+5;
 
-        if ( !(row == 3 && (column == 0 || column == 9))  && !matrix->gameField[row][column].isObstacule()){
+        if ( !(row == 2 && (column == 0 || column == 9))  && !matrix->gameField[row][column].isObstacule()){
             matrix->gameField[row][column].setObstacule(true);
             str_matrix_res += to_string(row);
             str_matrix_res += to_string(column);

@@ -117,16 +117,19 @@ public:
             size--;
         } else {
             while (temp1) {
+
                 if (node.getPosition() == temp1->getValue().getPosition()) {
                     Node<matrixNode> *aux_node = temp1;
                     temp->setNext(temp1->getNext());
                     delete aux_node;
                     size--;
+                    break;
                 }
                 temp = temp->getNext();
                 temp1 = temp1->getNext();
             }
         }
+
     };
 
 

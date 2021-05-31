@@ -6,7 +6,7 @@
 #define SERVER_GACHROMOSOME_H
 #include "GAPad.h"
 #include "string"
-#include "List/List.h"
+#include "List.h"
 
 //! Class in charge of storing the chromosome information of each individual
 class GAChromosome {

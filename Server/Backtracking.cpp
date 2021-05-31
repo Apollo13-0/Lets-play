@@ -1,5 +1,5 @@
 #include "Backtracking.h"
-
+#include "matrixNode.h"
 
 /*!
  * \brief method that finds the path
@@ -12,9 +12,7 @@ bool Backtracking::findRoute(List<List<int>> connectionList, int start, int fini
         path.insertFirst(start);
         return true;
     }
-
     visited.insertLast(start);
-
     List<int> connections = connectionList.find(start-1)->getValue();
 
 
@@ -27,6 +25,7 @@ bool Backtracking::findRoute(List<List<int>> connectionList, int start, int fini
             }
         }
     }
+
     return false;
 }
 
@@ -48,7 +47,7 @@ string Backtracking::ShortestRoute(List<List<int>> connectionList, int start,int
  *
  * \return List<List<int>> matrix with the connections for each node
  */
-List<List<int>> Backtracking::getConnectionList(int (*gameMatrix)[10]) {
+List<List<int>> Backtracking::getConnectionList(matrixNode (*gameMatrix)[10]) {
 
     List<List<int>> connectionList;
 
@@ -58,67 +57,67 @@ List<List<int>> Backtracking::getConnectionList(int (*gameMatrix)[10]) {
             List<int> nodeConnection;
 
             if (j - 1 != -1){ // 1
-                if (gameMatrix[i][j - 1] != 0)
+                if (!gameMatrix[i][j - 1].isObstacule())
                 {
                     //cout << "horizontal 2" << endl;
-                    nodeConnection.insertLast(gameMatrix[i][j - 1]);
+                    nodeConnection.insertLast(gameMatrix[i][j - 1].getPosition()+1);
                 }
             }
 
             if (i-1 != -1 && j -1 != -1){ //2
-                if (gameMatrix[i - 1][j - 1] != 0)
+                if (!gameMatrix[i - 1][j - 1].isObstacule())
                 {
                     //cout << "diagonal 2" << endl;
-                    nodeConnection.insertLast(gameMatrix[i - 1][j - 1]);
+                    nodeConnection.insertLast(gameMatrix[i - 1][j - 1].getPosition()+1);
                 }
             }
 
             if (i + 1 != 5 && j - 1 != -1){ //3
-                if (gameMatrix[i + 1][j - 1] != 0)
+                if (!gameMatrix[i + 1][j - 1].isObstacule())
                 {
                     //cout << "diagonal 1.1" << endl;
-                    nodeConnection.insertLast(gameMatrix[i + 1][j - 1]);
+                    nodeConnection.insertLast(gameMatrix[i + 1][j - 1].getPosition()+1);
                 }
             }
 
             if (i + 1 != 5){ // 4
-                if (gameMatrix[i + 1][j] != 0)
+                if (!gameMatrix[i + 1][j].isObstacule())
                 {
                     //cout << "vertical 1" << endl;
-                    nodeConnection.insertLast(gameMatrix[i + 1][j]);
+                    nodeConnection.insertLast(gameMatrix[i + 1][j].getPosition()+1);
                 }
             }
 
             if (i - 1 != -1){ // 5
-                if (gameMatrix[i - 1][j] != 0)
+                if (!gameMatrix[i - 1][j].isObstacule())
                 {
                     //cout << "vertical 2" << endl;
-                    nodeConnection.insertLast(gameMatrix[i - 1][j]);
+                    nodeConnection.insertLast(gameMatrix[i - 1][j].getPosition()+1);
                 }
             }
 
             if (j + 1 != 10){ // 6
-                if (gameMatrix[i][j + 1] != 0)
+                if (!gameMatrix[i][j + 1].isObstacule())
                 {
                     //cout << "horizontal 1" << endl;
-                    nodeConnection.insertLast(gameMatrix[i][j + 1]);
+                    nodeConnection.insertLast(gameMatrix[i][j + 1].getPosition()+1);
                     //nodeConnection.printList();
                 }
             }
 
             if (i - 1 != -1 && j +1 != 10){ // 7
-                if (gameMatrix[i - 1][j + 1] != 0)
+                if (!gameMatrix[i - 1][j + 1].isObstacule())
                 {
                     //cout << "diagonal 1" << endl;
-                    nodeConnection.insertLast(gameMatrix[i - 1][j + 1]);
+                    nodeConnection.insertLast(gameMatrix[i - 1][j + 1].getPosition()+1);
                 }
             }
 
             if (i + 1 != 5 && j + 1 != 10){ //8
-                if (gameMatrix[i + 1][j + 1] != 0)
+                if (!gameMatrix[i + 1][j + 1].isObstacule())
                 {
                     //cout << "diagonal 2.2" << endl;
-                    nodeConnection.insertLast(gameMatrix[i + 1][j + 1]);
+                    nodeConnection.insertLast(gameMatrix[i + 1][j + 1].getPosition()+1);
                 }
             }
 
@@ -143,7 +142,12 @@ string Backtracking::backtrakingString(List<int> path)
 {
     string resultString = "";
     for (int i = 0; i < path.getSize(); i++) {
-        resultString = resultString + to_string(path.find(i)->getValue() - 1) + "$";
+        if (to_string(path.find(i)->getValue()).size() == 1){
+            resultString+="0"+to_string(path.find(i)->getValue()-1)+"$";
+        }
+        else{
+            resultString+=to_string(path.find(i)->getValue()-1)+"$";
+        }
     }
     return resultString;
 }

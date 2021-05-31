@@ -26,7 +26,15 @@ Matrix::Matrix() {
         }
     }
 }
-
+void Matrix::ResetObstaculesMatrix(){
+    int rows = (sizeof (Matrix::gameField)/sizeof (Matrix::gameField [0]));
+    int columns = (sizeof (Matrix::gameField[0])/sizeof (Matrix::gameField [0][0]));
+    for (int i=0; i < rows; i++ ){
+        for (int j=0; j < columns; j++){
+            Matrix::gameField [i][j].setObstacule(false);
+        }
+    }
+}
 Matrix *Matrix::GetInstance() {
     if (instance == NULL){
         instance = new Matrix();

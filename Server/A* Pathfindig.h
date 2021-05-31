@@ -17,10 +17,14 @@ class AStar {
 public:
 
     static bool isValid(int x, int y) { //If our Node is an obstacle it is not valid
-        Matrix *matrix = Matrix::GetInstance();
-        matrix->gameField[x][y].isObstacule();
-
-        return !matrix->gameField[x][y].isObstacule();
+        if ((y >= 0 && y < 10) && (x >= 0 && x < 5)){
+            Matrix *matrix = Matrix::GetInstance();
+            matrix->gameField[x][y].isObstacule();
+            return !matrix->gameField[x][y].isObstacule();
+        }
+        else{
+            return false;
+        }
     }
 
     static bool isDestination(int x, int y, matrixNode dest) {
@@ -75,7 +79,6 @@ public:
         Matrix *matrix = Matrix::GetInstance();
         matrixNode player = matrix->FindinPosition(playerPos);
         matrixNode dest = matrix->FindinPosition(destPos);
-
         List<int> empty;
         if (isValid(dest.getX(), dest.getY()) == false) {
             cout << "Destination is an obstacle" << endl;
@@ -91,7 +94,6 @@ public:
             return aStar(playerPos+1,destPos);
         }
         bool closedList[5][10];
-
         //Initialize whole map
         matrix->ResetforPathfinding();
         for (int i = 0; i < 5; i++) {
@@ -99,7 +101,6 @@ public:
                 closedList[i][j] = false;
             }
         }
-
         //Initialize our starting list
         int x = player.getX();
         int y = player.getY();
@@ -108,7 +109,6 @@ public:
         matrix->gameField[x][y].setHCost(0.0);
         matrix->gameField[x][y].setParentX(x);
         matrix->gameField[x][y].setParentY(y);
-
         List<matrixNode> openList;
         openList.insertLast(matrix->gameField[x][y]);
         bool destinationFound = false;
@@ -124,7 +124,6 @@ public:
                         temp = n.getFCost();
                         itNode = it->getValue();
                     }
-
                     it = it->getNext();
                 }
                 node = itNode;
@@ -133,7 +132,6 @@ public:
             x = node.getX();
             y = node.getY();
             closedList[x][y] = true;
-
             //For each neighbour starting from North-West to South-East
             for (int newX = -1; newX <= 1; newX++) {
                 for (int newY = -1; newY <= 1; newY++) {
@@ -148,7 +146,7 @@ public:
                         }
                         else if (closedList[x + newX][y + newY] == false)
                         {
-                            if(newX == newY){
+                            if(abs(newX) == abs(newY)){
                                 gNew = node.getGCost() + 1.4;
                             } else {
                                 gNew = node.getGCost() + 1.0;

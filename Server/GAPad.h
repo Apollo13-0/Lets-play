@@ -6,7 +6,7 @@
 #define SERVER_GAPAD_H
 #include "vector"
 #include "string"
-#include "List/List.h"
+#include "List.h"
 
 using namespace std;
 

@@ -21,6 +21,8 @@ public:
     matrixNode FindinPosition(int position);
 
     void ResetforPathfinding();
+
+    void ResetObstaculesMatrix();
 };
 
 

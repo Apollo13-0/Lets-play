@@ -10,7 +10,7 @@ public:
 
     Backtracking();
 
-    List<List<int>> getConnectionList(int gameMatrix[][10]);
+    List<List<int>> getConnectionList(matrixNode[][10]);
 
     bool findRoute(List<List<int>> connectionList, int start, int finish, List<int> &visited, List<int> &path);
 

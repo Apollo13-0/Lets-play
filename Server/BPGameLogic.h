@@ -11,10 +11,13 @@
 #include "json.hpp"
 #include "BPCreateObstacules.h"
 #include "A* Pathfindig.h"
+#include "Backtracking.h"
 
 using namespace std;
 using json = nlohmann::json;
 int winCondition;
+int J1goals;
+int J2goals;
 
 string LtoS(List<int> path){
     string pathS;
@@ -39,11 +42,35 @@ string bpLogic(json jmessageR){
         string str_matrix_res = createObstacules(stoi(obs_amount));
         return str_matrix_res;
     }
-    if (key == "J1Path"){
+    if (key == "J1"){
+        string Info1 =  jmessageR.value("Info1", "oops");
+        if (Info1 == "goal"){
+            J1goals +=1;
+            if (J1goals >= winCondition) {
+                return "WIN";
+            }
+        }
+        else{
+            List<int> path = AStar().aStar(stoi(Info1), 29);
+            return LtoS(path);
+        }
 
-        string ballPos =  jmessageR.value("Info1", "oops");
-        List<int> path = AStar().aStar(stoi(ballPos), 29);
+    }
+    if (key == "J2"){
+        string Info1 =  jmessageR.value("Info1", "oops");
+        if (Info1 == "goal"){
+            J2goals +=1;
+            if (J2goals >= winCondition) {
+                return "LOSE";
+            }
+        }
+        else{
+            Matrix *matrix = Matrix::GetInstance();
+            Backtracking tmp = Backtracking();
+            List<List<int>> connectionList = tmp.getConnectionList(matrix->gameField);
+            string result = tmp.ShortestRoute(connectionList, stoi(Info1) + 1, 21);
+            return result;
+        }
 
-        return LtoS(path);
     }
 }

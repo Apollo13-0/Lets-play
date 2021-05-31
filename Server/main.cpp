@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include "json.hpp"
 #include "BPGameLogic.h"
-#include "List/List.h"
+#include "List.h"
 
 //Prueba
 #include <iomanip>
@@ -94,7 +94,10 @@ int StartListenign(){
 
 
 int main() {
-    //srand(time(NULL));
+    srand(time(NULL));
+    createObstacules(4);
+    List<int> path = AStar().aStar(10, 29);
+    LtoS(path);
     /**
 
     try {
