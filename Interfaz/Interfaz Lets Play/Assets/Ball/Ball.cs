@@ -95,6 +95,8 @@ public class Ball : MonoBehaviour
                     if (Int32.Parse(row) > 4) { row  = "4"; }
                     string message = parseJson("BP", "J1", row+column , "");
                     SocketClient.StartClient(message);
+                    Debug.Log(message);
+                    Debug.Log(SocketClient.MessageR);
                     Field.Field.UpdatePath(transform.position);
                     flag = false;
                 }
