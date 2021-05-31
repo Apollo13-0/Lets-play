@@ -151,6 +151,9 @@ MonoBehaviour:
     width: 1920
     height: 945
   m_MinSize: {x: 875, y: 300}
+    width: 1920
+    height: 937
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -180,7 +183,7 @@ MonoBehaviour:
   m_LoadedToolbars:
   - {fileID: 18}
   m_MainToolbar: {fileID: 18}
-  m_LastLoadedLayoutName: 
+  m_LastLoadedLayoutName:
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,13 +320,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/ConsoleClient/Client
     m_Globs: []
-    m_OriginalText: 
+    m_OriginalText:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/ConsoleClient/Client
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /home/usuario/Proyectos/Lets-play/Interfaz/Interfaz Lets Play
   m_LockTracker:
@@ -449,7 +452,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
-  m_GlobalObjectId: 
+  m_GlobalObjectId:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
@@ -486,20 +489,20 @@ MonoBehaviour:
       m_ExpandedIDs: fec3ffffd2c4ffff4cc5ffffaeccffff5acdffff8ecdffff16d1ffff28d1ffff42d4ffff60d5ffff04d6ffff18d6ffff84d6ffff80dcffff62ddffff94faffff3efbffff545f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: division_entry
+        m_OriginalName: division_entry
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 16670
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 4}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0

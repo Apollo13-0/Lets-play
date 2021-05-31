@@ -13,6 +13,9 @@
 #include <iomanip>
 #include "GAPad.h"
 #include "GASolver.h"
+
+#include "divideImage.h"
+
 float MUTATION_CHANCE = 0.9;
 float CROSS_OVER_RATE = 0.3;
 int POPULATION_LEN = 1000;
@@ -154,6 +157,30 @@ int main() {
 //    prueba.insertFirst(ptrpar);
 
     StartListenign();
+
+//    // init vars
+//    const int blockw = 50;
+//    const int blockh = 50;
+//    std::vector<cv::Mat> blocks;
+//
+//    // read png image
+//    cv::Mat image = cv::imread("/home/ignacio/Datos2/Lets-play/Server/perrito.jpg", cv::IMREAD_UNCHANGED);
+//    cv::imshow("Display window", image);
+//
+//    // divide image into multiple blocks
+//    int divideStatus = divideImage(image, 25, blocks);
+//
+//    // debug: save blocks
+//    cv::utils::fs::createDirectory("/home/ignacio/Datos2/Lets-play/Server/blocksFolder");
+//    for (int j = 0; j < blocks.size(); j++)
+//    {
+//        std::string blockId = std::to_string(j);
+//        std::string blockImgName = "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/block#" + blockId + ".jpg";
+//        imwrite(blockImgName, blocks[j]);
+//    }
+
+
+
     return 0;
 }
 
