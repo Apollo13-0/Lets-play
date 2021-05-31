@@ -17,16 +17,16 @@ namespace Field
         void Awake()
         {
             _lineRenderer = GetComponent<LineRenderer>();
-            int j=0;
+            int j = 0;
             Debug.Log(SocketClient.MessageR);
-            for (int i = 0; i < SocketClient.MessageR.Length-1;)
+            for (int i = 0; i < SocketClient.MessageR.Length - 1;)
             {
-                string m= SocketClient.MessageR[i].ToString();
-                string n = SocketClient.MessageR[i+1].ToString();
+                string m = SocketClient.MessageR[i].ToString();
+                string n = SocketClient.MessageR[i + 1].ToString();
                 int row = Int32.Parse(m);
                 int column = Int32.Parse(n);
                 Vector3 position = new Vector3(-9 + 2 * column, 4 - 2 * row);
-                i+=2;
+                i += 2;
                 if (j % 2 != 0)
                 {
                     Instantiate(_obstaculeP1Prefab, position, Quaternion.identity);
@@ -34,10 +34,12 @@ namespace Field
                 else
                 {
                     Instantiate(_obstaculeP2Prefab, position, Quaternion.identity);
-                } 
+                }
+
                 j++;
             }
         }
+
         static int HowMany(string input)
         {
             int count = 0;
@@ -46,29 +48,32 @@ namespace Field
                 {
                     count += 1;
                 }
+
             return count;
         }
 
         public static void UpdatePath(Vector3 ballPosition)
         {
             int limit = HowMany(SocketClient.MessageR);
-            _lineRenderer.positionCount = limit+1;
-            string positionS="";
+            _lineRenderer.positionCount = limit + 1;
+            string positionS = "";
             _lineRenderer.SetPosition(0, ballPosition);
-            int j=1;
-            for (int i=3; i < SocketClient.MessageR.Length; i++)
+            int j = 1;
+            for (int i = 3; i < SocketClient.MessageR.Length; i++)
             {
                 if (SocketClient.MessageR[i] == '$')
                 {
                     int positionI = Int32.Parse(positionS);
                     int y = 0;
-                    int x= positionI%10;
-                    if (x != positionI){
-                        y = positionI/10;
+                    int x = positionI % 10;
+                    if (x != positionI)
+                    {
+                        y = positionI / 10;
                     }
+
                     Vector3 _nextNodePosition = new Vector3(-9 + 2 * x, 4 - 2 * y);
                     _lineRenderer.SetPosition(j, _nextNodePosition);
-                    positionS="";
+                    positionS = "";
                     j++;
                 }
                 else
@@ -78,5 +83,4 @@ namespace Field
             }
         }
     }
-    
 }

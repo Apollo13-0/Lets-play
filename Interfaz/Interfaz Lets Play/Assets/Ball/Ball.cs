@@ -117,7 +117,6 @@ public class Ball : MonoBehaviour
 
             if (J2flag)
             {
-                
                 _timeJ2 += Time.deltaTime;
                 if (_timeJ2 > 3)
                 {
@@ -153,9 +152,8 @@ public class Ball : MonoBehaviour
     {
         if (_rigidbody2D.velocity.magnitude <= 0.1 && J1flag)
         {
-            GetComponent<LineRenderer>().enabled= true;
+            GetComponent<LineRenderer>().enabled = true;
         }
-        
     }
     private void OnMouseUp()
     {
@@ -177,23 +175,26 @@ public class Ball : MonoBehaviour
             _launchPosition = new Vector3(newPosition.x, newPosition.y);
             if (transform.position.x - _launchPosition.x <= -3)
             {
-                _launchPosition.x = newPosition.x +((transform.position.x - _launchPosition.x) + 3);
+                _launchPosition.x = newPosition.x + ((transform.position.x - _launchPosition.x) + 3);
             }
+
             if (transform.position.x - _launchPosition.x >= 3)
             {
-                _launchPosition.x = newPosition.x +((transform.position.x - _launchPosition.x) - 3);
+                _launchPosition.x = newPosition.x + ((transform.position.x - _launchPosition.x) - 3);
             }
+
             if (transform.position.y - _launchPosition.y <= -3)
             {
-                _launchPosition.y = newPosition.y +((transform.position.y - _launchPosition.y) + 3);
+                _launchPosition.y = newPosition.y + ((transform.position.y - _launchPosition.y) + 3);
             }
+
             if (transform.position.y - _launchPosition.y >= 3)
             {
-                _launchPosition.y = newPosition.y +((transform.position.y - _launchPosition.y) - 3);
+                _launchPosition.y = newPosition.y + ((transform.position.y - _launchPosition.y) - 3);
             }
         }
-        
     }
+    
     string parseJson(string game,string key,string info1, string info2)
     {
         string message = "{" +
@@ -218,24 +219,26 @@ public class Ball : MonoBehaviour
     void Createlines()
     {
         int limit = HowMany(SocketClient.MessageR);
-        _lineRenderer.positionCount = limit+2;
-        string positionS="";
-        int j=2;
-        for (int i=3; i < SocketClient.MessageR.Length; i++)
+        _lineRenderer.positionCount = limit + 2;
+        string positionS = "";
+        int j = 2;
+        for (int i = 3; i < SocketClient.MessageR.Length; i++)
         {
             if (SocketClient.MessageR[i] == '$')
             {
                 int positionI = Int32.Parse(positionS);
                 int y = 0;
-                int x= positionI%10;
-                if (x != positionI){
-                    y = positionI/10;
+                int x = positionI % 10;
+                if (x != positionI)
+                {
+                    y = positionI / 10;
                 }
+
                 Debug.Log(x);
                 Debug.Log(y);
                 Vector3 _nextNodePosition = new Vector3(-9 + 2 * x, 4 - 2 * y);
                 _lineRenderer.SetPosition(j, _nextNodePosition);
-                positionS="";
+                positionS = "";
                 j++;
             }
             else
@@ -244,6 +247,5 @@ public class Ball : MonoBehaviour
             }
         }
     }
-    
 }
 
