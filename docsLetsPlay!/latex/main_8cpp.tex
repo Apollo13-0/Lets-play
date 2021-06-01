@@ -9,8 +9,10 @@
 {\ttfamily \#include $<$unistd.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}json.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}BPGame\+Logic.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}List.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tinyxml2.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gen\+Logic.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include \char`\"{}GAPad.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}GASolver.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}divide\+Image.\+h\char`\"{}}\newline
@@ -35,7 +37,7 @@ float \mbox{\hyperlink{main_8cpp_adb7b8767ce8e5e2039660af73bca99ee}{CROSS\+\_\+\
 \item 
 int \mbox{\hyperlink{main_8cpp_aaedcc0e752bf812bfc936dadd6fb5eff}{POPULATION\+\_\+\+LEN}} = 1000
 \item 
-int \mbox{\hyperlink{main_8cpp_add18cf1b3d789763919a27550f5980a0}{MAX\+\_\+\+ITERATION}} = 1000
+int \mbox{\hyperlink{main_8cpp_add18cf1b3d789763919a27550f5980a0}{MAX\+\_\+\+ITERATION}} = 100
 \end{DoxyCompactItemize}
 
 
@@ -44,11 +46,11 @@ int \mbox{\hyperlink{main_8cpp_add18cf1b3d789763919a27550f5980a0}{MAX\+\_\+\+ITE
 \index{main.cpp@{main.cpp}!json@{json}}
 \index{json@{json}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{json}{json}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{main_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} =  \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{genLogic_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} =  \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}}
 
 
 
-Definition at line 27 of file main.\+cpp.
+Definition at line 29 of file main.\+cpp.
 
 
 
@@ -59,87 +61,100 @@ Definition at line 27 of file main.\+cpp.
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-try \{ \begin{DoxyVerb}GAPad myPad = GAPad(3, 3);
-for (auto &item : myPad.board) {
-    for (auto &i : item) {
 
-        cout << setw(3)<< i <<" ; ";
-    }
-    cout << endl;
-}
-cout << endl;
-myPad.shuffle();
-for (auto &item : myPad.board) {
-    for (auto &i : item) {
 
-        cout << setw(3) << i << " - ";
-    }
-    cout << endl;
-}
-cout << endl;
-
-List<string> gene;
-GAChromosome par = GAChromosome(myPad, gene);
-GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
-GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);
-myPad.apply_chain(res.gene);
-
-for (auto &item : myPad.board) {
-    for (auto &i : item) {
-
-        cout << setw(3)<< i << " | ";
-    }
-    cout << endl;
-}
-cout << endl;
-\end{DoxyVerb}
- \}
-
-catch (const std\+::exception \&exc)\{ cout$<$$<$\char`\"{}\+Ha ocurrido un error\textbackslash{}n\char`\"{}; std\+::cerr $<$$<$ exc.\+what(); \}
-
-Definition at line 99 of file main.\+cpp.
+Definition at line 102 of file main.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{99            \{}
-\DoxyCodeLine{100     srand(time(NULL));}
-\DoxyCodeLine{101     \mbox{\hyperlink{BPCreateObstacules_8h_a4774bfb260da3e17ad710bbb4a6e2c84}{createObstacules}}(4);}
-\DoxyCodeLine{102     \mbox{\hyperlink{classList}{List<int>}} path = \mbox{\hyperlink{classAStar}{AStar}}().\mbox{\hyperlink{classAStar_aee1c5e0dd32f62091277d86d7985ab76}{aStar}}(10, 29);}
-\DoxyCodeLine{103     \mbox{\hyperlink{BPGameLogic_8h_a4d5d934cffd53ef765c311e961927320}{LtoS}}(path);}
-\DoxyCodeLine{152 \textcolor{comment}{//    List<GAChromosome*> prueba;}}
-\DoxyCodeLine{153 \textcolor{comment}{//    GAPad myPad = GAPad();}}
-\DoxyCodeLine{154 \textcolor{comment}{//    GAChromosome original = GAChromosome(myPad, \{\});}}
-\DoxyCodeLine{155 \textcolor{comment}{//    GAChromosome par = original;}}
-\DoxyCodeLine{156 \textcolor{comment}{//    GAChromosome* ptrpar= \&par;}}
-\DoxyCodeLine{157 \textcolor{comment}{//    prueba.insertFirst(ptrpar);}}
-\DoxyCodeLine{158 }
-\DoxyCodeLine{159     \mbox{\hyperlink{main_8cpp_a0544f8cc1cac41dde16aab35b1183c7d}{StartListenign}}();}
-\DoxyCodeLine{160 }
-\DoxyCodeLine{161 \textcolor{comment}{//    // init vars}}
-\DoxyCodeLine{162 \textcolor{comment}{//    const int blockw = 50;}}
-\DoxyCodeLine{163 \textcolor{comment}{//    const int blockh = 50;}}
-\DoxyCodeLine{164 \textcolor{comment}{//    std::vector<cv::Mat> blocks;}}
-\DoxyCodeLine{165 \textcolor{comment}{//}}
-\DoxyCodeLine{166 \textcolor{comment}{//    // read png image}}
-\DoxyCodeLine{167 \textcolor{comment}{//    cv::Mat image = cv::imread("{}/home/ignacio/Datos2/Lets-\/play/Server/perrito.jpg"{}, cv::IMREAD\_UNCHANGED);}}
-\DoxyCodeLine{168 \textcolor{comment}{//    cv::imshow("{}Display window"{}, image);}}
-\DoxyCodeLine{169 \textcolor{comment}{//}}
-\DoxyCodeLine{170 \textcolor{comment}{//    // divide image into multiple blocks}}
-\DoxyCodeLine{171 \textcolor{comment}{//    int divideStatus = divideImage(image, 25, blocks);}}
-\DoxyCodeLine{172 \textcolor{comment}{//}}
-\DoxyCodeLine{173 \textcolor{comment}{//    // debug: save blocks}}
-\DoxyCodeLine{174 \textcolor{comment}{//    cv::utils::fs::createDirectory("{}/home/ignacio/Datos2/Lets-\/play/Server/blocksFolder"{});}}
-\DoxyCodeLine{175 \textcolor{comment}{//    for (int j = 0; j < blocks.size(); j++)}}
-\DoxyCodeLine{176 \textcolor{comment}{//    \{}}
-\DoxyCodeLine{177 \textcolor{comment}{//        std::string blockId = std::to\_string(j);}}
-\DoxyCodeLine{178 \textcolor{comment}{//        std::string blockImgName = "{}/home/ignacio/Datos2/Lets-\/play/Server/blocksFolder/block\#"{} + blockId + "{}.jpg"{};}}
-\DoxyCodeLine{179 \textcolor{comment}{//        imwrite(blockImgName, blocks[j]);}}
-\DoxyCodeLine{180 \textcolor{comment}{//    \}}}
-\DoxyCodeLine{181 }
-\DoxyCodeLine{182 }
-\DoxyCodeLine{183 }
-\DoxyCodeLine{184     \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{185 \}}
+\DoxyCodeLine{102            \{}
+\DoxyCodeLine{103     srand(time(NULL));}
+\DoxyCodeLine{104     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106         \mbox{\hyperlink{classGAPad}{GAPad}} myPad = \mbox{\hyperlink{classGAPad}{GAPad}}(3, 3);}
+\DoxyCodeLine{107         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&item : myPad.\mbox{\hyperlink{classGAPad_ac329937dcebceccf93a326f8ab49a06f}{board}}) \{}
+\DoxyCodeLine{108             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&i : item) \{}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110                 cout << setw(3)<< i <<\textcolor{stringliteral}{"{} ; "{}};}
+\DoxyCodeLine{111             \}}
+\DoxyCodeLine{112             cout << endl;}
+\DoxyCodeLine{113         \}}
+\DoxyCodeLine{114         cout << endl;}
+\DoxyCodeLine{115         myPad.\mbox{\hyperlink{classGAPad_ad71aaea96ad0bd0675234a2d60fb961a}{shuffle}}();}
+\DoxyCodeLine{116         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&item : myPad.\mbox{\hyperlink{classGAPad_ac329937dcebceccf93a326f8ab49a06f}{board}}) \{}
+\DoxyCodeLine{117             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&i : item) \{}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120                 cout << setw(3) << i << \textcolor{stringliteral}{"{} -\/ "{}};}
+\DoxyCodeLine{121             \}}
+\DoxyCodeLine{122             cout << endl;}
+\DoxyCodeLine{123         \}}
+\DoxyCodeLine{124         cout << endl;}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126         \mbox{\hyperlink{classList}{List<string>}} gene;}
+\DoxyCodeLine{127         \mbox{\hyperlink{classGAChromosome}{GAChromosome}} par = \mbox{\hyperlink{classGAChromosome}{GAChromosome}}(myPad, gene);}
+\DoxyCodeLine{128         \mbox{\hyperlink{classGASolver}{GASolver}} gSolver = \mbox{\hyperlink{classGASolver}{GASolver}}(myPad, \mbox{\hyperlink{main_8cpp_aaedcc0e752bf812bfc936dadd6fb5eff}{POPULATION\_LEN}}, \mbox{\hyperlink{main_8cpp_a8b2d3995161eb62b836776ef0d311046}{MUTATION\_CHANCE}}, \mbox{\hyperlink{main_8cpp_adb7b8767ce8e5e2039660af73bca99ee}{CROSS\_OVER\_RATE}}, par);}
+\DoxyCodeLine{129         \mbox{\hyperlink{classGAChromosome}{GAChromosome}} res = gSolver.\mbox{\hyperlink{classGASolver_a21329f8b9c65b0041a3a22ee28aef3cd}{solve}}(\mbox{\hyperlink{main_8cpp_add18cf1b3d789763919a27550f5980a0}{MAX\_ITERATION}}, 0.000001);}
+\DoxyCodeLine{130         myPad.\mbox{\hyperlink{classGAPad_a1ac8ee3b4f0809c4e8115151abe92a14}{apply\_chain}}(res.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}});}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&item : myPad.\mbox{\hyperlink{classGAPad_ac329937dcebceccf93a326f8ab49a06f}{board}}) \{}
+\DoxyCodeLine{133             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&i : item) \{}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135                 cout << setw(3)<< i << \textcolor{stringliteral}{"{} | "{}};}
+\DoxyCodeLine{136             \}}
+\DoxyCodeLine{137             cout << endl;}
+\DoxyCodeLine{138         \}}
+\DoxyCodeLine{139         cout << endl;}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142         cout<< \textcolor{stringliteral}{"{}**************************"{}}<< endl;}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144         cout << gSolver.\mbox{\hyperlink{classGASolver_a940f5aa314d2fb295b693864e483cb2d}{getResultPath}}() << endl;}
+\DoxyCodeLine{145     \}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} std::exception \&exc)\{}
+\DoxyCodeLine{149         cout<<\textcolor{stringliteral}{"{}Ha ocurrido un error\(\backslash\)n"{}};}
+\DoxyCodeLine{150         std::cerr << exc.what();}
+\DoxyCodeLine{151     \}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 \textcolor{comment}{//    List<GAChromosome*> prueba;}}
+\DoxyCodeLine{156 \textcolor{comment}{//    GAPad myPad = GAPad();}}
+\DoxyCodeLine{157 \textcolor{comment}{//    GAChromosome original = GAChromosome(myPad, \{\});}}
+\DoxyCodeLine{158 \textcolor{comment}{//    GAChromosome par = original;}}
+\DoxyCodeLine{159 \textcolor{comment}{//    GAChromosome* ptrpar= \&par;}}
+\DoxyCodeLine{160 \textcolor{comment}{//    prueba.insertFirst(ptrpar);}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \textcolor{comment}{//    StartListenign();}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 \textcolor{comment}{//    // init vars}}
+\DoxyCodeLine{165 \textcolor{comment}{//    const int blockw = 50;}}
+\DoxyCodeLine{166 \textcolor{comment}{//    const int blockh = 50;}}
+\DoxyCodeLine{167 \textcolor{comment}{//    std::vector<cv::Mat> blocks;}}
+\DoxyCodeLine{168 \textcolor{comment}{//}}
+\DoxyCodeLine{169 \textcolor{comment}{//    // read png image}}
+\DoxyCodeLine{170 \textcolor{comment}{//}}
+\DoxyCodeLine{171 \textcolor{comment}{//    cv::Mat image = cv::imread("{}/home/ignacio/Datos2/Lets-\/play/Server/perrito.jpg"{}, cv::IMREAD\_UNCHANGED);}}
+\DoxyCodeLine{172 \textcolor{comment}{//    //cv::imshow("{}Display window"{}, image);}}
+\DoxyCodeLine{173 \textcolor{comment}{//}}
+\DoxyCodeLine{174 \textcolor{comment}{//    // divide image into multiple blocks}}
+\DoxyCodeLine{175 \textcolor{comment}{//    int divideStatus = divideImage(image, 9, blocks);}}
+\DoxyCodeLine{176 \textcolor{comment}{//}}
+\DoxyCodeLine{177 \textcolor{comment}{//    // debug: save blocks}}
+\DoxyCodeLine{178 \textcolor{comment}{//    cv::utils::fs::createDirectory("{}/home/usuario/Proyectos/Lets-\/play/Server/blocksFolder"{});}}
+\DoxyCodeLine{179 \textcolor{comment}{//    for (int j = 0; j < blocks.size(); j++)}}
+\DoxyCodeLine{180 \textcolor{comment}{//    \{}}
+\DoxyCodeLine{181 \textcolor{comment}{//        std::string blockId = std::to\_string(j);}}
+\DoxyCodeLine{182 \textcolor{comment}{//        std::string blockImgName = "{}/home/usuario/Proyectos/Lets-\/play/Server/blocksFolder/block\#"{} + blockId + "{}.jpg"{};}}
+\DoxyCodeLine{183 \textcolor{comment}{//        imwrite(blockImgName, blocks[j]);}}
+\DoxyCodeLine{184 \textcolor{comment}{//    \}}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{189 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{main_8cpp_a0544f8cc1cac41dde16aab35b1183c7d}\label{main_8cpp_a0544f8cc1cac41dde16aab35b1183c7d}} 
@@ -150,77 +165,78 @@ Definition at line 99 of file main.\+cpp.
 
 
 
-Definition at line 30 of file main.\+cpp.
+Definition at line 32 of file main.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{30                     \{}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32     \textcolor{keywordtype}{int} listening = socket(AF\_INET, SOCK\_STREAM, 0);}
-\DoxyCodeLine{33     \textcolor{keywordflow}{if} (listening == -\/1)}
-\DoxyCodeLine{34     \{}
-\DoxyCodeLine{35         cerr << \textcolor{stringliteral}{"{}No se pudo crear el Socket. Cerrando..."{}} << endl;}
-\DoxyCodeLine{36         \textcolor{keywordflow}{return} -\/1;}
-\DoxyCodeLine{37     \}}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39     sockaddr\_in hint;}
-\DoxyCodeLine{40     hint.sin\_family = AF\_INET;}
-\DoxyCodeLine{41     hint.sin\_port = htons(11000);}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43     inet\_pton(AF\_INET, \textcolor{stringliteral}{"{}0.0.0.0"{}}, \&hint.sin\_addr);}
-\DoxyCodeLine{44     bind(listening, (sockaddr*)\&hint, \textcolor{keyword}{sizeof}(hint));}
-\DoxyCodeLine{45 }
-\DoxyCodeLine{46     listen(listening, SOMAXCONN);}
+\DoxyCodeLine{32                     \{}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{int} listening = socket(AF\_INET, SOCK\_STREAM, 0);}
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} (listening == -\/1)}
+\DoxyCodeLine{36     \{}
+\DoxyCodeLine{37         cerr << \textcolor{stringliteral}{"{}No se pudo crear el Socket. Cerrando..."{}} << endl;}
+\DoxyCodeLine{38         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     sockaddr\_in hint;}
+\DoxyCodeLine{42     hint.sin\_family = AF\_INET;}
+\DoxyCodeLine{43     hint.sin\_port = htons(11000);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     inet\_pton(AF\_INET, \textcolor{stringliteral}{"{}0.0.0.0"{}}, \&hint.sin\_addr);}
+\DoxyCodeLine{46     bind(listening, (sockaddr*)\&hint, \textcolor{keyword}{sizeof}(hint));}
 \DoxyCodeLine{47 }
-\DoxyCodeLine{48     \textcolor{keywordflow}{while}(\textcolor{keyword}{true})\{}
-\DoxyCodeLine{49         sockaddr\_in client;}
-\DoxyCodeLine{50         socklen\_t clientSize = \textcolor{keyword}{sizeof}(client);}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{52         \textcolor{keywordtype}{int} clientSocket = accept(listening, (sockaddr *) \&client, \&clientSize);}
+\DoxyCodeLine{48     listen(listening, SOMAXCONN);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordflow}{while}(\textcolor{keyword}{true})\{}
+\DoxyCodeLine{51         sockaddr\_in client;}
+\DoxyCodeLine{52         socklen\_t clientSize = \textcolor{keyword}{sizeof}(client);}
 \DoxyCodeLine{53 }
-\DoxyCodeLine{54         \textcolor{keywordtype}{char} host[NI\_MAXHOST];      \textcolor{comment}{// Nombre del cliente remoto}}
-\DoxyCodeLine{55         \textcolor{keywordtype}{char} service[NI\_MAXSERV];}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{57         memset(host, 0, NI\_MAXHOST);}
-\DoxyCodeLine{58         memset(service, 0, NI\_MAXSERV);}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{60         \textcolor{keywordflow}{if} (getnameinfo((sockaddr *) \&client, \textcolor{keyword}{sizeof}(client), host, NI\_MAXHOST, service, NI\_MAXSERV, 0) == 0) \{}
-\DoxyCodeLine{61             cout << host << \textcolor{stringliteral}{"{} conectado "{}} << endl;}
-\DoxyCodeLine{62         \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{63             inet\_ntop(AF\_INET, \&client.sin\_addr, host, NI\_MAXHOST);}
-\DoxyCodeLine{64             cout << host << \textcolor{stringliteral}{"{} conectado al puerto "{}} << ntohs(client.sin\_port) << endl;}
-\DoxyCodeLine{65         \}}
-\DoxyCodeLine{66         \textcolor{keywordtype}{char} buf[4096];}
-\DoxyCodeLine{67         memset(buf, 0, 4096);}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{69         \textcolor{keywordtype}{int} bytesReceived = recv(clientSocket, buf, 4096, 0);}
-\DoxyCodeLine{70         \textcolor{keywordflow}{if} (bytesReceived == -\/1) \{}
-\DoxyCodeLine{71             cerr << \textcolor{stringliteral}{"{}Error al recibir mensaje. Cerrando..."{}} << endl;}
-\DoxyCodeLine{72             \textcolor{keywordflow}{break};}
-\DoxyCodeLine{73         \}}
-\DoxyCodeLine{74 }
-\DoxyCodeLine{75         \textcolor{keywordflow}{if} (bytesReceived == 0) \{}
-\DoxyCodeLine{76             cout << \textcolor{stringliteral}{"{}Cliente desconectado "{}} << endl;}
-\DoxyCodeLine{77             \textcolor{keywordflow}{break};}
-\DoxyCodeLine{78         \}}
-\DoxyCodeLine{79 }
-\DoxyCodeLine{80         \textcolor{keywordtype}{string} messageR = \mbox{\hyperlink{namespacenlohmann_1_1detail_a1ed8fc6239da25abcaf681d30ace4985ab45cffe084dd3d20d928bee85e7b0f21}{string}}(buf, 0, bytesReceived);}
-\DoxyCodeLine{81         \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} jmessageR = \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(messageR);}
-\DoxyCodeLine{82         \textcolor{keywordtype}{string} game = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}Game"{}}, \textcolor{stringliteral}{"{}oops"{}});}
-\DoxyCodeLine{83         \textcolor{keywordflow}{if} (game == \textcolor{stringliteral}{"{}BP"{}})\{}
-\DoxyCodeLine{84             \textcolor{keywordtype}{string} message = \mbox{\hyperlink{BPGameLogic_8h_a1657e726a132e4f0d82fb2264f11716f}{bpLogic}}(jmessageR);}
-\DoxyCodeLine{85             send(clientSocket, message.c\_str(), message.size() + 1, 0);}
-\DoxyCodeLine{86         \}}
-\DoxyCodeLine{87 }
-\DoxyCodeLine{88         \textcolor{keywordflow}{if} (game == \textcolor{stringliteral}{"{}Genetic"{}})}
-\DoxyCodeLine{89         \{}
-\DoxyCodeLine{90             ;}
-\DoxyCodeLine{91         \}}
-\DoxyCodeLine{92         close(clientSocket);}
-\DoxyCodeLine{93     \}}
-\DoxyCodeLine{94 }
-\DoxyCodeLine{95     \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{96 \}}
+\DoxyCodeLine{54         \textcolor{keywordtype}{int} clientSocket = accept(listening, (sockaddr *) \&client, \&clientSize);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56         \textcolor{keywordtype}{char} host[NI\_MAXHOST];      \textcolor{comment}{// Nombre del cliente remoto}}
+\DoxyCodeLine{57         \textcolor{keywordtype}{char} service[NI\_MAXSERV];}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         memset(host, 0, NI\_MAXHOST);}
+\DoxyCodeLine{60         memset(service, 0, NI\_MAXSERV);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         \textcolor{keywordflow}{if} (getnameinfo((sockaddr *) \&client, \textcolor{keyword}{sizeof}(client), host, NI\_MAXHOST, service, NI\_MAXSERV, 0) == 0) \{}
+\DoxyCodeLine{63             cout << host << \textcolor{stringliteral}{"{} conectado "{}} << endl;}
+\DoxyCodeLine{64         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{65             inet\_ntop(AF\_INET, \&client.sin\_addr, host, NI\_MAXHOST);}
+\DoxyCodeLine{66             cout << host << \textcolor{stringliteral}{"{} conectado al puerto "{}} << ntohs(client.sin\_port) << endl;}
+\DoxyCodeLine{67         \}}
+\DoxyCodeLine{68         \textcolor{keywordtype}{char} buf[4096];}
+\DoxyCodeLine{69         memset(buf, 0, 4096);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71         \textcolor{keywordtype}{int} bytesReceived = recv(clientSocket, buf, 4096, 0);}
+\DoxyCodeLine{72         \textcolor{keywordflow}{if} (bytesReceived == -\/1) \{}
+\DoxyCodeLine{73             cerr << \textcolor{stringliteral}{"{}Error al recibir mensaje. Cerrando..."{}} << endl;}
+\DoxyCodeLine{74             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{75         \}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77         \textcolor{keywordflow}{if} (bytesReceived == 0) \{}
+\DoxyCodeLine{78             cout << \textcolor{stringliteral}{"{}Cliente desconectado "{}} << endl;}
+\DoxyCodeLine{79             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{80         \}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82         \textcolor{keywordtype}{string} messageR = \mbox{\hyperlink{namespacenlohmann_1_1detail_a1ed8fc6239da25abcaf681d30ace4985ab45cffe084dd3d20d928bee85e7b0f21}{string}}(buf, 0, bytesReceived);}
+\DoxyCodeLine{83         \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}} jmessageR = \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(messageR);}
+\DoxyCodeLine{84         \textcolor{keywordtype}{string} game = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}Game"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{85         \textcolor{keywordflow}{if} (game == \textcolor{stringliteral}{"{}BP"{}})\{}
+\DoxyCodeLine{86             \textcolor{keywordtype}{string} message = \mbox{\hyperlink{BPGameLogic_8h_a1657e726a132e4f0d82fb2264f11716f}{bpLogic}}(jmessageR);}
+\DoxyCodeLine{87             send(clientSocket, message.c\_str(), message.size() + 1, 0);}
+\DoxyCodeLine{88         \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90         \textcolor{keywordflow}{if} (game == \textcolor{stringliteral}{"{}Genetic"{}})}
+\DoxyCodeLine{91         \{}
+\DoxyCodeLine{92             \textcolor{keywordtype}{string} message = \mbox{\hyperlink{genLogic_8h_a686bafe9957b8fc49bb79d58042801dc}{genLogic}}(jmessageR);}
+\DoxyCodeLine{93             send(clientSocket, message.c\_str(), message.size() + 1, 0);}
+\DoxyCodeLine{94         \}}
+\DoxyCodeLine{95         close(clientSocket);}
+\DoxyCodeLine{96     \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{99 \}}
 
 \end{DoxyCode}
 
@@ -234,17 +250,17 @@ Definition at line 30 of file main.\+cpp.
 
 
 
-Definition at line 20 of file main.\+cpp.
+Definition at line 22 of file main.\+cpp.
 
 \mbox{\Hypertarget{main_8cpp_add18cf1b3d789763919a27550f5980a0}\label{main_8cpp_add18cf1b3d789763919a27550f5980a0}} 
 \index{main.cpp@{main.cpp}!MAX\_ITERATION@{MAX\_ITERATION}}
 \index{MAX\_ITERATION@{MAX\_ITERATION}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{MAX\_ITERATION}{MAX\_ITERATION}}
-{\footnotesize\ttfamily int MAX\+\_\+\+ITERATION = 1000}
+{\footnotesize\ttfamily int MAX\+\_\+\+ITERATION = 100}
 
 
 
-Definition at line 22 of file main.\+cpp.
+Definition at line 24 of file main.\+cpp.
 
 \mbox{\Hypertarget{main_8cpp_a8b2d3995161eb62b836776ef0d311046}\label{main_8cpp_a8b2d3995161eb62b836776ef0d311046}} 
 \index{main.cpp@{main.cpp}!MUTATION\_CHANCE@{MUTATION\_CHANCE}}
@@ -254,7 +270,7 @@ Definition at line 22 of file main.\+cpp.
 
 
 
-Definition at line 19 of file main.\+cpp.
+Definition at line 21 of file main.\+cpp.
 
 \mbox{\Hypertarget{main_8cpp_aaedcc0e752bf812bfc936dadd6fb5eff}\label{main_8cpp_aaedcc0e752bf812bfc936dadd6fb5eff}} 
 \index{main.cpp@{main.cpp}!POPULATION\_LEN@{POPULATION\_LEN}}
@@ -264,5 +280,5 @@ Definition at line 19 of file main.\+cpp.
 
 
 
-Definition at line 21 of file main.\+cpp.
+Definition at line 23 of file main.\+cpp.
 

@@ -114,35 +114,36 @@ Definition at line 160 of file GAPad.\+cpp.
 Function to calculate the error associated to the Pad (fitness) \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-vector$<$vector$<$int$>$$>$ reference; reference.\+push\+\_\+back(\{0,0\}); reference.\+push\+\_\+back(\{0,1\}); reference.\+push\+\_\+back(\{0,2\}); reference.\+push\+\_\+back(\{1,0\}); reference.\+push\+\_\+back(\{1,1\}); reference.\+push\+\_\+back(\{1,2\}); reference.\+push\+\_\+back(\{2,0\}); reference.\+push\+\_\+back(\{2,1\}); reference.\+push\+\_\+back(\{2,2\});
+
 
 Definition at line 175 of file GAPad.\+cpp.
 
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{175                   \{}
-\DoxyCodeLine{187     vector <vector<int>> reference ;}
-\DoxyCodeLine{188     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}{rows}}; i++) \{}
-\DoxyCodeLine{189         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}{columns}}; j++) \{}
-\DoxyCodeLine{190             reference.push\_back(\{i,j\});}
-\DoxyCodeLine{191         \}}
-\DoxyCodeLine{192     \}}
-\DoxyCodeLine{193 }
-\DoxyCodeLine{194     \textcolor{keywordtype}{float} \mbox{\hyperlink{namespacenlohmann_1_1detail_a58bb1ef1a9ad287a9cfaf1855784d9acacb5e100e5a9a3e7f6d1fd97512215282}{error}} = 0.0;}
-\DoxyCodeLine{195     vector<int>index = \{\};}
-\DoxyCodeLine{196     vector<int>ref\_ind = \{\};}
-\DoxyCodeLine{197     \textcolor{comment}{//for (int i = 0; i < 9; ++i) \{}}
-\DoxyCodeLine{198     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < (\mbox{\hyperlink{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}{rows}}*\mbox{\hyperlink{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}{columns}}); ++i) \{}
-\DoxyCodeLine{199         index = \mbox{\hyperlink{classGAPad_a376eaf694fe6f1143627e2e261771413}{find\_0}}(i);}
-\DoxyCodeLine{200         ref\_ind = reference.at(i);}
-\DoxyCodeLine{201         \mbox{\hyperlink{namespacenlohmann_1_1detail_a58bb1ef1a9ad287a9cfaf1855784d9acacb5e100e5a9a3e7f6d1fd97512215282}{error}} += pow((index.at(0) -\/ ref\_ind.at(0)), 2)}
-\DoxyCodeLine{202                  + pow((index.at(1) -\/ ref\_ind.at(1)), 2);}
-\DoxyCodeLine{203     \}}
-\DoxyCodeLine{204     \textcolor{keywordtype}{float} test = \mbox{\hyperlink{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}{rows}}*\mbox{\hyperlink{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}{columns}};}
-\DoxyCodeLine{205     \mbox{\hyperlink{namespacenlohmann_1_1detail_a58bb1ef1a9ad287a9cfaf1855784d9acacb5e100e5a9a3e7f6d1fd97512215282}{error}} /= test;}
-\DoxyCodeLine{206     \textcolor{comment}{//error /= 9.0;}}
-\DoxyCodeLine{207     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacenlohmann_1_1detail_a58bb1ef1a9ad287a9cfaf1855784d9acacb5e100e5a9a3e7f6d1fd97512215282}{error}};}
-\DoxyCodeLine{208 \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177     vector <vector<int>> reference ;}
+\DoxyCodeLine{178     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}{rows}}; i++) \{}
+\DoxyCodeLine{179         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}{columns}}; j++) \{}
+\DoxyCodeLine{180             reference.push\_back(\{i,j\});}
+\DoxyCodeLine{181         \}}
+\DoxyCodeLine{182     \}}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     \textcolor{keywordtype}{float} \mbox{\hyperlink{namespacenlohmann_1_1detail_a58bb1ef1a9ad287a9cfaf1855784d9acacb5e100e5a9a3e7f6d1fd97512215282}{error}} = 0.0;}
+\DoxyCodeLine{185     vector<int>index = \{\};}
+\DoxyCodeLine{186     vector<int>ref\_ind = \{\};}
+\DoxyCodeLine{187     \textcolor{comment}{//for (int i = 0; i < 9; ++i) \{}}
+\DoxyCodeLine{188     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < (\mbox{\hyperlink{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}{rows}}*\mbox{\hyperlink{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}{columns}}); ++i) \{}
+\DoxyCodeLine{189         index = \mbox{\hyperlink{classGAPad_a376eaf694fe6f1143627e2e261771413}{find\_0}}(i);}
+\DoxyCodeLine{190         ref\_ind = reference.at(i);}
+\DoxyCodeLine{191         \mbox{\hyperlink{namespacenlohmann_1_1detail_a58bb1ef1a9ad287a9cfaf1855784d9acacb5e100e5a9a3e7f6d1fd97512215282}{error}} += pow((index.at(0) -\/ ref\_ind.at(0)), 2)}
+\DoxyCodeLine{192                  + pow((index.at(1) -\/ ref\_ind.at(1)), 2);}
+\DoxyCodeLine{193     \}}
+\DoxyCodeLine{194     \textcolor{keywordtype}{float} test = \mbox{\hyperlink{classGAPad_a0ab3244a87f0f8a7588df0521f3fd666}{rows}}*\mbox{\hyperlink{classGAPad_acdc5908e52ebe5b72de8ad155e9ac033}{columns}};}
+\DoxyCodeLine{195     \mbox{\hyperlink{namespacenlohmann_1_1detail_a58bb1ef1a9ad287a9cfaf1855784d9acacb5e100e5a9a3e7f6d1fd97512215282}{error}} /= test;}
+\DoxyCodeLine{196     \textcolor{comment}{//error /= 9.0;}}
+\DoxyCodeLine{197     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacenlohmann_1_1detail_a58bb1ef1a9ad287a9cfaf1855784d9acacb5e100e5a9a3e7f6d1fd97512215282}{error}};}
+\DoxyCodeLine{198 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classGAPad_a376eaf694fe6f1143627e2e261771413}\label{classGAPad_a376eaf694fe6f1143627e2e261771413}} 
@@ -151,7 +152,7 @@ Definition at line 175 of file GAPad.\+cpp.
 \doxysubsubsection{\texorpdfstring{find\_0()}{find\_0()}}
 {\footnotesize\ttfamily vector$<$ int $>$ GAPad\+::find\+\_\+0 (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})}
 
-Funtion to localizate a piece in the Pad 
+Function to localize a piece in the Pad 
 \begin{DoxyParams}{Parameters}
 {\em num} & Piece to search \\
 \hline
@@ -302,7 +303,7 @@ Definition at line 131 of file GAPad.\+cpp.
 \begin{DoxyCode}{0}
 \DoxyCodeLine{131                     \{}
 \DoxyCodeLine{132 }
-\DoxyCodeLine{133     \textcolor{keywordtype}{int} a =  rand()\%30 + 10;}
+\DoxyCodeLine{133     \textcolor{keywordtype}{int} a =  rand()\%20 + 10;}
 \DoxyCodeLine{134     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0 ; i < a; i++) \{}
 \DoxyCodeLine{135         \textcolor{keywordtype}{int} move =rand()\%5;}
 \DoxyCodeLine{136         \textcolor{keywordflow}{switch} (move) \{}

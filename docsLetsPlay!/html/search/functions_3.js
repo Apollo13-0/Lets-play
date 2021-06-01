@@ -1,11 +1,21 @@
 var searchData=
 [
-  ['delete_5fall_991',['delete_all',['../classNode.html#aa213f114c1d17ec005ebf5bb98959197',1,'Node::delete_all()'],['../classList.html#a25e99b18916a426df981722ef23592d8',1,'List::delete_all()']]],
-  ['deletematrixnode_992',['deletematrixNode',['../classList.html#aacd7b81f4e55b99082dd8d16751ac906',1,'List']]],
-  ['deletenode_993',['deleteNode',['../classList.html#a3f675bfe51871f26d048be5d314ab4a0',1,'List']]],
-  ['diff_994',['diff',['../classnlohmann_1_1basic__json.html#a1c1f21327df91a4dd6c5f5a107240385',1,'nlohmann::basic_json']]],
-  ['display_995',['display',['../classGASolver.html#a57122965f71858ac429c4f5532648ba0',1,'GASolver']]],
-  ['divideimage_996',['divideImage',['../divideImage_8h.html#ad9a0710333d67efea8c4e73395193141',1,'divideImage.h']]],
-  ['diyfp_997',['diyfp',['../structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html#ad8798a8823a49c8412f0fada9892c918',1,'nlohmann::detail::dtoa_impl::diyfp']]],
-  ['dump_998',['dump',['../classnlohmann_1_1detail_1_1serializer.html#a95460ebd1a535a543e5a0ec52e00f48b',1,'nlohmann::detail::serializer::dump()'],['../classnlohmann_1_1basic__json.html#a476756fb08e7f2416aad116d137977f4',1,'nlohmann::basic_json::dump()']]]
+  ['deepclone_1327',['DeepClone',['../classtinyxml2_1_1XMLNode.html#a3bb369fd733f1989b751d99a9417adab',1,'tinyxml2::XMLNode']]],
+  ['deepcopy_1328',['DeepCopy',['../classtinyxml2_1_1XMLDocument.html#af592ffc91514e25a39664521ac83db45',1,'tinyxml2::XMLDocument']]],
+  ['delete_5fall_1329',['delete_all',['../classNode.html#aa213f114c1d17ec005ebf5bb98959197',1,'Node::delete_all()'],['../classList.html#a25e99b18916a426df981722ef23592d8',1,'List::delete_all()']]],
+  ['deleteattribute_1330',['DeleteAttribute',['../classtinyxml2_1_1XMLElement.html#aebd45aa7118964c30b32fe12e944628a',1,'tinyxml2::XMLElement']]],
+  ['deletechild_1331',['DeleteChild',['../classtinyxml2_1_1XMLNode.html#a363b6edbd6ebd55f8387d2b89f2b0921',1,'tinyxml2::XMLNode']]],
+  ['deletechildren_1332',['DeleteChildren',['../classtinyxml2_1_1XMLNode.html#a0360085cc54df5bff85d5c5da13afdce',1,'tinyxml2::XMLNode']]],
+  ['deletematrixnode_1333',['deletematrixNode',['../classList.html#aacd7b81f4e55b99082dd8d16751ac906',1,'List']]],
+  ['deletenode_1334',['deleteNode',['../classList.html#a3f675bfe51871f26d048be5d314ab4a0',1,'List']]],
+  ['deletenode_1335',['DeleteNode',['../classtinyxml2_1_1XMLDocument.html#ac1d6e2c7fcc1a660624ac4f68e96380d',1,'tinyxml2::XMLDocument']]],
+  ['diff_1336',['diff',['../classnlohmann_1_1basic__json.html#a1c1f21327df91a4dd6c5f5a107240385',1,'nlohmann::basic_json']]],
+  ['display_1337',['display',['../classGASolver.html#a57122965f71858ac429c4f5532648ba0',1,'GASolver']]],
+  ['divideimage_1338',['divideImage',['../divideImage_8h.html#ad9a0710333d67efea8c4e73395193141',1,'divideImage.h']]],
+  ['diyfp_1339',['diyfp',['../structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html#ad8798a8823a49c8412f0fada9892c918',1,'nlohmann::detail::dtoa_impl::diyfp']]],
+  ['doubleattribute_1340',['DoubleAttribute',['../classtinyxml2_1_1XMLElement.html#a10a90c505aea716bf073eea1c97f33b5',1,'tinyxml2::XMLElement']]],
+  ['doubletext_1341',['DoubleText',['../classtinyxml2_1_1XMLElement.html#a81b1ff0cf2f2cd09be8badc08b39a2b7',1,'tinyxml2::XMLElement']]],
+  ['doublevalue_1342',['DoubleValue',['../classtinyxml2_1_1XMLAttribute.html#a4aa73513f54ff0087d3e804f0f54e30f',1,'tinyxml2::XMLAttribute']]],
+  ['dump_1343',['dump',['../classnlohmann_1_1detail_1_1serializer.html#a95460ebd1a535a543e5a0ec52e00f48b',1,'nlohmann::detail::serializer::dump()'],['../classnlohmann_1_1basic__json.html#a476756fb08e7f2416aad116d137977f4',1,'nlohmann::basic_json::dump()']]],
+  ['dynarray_1344',['DynArray',['../classtinyxml2_1_1DynArray.html#aaad72f384e761c70a4519183eb8fea17',1,'tinyxml2::DynArray']]]
 ];

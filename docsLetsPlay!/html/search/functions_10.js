@@ -1,8 +1,26 @@
 var searchData=
 [
-  ['rbegin_1171',['rbegin',['../classnlohmann_1_1basic__json.html#aff8e38cd973bc94557fa8d36433c0e4c',1,'nlohmann::basic_json::rbegin() noexcept'],['../classnlohmann_1_1basic__json.html#aab1329f44c8301b7679962726a043549',1,'nlohmann::basic_json::rbegin() const noexcept']]],
-  ['reinterpret_5fbits_1172',['reinterpret_bits',['../namespacenlohmann_1_1detail_1_1dtoa__impl.html#a1c5d30eb51e5e994a3f48bde104d2ce8',1,'nlohmann::detail::dtoa_impl']]],
-  ['rend_1173',['rend',['../classnlohmann_1_1basic__json.html#a7a328b29b290cc300345376c54f618cb',1,'nlohmann::basic_json::rend() noexcept'],['../classnlohmann_1_1basic__json.html#a2e4cbf41d593d41847b90aea55e5e84d',1,'nlohmann::basic_json::rend() const noexcept']]],
-  ['resetforpathfinding_1174',['ResetforPathfinding',['../classMatrix.html#a4eee454438d97332dce65a0e0620f393',1,'Matrix']]],
-  ['resetobstaculesmatrix_1175',['ResetObstaculesMatrix',['../classMatrix.html#affb9c26c90e3ba882592d73752a23ded',1,'Matrix']]]
+  ['queryattribute_1606',['QueryAttribute',['../classtinyxml2_1_1XMLElement.html#a432276ea6e034cad19ad66de887ee13c',1,'tinyxml2::XMLElement::QueryAttribute(const char *name, unsigned int *value) const'],['../classtinyxml2_1_1XMLElement.html#a4867aea7a812acf7f00a915e4eaeaf3e',1,'tinyxml2::XMLElement::QueryAttribute(const char *name, int64_t *value) const'],['../classtinyxml2_1_1XMLElement.html#ad2175dd6a927f7b0c5bfcde727da2b35',1,'tinyxml2::XMLElement::QueryAttribute(const char *name, uint64_t *value) const'],['../classtinyxml2_1_1XMLElement.html#a17139a22f2552439a7c2780e8e901522',1,'tinyxml2::XMLElement::QueryAttribute(const char *name, bool *value) const'],['../classtinyxml2_1_1XMLElement.html#a4f4da49900e82e25d163a7c0325fcc5f',1,'tinyxml2::XMLElement::QueryAttribute(const char *name, double *value) const'],['../classtinyxml2_1_1XMLElement.html#ac85b18ccd9ee8a79a2fd97cc593aae43',1,'tinyxml2::XMLElement::QueryAttribute(const char *name, float *value) const'],['../classtinyxml2_1_1XMLElement.html#ae6a3656a3af23b2c265b8fed8e888e30',1,'tinyxml2::XMLElement::QueryAttribute(const char *name, const char **value) const'],['../classtinyxml2_1_1XMLElement.html#a5b7df3bed2b8954eabf227fa204522eb',1,'tinyxml2::XMLElement::QueryAttribute(const char *name, int *value) const']]],
+  ['queryboolattribute_1607',['QueryBoolAttribute',['../classtinyxml2_1_1XMLElement.html#a14c1bb77c39689838be01838d86ca872',1,'tinyxml2::XMLElement']]],
+  ['querybooltext_1608',['QueryBoolText',['../classtinyxml2_1_1XMLElement.html#a3fe5417d59eb8f5c4afe924b7d332736',1,'tinyxml2::XMLElement']]],
+  ['queryboolvalue_1609',['QueryBoolValue',['../classtinyxml2_1_1XMLAttribute.html#a5f32e038954256f61c21ff20fd13a09c',1,'tinyxml2::XMLAttribute']]],
+  ['querydoubleattribute_1610',['QueryDoubleAttribute',['../classtinyxml2_1_1XMLElement.html#a5f0964e2dbd8e2ee7fce9beab689443c',1,'tinyxml2::XMLElement']]],
+  ['querydoubletext_1611',['QueryDoubleText',['../classtinyxml2_1_1XMLElement.html#a684679c99bb036a25652744cec6c4d96',1,'tinyxml2::XMLElement']]],
+  ['querydoublevalue_1612',['QueryDoubleValue',['../classtinyxml2_1_1XMLAttribute.html#a2aa6e55e8ea03af0609cf6690bff79b9',1,'tinyxml2::XMLAttribute']]],
+  ['queryfloatattribute_1613',['QueryFloatAttribute',['../classtinyxml2_1_1XMLElement.html#acd5eeddf6002ef90806af794b9d9a5a5',1,'tinyxml2::XMLElement']]],
+  ['queryfloattext_1614',['QueryFloatText',['../classtinyxml2_1_1XMLElement.html#afa332afedd93210daa6d44b88eb11e29',1,'tinyxml2::XMLElement']]],
+  ['queryfloatvalue_1615',['QueryFloatValue',['../classtinyxml2_1_1XMLAttribute.html#a049dea6449a6259b6cfed44a9427b607',1,'tinyxml2::XMLAttribute']]],
+  ['queryint64attribute_1616',['QueryInt64Attribute',['../classtinyxml2_1_1XMLElement.html#a7c0955d80b6f8d196744eacb0f6e90a8',1,'tinyxml2::XMLElement']]],
+  ['queryint64text_1617',['QueryInt64Text',['../classtinyxml2_1_1XMLElement.html#a120c538c8eead169e635dbc70fb226d8',1,'tinyxml2::XMLElement']]],
+  ['queryint64value_1618',['QueryInt64Value',['../classtinyxml2_1_1XMLAttribute.html#a4e25344d6e4159026be34dbddf1dcac2',1,'tinyxml2::XMLAttribute']]],
+  ['queryintattribute_1619',['QueryIntAttribute',['../classtinyxml2_1_1XMLElement.html#a8a78bc1187c1c45ad89f2690eab567b1',1,'tinyxml2::XMLElement']]],
+  ['queryinttext_1620',['QueryIntText',['../classtinyxml2_1_1XMLElement.html#a926357996bef633cb736e1a558419632',1,'tinyxml2::XMLElement']]],
+  ['queryintvalue_1621',['QueryIntValue',['../classtinyxml2_1_1XMLAttribute.html#a6d5176260db00ea301c01af8457cd993',1,'tinyxml2::XMLAttribute']]],
+  ['querystringattribute_1622',['QueryStringAttribute',['../classtinyxml2_1_1XMLElement.html#adb8ae765f98d0c5037faec48deea78bc',1,'tinyxml2::XMLElement']]],
+  ['queryunsigned64attribute_1623',['QueryUnsigned64Attribute',['../classtinyxml2_1_1XMLElement.html#a13dd590b5d3958ce2ed79844aacd9405',1,'tinyxml2::XMLElement']]],
+  ['queryunsigned64text_1624',['QueryUnsigned64Text',['../classtinyxml2_1_1XMLElement.html#ac2239b3bd172ad8f5b78d04d4236144b',1,'tinyxml2::XMLElement']]],
+  ['queryunsigned64value_1625',['QueryUnsigned64Value',['../classtinyxml2_1_1XMLAttribute.html#af793c695e7ee65cf20b8010d38b1d157',1,'tinyxml2::XMLAttribute']]],
+  ['queryunsignedattribute_1626',['QueryUnsignedAttribute',['../classtinyxml2_1_1XMLElement.html#a26fc84cbfba6769dafcfbf256c05e22f',1,'tinyxml2::XMLElement']]],
+  ['queryunsignedtext_1627',['QueryUnsignedText',['../classtinyxml2_1_1XMLElement.html#a14d38aa4b5e18a46274a27425188a6a1',1,'tinyxml2::XMLElement']]],
+  ['queryunsignedvalue_1628',['QueryUnsignedValue',['../classtinyxml2_1_1XMLAttribute.html#a48a7f3496f1415832e451bd8d09c9cb9',1,'tinyxml2::XMLAttribute']]]
 ];

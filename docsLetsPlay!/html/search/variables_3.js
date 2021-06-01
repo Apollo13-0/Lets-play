@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['e_1257',['e',['../structnlohmann_1_1detail_1_1dtoa__impl_1_1diyfp.html#ae22e170815983961447c429f324c944d',1,'nlohmann::detail::dtoa_impl::diyfp::e()'],['../structnlohmann_1_1detail_1_1dtoa__impl_1_1cached__power.html#a9e89bc89bb7bf4361f43ea27eed91d23',1,'nlohmann::detail::dtoa_impl::cached_power::e()']]],
-  ['error_1258',['error',['../classGASolver.html#a17a49e776fa35a9c3439000700a87fd8',1,'GASolver::error()'],['../classGAChromosome.html#a19eb653f7a24841b6b9117a835cf4f84',1,'GAChromosome::error()']]],
-  ['error_5fgene_5flen_1259',['error_gene_len',['../classGAChromosome.html#a585a6dc1cd7752107096a366d63429ea',1,'GAChromosome']]],
-  ['error_5fpuzzle_5fcost_1260',['error_puzzle_cost',['../classGAChromosome.html#affff7777229ed2c0498587397ec8190a',1,'GAChromosome']]]
+  ['chars_5fread_5fcurrent_5fline_1799',['chars_read_current_line',['../structnlohmann_1_1detail_1_1position__t.html#a74df94563dd32102152ceb8c6d9041d8',1,'nlohmann::detail::position_t']]],
+  ['chars_5fread_5ftotal_1800',['chars_read_total',['../structnlohmann_1_1detail_1_1position__t.html#a94cf85cd91d478c20ae143eba906ea1a',1,'nlohmann::detail::position_t']]],
+  ['columns_1801',['columns',['../classGAPad.html#acdc5908e52ebe5b72de8ad155e9ac033',1,'GAPad']]],
+  ['cross_5fover_5frate_1802',['cross_over_rate',['../classGASolver.html#a398040e2d1548cadabe9c82d249a819b',1,'GASolver']]],
+  ['cross_5fover_5frate_1803',['CROSS_OVER_RATE',['../main_8cpp.html#adb7b8767ce8e5e2039660af73bca99ee',1,'main.cpp']]]
 ];

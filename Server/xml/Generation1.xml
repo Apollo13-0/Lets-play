@@ -2,7 +2,7 @@
 <!--Description of Generation-->
 <Generation1>
     <Population_lenght>1000</Population_lenght>
-    <Total_error>1.120217</Total_error>
+    <Total_error>1.062660</Total_error>
     <Best>
         <Best_error_total>0.898889</Best_error_total>
         <Best_error_puzzle>0.888889</Best_error_puzzle>

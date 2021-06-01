@@ -1,0 +1,151 @@
+\hypertarget{genLogic_8h}{}\doxysection{gen\+Logic.\+h File Reference}
+\label{genLogic_8h}\index{genLogic.h@{genLogic.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}Matrix.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}json.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}divide\+Image.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}GAChromosome.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}GASolver.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{genLogic_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} = \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{genLogic_8h_a4eba37dc6bb5305e0813b40ae86a53e2}{genetic\+Result}} (int num)
+\item 
+string \mbox{\hyperlink{genLogic_8h_a686bafe9957b8fc49bb79d58042801dc}{gen\+Logic}} (\mbox{\hyperlink{genLogic_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} jmessageR)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{genLogic_8h_ab701e3ac61a85b337ec5c1abaad6742d}\label{genLogic_8h_ab701e3ac61a85b337ec5c1abaad6742d}} 
+\index{genLogic.h@{genLogic.h}!json@{json}}
+\index{json@{json}!genLogic.h@{genLogic.h}}
+\doxysubsubsection{\texorpdfstring{json}{json}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{genLogic_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}} =  \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}}
+
+
+
+Definition at line 14 of file gen\+Logic.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{genLogic_8h_a4eba37dc6bb5305e0813b40ae86a53e2}\label{genLogic_8h_a4eba37dc6bb5305e0813b40ae86a53e2}} 
+\index{genLogic.h@{genLogic.h}!geneticResult@{geneticResult}}
+\index{geneticResult@{geneticResult}!genLogic.h@{genLogic.h}}
+\doxysubsubsection{\texorpdfstring{geneticResult()}{geneticResult()}}
+{\footnotesize\ttfamily string genetic\+Result (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+Definition at line 17 of file gen\+Logic.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                              \{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{float} \mbox{\hyperlink{main_8cpp_a8b2d3995161eb62b836776ef0d311046}{MUTATION\_CHANCE}} = 0.9;}
+\DoxyCodeLine{20     \textcolor{keywordtype}{float} \mbox{\hyperlink{main_8cpp_adb7b8767ce8e5e2039660af73bca99ee}{CROSS\_OVER\_RATE}} = 0.3;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} \mbox{\hyperlink{main_8cpp_aaedcc0e752bf812bfc936dadd6fb5eff}{POPULATION\_LEN}} = 1000;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} \mbox{\hyperlink{main_8cpp_add18cf1b3d789763919a27550f5980a0}{MAX\_ITERATION}} = 100;}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} x,y;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{bool} run = \textcolor{keyword}{false};}
+\DoxyCodeLine{25     \textcolor{keywordtype}{string} mixMatrix;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordflow}{if}(\mbox{\hyperlink{divideImage_8h_a505b1ac1538e97fe96a73a9cbd20ed69}{isSquare}}(num))}
+\DoxyCodeLine{28     \{}
+\DoxyCodeLine{29         x = y = sqrt(num);}
+\DoxyCodeLine{30         run = \textcolor{keyword}{true};}
+\DoxyCodeLine{31     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (num == 8)\{}
+\DoxyCodeLine{32         x = 2;}
+\DoxyCodeLine{33         y = 4;}
+\DoxyCodeLine{34         run = \textcolor{keyword}{true};}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordflow}{if} (run)\{}
+\DoxyCodeLine{38         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40             \mbox{\hyperlink{classGAPad}{GAPad}} myPad = \mbox{\hyperlink{classGAPad}{GAPad}}(x, y);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42             myPad.\mbox{\hyperlink{classGAPad_ad71aaea96ad0bd0675234a2d60fb961a}{shuffle}}();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&item : myPad.\mbox{\hyperlink{classGAPad_ac329937dcebceccf93a326f8ab49a06f}{board}}) \{}
+\DoxyCodeLine{45                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&i : item) \{}
+\DoxyCodeLine{46                     mixMatrix += \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(i) + \textcolor{stringliteral}{"{}-\/"{}};}
+\DoxyCodeLine{47                 \}}
+\DoxyCodeLine{48                 mixMatrix += \textcolor{stringliteral}{"{}/"{}};}
+\DoxyCodeLine{49             \}}
+\DoxyCodeLine{50             mixMatrix += \textcolor{stringliteral}{"{}\&"{}};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52             \textcolor{keywordtype}{string} divString = \textcolor{stringliteral}{"{}\&"{}} + \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(num);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54             \mbox{\hyperlink{classList}{List<string>}} gene;}
+\DoxyCodeLine{55             \mbox{\hyperlink{classGAChromosome}{GAChromosome}} par = \mbox{\hyperlink{classGAChromosome}{GAChromosome}}(myPad, gene);}
+\DoxyCodeLine{56             \mbox{\hyperlink{classGASolver}{GASolver}} gSolver = \mbox{\hyperlink{classGASolver}{GASolver}}(myPad, \mbox{\hyperlink{main_8cpp_aaedcc0e752bf812bfc936dadd6fb5eff}{POPULATION\_LEN}}, \mbox{\hyperlink{main_8cpp_a8b2d3995161eb62b836776ef0d311046}{MUTATION\_CHANCE}}, \mbox{\hyperlink{main_8cpp_adb7b8767ce8e5e2039660af73bca99ee}{CROSS\_OVER\_RATE}}, par);}
+\DoxyCodeLine{57             \mbox{\hyperlink{classGAChromosome}{GAChromosome}} res = gSolver.\mbox{\hyperlink{classGASolver_a21329f8b9c65b0041a3a22ee28aef3cd}{solve}}(\mbox{\hyperlink{main_8cpp_add18cf1b3d789763919a27550f5980a0}{MAX\_ITERATION}}, 0.000001);  \textcolor{comment}{//hacer esto como un str}}
+\DoxyCodeLine{58             \textcolor{comment}{//myPad.apply\_chain(res.gene);  //hacer este metodo en c\#}}
+\DoxyCodeLine{59             \textcolor{keywordflow}{return} mixMatrix + gSolver.\mbox{\hyperlink{classGASolver_a940f5aa314d2fb295b693864e483cb2d}{getResultPath}}() + divString;}
+\DoxyCodeLine{60         \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} std::exception \&exc)\{}
+\DoxyCodeLine{63             cout<<\textcolor{stringliteral}{"{}Ha ocurrido un error\(\backslash\)n"{}};}
+\DoxyCodeLine{64             std::cerr << exc.what();}
+\DoxyCodeLine{65         \}}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{genLogic_8h_a686bafe9957b8fc49bb79d58042801dc}\label{genLogic_8h_a686bafe9957b8fc49bb79d58042801dc}} 
+\index{genLogic.h@{genLogic.h}!genLogic@{genLogic}}
+\index{genLogic@{genLogic}!genLogic.h@{genLogic.h}}
+\doxysubsubsection{\texorpdfstring{genLogic()}{genLogic()}}
+{\footnotesize\ttfamily string gen\+Logic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{genLogic_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}}}]{jmessageR }\end{DoxyParamCaption})}
+
+
+
+Definition at line 70 of file gen\+Logic.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{70                                \{}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{string} \mbox{\hyperlink{namespacenlohmann_1_1detail_a2fb6dae6578e06ae73ca0d7cc8512b1aa3c6e0b8a9c15224a8228b9a98ca1531d}{key}} = jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}Key"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keywordflow}{if} (key == \textcolor{stringliteral}{"{}Config"{}})\{}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{keywordtype}{string} divisionNum =  jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}Info1"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{77         \textcolor{keywordtype}{string} imgPath =  jmessageR.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}(\textcolor{stringliteral}{"{}Info2"{}}, \textcolor{stringliteral}{"{}oops"{}});}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79         std::vector<cv::Mat> blocks;}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81         \textcolor{comment}{// read png image}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83         cv::Mat image = cv::imread(imgPath, cv::IMREAD\_UNCHANGED);}
+\DoxyCodeLine{84         \textcolor{comment}{//cv::imshow("{}Display window"{}, image);}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86         \textcolor{keywordtype}{int} tmp = std::stoi(divisionNum);}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88         \textcolor{comment}{// divide image into multiple blocks}}
+\DoxyCodeLine{89         \textcolor{keywordtype}{int} divideStatus = \mbox{\hyperlink{divideImage_8h_ad9a0710333d67efea8c4e73395193141}{divideImage}}(image, tmp, blocks);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91         \textcolor{comment}{// debug: save blocks}}
+\DoxyCodeLine{92         cv::utils::fs::createDirectory(\textcolor{stringliteral}{"{}/home/ignacio/Datos2/Lets-\/play/Server/blocksFolder"{}});}
+\DoxyCodeLine{93         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < blocks.size(); j++)}
+\DoxyCodeLine{94         \{}
+\DoxyCodeLine{95             std::string blockId = \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{std::to\_string}}(j);}
+\DoxyCodeLine{96             std::string blockImgName = \textcolor{stringliteral}{"{}/home/ignacio/Datos2/Lets-\/play/Server/blocksFolder/"{}} + blockId + \textcolor{stringliteral}{"{}.png"{}};}
+\DoxyCodeLine{97             imwrite(blockImgName, blocks[j]);}
+\DoxyCodeLine{98         \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100         \textcolor{keywordflow}{return} \mbox{\hyperlink{genLogic_8h_a4eba37dc6bb5305e0813b40ae86a53e2}{geneticResult}}(tmp);}
+\DoxyCodeLine{101     \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \}}
+
+\end{DoxyCode}

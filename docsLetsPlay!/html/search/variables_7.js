@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['j1goals_1268',['J1goals',['../BPGameLogic_8h.html#a09336de802c42e837d5d8b8224625a02',1,'BPGameLogic.h']]],
-  ['j2goals_1269',['J2goals',['../BPGameLogic_8h.html#a36e8bdd38d479165b3defb83d3cc3b38',1,'BPGameLogic.h']]]
+  ['id_1811',['id',['../classnlohmann_1_1detail_1_1exception.html#a0d4589a3fb54e81646d986c05efa3b9a',1,'nlohmann::detail::exception']]],
+  ['initial_5fpopulation_1812',['initial_population',['../classGASolver.html#a9934020e38a3717e4e220a59ff4fc789',1,'GASolver']]],
+  ['instance_1813',['instance',['../classMatrix.html#adbe13eefa6a6ea2f02f45da26400f22e',1,'Matrix']]],
+  ['isbest_1814',['isbest',['../classGASolver.html#a052096ce37f9f7cfdce4483536637a56',1,'GASolver']]]
 ];

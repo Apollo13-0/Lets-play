@@ -20,7 +20,7 @@ static \mbox{\hyperlink{classList}{List}}$<$ int $>$ \mbox{\hyperlink{classAStar
 
 
 \doxysubsection{Detailed Description}
-Class of Pathfindig A$\ast$ to search the route of player 
+Class of Pathfinding A$\ast$ to search the route of the player 
 
 Definition at line 19 of file A$\ast$ Pathfindig.\+h.
 
@@ -220,15 +220,15 @@ Definition at line 46 of file A$\ast$ Pathfindig.\+h.
 \doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
 {\footnotesize\ttfamily static bool AStar\+::is\+Valid (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-Define if the box is a obstacle or is free 
+Define if the box is a obstacle or is out of bounds 
 \begin{DoxyParams}{Parameters}
 {\em x} & Row of box \\
 \hline
-{\em y} & Columns of box \\
+{\em y} & Column of box \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if the box is free 
+True if the A$\ast$ can use the box 
 \end{DoxyReturn}
 
 

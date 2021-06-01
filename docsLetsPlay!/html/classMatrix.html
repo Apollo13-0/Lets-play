@@ -109,8 +109,9 @@ Static Protected Attributes</h2></td></tr>
 <tr class="separator:adbe13eefa6a6ea2f02f45da26400f22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Matrix_8h_source.html#l00011">11</a> of file <a class="el" href="Matrix_8h_source.html">Matrix.h</a>.</p>
+<div class="textblock"><p class="">Class of the Pathfinding </p>
+
+<p class="definition">Definition at line <a class="el" href="Matrix_8h_source.html#l00014">14</a> of file <a class="el" href="Matrix_8h_source.html">Matrix.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2dba13c45127354c9f75ef576f49269b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2dba13c45127354c9f75ef576f49269b">&#9670;&nbsp;</a></span>Matrix() <span class="overload">[1/2]</span></h2>
@@ -134,27 +135,28 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p class="">Constructor of the <a class="el" href="classMatrix.html">Matrix</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="Matrix_8cpp_source.html#l00011">11</a> of file <a class="el" href="Matrix_8cpp_source.html">Matrix.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;               {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">int</span> rows = (<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>)/<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [0]));</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">int</span> columns = (<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[0])/<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [0][0]));</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">int</span> position =0;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i &lt; rows; i++ ){</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j &lt; columns; j++){</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [i][j].<a class="code" href="classmatrixNode.html#a64546b79c737c452b1b54ce0a1a352b7">setPosition</a>(position);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#ab1d98baa2d439e979ac9a656c36d9568">setFCost</a>(FLT_MAX);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#ac3f861f062d314c0ba1234f11aed654c">setGCost</a>(FLT_MAX);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#afb03f3a36b9722ee633b59a62792aa32">setHCost</a>(FLT_MAX);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#a4b559fab13fb1e6476d4b4af99230bd3">setParentX</a>(-1);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#a6b393df2df65cf559d9a46e0dba3dd84">setParentY</a>(-1);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#a0f068360ab2520cc46b7b97e507425ca">setX</a>(i);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#a0e7f58de900351c1eaf25f4f67c05510">setY</a>(j);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            position++;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="ttc" id="aclassMatrix_html_a32f0e6e497f925f38776b320697cd99f"><div class="ttname"><a href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a></div><div class="ttdeci">matrixNode gameField[5][10]</div><div class="ttdef"><b>Definition:</b> <a href="Matrix_8h_source.html#l00017">Matrix.h:17</a></div></div>
+<p class="definition">Definition at line <a class="el" href="Matrix_8cpp_source.html#l00019">19</a> of file <a class="el" href="Matrix_8cpp_source.html">Matrix.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;               {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> rows = (<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>)/<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [0]));</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> columns = (<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[0])/<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [0][0]));</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> position =0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i &lt; rows; i++ ){</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j &lt; columns; j++){</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [i][j].<a class="code" href="classmatrixNode.html#a64546b79c737c452b1b54ce0a1a352b7">setPosition</a>(position);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#ab1d98baa2d439e979ac9a656c36d9568">setFCost</a>(FLT_MAX);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#ac3f861f062d314c0ba1234f11aed654c">setGCost</a>(FLT_MAX);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#afb03f3a36b9722ee633b59a62792aa32">setHCost</a>(FLT_MAX);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#a4b559fab13fb1e6476d4b4af99230bd3">setParentX</a>(-1);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#a6b393df2df65cf559d9a46e0dba3dd84">setParentY</a>(-1);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#a0f068360ab2520cc46b7b97e507425ca">setX</a>(i);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#a0e7f58de900351c1eaf25f4f67c05510">setY</a>(j);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            position++;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="ttc" id="aclassMatrix_html_a32f0e6e497f925f38776b320697cd99f"><div class="ttname"><a href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a></div><div class="ttdeci">matrixNode gameField[5][10]</div><div class="ttdef"><b>Definition:</b> <a href="Matrix_8h_source.html#l00020">Matrix.h:20</a></div></div>
 <div class="ttc" id="aclassmatrixNode_html_a0e7f58de900351c1eaf25f4f67c05510"><div class="ttname"><a href="classmatrixNode.html#a0e7f58de900351c1eaf25f4f67c05510">matrixNode::setY</a></div><div class="ttdeci">void setY(int y)</div><div class="ttdef"><b>Definition:</b> <a href="matrixNode_8cpp_source.html#l00027">matrixNode.cpp:27</a></div></div>
 <div class="ttc" id="aclassmatrixNode_html_a0f068360ab2520cc46b7b97e507425ca"><div class="ttname"><a href="classmatrixNode.html#a0f068360ab2520cc46b7b97e507425ca">matrixNode::setX</a></div><div class="ttdeci">void setX(int x)</div><div class="ttdef"><b>Definition:</b> <a href="matrixNode_8cpp_source.html#l00035">matrixNode.cpp:35</a></div></div>
 <div class="ttc" id="aclassmatrixNode_html_a4b559fab13fb1e6476d4b4af99230bd3"><div class="ttname"><a href="classmatrixNode.html#a4b559fab13fb1e6476d4b4af99230bd3">matrixNode::setParentX</a></div><div class="ttdeci">void setParentX(int parentX)</div><div class="ttdef"><b>Definition:</b> <a href="matrixNode_8cpp_source.html#l00043">matrixNode.cpp:43</a></div></div>
@@ -208,17 +210,24 @@ Static Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p class="">Find the node in the position provided </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Matrix_8cpp_source.html#l00045">45</a> of file <a class="el" href="Matrix_8cpp_source.html">Matrix.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                             {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> row=0;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> column= position%10;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span> (column != position){</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        row = position/10;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [row][column];</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="Matrix_8cpp_source.html#l00063">63</a> of file <a class="el" href="Matrix_8cpp_source.html">Matrix.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                             {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">int</span> row=0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">int</span> column= position%10;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">if</span> (column != position){</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        row = position/10;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [row][column];</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -245,15 +254,15 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Matrix_8cpp_source.html#l00038">38</a> of file <a class="el" href="Matrix_8cpp_source.html">Matrix.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                            {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classMatrix.html#adbe13eefa6a6ea2f02f45da26400f22e">instance</a> == NULL){</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="classMatrix.html#adbe13eefa6a6ea2f02f45da26400f22e">instance</a> = <span class="keyword">new</span> <a class="code" href="classMatrix.html#a2dba13c45127354c9f75ef576f49269b">Matrix</a>();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classMatrix.html#adbe13eefa6a6ea2f02f45da26400f22e">instance</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
-<div class="ttc" id="aclassMatrix_html_a2dba13c45127354c9f75ef576f49269b"><div class="ttname"><a href="classMatrix.html#a2dba13c45127354c9f75ef576f49269b">Matrix::Matrix</a></div><div class="ttdeci">Matrix()</div><div class="ttdef"><b>Definition:</b> <a href="Matrix_8cpp_source.html#l00011">Matrix.cpp:11</a></div></div>
-<div class="ttc" id="aclassMatrix_html_adbe13eefa6a6ea2f02f45da26400f22e"><div class="ttname"><a href="classMatrix.html#adbe13eefa6a6ea2f02f45da26400f22e">Matrix::instance</a></div><div class="ttdeci">static Matrix * instance</div><div class="ttdef"><b>Definition:</b> <a href="Matrix_8h_source.html#l00015">Matrix.h:15</a></div></div>
+<p class="definition">Definition at line <a class="el" href="Matrix_8cpp_source.html#l00051">51</a> of file <a class="el" href="Matrix_8cpp_source.html">Matrix.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                            {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classMatrix.html#adbe13eefa6a6ea2f02f45da26400f22e">instance</a> == NULL){</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="classMatrix.html#adbe13eefa6a6ea2f02f45da26400f22e">instance</a> = <span class="keyword">new</span> <a class="code" href="classMatrix.html#a2dba13c45127354c9f75ef576f49269b">Matrix</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classMatrix.html#adbe13eefa6a6ea2f02f45da26400f22e">instance</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<div class="ttc" id="aclassMatrix_html_a2dba13c45127354c9f75ef576f49269b"><div class="ttname"><a href="classMatrix.html#a2dba13c45127354c9f75ef576f49269b">Matrix::Matrix</a></div><div class="ttdeci">Matrix()</div><div class="ttdef"><b>Definition:</b> <a href="Matrix_8cpp_source.html#l00019">Matrix.cpp:19</a></div></div>
+<div class="ttc" id="aclassMatrix_html_adbe13eefa6a6ea2f02f45da26400f22e"><div class="ttname"><a href="classMatrix.html#adbe13eefa6a6ea2f02f45da26400f22e">Matrix::instance</a></div><div class="ttdeci">static Matrix * instance</div><div class="ttdef"><b>Definition:</b> <a href="Matrix_8h_source.html#l00018">Matrix.h:18</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -297,22 +306,23 @@ Static Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p class="">Reset all atributes of the Pathfinding </p>
 
-<p class="definition">Definition at line <a class="el" href="Matrix_8cpp_source.html#l00055">55</a> of file <a class="el" href="Matrix_8cpp_source.html">Matrix.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                 {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">int</span> rows = (<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>)/<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [0]));</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">int</span> columns = (<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[0])/<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [0][0]));</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span> position =0;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i &lt; rows; i++ ){</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j &lt; columns; j++){</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#ab1d98baa2d439e979ac9a656c36d9568">setFCost</a>(FLT_MAX);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#ac3f861f062d314c0ba1234f11aed654c">setGCost</a>(FLT_MAX);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#afb03f3a36b9722ee633b59a62792aa32">setHCost</a>(FLT_MAX);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#a4b559fab13fb1e6476d4b4af99230bd3">setParentX</a>(-1);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#a6b393df2df65cf559d9a46e0dba3dd84">setParentY</a>(-1);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="Matrix_8cpp_source.html#l00076">76</a> of file <a class="el" href="Matrix_8cpp_source.html">Matrix.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                 {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">int</span> rows = (<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>)/<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [0]));</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">int</span> columns = (<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[0])/<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [0][0]));</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">int</span> position =0;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i &lt; rows; i++ ){</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j &lt; columns; j++){</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#ab1d98baa2d439e979ac9a656c36d9568">setFCost</a>(FLT_MAX);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#ac3f861f062d314c0ba1234f11aed654c">setGCost</a>(FLT_MAX);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#afb03f3a36b9722ee633b59a62792aa32">setHCost</a>(FLT_MAX);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#a4b559fab13fb1e6476d4b4af99230bd3">setParentX</a>(-1);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[i][j].<a class="code" href="classmatrixNode.html#a6b393df2df65cf559d9a46e0dba3dd84">setParentY</a>(-1);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -330,17 +340,18 @@ Static Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p class="">Remove all the obstacles in the matrix </p>
 
-<p class="definition">Definition at line <a class="el" href="Matrix_8cpp_source.html#l00029">29</a> of file <a class="el" href="Matrix_8cpp_source.html">Matrix.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                                  {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> rows = (<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>)/<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [0]));</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> columns = (<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[0])/<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [0][0]));</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i &lt; rows; i++ ){</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j &lt; columns; j++){</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [i][j].<a class="code" href="classmatrixNode.html#a480901ea284d77f12e2d9e11860bb8dc">setObstacule</a>(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="Matrix_8cpp_source.html#l00041">41</a> of file <a class="el" href="Matrix_8cpp_source.html">Matrix.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                  {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> rows = (<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>)/<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [0]));</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> columns = (<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a>[0])/<span class="keyword">sizeof</span> (<a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [0][0]));</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i &lt; rows; i++ ){</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j &lt; columns; j++){</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <a class="code" href="classMatrix.html#a32f0e6e497f925f38776b320697cd99f">Matrix::gameField</a> [i][j].<a class="code" href="classmatrixNode.html#a480901ea284d77f12e2d9e11860bb8dc">setObstacule</a>(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
 <div class="ttc" id="aclassmatrixNode_html_a480901ea284d77f12e2d9e11860bb8dc"><div class="ttname"><a href="classmatrixNode.html#a480901ea284d77f12e2d9e11860bb8dc">matrixNode::setObstacule</a></div><div class="ttdeci">void setObstacule(bool obstacule)</div><div class="ttdef"><b>Definition:</b> <a href="matrixNode_8cpp_source.html#l00019">matrixNode.cpp:19</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -358,7 +369,7 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Matrix_8h_source.html#l00017">17</a> of file <a class="el" href="Matrix_8h_source.html">Matrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Matrix_8h_source.html#l00020">20</a> of file <a class="el" href="Matrix_8h_source.html">Matrix.h</a>.</p>
 
 </div>
 </div>
@@ -381,8 +392,9 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p class="">Init the matrix Singleton </p>
 
-<p class="definition">Definition at line <a class="el" href="Matrix_8h_source.html#l00015">15</a> of file <a class="el" href="Matrix_8h_source.html">Matrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Matrix_8h_source.html#l00018">18</a> of file <a class="el" href="Matrix_8h_source.html">Matrix.h</a>.</p>
 
 </div>
 </div>

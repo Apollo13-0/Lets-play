@@ -7,6 +7,10 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+const string \& \mbox{\hyperlink{classGASolver_a940f5aa314d2fb295b693864e483cb2d}{get\+Result\+Path}} () const
+\item 
+void \mbox{\hyperlink{classGASolver_aa8196a98023997e45cd75d1a868cec06}{set\+Result\+Path}} (const string \&\mbox{\hyperlink{classGASolver_ac2638a11d2a197d9878e9d858315e8ab}{result\+Path}})
+\item 
 \mbox{\hyperlink{classGASolver_a697e1dca8e40d48752e53cd6eefb9dcc}{GASolver}} (\mbox{\hyperlink{classGAPad}{GAPad}} ex\+\_\+board, int \mbox{\hyperlink{main_8cpp_aaedcc0e752bf812bfc936dadd6fb5eff}{POPULATION\+\_\+\+LEN}}, float \mbox{\hyperlink{main_8cpp_a8b2d3995161eb62b836776ef0d311046}{MUTATION\+\_\+\+CHANCE}}, float \mbox{\hyperlink{main_8cpp_adb7b8767ce8e5e2039660af73bca99ee}{CROSS\+\_\+\+OVER\+\_\+\+RATE}}, \mbox{\hyperlink{classGAChromosome}{GAChromosome}} par)
 \item 
 void \mbox{\hyperlink{classGASolver_a712d78b3b9eaa60567ebf2ba52fb469a}{init\+\_\+population}} ()
@@ -28,6 +32,10 @@ void \mbox{\hyperlink{classGASolver_ae1946e1ba94956dccd042db16c2761c6}{mutate}} 
 void \mbox{\hyperlink{classGASolver_a57122965f71858ac429c4f5532648ba0}{display}} (int iter)
 \item 
 void \mbox{\hyperlink{classGASolver_a9d09558879dc4313a1aebcec77ca927d}{XML}} (int iteration)
+\item 
+string \mbox{\hyperlink{classGASolver_a7cd724882b8951b75038890f818b1a3e}{usr\+Path}} (\mbox{\hyperlink{classGAChromosome}{GAChromosome}} path\+\_\+)
+\item 
+void \mbox{\hyperlink{classGASolver_a9f978d230842d61d0cbba9b903ec616e}{append}} (string result)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -47,6 +55,8 @@ vector$<$ \mbox{\hyperlink{classGAChromosome}{GAChromosome}} $>$ \mbox{\hyperlin
 int \mbox{\hyperlink{classGASolver_a052096ce37f9f7cfdce4483536637a56}{isbest}}
 \item 
 float \mbox{\hyperlink{classGASolver_a17a49e776fa35a9c3439000700a87fd8}{error}}
+\item 
+string \mbox{\hyperlink{classGASolver_ac2638a11d2a197d9878e9d858315e8ab}{result\+Path}}
 \end{DoxyCompactItemize}
 
 
@@ -99,6 +109,23 @@ Definition at line 22 of file GASolver.\+cpp.
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGASolver_a9f978d230842d61d0cbba9b903ec616e}\label{classGASolver_a9f978d230842d61d0cbba9b903ec616e}} 
+\index{GASolver@{GASolver}!append@{append}}
+\index{append@{append}!GASolver@{GASolver}}
+\doxysubsubsection{\texorpdfstring{append()}{append()}}
+{\footnotesize\ttfamily void GASolver\+::append (\begin{DoxyParamCaption}\item[{string}]{result }\end{DoxyParamCaption})}
+
+
+
+Definition at line 240 of file GASolver.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{240                                    \{}
+\DoxyCodeLine{241     \mbox{\hyperlink{classGASolver_ac2638a11d2a197d9878e9d858315e8ab}{resultPath}} = \mbox{\hyperlink{classGASolver_ac2638a11d2a197d9878e9d858315e8ab}{resultPath}} + result + \textcolor{stringliteral}{"{}\#"{}};}
+\DoxyCodeLine{242 \}}
+
+\end{DoxyCode}
 \mbox{\Hypertarget{classGASolver_ac4f37e9c83e4d0e08554f8422dce71df}\label{classGASolver_ac4f37e9c83e4d0e08554f8422dce71df}} 
 \index{GASolver@{GASolver}!calculate\_error@{calculate\_error}}
 \index{calculate\_error@{calculate\_error}!GASolver@{GASolver}}
@@ -196,24 +223,41 @@ Definition at line 113 of file GASolver.\+cpp.
 
 
 
-Definition at line 189 of file GASolver.\+cpp.
+Definition at line 213 of file GASolver.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{189                                \{}
-\DoxyCodeLine{190     cout<< \textcolor{stringliteral}{"{}\string~\string~\string~\string~\string~\string~\string~\string~ iteration: "{}}<<iter<<\textcolor{stringliteral}{"{} \string~\string~\string~\string~\string~\string~\string~\string~"{}}<<endl;}
-\DoxyCodeLine{191     cout<< \textcolor{stringliteral}{"{}'population: len "{}}<<\mbox{\hyperlink{classGASolver_a640cbbd53448754c9aea3fc418970af7}{population}}.size()<<\textcolor{stringliteral}{"{}   Total Error "{}}<<\mbox{\hyperlink{classGASolver_a17a49e776fa35a9c3439000700a87fd8}{error}}<<endl;}
-\DoxyCodeLine{192 }
-\DoxyCodeLine{193     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGASolver_a052096ce37f9f7cfdce4483536637a56}{isbest}} != 0)\{}
-\DoxyCodeLine{194         cout<<\textcolor{stringliteral}{"{}best: "{}}<<\mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a19eb653f7a24841b6b9117a835cf4f84}{error}} << \textcolor{stringliteral}{"{}   -\/>   p:"{}}<< \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_affff7777229ed2c0498587397ec8190a}{error\_puzzle\_cost}}<< \textcolor{stringliteral}{"{} +  g:"{}}<<\mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a585a6dc1cd7752107096a366d63429ea}{error\_gene\_len}}<<endl;}
-\DoxyCodeLine{195     \}}
-\DoxyCodeLine{196     cout<<\textcolor{stringliteral}{"{}best is: "{}} << \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize()<< \textcolor{stringliteral}{"{}   "{}};}
-\DoxyCodeLine{197     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize(); ++i) \{}
-\DoxyCodeLine{198         cout << \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.find(i)-\/>getValue()<< \textcolor{stringliteral}{"{}  "{}};}
-\DoxyCodeLine{199     \}}
-\DoxyCodeLine{200     cout<< endl<< \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<endl;}
-\DoxyCodeLine{201 }
-\DoxyCodeLine{202 \}}
+\DoxyCodeLine{213                                \{}
+\DoxyCodeLine{214     cout<< \textcolor{stringliteral}{"{}\string~\string~\string~\string~\string~\string~\string~\string~ iteration: "{}}<<iter<<\textcolor{stringliteral}{"{} \string~\string~\string~\string~\string~\string~\string~\string~"{}}<<endl;}
+\DoxyCodeLine{215     cout<< \textcolor{stringliteral}{"{}'population: len "{}}<<\mbox{\hyperlink{classGASolver_a640cbbd53448754c9aea3fc418970af7}{population}}.size()<<\textcolor{stringliteral}{"{}   Total Error "{}}<<\mbox{\hyperlink{classGASolver_a17a49e776fa35a9c3439000700a87fd8}{error}}<<endl;}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classGASolver_a052096ce37f9f7cfdce4483536637a56}{isbest}} != 0)\{}
+\DoxyCodeLine{218         cout<<\textcolor{stringliteral}{"{}best: "{}}<<\mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a19eb653f7a24841b6b9117a835cf4f84}{error}} << \textcolor{stringliteral}{"{}   -\/>   p:"{}}<< \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_affff7777229ed2c0498587397ec8190a}{error\_puzzle\_cost}}<< \textcolor{stringliteral}{"{} +  g:"{}}<<\mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a585a6dc1cd7752107096a366d63429ea}{error\_gene\_len}}<<endl;}
+\DoxyCodeLine{219     \}}
+\DoxyCodeLine{220     cout<<\textcolor{stringliteral}{"{}best is: "{}} << \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize()<< \textcolor{stringliteral}{"{}   "{}};}
+\DoxyCodeLine{221     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize(); ++i) \{}
+\DoxyCodeLine{222         cout << \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.find(i)-\/>getValue()<< \textcolor{stringliteral}{"{}  "{}};}
+\DoxyCodeLine{223     \}}
+\DoxyCodeLine{224     cout<< endl<< \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<endl;}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGASolver_a940f5aa314d2fb295b693864e483cb2d}\label{classGASolver_a940f5aa314d2fb295b693864e483cb2d}} 
+\index{GASolver@{GASolver}!getResultPath@{getResultPath}}
+\index{getResultPath@{getResultPath}!GASolver@{GASolver}}
+\doxysubsubsection{\texorpdfstring{getResultPath()}{getResultPath()}}
+{\footnotesize\ttfamily const string \& GASolver\+::get\+Result\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 244 of file GASolver.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{244                                             \{}
+\DoxyCodeLine{245     \textcolor{keywordflow}{return} \mbox{\hyperlink{classGASolver_ac2638a11d2a197d9878e9d858315e8ab}{resultPath}};}
+\DoxyCodeLine{246 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classGASolver_a712d78b3b9eaa60567ebf2ba52fb469a}\label{classGASolver_a712d78b3b9eaa60567ebf2ba52fb469a}} 
@@ -269,7 +313,7 @@ Definition at line 150 of file GASolver.\+cpp.
 \doxysubsubsection{\texorpdfstring{mutate()}{mutate()}}
 {\footnotesize\ttfamily void GASolver\+::mutate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
+Function to determinate if a individual go to mutate 
 
 Definition at line 158 of file GASolver.\+cpp.
 
@@ -324,7 +368,7 @@ Definition at line 74 of file GASolver.\+cpp.
 \doxysubsubsection{\texorpdfstring{select\_i()}{select\_i()}}
 {\footnotesize\ttfamily int GASolver\+::select\+\_\+i (\begin{DoxyParamCaption}\item[{vector$<$ float $>$}]{totals,  }\item[{float}]{running }\end{DoxyParamCaption})}
 
-
+Auxiliar method of select\+\_\+best for selection a random position in the population 
 \begin{DoxyParams}{Parameters}
 {\em totals} & \\
 \hline
@@ -352,37 +396,106 @@ Definition at line 98 of file GASolver.\+cpp.
 \DoxyCodeLine{107 \}}
 
 \end{DoxyCode}
+\mbox{\Hypertarget{classGASolver_aa8196a98023997e45cd75d1a868cec06}\label{classGASolver_aa8196a98023997e45cd75d1a868cec06}} 
+\index{GASolver@{GASolver}!setResultPath@{setResultPath}}
+\index{setResultPath@{setResultPath}!GASolver@{GASolver}}
+\doxysubsubsection{\texorpdfstring{setResultPath()}{setResultPath()}}
+{\footnotesize\ttfamily void GASolver\+::set\+Result\+Path (\begin{DoxyParamCaption}\item[{const string \&}]{result\+Path }\end{DoxyParamCaption})}
+
+
+
+Definition at line 248 of file GASolver.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{248                                                      \{}
+\DoxyCodeLine{249     \mbox{\hyperlink{classGASolver_ac2638a11d2a197d9878e9d858315e8ab}{GASolver::resultPath}} = \mbox{\hyperlink{classGASolver_ac2638a11d2a197d9878e9d858315e8ab}{resultPath}};}
+\DoxyCodeLine{250 \}}
+
+\end{DoxyCode}
 \mbox{\Hypertarget{classGASolver_a21329f8b9c65b0041a3a22ee28aef3cd}\label{classGASolver_a21329f8b9c65b0041a3a22ee28aef3cd}} 
 \index{GASolver@{GASolver}!solve@{solve}}
 \index{solve@{solve}!GASolver@{GASolver}}
 \doxysubsubsection{\texorpdfstring{solve()}{solve()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classGAChromosome}{GAChromosome}} GASolver\+::solve (\begin{DoxyParamCaption}\item[{int}]{max\+\_\+iter,  }\item[{float}]{optimal\+\_\+error }\end{DoxyParamCaption})}
 
+Method to search the solution 
+\begin{DoxyParams}{Parameters}
+{\em max\+\_\+iter} & Number of maximum iterations \\
+\hline
+{\em optimal\+\_\+error} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 
 
-Definition at line 169 of file GASolver.\+cpp.
+Definition at line 175 of file GASolver.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{169                                                               \{}
-\DoxyCodeLine{170 }
-\DoxyCodeLine{171     \mbox{\hyperlink{classGASolver_a712d78b3b9eaa60567ebf2ba52fb469a}{init\_population}}();}
-\DoxyCodeLine{172     \textcolor{keywordtype}{int} iteration = 0;}
-\DoxyCodeLine{173     \textcolor{keywordflow}{while} (iteration < max\_iter \&\& (\mbox{\hyperlink{classGASolver_a052096ce37f9f7cfdce4483536637a56}{isbest}} == 0 ||}
-\DoxyCodeLine{174                                     \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_affff7777229ed2c0498587397ec8190a}{error\_puzzle\_cost}} > optimal\_error))\{}
-\DoxyCodeLine{175         \mbox{\hyperlink{classGASolver_acb878fda3d3022a3f158c173b55e594f}{cross\_over}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{175                                                               \{}
 \DoxyCodeLine{176 }
-\DoxyCodeLine{177         \mbox{\hyperlink{classGASolver_ac4f37e9c83e4d0e08554f8422dce71df}{calculate\_error}}();}
-\DoxyCodeLine{178         \mbox{\hyperlink{classGASolver_a5b0aac06384d5323d00be0473a45dcef}{select\_best}}();}
-\DoxyCodeLine{179         \mbox{\hyperlink{classGASolver_ae1946e1ba94956dccd042db16c2761c6}{mutate}}();}
-\DoxyCodeLine{180         \mbox{\hyperlink{classGASolver_a57122965f71858ac429c4f5532648ba0}{display}}(iteration);}
-\DoxyCodeLine{181         \textcolor{comment}{//XML(iteration);}}
-\DoxyCodeLine{182 }
-\DoxyCodeLine{183         iteration += 1;}
-\DoxyCodeLine{184     \}}
-\DoxyCodeLine{185 }
-\DoxyCodeLine{186     \textcolor{keywordflow}{return} \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}};}
-\DoxyCodeLine{187 \}}
+\DoxyCodeLine{177     \mbox{\hyperlink{classGASolver_a712d78b3b9eaa60567ebf2ba52fb469a}{init\_population}}();}
+\DoxyCodeLine{178     \textcolor{keywordtype}{int} iteration = 0;}
+\DoxyCodeLine{179     \textcolor{keywordtype}{string} result =\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{180     fs::path temp = fs::current\_path().parent\_path();}
+\DoxyCodeLine{181     fs::remove\_all(temp/\textcolor{stringliteral}{"{}xml"{}});}
+\DoxyCodeLine{182     fs::create\_directories(temp/\textcolor{stringliteral}{"{}xml"{}});}
+\DoxyCodeLine{183     \textcolor{keywordflow}{while} (iteration < max\_iter \&\& (\mbox{\hyperlink{classGASolver_a052096ce37f9f7cfdce4483536637a56}{isbest}} == 0 ||}
+\DoxyCodeLine{184                                     \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_affff7777229ed2c0498587397ec8190a}{error\_puzzle\_cost}} > optimal\_error))\{}
+\DoxyCodeLine{185         \mbox{\hyperlink{classGASolver_acb878fda3d3022a3f158c173b55e594f}{cross\_over}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187         \mbox{\hyperlink{classGASolver_ac4f37e9c83e4d0e08554f8422dce71df}{calculate\_error}}();}
+\DoxyCodeLine{188         \mbox{\hyperlink{classGASolver_a5b0aac06384d5323d00be0473a45dcef}{select\_best}}();}
+\DoxyCodeLine{189         \mbox{\hyperlink{classGASolver_ae1946e1ba94956dccd042db16c2761c6}{mutate}}();}
+\DoxyCodeLine{190         \textcolor{comment}{//display(iteration);}}
+\DoxyCodeLine{191         \mbox{\hyperlink{classGASolver_a9d09558879dc4313a1aebcec77ca927d}{XML}}(iteration);}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193         iteration += 1;}
+\DoxyCodeLine{194         \textcolor{comment}{//string tmp = usrPath(best);}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize(); ++i) \{}
+\DoxyCodeLine{199             \textcolor{keywordflow}{if} (i == \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize() -\/1)\{}
+\DoxyCodeLine{200                 result = result + \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.find(i)-\/>getValue();}
+\DoxyCodeLine{201             \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{202                 result = result + \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.find(i)-\/>getValue() + \textcolor{stringliteral}{"{}@"{}};}
+\DoxyCodeLine{203             \}}
+\DoxyCodeLine{204         \}}
+\DoxyCodeLine{205         \mbox{\hyperlink{classGASolver_a9f978d230842d61d0cbba9b903ec616e}{append}}(result);}
+\DoxyCodeLine{206         result = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{207     \}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210     \textcolor{keywordflow}{return} \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}};}
+\DoxyCodeLine{211 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classGASolver_a7cd724882b8951b75038890f818b1a3e}\label{classGASolver_a7cd724882b8951b75038890f818b1a3e}} 
+\index{GASolver@{GASolver}!usrPath@{usrPath}}
+\index{usrPath@{usrPath}!GASolver@{GASolver}}
+\doxysubsubsection{\texorpdfstring{usrPath()}{usrPath()}}
+{\footnotesize\ttfamily string GASolver\+::usr\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGAChromosome}{GAChromosome}}}]{path\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 228 of file GASolver.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{229 \{}
+\DoxyCodeLine{230     \textcolor{keywordtype}{string} result =\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{231     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < path\_.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize(); ++i) \{}
+\DoxyCodeLine{232         \textcolor{keywordflow}{if} (i == path\_.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize() -\/1)\{}
+\DoxyCodeLine{233             result = result + path\_.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.find(i)-\/>getValue();}
+\DoxyCodeLine{234         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{235             result = result + path\_.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.find(i)-\/>getValue() + \textcolor{stringliteral}{"{}@"{}};}
+\DoxyCodeLine{236         \}}
+\DoxyCodeLine{237     \}}
+\DoxyCodeLine{238 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classGASolver_a9d09558879dc4313a1aebcec77ca927d}\label{classGASolver_a9d09558879dc4313a1aebcec77ca927d}} 
@@ -391,6 +504,77 @@ Definition at line 169 of file GASolver.\+cpp.
 \doxysubsubsection{\texorpdfstring{XML()}{XML()}}
 {\footnotesize\ttfamily void GASolver\+::\+XML (\begin{DoxyParamCaption}\item[{int}]{iteration }\end{DoxyParamCaption})}
 
+Method to create the XML for each generation 
+\begin{DoxyParams}{Parameters}
+{\em iteration} & Generation \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 256 of file GASolver.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{256                                 \{}
+\DoxyCodeLine{257     \textcolor{keywordtype}{string} g = \textcolor{stringliteral}{"{}Generation"{}} + \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(iteration +1); \textcolor{keyword}{const} \textcolor{keywordtype}{char} * generation = g.c\_str();}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259     \textcolor{keywordtype}{string} ps = \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(\mbox{\hyperlink{classGASolver_a640cbbd53448754c9aea3fc418970af7}{population}}.size()); \textcolor{keyword}{const} \textcolor{keywordtype}{char} * population\_size = ps.c\_str();}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261     \textcolor{keywordtype}{string} te = \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(\mbox{\hyperlink{classGASolver_a17a49e776fa35a9c3439000700a87fd8}{error}}); \textcolor{keyword}{const} \textcolor{keywordtype}{char} * total\_error = te.c\_str();}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263     \textcolor{keywordtype}{string} be = \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(\mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a19eb653f7a24841b6b9117a835cf4f84}{error}}); \textcolor{keyword}{const} \textcolor{keywordtype}{char} * best\_error = be.c\_str();}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265     \textcolor{keywordtype}{string} bep = \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(\mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_affff7777229ed2c0498587397ec8190a}{error\_puzzle\_cost}}); \textcolor{keyword}{const} \textcolor{keywordtype}{char} * best\_error\_puzzle = bep.c\_str();}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267     \textcolor{keywordtype}{string} beg = \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(\mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a585a6dc1cd7752107096a366d63429ea}{error\_gene\_len}}); \textcolor{keyword}{const} \textcolor{keywordtype}{char} * best\_error\_gen = beg.c\_str();}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269     \textcolor{keywordtype}{string} bgs = \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(\mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize()); \textcolor{keyword}{const} \textcolor{keywordtype}{char} * best\_gen\_size = bgs.c\_str();}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271     \textcolor{keywordtype}{string} bg=\textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{272     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.getSize(); i++) \{ bg += \mbox{\hyperlink{classGASolver_a2006892d19936aad9ad75af3a43c8e3a}{best}}.\mbox{\hyperlink{classGAChromosome_a58693da80cef37866a75a60571d1f202}{gene}}.find(i)-\/>getValue()+\textcolor{stringliteral}{"{} "{}};\}}
+\DoxyCodeLine{273     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * best\_gen = bg.c\_str();}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275     \mbox{\hyperlink{classtinyxml2_1_1XMLDocument}{tinyxml2::XMLDocument}} doc;}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277     doc.\mbox{\hyperlink{classtinyxml2_1_1XMLNode_a663e3a5a378169fd477378f4d17a7649}{LinkEndChild}}(doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_ae519030c0262fa2daff8993681990e16}{NewDeclaration}}(\textcolor{stringliteral}{"{}xml version=\(\backslash\)"{}1.0\(\backslash\)"{} encoding=\(\backslash\)"{}UTF-\/8\(\backslash\)"{}"{}}));}
+\DoxyCodeLine{278     doc.\mbox{\hyperlink{classtinyxml2_1_1XMLNode_a663e3a5a378169fd477378f4d17a7649}{LinkEndChild}}(doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_a386df0befd06aadb5e0cd21381aa955a}{NewComment}}(\textcolor{stringliteral}{"{}Description of Generation"{}}));}
+\DoxyCodeLine{279     \textcolor{keyword}{auto} htmlElement = doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_a3c335a700a43d7c363a393142a23f234}{NewElement}}(generation);}
+\DoxyCodeLine{280     \textcolor{keyword}{auto} headElement1 = doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_a3c335a700a43d7c363a393142a23f234}{NewElement}}(\textcolor{stringliteral}{"{}Population\_lenght"{}});}
+\DoxyCodeLine{281     headElement1-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLElement_a1f9c2cd61b72af5ae708d37b7ad283ce}{SetText}}(population\_size);}
+\DoxyCodeLine{282     \textcolor{keyword}{auto} headElement2 = doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_a3c335a700a43d7c363a393142a23f234}{NewElement}}(\textcolor{stringliteral}{"{}Total\_error"{}});}
+\DoxyCodeLine{283     headElement2-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLElement_a1f9c2cd61b72af5ae708d37b7ad283ce}{SetText}}(total\_error);}
+\DoxyCodeLine{284     \textcolor{keyword}{auto} bodyElement = doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_a3c335a700a43d7c363a393142a23f234}{NewElement}}(\textcolor{stringliteral}{"{}Best"{}});}
+\DoxyCodeLine{285     htmlElement-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLNode_a663e3a5a378169fd477378f4d17a7649}{LinkEndChild}}(headElement1);}
+\DoxyCodeLine{286     htmlElement-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLNode_a663e3a5a378169fd477378f4d17a7649}{LinkEndChild}}(headElement2);}
+\DoxyCodeLine{287     htmlElement-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLNode_a663e3a5a378169fd477378f4d17a7649}{LinkEndChild}}(bodyElement);}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289     \textcolor{keyword}{auto} pElement1 = doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_a3c335a700a43d7c363a393142a23f234}{NewElement}}(\textcolor{stringliteral}{"{}Best\_error\_total"{}});}
+\DoxyCodeLine{290     pElement1-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLElement_a1f9c2cd61b72af5ae708d37b7ad283ce}{SetText}}(best\_error);}
+\DoxyCodeLine{291     bodyElement-\/>LinkEndChild(pElement1);}
+\DoxyCodeLine{292     \textcolor{keyword}{auto} pElement2 = doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_a3c335a700a43d7c363a393142a23f234}{NewElement}}(\textcolor{stringliteral}{"{}Best\_error\_puzzle"{}});}
+\DoxyCodeLine{293     pElement2-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLElement_a1f9c2cd61b72af5ae708d37b7ad283ce}{SetText}}(best\_error\_puzzle);}
+\DoxyCodeLine{294     bodyElement-\/>LinkEndChild(pElement2);}
+\DoxyCodeLine{295     \textcolor{keyword}{auto} pElement3 = doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_a3c335a700a43d7c363a393142a23f234}{NewElement}}(\textcolor{stringliteral}{"{}Best\_error\_gen"{}});}
+\DoxyCodeLine{296     pElement3-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLElement_a1f9c2cd61b72af5ae708d37b7ad283ce}{SetText}}(best\_error\_gen);}
+\DoxyCodeLine{297     bodyElement-\/>LinkEndChild(pElement3);}
+\DoxyCodeLine{298     \textcolor{keyword}{auto} pElement4 = doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_a3c335a700a43d7c363a393142a23f234}{NewElement}}(\textcolor{stringliteral}{"{}Best\_gen\_lenght"{}});}
+\DoxyCodeLine{299     pElement4-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLElement_a1f9c2cd61b72af5ae708d37b7ad283ce}{SetText}}(best\_gen\_size);}
+\DoxyCodeLine{300     bodyElement-\/>LinkEndChild(pElement4);}
+\DoxyCodeLine{301     \textcolor{keyword}{auto} pElement5 = doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_a3c335a700a43d7c363a393142a23f234}{NewElement}}(\textcolor{stringliteral}{"{}Best\_gen"{}});}
+\DoxyCodeLine{302     pElement5-\/>\mbox{\hyperlink{classtinyxml2_1_1XMLElement_a1f9c2cd61b72af5ae708d37b7ad283ce}{SetText}}(best\_gen);}
+\DoxyCodeLine{303     bodyElement-\/>LinkEndChild(pElement5);}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305     doc.\mbox{\hyperlink{classtinyxml2_1_1XMLNode_a663e3a5a378169fd477378f4d17a7649}{LinkEndChild}}(htmlElement);}
+\DoxyCodeLine{306     \mbox{\hyperlink{classtinyxml2_1_1XMLPrinter}{tinyxml2::XMLPrinter}} printer;}
+\DoxyCodeLine{307     doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_a867cf5fa3e3ff6ae4847a8b7ee8ec083}{Print}}(\&printer);}
+\DoxyCodeLine{308     cout<< printer.\mbox{\hyperlink{classtinyxml2_1_1XMLPrinter_a180671d73844f159f2d4aafbc11d106e}{CStr}}() << endl;}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310     fs::path temp = fs::current\_path().parent\_path();}
+\DoxyCodeLine{311     \textcolor{keywordtype}{string} dn =temp.string()+\textcolor{stringliteral}{"{}/xml/Generation"{}}+ \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(iteration +1)+\textcolor{stringliteral}{"{}.xml"{}}; \textcolor{keyword}{const} \textcolor{keywordtype}{char} * document\_name = dn.c\_str();}
+\DoxyCodeLine{312     doc.\mbox{\hyperlink{classtinyxml2_1_1XMLDocument_a73ac416b4a2aa0952e841220eb3da18f}{SaveFile}}(document\_name);}
+\DoxyCodeLine{313 \}}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Member Data Documentation}
@@ -473,6 +657,16 @@ Definition at line 24 of file GASolver.\+h.
 
 
 Definition at line 26 of file GASolver.\+h.
+
+\mbox{\Hypertarget{classGASolver_ac2638a11d2a197d9878e9d858315e8ab}\label{classGASolver_ac2638a11d2a197d9878e9d858315e8ab}} 
+\index{GASolver@{GASolver}!resultPath@{resultPath}}
+\index{resultPath@{resultPath}!GASolver@{GASolver}}
+\doxysubsubsection{\texorpdfstring{resultPath}{resultPath}}
+{\footnotesize\ttfamily string GASolver\+::result\+Path}
+
+
+
+Definition at line 30 of file GASolver.\+h.
 
 
 

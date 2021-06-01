@@ -31,67 +31,69 @@ Definition at line 49 of file divide\+Image.\+h.
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{50 \{}
-\DoxyCodeLine{51     \textcolor{comment}{// Checking if the image was passed correctly}}
-\DoxyCodeLine{52     \textcolor{keywordflow}{if} (!img.data || img.empty())}
-\DoxyCodeLine{53     \{}
-\DoxyCodeLine{54         std::wcout << \textcolor{stringliteral}{"{}Image Error: Cannot load image to divide."{}} << std::endl;}
-\DoxyCodeLine{55         \textcolor{keywordflow}{return} EXIT\_FAILURE;}
-\DoxyCodeLine{56     \}}
-\DoxyCodeLine{57 }
-\DoxyCodeLine{58     \textcolor{comment}{// init image dimensions}}
-\DoxyCodeLine{59     \textcolor{keywordtype}{int} imgWidth = img.cols;}
-\DoxyCodeLine{60     \textcolor{keywordtype}{int} imgHeight = img.rows;}
-\DoxyCodeLine{61     std::wcout << \textcolor{stringliteral}{"{}IMAGE SIZE: "{}} << \textcolor{stringliteral}{"{}("{}} << imgWidth << \textcolor{stringliteral}{"{},"{}} << imgHeight << \textcolor{stringliteral}{"{})"{}} << std::endl;}
-\DoxyCodeLine{62 }
+\DoxyCodeLine{51     std::cout << img.empty() << \textcolor{stringliteral}{"{}  efdsdf"{}}<<endl;}
+\DoxyCodeLine{52     \textcolor{comment}{// Checking if the image was passed correctly}}
+\DoxyCodeLine{53     \textcolor{keywordflow}{if} (!img.data || img.empty())}
+\DoxyCodeLine{54     \{}
+\DoxyCodeLine{55         std::wcout << \textcolor{stringliteral}{"{}Image Error: Cannot load image to divide."{}} << std::endl;}
+\DoxyCodeLine{56         \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{comment}{// init image dimensions}}
+\DoxyCodeLine{60     \textcolor{keywordtype}{int} imgWidth = img.cols;}
+\DoxyCodeLine{61     \textcolor{keywordtype}{int} imgHeight = img.rows;}
+\DoxyCodeLine{62     std::wcout << \textcolor{stringliteral}{"{}IMAGE SIZE: "{}} << \textcolor{stringliteral}{"{}("{}} << imgWidth << \textcolor{stringliteral}{"{},"{}} << imgHeight << \textcolor{stringliteral}{"{})"{}} << std::endl;}
 \DoxyCodeLine{63 }
-\DoxyCodeLine{64     \textcolor{comment}{// init block dimensions}}
-\DoxyCodeLine{65     \textcolor{keywordtype}{int} bhSize; \textcolor{comment}{// These are going to be the size of each chunk's rows and columns (width and height)}}
-\DoxyCodeLine{66     \textcolor{keywordtype}{int} bwSize;}
-\DoxyCodeLine{67 }
-\DoxyCodeLine{68     \textcolor{keywordtype}{int} blockWidth;}
-\DoxyCodeLine{69     \textcolor{keywordtype}{int} blockHeight;}
-\DoxyCodeLine{70 }
-\DoxyCodeLine{71     \textcolor{keywordflow}{if} (\mbox{\hyperlink{divideImage_8h_a505b1ac1538e97fe96a73a9cbd20ed69}{isSquare}}(numDiv))}
-\DoxyCodeLine{72     \{}
-\DoxyCodeLine{73         blockHeight = floor(imgHeight / sqrt(numDiv));}
-\DoxyCodeLine{74         blockWidth = floor(imgWidth / sqrt(numDiv));}
-\DoxyCodeLine{75     \}}
-\DoxyCodeLine{76     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{divideImage_8h_a4cb14d80e2dcc88ff8443e9420c26126}{isPowerOf2}}(numDiv))}
-\DoxyCodeLine{77     \{}
-\DoxyCodeLine{78         blockHeight = floor(imgHeight / sqrt(numDiv / 2));}
-\DoxyCodeLine{79         blockWidth = floor(imgWidth / sqrt(numDiv * 2));}
-\DoxyCodeLine{80     \}}
-\DoxyCodeLine{81 }
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{comment}{// init block dimensions}}
+\DoxyCodeLine{66     \textcolor{keywordtype}{int} bhSize; \textcolor{comment}{// These are going to be the size of each chunk's rows and columns (width and height)}}
+\DoxyCodeLine{67     \textcolor{keywordtype}{int} bwSize;}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \textcolor{keywordtype}{int} blockWidth;}
+\DoxyCodeLine{70     \textcolor{keywordtype}{int} blockHeight;}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keywordflow}{if} (\mbox{\hyperlink{divideImage_8h_a505b1ac1538e97fe96a73a9cbd20ed69}{isSquare}}(numDiv))}
+\DoxyCodeLine{73     \{}
+\DoxyCodeLine{74         blockHeight = floor(imgHeight / sqrt(numDiv));}
+\DoxyCodeLine{75         blockWidth = floor(imgWidth / sqrt(numDiv));}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{divideImage_8h_a4cb14d80e2dcc88ff8443e9420c26126}{isPowerOf2}}(numDiv))}
+\DoxyCodeLine{78     \{}
+\DoxyCodeLine{79         blockHeight = floor(imgHeight / sqrt(numDiv / 2));}
+\DoxyCodeLine{80         blockWidth = floor(imgWidth / sqrt(numDiv * 2));}
+\DoxyCodeLine{81     \}}
 \DoxyCodeLine{82 }
 \DoxyCodeLine{83 }
 \DoxyCodeLine{84 }
-\DoxyCodeLine{85     \textcolor{keywordtype}{int} y0 = 0;}
-\DoxyCodeLine{86 }
-\DoxyCodeLine{87     \textcolor{keywordflow}{while} (y0 < imgHeight)}
-\DoxyCodeLine{88     \{}
-\DoxyCodeLine{89         \textcolor{comment}{// compute the block height}}
-\DoxyCodeLine{90         bhSize = ((y0 + blockHeight) > imgHeight) * (blockHeight -\/ (y0 + blockHeight -\/ imgHeight)) + ((y0 + blockHeight) <= imgHeight) * blockHeight;}
-\DoxyCodeLine{91 }
-\DoxyCodeLine{92         \textcolor{keywordtype}{int} x0 = 0;}
-\DoxyCodeLine{93         \textcolor{keywordflow}{while} (x0 < imgWidth)}
-\DoxyCodeLine{94 }
-\DoxyCodeLine{95         \{}
-\DoxyCodeLine{96             \textcolor{comment}{// compute the block height}}
-\DoxyCodeLine{97             bwSize = ((x0 + blockWidth) > imgWidth) * (blockWidth -\/ (x0 + blockWidth -\/ imgWidth)) + ((x0 + blockWidth) <= imgWidth) * blockWidth;}
-\DoxyCodeLine{98             std::cout<< bwSize << \textcolor{stringliteral}{"{}    "{}} << imgWidth;}
-\DoxyCodeLine{99             \textcolor{comment}{// crop block}}
-\DoxyCodeLine{100             blocks.push\_back(img(cv::Rect(x0, y0, bwSize, bhSize)).clone());}
-\DoxyCodeLine{101 }
-\DoxyCodeLine{102             \textcolor{comment}{// update x-\/coordinate}}
-\DoxyCodeLine{103             x0 = x0 + blockWidth;}
-\DoxyCodeLine{104             std::cout<< x0 <<endl;}
-\DoxyCodeLine{105         \}}
-\DoxyCodeLine{106 }
-\DoxyCodeLine{107         \textcolor{comment}{// update y-\/coordinate}}
-\DoxyCodeLine{108         y0 = y0 + blockHeight;}
-\DoxyCodeLine{109     \}}
-\DoxyCodeLine{110     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
-\DoxyCodeLine{111 \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{int} y0 = 0;}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     \textcolor{keywordflow}{while} (y0 < imgHeight)}
+\DoxyCodeLine{89     \{}
+\DoxyCodeLine{90         \textcolor{comment}{// agregar una condicion que verifique que x0 y y0 no tenga 1 o 2 pixel}}
+\DoxyCodeLine{91         \textcolor{comment}{// compute the block height}}
+\DoxyCodeLine{92         bhSize = ((y0 + blockHeight) > imgHeight) * (blockHeight -\/ (y0 + blockHeight -\/ imgHeight)) + ((y0 + blockHeight) <= imgHeight) * blockHeight;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94         \textcolor{keywordtype}{int} x0 = 0;}
+\DoxyCodeLine{95         \textcolor{keywordflow}{while} (x0 < imgWidth)}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97         \{}
+\DoxyCodeLine{98             \textcolor{comment}{// compute the block height}}
+\DoxyCodeLine{99             bwSize = ((x0 + blockWidth) > imgWidth) * (blockWidth -\/ (x0 + blockWidth -\/ imgWidth)) + ((x0 + blockWidth) <= imgWidth) * blockWidth;}
+\DoxyCodeLine{100             std::cout<< bwSize << \textcolor{stringliteral}{"{}    "{}} << imgWidth;}
+\DoxyCodeLine{101             \textcolor{comment}{// crop block}}
+\DoxyCodeLine{102             blocks.push\_back(img(cv::Rect(x0, y0, bwSize, bhSize)).clone());}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104             \textcolor{comment}{// update x-\/coordinate}}
+\DoxyCodeLine{105             x0 = x0 + blockWidth;}
+\DoxyCodeLine{106             std::cout<< x0 <<endl;}
+\DoxyCodeLine{107         \}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109         \textcolor{comment}{// update y-\/coordinate}}
+\DoxyCodeLine{110         y0 = y0 + blockHeight;}
+\DoxyCodeLine{111     \}}
+\DoxyCodeLine{112     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{113 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{divideImage_8h_a4cb14d80e2dcc88ff8443e9420c26126}\label{divideImage_8h_a4cb14d80e2dcc88ff8443e9420c26126}} 

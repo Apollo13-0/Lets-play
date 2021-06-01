@@ -307,7 +307,8 @@ void GASolver::XML(int iteration) {
     doc.Print(&printer);
     cout<< printer.CStr() << endl;
 
-    string dn = "/home/usuario/Proyectos/Lets-play/Server/xml/Generation"+ to_string(iteration +1)+".xml"; const char * document_name = dn.c_str();
+    fs::path temp = fs::current_path().parent_path();
+    string dn =temp.string()+"/xml/Generation"+ to_string(iteration +1)+".xml"; const char * document_name = dn.c_str();
     doc.SaveFile(document_name);
 }
 

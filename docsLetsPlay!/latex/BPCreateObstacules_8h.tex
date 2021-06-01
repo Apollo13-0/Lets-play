@@ -16,40 +16,40 @@ string \mbox{\hyperlink{BPCreateObstacules_8h_a4774bfb260da3e17ad710bbb4a6e2c84}
 \doxysubsubsection{\texorpdfstring{createObstacules()}{createObstacules()}}
 {\footnotesize\ttfamily string create\+Obstacules (\begin{DoxyParamCaption}\item[{int}]{obs\+\_\+amount }\end{DoxyParamCaption})}
 
+Method to randomly create the obstacles in the matrix 
 
-
-Definition at line 9 of file BPCreate\+Obstacules.\+h.
+Definition at line 13 of file BPCreate\+Obstacules.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{9                                        \{}
-\DoxyCodeLine{10     \mbox{\hyperlink{classMatrix}{Matrix}} *matrix = \mbox{\hyperlink{classMatrix_a3199a435ea1e14351be773612d9ed1b1}{Matrix::GetInstance}}();}
-\DoxyCodeLine{11     matrix-\/>\mbox{\hyperlink{classMatrix_affb9c26c90e3ba882592d73752a23ded}{ResetObstaculesMatrix}}();}
-\DoxyCodeLine{12     \textcolor{keywordtype}{int} i=0;}
-\DoxyCodeLine{13     \textcolor{keywordtype}{string} str\_matrix\_res;}
-\DoxyCodeLine{14     \textcolor{keywordflow}{while} (i < obs\_amount)\{}
-\DoxyCodeLine{15         \textcolor{keywordtype}{int} row = rand() \%5;}
-\DoxyCodeLine{16         \textcolor{keywordtype}{int} column = rand() \%4;}
-\DoxyCodeLine{17         \textcolor{keywordflow}{if} ( !(row == 2 \&\& (column == 0 || column == 9))  \&\& !matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[row][column].\mbox{\hyperlink{classmatrixNode_ae2b3dccc1a045e83d5d14c5ffd02963c}{isObstacule}}())\{}
-\DoxyCodeLine{18             matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[row][column].\mbox{\hyperlink{classmatrixNode_a480901ea284d77f12e2d9e11860bb8dc}{setObstacule}}(\textcolor{keyword}{true});}
-\DoxyCodeLine{19             str\_matrix\_res += \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(row);}
-\DoxyCodeLine{20             str\_matrix\_res += \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(column);}
-\DoxyCodeLine{21             i++;}
-\DoxyCodeLine{22         \}}
-\DoxyCodeLine{23     \}}
-\DoxyCodeLine{24     i=0;}
-\DoxyCodeLine{25     \textcolor{keywordflow}{while} (i < obs\_amount)\{}
-\DoxyCodeLine{26         \textcolor{keywordtype}{int} row = rand() \%5;}
-\DoxyCodeLine{27         \textcolor{keywordtype}{int} column = rand() \%4+5;}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29         \textcolor{keywordflow}{if} ( !(row == 2 \&\& (column == 0 || column == 9))  \&\& !matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[row][column].\mbox{\hyperlink{classmatrixNode_ae2b3dccc1a045e83d5d14c5ffd02963c}{isObstacule}}())\{}
-\DoxyCodeLine{30             matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[row][column].\mbox{\hyperlink{classmatrixNode_a480901ea284d77f12e2d9e11860bb8dc}{setObstacule}}(\textcolor{keyword}{true});}
-\DoxyCodeLine{31             str\_matrix\_res += \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(row);}
-\DoxyCodeLine{32             str\_matrix\_res += \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(column);}
-\DoxyCodeLine{33             i++;}
-\DoxyCodeLine{34         \}}
-\DoxyCodeLine{35     \}}
-\DoxyCodeLine{36     \textcolor{keywordflow}{return} str\_matrix\_res;}
-\DoxyCodeLine{37 \}}
+\DoxyCodeLine{13                                        \{}
+\DoxyCodeLine{14     \mbox{\hyperlink{classMatrix}{Matrix}} *matrix = \mbox{\hyperlink{classMatrix_a3199a435ea1e14351be773612d9ed1b1}{Matrix::GetInstance}}();}
+\DoxyCodeLine{15     matrix-\/>\mbox{\hyperlink{classMatrix_affb9c26c90e3ba882592d73752a23ded}{ResetObstaculesMatrix}}();}
+\DoxyCodeLine{16     \textcolor{keywordtype}{int} i=0;}
+\DoxyCodeLine{17     \textcolor{keywordtype}{string} str\_matrix\_res;}
+\DoxyCodeLine{18     \textcolor{keywordflow}{while} (i < obs\_amount)\{}
+\DoxyCodeLine{19         \textcolor{keywordtype}{int} row = rand() \%5;}
+\DoxyCodeLine{20         \textcolor{keywordtype}{int} column = rand() \%4;}
+\DoxyCodeLine{21         \textcolor{keywordflow}{if} ( !(row == 2 \&\& (column == 0 || column == 9))  \&\& !matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[row][column].\mbox{\hyperlink{classmatrixNode_ae2b3dccc1a045e83d5d14c5ffd02963c}{isObstacule}}())\{}
+\DoxyCodeLine{22             matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[row][column].\mbox{\hyperlink{classmatrixNode_a480901ea284d77f12e2d9e11860bb8dc}{setObstacule}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{23             str\_matrix\_res += \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(row);}
+\DoxyCodeLine{24             str\_matrix\_res += \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(column);}
+\DoxyCodeLine{25             i++;}
+\DoxyCodeLine{26         \}}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28     i=0;}
+\DoxyCodeLine{29     \textcolor{keywordflow}{while} (i < obs\_amount)\{}
+\DoxyCodeLine{30         \textcolor{keywordtype}{int} row = rand() \%5;}
+\DoxyCodeLine{31         \textcolor{keywordtype}{int} column = rand() \%4+5;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33         \textcolor{keywordflow}{if} ( !(row == 2 \&\& (column == 0 || column == 9))  \&\& !matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[row][column].\mbox{\hyperlink{classmatrixNode_ae2b3dccc1a045e83d5d14c5ffd02963c}{isObstacule}}())\{}
+\DoxyCodeLine{34             matrix-\/>\mbox{\hyperlink{classMatrix_a32f0e6e497f925f38776b320697cd99f}{gameField}}[row][column].\mbox{\hyperlink{classmatrixNode_a480901ea284d77f12e2d9e11860bb8dc}{setObstacule}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{35             str\_matrix\_res += \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(row);}
+\DoxyCodeLine{36             str\_matrix\_res += \mbox{\hyperlink{namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16}{to\_string}}(column);}
+\DoxyCodeLine{37             i++;}
+\DoxyCodeLine{38         \}}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40     \textcolor{keywordflow}{return} str\_matrix\_res;}
+\DoxyCodeLine{41 \}}
 
 \end{DoxyCode}

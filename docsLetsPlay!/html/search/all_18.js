@@ -1,16 +1,19 @@
 var searchData=
 [
-  ['_7ebasic_5fjson_776',['~basic_json',['../classnlohmann_1_1basic__json.html#a60b643c02a19fa52f99db8215ff58e0f',1,'nlohmann::basic_json']]],
-  ['_7ebinary_5freader_777',['~binary_reader',['../classnlohmann_1_1detail_1_1binary__reader.html#a359031cba136452d9030ed9ab4517b74',1,'nlohmann::detail::binary_reader']]],
-  ['_7einput_5fstream_5fadapter_778',['~input_stream_adapter',['../classnlohmann_1_1detail_1_1input__stream__adapter.html#a1d29416acc75b02bfaf251d9d8ef8f36',1,'nlohmann::detail::input_stream_adapter']]],
-  ['_7ejson_5fref_779',['~json_ref',['../classnlohmann_1_1detail_1_1json__ref.html#a8bcd4cfcafe952ce5140f8cb35ebe2f6',1,'nlohmann::detail::json_ref']]],
-  ['_7ejson_5fsax_780',['~json_sax',['../structnlohmann_1_1json__sax.html#af31bacfa81aa7818d8639d1da65c8eb5',1,'nlohmann::json_sax']]],
-  ['_7ejson_5fsax_5fdom_5fcallback_5fparser_781',['~json_sax_dom_callback_parser',['../classnlohmann_1_1detail_1_1json__sax__dom__callback__parser.html#a54ffcdfb0a8c5c9a876cd003b404ef4b',1,'nlohmann::detail::json_sax_dom_callback_parser']]],
-  ['_7ejson_5fsax_5fdom_5fparser_782',['~json_sax_dom_parser',['../classnlohmann_1_1detail_1_1json__sax__dom__parser.html#a4b93deb5c1d716dcfb33b3ed8a00ac4d',1,'nlohmann::detail::json_sax_dom_parser']]],
-  ['_7elexer_783',['~lexer',['../classnlohmann_1_1detail_1_1lexer.html#ac0557f111d82f7729a93ee9b40b31402',1,'nlohmann::detail::lexer']]],
-  ['_7elist_784',['~List',['../classList.html#a2b58189090f6e5ce52939c9195e59e85',1,'List']]],
-  ['_7enode_785',['~Node',['../classNode.html#ae923d0417581dd19784d55b901f0f7f0',1,'Node']]],
-  ['_7enonesuch_786',['~nonesuch',['../structnlohmann_1_1detail_1_1nonesuch.html#a7b1119845860e548b67f1644a2084373',1,'nlohmann::detail::nonesuch']]],
-  ['_7eoutput_5fadapter_5fprotocol_787',['~output_adapter_protocol',['../structnlohmann_1_1detail_1_1output__adapter__protocol.html#ad71cdc057030f8a775a191face25061a',1,'nlohmann::detail::output_adapter_protocol']]],
-  ['_7eserializer_788',['~serializer',['../classnlohmann_1_1detail_1_1serializer.html#aa6c62b51cbebb185307df851dc0167f0',1,'nlohmann::detail::serializer']]]
+  ['w_1007',['w',['../structnlohmann_1_1detail_1_1dtoa__impl_1_1boundaries.html#ad1668c60aeade5f2557fafed8b8aee1a',1,'nlohmann::detail::dtoa_impl::boundaries']]],
+  ['what_1008',['what',['../classnlohmann_1_1detail_1_1exception.html#a2ecff34cee144f843644a252a07cdadc',1,'nlohmann::detail::exception']]],
+  ['whitespace_1009',['Whitespace',['../namespacetinyxml2.html#a7f91d00f77360f850fd5da0861e27dd5',1,'tinyxml2']]],
+  ['whitespacemode_1010',['WhitespaceMode',['../classtinyxml2_1_1XMLDocument.html#a810ce508e6e0365497c2a9deb83c9ca7',1,'tinyxml2::XMLDocument']]],
+  ['wide_5fstring_5finput_5fadapter_1011',['wide_string_input_adapter',['../classnlohmann_1_1detail_1_1wide__string__input__adapter.html',1,'nlohmann::detail::wide_string_input_adapter&lt; BaseInputAdapter, WideCharType &gt;'],['../classnlohmann_1_1detail_1_1wide__string__input__adapter.html#aa12146f16f0a22ae3d23bd4af7460fcd',1,'nlohmann::detail::wide_string_input_adapter::wide_string_input_adapter()']]],
+  ['wide_5fstring_5finput_5fhelper_1012',['wide_string_input_helper',['../structnlohmann_1_1detail_1_1wide__string__input__helper.html',1,'nlohmann::detail::wide_string_input_helper&lt; BaseInputAdapter, T &gt;'],['../classnlohmann_1_1detail_1_1iterator__input__adapter.html#ab86106ba230f1542b94dcd96e6ab3221',1,'nlohmann::detail::iterator_input_adapter::wide_string_input_helper()']]],
+  ['wide_5fstring_5finput_5fhelper_3c_20baseinputadapter_2c_202_20_3e_1013',['wide_string_input_helper&lt; BaseInputAdapter, 2 &gt;',['../structnlohmann_1_1detail_1_1wide__string__input__helper_3_01BaseInputAdapter_00_012_01_4.html',1,'nlohmann::detail']]],
+  ['wide_5fstring_5finput_5fhelper_3c_20baseinputadapter_2c_204_20_3e_1014',['wide_string_input_helper&lt; BaseInputAdapter, 4 &gt;',['../structnlohmann_1_1detail_1_1wide__string__input__helper_3_01BaseInputAdapter_00_014_01_4.html',1,'nlohmann::detail']]],
+  ['wincondition_1015',['winCondition',['../BPGameLogic_8h.html#afbc38b6dd991fe56517bae9205a05d8b',1,'BPGameLogic.h']]],
+  ['write_1016',['Write',['../classtinyxml2_1_1XMLPrinter.html#a4bd7f0cabca77ac95c299103fa9592f1',1,'tinyxml2::XMLPrinter::Write(const char *data)'],['../classtinyxml2_1_1XMLPrinter.html#aff363b7634a27538fd691ae62adbda63',1,'tinyxml2::XMLPrinter::Write(const char *data, size_t size)']]],
+  ['write_5fbson_1017',['write_bson',['../classnlohmann_1_1detail_1_1binary__writer.html#a9ffc566db5219b473762462234b47db9',1,'nlohmann::detail::binary_writer']]],
+  ['write_5fcbor_1018',['write_cbor',['../classnlohmann_1_1detail_1_1binary__writer.html#aa0ab8d27fd88a33a2f801413ac4c7fbc',1,'nlohmann::detail::binary_writer']]],
+  ['write_5fcharacter_1019',['write_character',['../structnlohmann_1_1detail_1_1output__adapter__protocol.html#a3381896fe1be557f591de2e917cdc7d5',1,'nlohmann::detail::output_adapter_protocol::write_character()'],['../classnlohmann_1_1detail_1_1output__vector__adapter.html#af6a22d4210bb7bc2da66021300ddd6db',1,'nlohmann::detail::output_vector_adapter::write_character()'],['../classnlohmann_1_1detail_1_1output__stream__adapter.html#a6e2698c76b200b2d8fac6cebfc43a245',1,'nlohmann::detail::output_stream_adapter::write_character()'],['../classnlohmann_1_1detail_1_1output__string__adapter.html#a2d76cc6c88ddbc196a63fcfcac9ee7d1',1,'nlohmann::detail::output_string_adapter::write_character()']]],
+  ['write_5fcharacters_1020',['write_characters',['../structnlohmann_1_1detail_1_1output__adapter__protocol.html#a2f410a164e0eda17cf6561114b0eee4a',1,'nlohmann::detail::output_adapter_protocol::write_characters()'],['../classnlohmann_1_1detail_1_1output__vector__adapter.html#ad6f6c461dec7bedd5359454dc22fc9aa',1,'nlohmann::detail::output_vector_adapter::write_characters()'],['../classnlohmann_1_1detail_1_1output__stream__adapter.html#ad61375497a7d03cb0bdcddfdaad185d0',1,'nlohmann::detail::output_stream_adapter::write_characters()'],['../classnlohmann_1_1detail_1_1output__string__adapter.html#ab5ea4da075305d225dfd84ad997e8747',1,'nlohmann::detail::output_string_adapter::write_characters()']]],
+  ['write_5fmsgpack_1021',['write_msgpack',['../classnlohmann_1_1detail_1_1binary__writer.html#ae4e0852b64102ce4b07d99f08f828b7c',1,'nlohmann::detail::binary_writer']]],
+  ['write_5fubjson_1022',['write_ubjson',['../classnlohmann_1_1detail_1_1binary__writer.html#a0f6c65053d859269f88eb4ebb0cd7060',1,'nlohmann::detail::binary_writer']]]
 ];
