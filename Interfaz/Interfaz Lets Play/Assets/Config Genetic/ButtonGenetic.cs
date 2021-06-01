@@ -59,8 +59,7 @@ namespace ButtonGenetic
             Debug.Log(message);
             SocketClient.StartClient(message);
             string messageR = SocketClient.MessageR;
-            Debug.Log(messageR);
-            
+
             SceneManager.LoadScene("GeneticPuzzle");
         }
 

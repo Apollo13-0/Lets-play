@@ -47,13 +47,16 @@ string geneticResult(int num){
                 }
                 mixMatrix += "/";
             }
+            mixMatrix += "&";
+
+            string divString = "&" + to_string(num);
 
             List<string> gene;
             GAChromosome par = GAChromosome(myPad, gene);
             GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
             GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);  //hacer esto como un str
             //myPad.apply_chain(res.gene);  //hacer este metodo en c#
-            return mixMatrix + gSolver.getResultPath();
+            return mixMatrix + gSolver.getResultPath() + divString;
         }
 
         catch (const std::exception &exc){
@@ -86,11 +89,11 @@ string genLogic(json jmessageR){
         int divideStatus = divideImage(image, tmp, blocks);
 
         // debug: save blocks
-        cv::utils::fs::createDirectory("blocksFolder");
+        cv::utils::fs::createDirectory("/home/ignacio/Datos2/Lets-play/Server/blocksFolder");
         for (int j = 0; j < blocks.size(); j++)
         {
             std::string blockId = std::to_string(j);
-            std::string blockImgName = "blocksFolder/block#" + blockId + ".png";
+            std::string blockImgName = "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + blockId + ".png";
             imwrite(blockImgName, blocks[j]);
         }
 

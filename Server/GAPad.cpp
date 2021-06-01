@@ -103,7 +103,7 @@ bool GAPad::move_down() {
 }
 
 /**
-* Funtion to localizate a piece in the Pad
+* Function to localize a piece in the Pad
 * @param num Piece to search
 * @return Position in the pad
 */
