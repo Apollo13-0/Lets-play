@@ -171,8 +171,9 @@ GAChromosome GASolver::solve(int max_iter, float optimal_error) {
     init_population();
     int iteration = 0;
     string result ="";
-    fs::remove_all("/home/usuario/Proyectos/Lets-play/Server/xml");
-    fs::create_directories("/home/usuario/Proyectos/Lets-play/Server/xml");
+    fs::path temp = fs::current_path().parent_path();
+    fs::remove_all(temp/"xml");
+    fs::create_directories(temp/"xml");
     while (iteration < max_iter && (isbest == 0 ||
                                     best.error_puzzle_cost > optimal_error)){
         cross_over(true);
@@ -296,8 +297,8 @@ void GASolver::XML(int iteration) {
     tinyxml2::XMLPrinter printer;
     doc.Print(&printer);
     cout<< printer.CStr() << endl;
-
-    string dn = "/home/usuario/Proyectos/Lets-play/Server/xml/Generation"+ to_string(iteration +1)+".xml"; const char * document_name = dn.c_str();
+    fs::path temp = fs::current_path().parent_path();
+    string dn =temp.string()+"/xml/Generation"+ to_string(iteration +1)+".xml"; const char * document_name = dn.c_str();
     doc.SaveFile(document_name);
 }
 
