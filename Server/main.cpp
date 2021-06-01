@@ -10,6 +10,8 @@
 #include "tinyxml/tinyxml.h"
 #include "tinyxml/tinystr.h"
 #include "tinyxml2.h"
+#include "tinyxml2.cpp"
+#include "genLogic.h"
 
 //Prueba
 #include <iomanip>
@@ -89,7 +91,8 @@ int StartListenign(){
 
         if (game == "Genetic")
         {
-            ;
+            string message = genLogic(jmessageR);
+            send(clientSocket, message.c_str(), message.size() + 1, 0);
         }
         close(clientSocket);
     }
@@ -100,42 +103,6 @@ int StartListenign(){
 
 int main() {
     srand(time(NULL));
-    createObstacules(4);
-    List<int> path = AStar().aStar(10, 29);
-    LtoS(path);
-    /**
-
-    XMLDocument doc;
-
-    doc.LinkEndChild(doc.NewDeclaration("xml version=\"1.0\" encoding=\"UTF-8\""));
-    doc.LinkEndChild(doc.NewComment("hello"));
-
-    auto htmlElement = doc.NewElement("html");
-    auto headElement = doc.NewElement("head");
-    headElement->SetText("this is a heading!");
-    auto bodyElement = doc.NewElement("body");
-
-    htmlElement->LinkEndChild(headElement);
-    htmlElement->LinkEndChild(bodyElement);
-
-
-    auto pElement = doc.NewElement("p");
-    pElement->SetText("this is a paragraph!");
-    auto h1Element = doc.NewElement("h1");
-    h1Element->SetText("this is first heading!");
-
-    bodyElement->LinkEndChild(pElement);
-    bodyElement->LinkEndChild(h1Element);
-
-    doc.LinkEndChild(htmlElement);
-
-    XMLPrinter printer;
-    doc.Print(&printer);
-    cout<< printer.CStr() << endl;
-    doc.SaveFile("xml/myXML.xml");
-
-//
-//
 //    try {
 //
 //        GAPad myPad = GAPad(3, 3);
@@ -150,6 +117,7 @@ int main() {
 //        myPad.shuffle();
 //        for (auto &item : myPad.board) {
 //            for (auto &i : item) {
+//
 //
 //                cout << setw(3) << i << " - ";
 //            }
@@ -172,6 +140,10 @@ int main() {
 //        }
 //        cout << endl;
 //
+//
+//        cout<< "**************************"<< endl;
+//
+//        cout << gSolver.getResultPath() << endl;
 //    }
 //
 //
@@ -180,7 +152,7 @@ int main() {
 //        std::cerr << exc.what();
 //    }
 
-    **/
+
 
 //    List<GAChromosome*> prueba;
 //    GAPad myPad = GAPad();
@@ -197,11 +169,12 @@ int main() {
 //    std::vector<cv::Mat> blocks;
 //
 //    // read png image
+//
 //    cv::Mat image = cv::imread("/home/ignacio/Datos2/Lets-play/Server/perrito.jpg", cv::IMREAD_UNCHANGED);
-//    cv::imshow("Display window", image);
+//    //cv::imshow("Display window", image);
 //
 //    // divide image into multiple blocks
-//    int divideStatus = divideImage(image, 25, blocks);
+//    int divideStatus = divideImage(image, 9, blocks);
 //
 //    // debug: save blocks
 //    cv::utils::fs::createDirectory("/home/ignacio/Datos2/Lets-play/Server/blocksFolder");

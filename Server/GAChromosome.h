@@ -20,11 +20,16 @@ public:
     GAPad puzzle;
 
 
+
     explicit GAChromosome(GAPad ex_board, List<string> gen);
 
 
     void update_error();
     static vector<GAChromosome> cross_over(GAChromosome a, GAChromosome b);
     void mutate();
+
+
+
+
 };
 #endif //SERVER_GACHROMOSOME_H

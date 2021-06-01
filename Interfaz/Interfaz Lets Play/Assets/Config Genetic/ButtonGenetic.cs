@@ -5,37 +5,109 @@ using UnityEngine.UI;
 using Client;
 using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
+using System;
 
-public class ButtonGenetic : MonoBehaviour
+using UnityEditor;
+using System.IO;
+
+
+namespace ButtonGenetic
 {
-    public InputField divisionNumber;
-    //public RawImage image;
-    private string message;
-
-    public RawImage image;
-
-    public void playGenetic()
+    public class ButtonGenetic : MonoBehaviour
     {
-        changeScene();
-    }
+        public InputField divisionNumber;
 
-    void changeScene()
-    {
-        //parseJson("Genetic", "Config", divisionNumber.text, .text);
-        //message = "BP$" + Score.text + "$" + Players.text;
-        //Debug.Log(message);
-        //SocketClient.StartClient(message);
-        SceneManager.LoadScene("GeneticPuzzle");
-        Debug.Log(divisionNumber.text + "divisiones ");
-    }
+        private string path;
 
-    void parseJson(string game,string key,string info1, string info2)
-    {
-        message = "{" +
-                  "\"Game\":" + "\"" + game + "\"" + "," +
-                  "\"Key\":" + "\"" + key + "\"" + "," +
-                  "\"Info1\":" + "\"" + info1 + "\"" + "," +
-                  "\"Info2\":" + "\"" + info2 + "\"" + "}";
+        private string message;
+
+        public RawImage image;
+
+
+        public void playGenetic()
+        {
+            if (Int32.Parse(divisionNumber.text) > 2)
+            {
+                if (IsPowerOfTwo(Convert.ToUInt64(divisionNumber.text)) || isSquare(Int32.Parse(divisionNumber.text))) 
+                {
+                    OpenExplorer();
+                    if (path != null)
+                    {
+                        changeScene();
+                    }
+                    else
+                    {
+                        Debug.Log("no hay path");
+                    }
+                    
+                } else 
+                {
+                    Debug.Log("no es numero de div valido");
+                }
+            }
+            else 
+            {
+                Debug.Log("no es numero de div valido == 0,1,2");
+            }
+            
+
+        }
+
+        void changeScene()
+        {
+            string message = parseJson("Genetic", "Config", divisionNumber.text, path);
+            Debug.Log(message);
+            SocketClient.StartClient(message);
+            string messageR = SocketClient.MessageR;
+            Debug.Log(messageR);
+            
+            SceneManager.LoadScene("GeneticPuzzle");
+        }
+
+        string parseJson(string game,string key,string info1, string info2)
+        {
+            string message = "{" +
+                    "\"Game\":" + "\"" + game + "\"" + "," +
+                    "\"Key\":" + "\"" + key + "\"" + "," +
+                    "\"Info1\":" + "\"" + info1 + "\"" + "," +
+                    "\"Info2\":" + "\"" + info2 + "\"" + "}";
+            return message;
+        }
+
+        public void OpenExplorer()
+        {
+            path = EditorUtility.OpenFilePanel("Select png","","png");
+            Debug.Log(path);
+            //GetImage();
+        }
+
+        void GetImage()
+        {
+            if (path != null)
+            {
+                UpdateImage();
+            }
+        }
+
+        void UpdateImage()
+        {
+            WWW www = new WWW("file:///" + path);
+            image.texture = www.texture;
+
+        }
+
+        bool IsPowerOfTwo(ulong x)
+        {
+            return (x != 0) && ((x & (x - 1)) == 0);
+        }
+
+        static bool isSquare(int n)
+        {
+            double result = Math.Sqrt(n);
+            return result%1 == 0;
+        }
     }
 }
+
+
 
