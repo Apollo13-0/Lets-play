@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Description of Generation-->
+<Generation7>
+    <Population_lenght>1000</Population_lenght>
+    <Total_error>0.975806</Total_error>
+    <Best>
+        <Best_error_total>0.292222</Best_error_total>
+        <Best_error_puzzle>0.222222</Best_error_puzzle>
+        <Best_error_gen>0.070000</Best_error_gen>
+        <Best_gen_lenght>7</Best_gen_lenght>
+        <Best_gen> up left up down down left right </Best_gen>
+    </Best>
+</Generation7>
