@@ -14,22 +14,6 @@ using namespace std;
 using json = nlohmann::json;
 
 
-//
-//string LtoS(List<int> path){
-//    string pathS;
-//    for (int i=0; i<path.getSize(); i++){
-//        if (to_string(path.find(i)->getValue()).size() == 1){
-//            pathS+="0"+to_string(path.find(i)->getValue())+"$";
-//        }
-//        else{
-//            pathS+=to_string(path.find(i)->getValue())+"$";
-//        }
-//
-//    }
-//    cout << pathS << endl;
-//    return pathS;
-//}
-
 string geneticResult(int num){
 
     float MUTATION_CHANCE = 0.9;
@@ -38,6 +22,7 @@ string geneticResult(int num){
     int MAX_ITERATION = 100;
     int x,y;
     bool run = false;
+    string mixMatrix;
 
     if(isSquare(num))
     {
@@ -54,14 +39,21 @@ string geneticResult(int num){
 
             GAPad myPad = GAPad(x, y);
 
-            myPad.shuffle();                        //  revolver
+            myPad.shuffle();
+
+            for (auto &item : myPad.board) {
+                for (auto &i : item) {
+                    mixMatrix += to_string(i) + "-";
+                }
+                mixMatrix += "/";
+            }
 
             List<string> gene;
             GAChromosome par = GAChromosome(myPad, gene);
             GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
             GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);  //hacer esto como un str
             //myPad.apply_chain(res.gene);  //hacer este metodo en c#
-            return gSolver.getResultPath();
+            return mixMatrix + gSolver.getResultPath();
         }
 
         catch (const std::exception &exc){
@@ -104,37 +96,7 @@ string genLogic(json jmessageR){
 
         return geneticResult(tmp);
     }
-    if (key == "J1"){
-        string Info1 =  jmessageR.value("Info1", "oops");
-        if (Info1 == "goal"){
-            J1goals +=1;
-            if (J1goals >= winCondition) {
-                return "WIN";
-            }
-        }
-        else{
-            List<int> path = AStar().aStar(stoi(Info1), 29);
-            return LtoS(path);
-        }
 
-    }
-    if (key == "J2"){
-        string Info1 =  jmessageR.value("Info1", "oops");
-        if (Info1 == "goal"){
-            J2goals +=1;
-            if (J2goals >= winCondition) {
-                return "LOSE";
-            }
-        }
-        else{
-            Matrix *matrix = Matrix::GetInstance();
-            Backtracking tmp = Backtracking();
-            List<List<int>> connectionList = tmp.getConnectionList(matrix->gameField);
-            string result = tmp.ShortestRoute(connectionList, stoi(Info1) + 1, 21);
-            return result;
-        }
-
-    }
 }
 
 
