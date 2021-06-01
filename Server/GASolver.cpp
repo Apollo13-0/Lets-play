@@ -243,8 +243,6 @@ void GASolver::setResultPath(const string &resultPath) {
 }
 
 
-
-/**void GASolver::XML(int iteration) {
 void GASolver::XML(int iteration) {
     string g = "Generation" + to_string(iteration +1); const char * generation = g.c_str();
 
@@ -261,7 +259,7 @@ void GASolver::XML(int iteration) {
     string bgs = to_string(best.gene.getSize()); const char * best_gen_size = bgs.c_str();
 
     string bg=" ";
-    for (int i = 0; i < best.gene.getSize(); ++i) { bg += best.gene.find(i)->getValue()+" ";}
+    for (int i = 0; i < best.gene.getSize(); i++) { bg += best.gene.find(i)->getValue()+" ";}
     const char * best_gen = bg.c_str();
 
     tinyxml2::XMLDocument doc;
