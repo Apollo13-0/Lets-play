@@ -27,6 +27,11 @@ public:
     GAChromosome best = GAChromosome(board, {});
     int isbest;
     float error;
+    string resultPath;
+
+    const string &getResultPath() const;
+
+    void setResultPath(const string &resultPath);
 
     GASolver(GAPad ex_board, int POPULATION_LEN, float MUTATION_CHANCE, float CROSS_OVER_RATE, GAChromosome par);
     void init_population();
@@ -39,6 +44,9 @@ public:
     GAChromosome solve(int max_iter, float optimal_error);
     void display(int iter);
     void XML(int iteration);
+    string usrPath(GAChromosome path_);
+    void append(string result);
+
 
 };
 #endif //SERVER_GASOLVER_H

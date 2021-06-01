@@ -175,6 +175,7 @@ GAChromosome GASolver::solve(int max_iter, float optimal_error) {
 
     init_population();
     int iteration = 0;
+    string result ="";
     while (iteration < max_iter && (isbest == 0 ||
                                     best.error_puzzle_cost > optimal_error)){
         cross_over(true);
@@ -186,7 +187,21 @@ GAChromosome GASolver::solve(int max_iter, float optimal_error) {
         //XML(iteration);
 
         iteration += 1;
+        //string tmp = usrPath(best);
+
+
+
+        for (int i = 0; i < best.gene.getSize(); ++i) {
+            if (i == best.gene.getSize() -1){
+                result = result + best.gene.find(i)->getValue();
+            } else{
+                result = result + best.gene.find(i)->getValue() + "@";
+            }
+        }
+        append(result);
+        result = "";
     }
+
 
     return best;
 }
@@ -205,6 +220,32 @@ void GASolver::display(int iter) {
     cout<< endl<< "--------------------------------"<<endl;
 
 }
+
+string GASolver::usrPath(GAChromosome path_)
+{
+    string result ="";
+    for (int i = 0; i < path_.gene.getSize(); ++i) {
+        if (i == path_.gene.getSize() -1){
+            result = result + path_.gene.find(i)->getValue();
+        } else {
+            result = result + path_.gene.find(i)->getValue() + "@";
+        }
+    }
+}
+
+void GASolver::append(string result) {
+    resultPath = resultPath + result + "#";
+}
+
+const string &GASolver::getResultPath() const {
+    return resultPath;
+}
+
+void GASolver::setResultPath(const string &resultPath) {
+    GASolver::resultPath = resultPath;
+}
+
+
 
 /**void GASolver::XML(int iteration) {
     tinyxml2::XMLDocument doc;
