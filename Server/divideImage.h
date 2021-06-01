@@ -48,6 +48,7 @@ bool isPowerOf2(int n)
 
 int divideImage(const cv::Mat& img, int numDiv, std::vector<cv::Mat>& blocks)
 {
+    std::cout << img.empty() << "  efdsdf"<<endl;
     // Checking if the image was passed correctly
     if (!img.data || img.empty())
     {

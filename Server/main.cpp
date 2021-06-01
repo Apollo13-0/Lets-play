@@ -10,6 +10,8 @@
 #include "tinyxml/tinyxml.h"
 #include "tinyxml/tinystr.h"
 #include "tinyxml2.h"
+#include "tinyxml2.cpp"
+#include "genLogic.h"
 
 //Prueba
 #include <iomanip>
@@ -90,7 +92,8 @@ int StartListenign(){
 
         if (game == "Genetic")
         {
-            ;
+            string message = genLogic(jmessageR);
+            send(clientSocket, message.c_str(), message.size() + 1, 0);
         }
         close(clientSocket);
     }
@@ -101,96 +104,56 @@ int StartListenign(){
 
 int main() {
     srand(time(NULL));
-    createObstacules(4);
-    List<int> path = AStar().aStar(10, 29);
-    LtoS(path);
-    /**
-
-//    XMLDocument doc;
+//    try {
 //
-//    doc.LinkEndChild(doc.NewDeclaration("xml version=\"1.0\" encoding=\"UTF-8\""));
-//    doc.LinkEndChild(doc.NewComment("Description of Generation"));
-//    auto htmlElement = doc.NewElement("Generation");
-//    auto headElement1 = doc.NewElement("Population_lenght");
-//    headElement1->SetText("len:1000");
-//    auto headElement2 = doc.NewElement("Total_error");
-//    headElement2->SetText("totalerror");
-//    auto bodyElement = doc.NewElement("Best");
-//    htmlElement->LinkEndChild(headElement1);
-//    htmlElement->LinkEndChild(headElement2);
-//    htmlElement->LinkEndChild(bodyElement);
+//        GAPad myPad = GAPad(3, 3);
+//        for (auto &item : myPad.board) {
+//            for (auto &i : item) {
 //
-//    auto pElement1 = doc.NewElement("Best_error_total");
-//    pElement1->SetText("Best_error_total");
-//    bodyElement->LinkEndChild(pElement1);
-//    auto pElement2 = doc.NewElement("Best_error_puzzle");
-//    pElement2->SetText("Best_error_puzzle");
-//    bodyElement->LinkEndChild(pElement2);
-//    auto pElement3 = doc.NewElement("Best_error_gen");
-//    pElement3->SetText("Best_error_gen");
-//    bodyElement->LinkEndChild(pElement3);
-//    auto pElement4 = doc.NewElement("Best_gen_lenght");
-//    pElement4->SetText("Best_gen_lenght");
-//    bodyElement->LinkEndChild(pElement4);
-//    auto pElement5 = doc.NewElement("Best_gen");
-//    pElement5->SetText("Best_gen");
-//    bodyElement->LinkEndChild(pElement5);
-//
-//    doc.LinkEndChild(htmlElement);
+//                cout << setw(3)<< i <<" ; ";
+//            }
+//            cout << endl;
+//        }
+//        cout << endl;
+//        myPad.shuffle();
+//        for (auto &item : myPad.board) {
+//            for (auto &i : item) {
 //
 //
-//    XMLPrinter printer;
-//    doc.Print(&printer);
-//    cout<< printer.CStr() << endl;
-//    doc.SaveFile("xml/Generation.xml");
-
+//                cout << setw(3) << i << " - ";
+//            }
+//            cout << endl;
+//        }
+//        cout << endl;
+//
+//        List<string> gene;
+//        GAChromosome par = GAChromosome(myPad, gene);
+//        GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
+//        GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);
+//        myPad.apply_chain(res.gene);
+//
+//        for (auto &item : myPad.board) {
+//            for (auto &i : item) {
+//
+//                cout << setw(3)<< i << " | ";
+//            }
+//            cout << endl;
+//        }
+//        cout << endl;
 //
 //
-    try {
-
-        GAPad myPad = GAPad(3, 3);
-        for (auto &item : myPad.board) {
-            for (auto &i : item) {
-
-                cout << setw(3)<< i <<" ; ";
-            }
-            cout << endl;
-        }
-        cout << endl;
-        myPad.shuffle();
-        for (auto &item : myPad.board) {
-            for (auto &i : item) {
-
-                cout << setw(3) << i << " - ";
-            }
-            cout << endl;
-        }
-        cout << endl;
-
-        List<string> gene;
-        GAChromosome par = GAChromosome(myPad, gene);
-        GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
-        GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);
-        myPad.apply_chain(res.gene);
-
-        for (auto &item : myPad.board) {
-            for (auto &i : item) {
-
-                cout << setw(3)<< i << " | ";
-            }
-            cout << endl;
-        }
-        cout << endl;
-
-    }
+//        cout<< "**************************"<< endl;
+//
+//        cout << gSolver.getResultPath() << endl;
+//    }
+//
+//
+//    catch (const std::exception &exc){
+//        cout<<"Ha ocurrido un error\n";
+//        std::cerr << exc.what();
+//    }
 
 
-    catch (const std::exception &exc){
-        cout<<"Ha ocurrido un error\n";
-        std::cerr << exc.what();
-    }
-
-    **/
 
 //    List<GAChromosome*> prueba;
 //    GAPad myPad = GAPad();
@@ -207,8 +170,8 @@ int main() {
 //    std::vector<cv::Mat> blocks;
 //
 //    // read png image
-//    // /home/usuario/Proyectos/Lets-play/Server/perro.jpg
-//    cv::Mat image = cv::imread("/home/usuario/Proyectos/Lets-play/Server/perro.jpg", cv::IMREAD_UNCHANGED);
+//
+//    cv::Mat image = cv::imread("/home/ignacio/Datos2/Lets-play/Server/perrito.jpg", cv::IMREAD_UNCHANGED);
 //    //cv::imshow("Display window", image);
 //
 //    // divide image into multiple blocks
