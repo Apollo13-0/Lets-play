@@ -7,14 +7,12 @@
 #include <unistd.h>
 #include "json.hpp"
 #include "BPGameLogic.h"
-#include "tinyxml/tinyxml.h"
-#include "tinyxml/tinystr.h"
 #include "tinyxml2.h"
-#include "tinyxml2.cpp"
 #include "genLogic.h"
 
 //Prueba
 #include <iomanip>
+#include <fstream>
 #include "GAPad.h"
 #include "GASolver.h"
 
@@ -29,7 +27,7 @@ int MAX_ITERATION = 100;
 
 using namespace std;
 using json = nlohmann::json;;
-using namespace tinyxml2;
+//using namespace tinyxml2;
 
 int StartListenign(){
 
@@ -103,54 +101,54 @@ int StartListenign(){
 
 int main() {
     srand(time(NULL));
-//    try {
-//
-//        GAPad myPad = GAPad(3, 3);
-//        for (auto &item : myPad.board) {
-//            for (auto &i : item) {
-//
-//                cout << setw(3)<< i <<" ; ";
-//            }
-//            cout << endl;
-//        }
-//        cout << endl;
-//        myPad.shuffle();
-//        for (auto &item : myPad.board) {
-//            for (auto &i : item) {
-//
-//
-//                cout << setw(3) << i << " - ";
-//            }
-//            cout << endl;
-//        }
-//        cout << endl;
-//
-//        List<string> gene;
-//        GAChromosome par = GAChromosome(myPad, gene);
-//        GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
-//        GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);
-//        myPad.apply_chain(res.gene);
-//
-//        for (auto &item : myPad.board) {
-//            for (auto &i : item) {
-//
-//                cout << setw(3)<< i << " | ";
-//            }
-//            cout << endl;
-//        }
-//        cout << endl;
-//
-//
-//        cout<< "**************************"<< endl;
-//
-//        cout << gSolver.getResultPath() << endl;
-//    }
-//
-//
-//    catch (const std::exception &exc){
-//        cout<<"Ha ocurrido un error\n";
-//        std::cerr << exc.what();
-//    }
+    try {
+
+        GAPad myPad = GAPad(3, 3);
+        for (auto &item : myPad.board) {
+            for (auto &i : item) {
+
+                cout << setw(3)<< i <<" ; ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+        myPad.shuffle();
+        for (auto &item : myPad.board) {
+            for (auto &i : item) {
+
+
+                cout << setw(3) << i << " - ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+
+        List<string> gene;
+        GAChromosome par = GAChromosome(myPad, gene);
+        GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
+        GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);
+        myPad.apply_chain(res.gene);
+
+        for (auto &item : myPad.board) {
+            for (auto &i : item) {
+
+                cout << setw(3)<< i << " | ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+
+
+        cout<< "**************************"<< endl;
+
+        cout << gSolver.getResultPath() << endl;
+    }
+
+
+    catch (const std::exception &exc){
+        cout<<"Ha ocurrido un error\n";
+        std::cerr << exc.what();
+    }
 
 
 
@@ -161,7 +159,7 @@ int main() {
 //    GAChromosome* ptrpar= &par;
 //    prueba.insertFirst(ptrpar);
 
-    StartListenign();
+//    StartListenign();
 
 //    // init vars
 //    const int blockw = 50;
@@ -177,11 +175,11 @@ int main() {
 //    int divideStatus = divideImage(image, 9, blocks);
 //
 //    // debug: save blocks
-//    cv::utils::fs::createDirectory("/home/ignacio/Datos2/Lets-play/Server/blocksFolder");
+//    cv::utils::fs::createDirectory("/home/usuario/Proyectos/Lets-play/Server/blocksFolder");
 //    for (int j = 0; j < blocks.size(); j++)
 //    {
 //        std::string blockId = std::to_string(j);
-//        std::string blockImgName = "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/block#" + blockId + ".jpg";
+//        std::string blockImgName = "/home/usuario/Proyectos/Lets-play/Server/blocksFolder/block#" + blockId + ".jpg";
 //        imwrite(blockImgName, blocks[j]);
 //    }
 
