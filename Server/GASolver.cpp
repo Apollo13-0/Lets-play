@@ -249,7 +249,10 @@ void GASolver::setResultPath(const string &resultPath) {
     GASolver::resultPath = resultPath;
 }
 
-
+/**
+ * Method to create the XML for each generation
+ * @param iteration Generation
+ */
 void GASolver::XML(int iteration) {
     string g = "Generation" + to_string(iteration +1); const char * generation = g.c_str();
 
@@ -303,8 +306,8 @@ void GASolver::XML(int iteration) {
     tinyxml2::XMLPrinter printer;
     doc.Print(&printer);
     cout<< printer.CStr() << endl;
-    fs::path temp = fs::current_path().parent_path();
-    string dn =temp.string()+"/xml/Generation"+ to_string(iteration +1)+".xml"; const char * document_name = dn.c_str();
+
+    string dn = "/home/usuario/Proyectos/Lets-play/Server/xml/Generation"+ to_string(iteration +1)+".xml"; const char * document_name = dn.c_str();
     doc.SaveFile(document_name);
 }
 
