@@ -6,6 +6,7 @@ using Client;
 using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
 using System;
+using ButtonGenetic;
 
 using UnityEditor;
 using System.IO;
@@ -38,10 +39,11 @@ public class geneticPuzzle : MonoBehaviour
     public RawImage image23;
     public RawImage image24;
 
-    public Button ButtonNext;
-    public Button ButtonPrev;
+    public Button ButtonMenu;
 
     public Slider mySlider;
+
+    public Text myTxt; 
     
 
     // mensaje que recibe del server 
@@ -71,6 +73,8 @@ public class geneticPuzzle : MonoBehaviour
     static int currentGen = 0;
 
     static int currentDispaly = 0;
+
+    static int lastCurrent = 0;
 
     List<int[,]> resultMatrices = new List<int[,]>();
 
@@ -120,16 +124,9 @@ public class geneticPuzzle : MonoBehaviour
         Debug.Log(tmp);
 
     }
-    void TaskOnClickPrev()
+    void TaskOnClickMenu()
     {
-        if(currentDispaly > -1){
-            currentDispaly = currentDispaly -1;
-            if (currentDispaly != -1){
-                updateImages(howMuchImg, resultMatrices[currentDispaly]);
-            }
-        } else {
-            Debug.Log("no hay anterior generacion");
-        }
+        SceneManager.LoadScene("Menu");
     }
 
 
@@ -231,12 +228,12 @@ public class geneticPuzzle : MonoBehaviour
     {
         Slider slider = mySlider.GetComponent<Slider>();
 
-        // asigna la funcion a los botones 
-        Button btnNext = ButtonNext.GetComponent<Button>();
-        btnNext.onClick.AddListener(TaskOnClickNext);
 
-        Button btnPrev = ButtonPrev.GetComponent<Button>();
-        btnPrev.onClick.AddListener(TaskOnClickPrev);
+        Button btnMenu = ButtonMenu.GetComponent<Button>();
+        btnMenu.onClick.AddListener(TaskOnClickMenu);
+
+        Text timerTxt = myTxt.GetComponent<Text>();
+
 
         // Lee el string del servidor
         startMessage = SocketClient.MessageR;
@@ -244,12 +241,21 @@ public class geneticPuzzle : MonoBehaviour
 
         Debug.Log(divString(startMessage, "&")[0]);
 
-        // divide el string en [0] matriz [1] geneticBest [2] numero de divisiones  
+        // divide el string en [0] matriz [1] geneticBest [2] numero de divisiones [3] timer 
         string[] posString = divString(startMessage, "&");
 
         // inicializa la matriz segun el numero de divisiones 
-        if(posString.Length == 3){
+
+
+        // quitar condicion para evaluar 
+        if(posString.Length == 4){
             howMuchImg = Int32.Parse(posString[2]);
+
+
+            Debug.Log(posString[3]);
+            Debug.Log("Timee;  " + posString[3]);
+            string strTemp =  "Tiempo: " + posString[3];
+            myTxt.text = strTemp;
 
 
             if (howMuchImg == 4){
@@ -344,29 +350,32 @@ public class geneticPuzzle : MonoBehaviour
             {
 
                 int num = matrix_[row, col];
-
+                WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                //WWW www = new WWW("file:///" + "/home/ingrid/Documents/Lets-play/Server/blocksFolder" + num + ".png");
+                //WWW www = new WWW("file:///" + "/home/usuario/Proyectos/Lets-play/Server/blocksFolder/" + num + ".png");
+                
                 if (divNumber == 4)
                 {
+                    
                     if (pointer == 0)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image0.texture = www.texture;
                     } 
                     else  if (pointer == 1)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                        //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image1.texture = www.texture;
                         
                     } 
                     else  if (pointer == 2)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image5.texture = www.texture;
                         
                     } 
                     else  if (pointer == 3)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                        //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image6.texture = www.texture;
                         
                     }
@@ -378,49 +387,49 @@ public class geneticPuzzle : MonoBehaviour
                 {
                     if (pointer == 0)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image0.texture = www.texture;
                         
                     } 
                     else  if (pointer == 1)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                        //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image1.texture = www.texture;
                         
                     } 
                     else  if (pointer == 2)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                        //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image2.texture = www.texture;
                         
                     } 
                     else  if (pointer == 3)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                        //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image3.texture = www.texture;
                         
                     }
                     else if (pointer == 4)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                        //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image5.texture = www.texture;
                         
                     } 
                     else  if (pointer == 5)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                        //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image6.texture = www.texture;
                         
                     } 
                     else  if (pointer == 6)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                        //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image7.texture = www.texture;
                         
                     } 
                     else  if (pointer == 7)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image8.texture = www.texture;
                         
                     }
@@ -433,55 +442,55 @@ public class geneticPuzzle : MonoBehaviour
                 {
                     if (pointer == 0)
                     {
-                    WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                    //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                     image0.texture = www.texture;
                     
                     } 
                     else  if (pointer == 1)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                        //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image1.texture = www.texture;
                         
                     } 
                     else  if (pointer == 2)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image2.texture = www.texture;
                         
                     } 
                     else  if (pointer == 3)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                        //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image5.texture = www.texture;
                         
                     }
                     else if (pointer == 4)
                     {
-                    WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                    //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                     image6.texture = www.texture;
                     
                     } 
                     else  if (pointer == 5)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image7.texture = www.texture;
                         
                     } 
                     else  if (pointer == 6)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image10.texture = www.texture;
                         
                     } 
                     else  if (pointer == 7)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                      //  WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image11.texture = www.texture;
                         
                     }
                     else  if (pointer == 8)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image12.texture = www.texture;
                         
                     }
@@ -492,97 +501,97 @@ public class geneticPuzzle : MonoBehaviour
                 {
                     if (pointer == 0)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image0.texture = www.texture;
                         
                     } 
                     else  if (pointer == 1)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                      //  WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image1.texture = www.texture;
                         
                     } 
                     else  if (pointer == 2)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                      //  WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image2.texture = www.texture;
                         
                     } 
                     else  if (pointer == 3)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image3.texture = www.texture;
                         
                     }
                     else if (pointer == 4)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image5.texture = www.texture;
                         
                     } 
                     else  if (pointer == 5)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image6.texture = www.texture;
                         
                     } 
                     else  if (pointer == 6)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image7.texture = www.texture;
                         
                     } 
                     else  if (pointer == 7)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image8.texture = www.texture;
                         
                     }
                     else  if (pointer == 8)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image10.texture = www.texture;
                         
                     }
                     else if (pointer == 9)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                      //  WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image11.texture = www.texture;
                         
                     } 
                     else  if (pointer == 10)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image12.texture = www.texture;
                         
                     } 
                     else  if (pointer == 11)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                      //  WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image13.texture = www.texture;
                         
                     } 
                     else  if (pointer == 12)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image15.texture = www.texture;
                         
                     }
                     else if (pointer == 13)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image16.texture = www.texture;
                         
                     } 
                     else  if (pointer == 14)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image17.texture = www.texture;
                         
                     } 
                     else  if (pointer == 15)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image18.texture = www.texture;
                         
                     } 
@@ -593,151 +602,151 @@ public class geneticPuzzle : MonoBehaviour
                 {
                     if (pointer == 0)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                        //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image0.texture = www.texture;
                         
                     } 
                     else  if (pointer == 1)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                      //  WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image1.texture = www.texture;
                         
                     } 
                     else  if (pointer == 2)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image2.texture = www.texture;
                         
                     } 
                     else  if (pointer == 3)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                      //  WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image3.texture = www.texture;
                         
                     }
                     else if (pointer == 4)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image4.texture = www.texture;
                         
                     } 
                     else  if (pointer == 5)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image5.texture = www.texture;
                         
                     } 
                     else  if (pointer == 6)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                        //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image6.texture = www.texture;
                         
                     } 
                     else  if (pointer == 7)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                        //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image7.texture = www.texture;
                         
                     }
                     else  if (pointer == 8)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                        //WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image8.texture = www.texture;
                         
                     }
                     else if (pointer == 9)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image9.texture = www.texture;
                         
                     } 
                     else  if (pointer == 10)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image10.texture = www.texture;
                         
                     } 
                     else  if (pointer == 11)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image11.texture = www.texture;
                         
                     } 
                     else  if (pointer == 12)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image12.texture = www.texture;
                         
                     }
                     else if (pointer == 13)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                      //  WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image13.texture = www.texture;
                         
                     } 
                     else  if (pointer == 14)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                      //  WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image14.texture = www.texture;
                         
                     } 
                     else  if (pointer == 15)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                      //  WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image15.texture = www.texture;
                         
                     } 
                     else  if (pointer == 16)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                      //  WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image16.texture = www.texture;
                         
                     }
                     else  if (pointer == 17)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image17.texture = www.texture;
                         
                     }
                     else if (pointer == 18)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image18.texture = www.texture;
                         
                     } 
                     else  if (pointer == 19)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                      //  WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image19.texture = www.texture;
                         
                     } 
                     else  if (pointer == 20)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image20.texture = www.texture;
                         
                     } 
                     else  if (pointer == 21)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                       // WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image21.texture = www.texture;
                         
                     }
                     else if (pointer == 22)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                     //   WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image22.texture = www.texture;
                         
                     } 
                     else  if (pointer == 23)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                     //   WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image23.texture = www.texture;
                         
                     } 
                     else  if (pointer == 24)
                     {
-                        WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
+                      //  WWW www = new WWW("file:///" + "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + num + ".png");
                         image24.texture = www.texture;
                         
                     } 

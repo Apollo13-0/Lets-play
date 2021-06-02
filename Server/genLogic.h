@@ -9,9 +9,11 @@
 #include "GAChromosome.h"
 #include "GASolver.h"
 #include <math.h>
+#include <filesystem>
 
 using namespace std;
 using json = nlohmann::json;
+namespace fs = std::filesystem;
 
 /*!
 * \brief genetares the result from genetic algorithm
@@ -22,10 +24,12 @@ string geneticResult(int num){
     float MUTATION_CHANCE = 0.9;
     float CROSS_OVER_RATE = 0.3;
     int POPULATION_LEN = 1000;
-    int MAX_ITERATION = 100;
+    int MAX_ITERATION = 15;
     int x,y;
     bool run = false;
     string mixMatrix;
+    clock_t start;
+    double duration;
 
     if(isSquare(num))
     {
@@ -38,8 +42,9 @@ string geneticResult(int num){
     }
 
     if (run){
-        try {
 
+        try {
+            start = clock();
             GAPad myPad = GAPad(x, y);
 
             myPad.shuffle();
@@ -59,7 +64,8 @@ string geneticResult(int num){
             GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
             GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);  //hacer esto como un str
             //myPad.apply_chain(res.gene);  //hacer este metodo en c#
-            return mixMatrix + gSolver.getResultPath() + divString;
+            duration = (clock() - start) / (double) CLOCKS_PER_SEC;
+            return mixMatrix + gSolver.getResultPath() + divString + "&" + to_string(duration);
         }
 
         catch (const std::exception &exc){
@@ -96,11 +102,12 @@ string genLogic(json jmessageR){
         int divideStatus = divideImage(image, tmp, blocks);
 
         // debug: save blocks
-        cv::utils::fs::createDirectory("/home/ignacio/Datos2/Lets-play/Server/blocksFolder");
+        fs::path temp = fs::current_path().parent_path();
+        cv::utils::fs::createDirectory(temp/"blocksFolder");
         for (int j = 0; j < blocks.size(); j++)
         {
             std::string blockId = std::to_string(j);
-            std::string blockImgName = "/home/ignacio/Datos2/Lets-play/Server/blocksFolder/" + blockId + ".png";
+            std::string blockImgName = temp.string() + "/blocksFolder/" + blockId + ".png";
             imwrite(blockImgName, blocks[j]);
         }
 
