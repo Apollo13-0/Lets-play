@@ -2,10 +2,10 @@
 <!--Description of Generation-->
 <Generation1>
     <Population_lenght>1000</Population_lenght>
-    <Total_error>1.494508</Total_error>
+    <Total_error>1.766008</Total_error>
     <Best>
-        <Best_error_total>1.010000</Best_error_total>
-        <Best_error_puzzle>1.000000</Best_error_puzzle>
+        <Best_error_total>1.510000</Best_error_total>
+        <Best_error_puzzle>1.500000</Best_error_puzzle>
         <Best_error_gen>0.010000</Best_error_gen>
         <Best_gen_lenght>1</Best_gen_lenght>
         <Best_gen> right </Best_gen>
