@@ -171,6 +171,7 @@ public class Ball : MonoBehaviour
     
     private void OnMouseDrag()
     {
+        
         if (_rigidbody2D.velocity.magnitude <= 0.1 && J1flag)
         {
             Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

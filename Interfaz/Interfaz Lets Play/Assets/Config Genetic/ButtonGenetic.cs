@@ -15,6 +15,7 @@ namespace ButtonGenetic
 {
     public class ButtonGenetic : MonoBehaviour
     {
+
         public InputField divisionNumber;
 
         private string path;
