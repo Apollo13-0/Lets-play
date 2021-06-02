@@ -13,7 +13,10 @@
 using namespace std;
 using json = nlohmann::json;
 
-
+/*!
+* \brief genetares the result from genetic algorithm
+* \param int division number
+*/
 string geneticResult(int num){
 
     float MUTATION_CHANCE = 0.9;
@@ -67,6 +70,10 @@ string geneticResult(int num){
 
 }
 
+/*!
+* \brief controls the behavior from the server
+* \param json with the message
+*/
 string genLogic(json jmessageR){
 
     string key = jmessageR.value("Key", "oops");

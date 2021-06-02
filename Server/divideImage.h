@@ -9,11 +9,9 @@
 #include <math.h>
 
 /*!
- * \brief Checks if given number is a perfect square
+ * \brief Checks if the number is a perfect square
  *
- * \param n int to be checked
- * \return true if n is a perfect square
- * \return false if n is not a perfect square
+ * \param n int
  */
 bool isSquare(int n)
 {
@@ -28,11 +26,9 @@ bool isSquare(int n)
 }
 
 /*!
- * \brief Checks if given number is a power of 2
+ * \brief Checks if the number is a power of 2
  *
- * \param n int to be checked
- * \return true if n is a power of 2
- * \return false if n is not a power of 2
+ * \param n int
  */
 bool isPowerOf2(int n)
 {
@@ -46,6 +42,12 @@ bool isPowerOf2(int n)
     }
 }
 
+/*!
+* \brief divides de image
+* \param int division number
+* \param image
+* \param blocks
+*/
 int divideImage(const cv::Mat& img, int numDiv, std::vector<cv::Mat>& blocks)
 {
     std::cout << img.empty() << "  efdsdf"<<endl;
