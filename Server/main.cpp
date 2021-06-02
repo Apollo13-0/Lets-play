@@ -101,89 +101,92 @@ int StartListenign(){
 
 int main() {
     srand(time(NULL));
-    try {
 
-        GAPad myPad = GAPad(3, 3);
-        for (auto &item : myPad.board) {
-            for (auto &i : item) {
-
-                cout << setw(3)<< i <<" ; ";
-            }
-            cout << endl;
-        }
-        cout << endl;
-        myPad.shuffle();
-        for (auto &item : myPad.board) {
-            for (auto &i : item) {
-
-
-                cout << setw(3) << i << " - ";
-            }
-            cout << endl;
-        }
-        cout << endl;
-
-        List<string> gene;
-        GAChromosome par = GAChromosome(myPad, gene);
-        GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
-        GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);
-        myPad.apply_chain(res.gene);
-
-        for (auto &item : myPad.board) {
-            for (auto &i : item) {
-
-                cout << setw(3)<< i << " | ";
-            }
-            cout << endl;
-        }
-        cout << endl;
-
-
-        cout<< "**************************"<< endl;
-
-        cout << gSolver.getResultPath() << endl;
-    }
-
-
-    catch (const std::exception &exc){
-        cout<<"Ha ocurrido un error\n";
-        std::cerr << exc.what();
-    }
-
-
-
-//    List<GAChromosome*> prueba;
-//    GAPad myPad = GAPad();
-//    GAChromosome original = GAChromosome(myPad, {});
-//    GAChromosome par = original;
-//    GAChromosome* ptrpar= &par;
-//    prueba.insertFirst(ptrpar);
-
-//    StartListenign();
-
-//    // init vars
-//    const int blockw = 50;
-//    const int blockh = 50;
-//    std::vector<cv::Mat> blocks;
+//    try {
 //
-//    // read png image
+//        GAPad myPad = GAPad(3, 3);
 //
-//    cv::Mat image = cv::imread("/home/ignacio/Datos2/Lets-play/Server/perrito.jpg", cv::IMREAD_UNCHANGED);
-//    //cv::imshow("Display window", image);
+//        for (auto &item : myPad.board) {
+//            for (auto &i : item) {
 //
-//    // divide image into multiple blocks
-//    int divideStatus = divideImage(image, 9, blocks);
+//                cout << setw(3)<< i <<" ; ";
+//            }
+//            cout << endl;
+//        }
+//        cout << endl;
 //
-//    // debug: save blocks
-//    cv::utils::fs::createDirectory("/home/usuario/Proyectos/Lets-play/Server/blocksFolder");
-//    for (int j = 0; j < blocks.size(); j++)
-//    {
-//        std::string blockId = std::to_string(j);
-//        std::string blockImgName = "/home/usuario/Proyectos/Lets-play/Server/blocksFolder/block#" + blockId + ".jpg";
-//        imwrite(blockImgName, blocks[j]);
+//        myPad.shuffle();
+//        for (auto &item : myPad.board) {
+//            for (auto &i : item) {
+//
+//
+//                cout << setw(3) << i << " - ";
+//            }
+//            cout << endl;
+//        }
+//        cout << endl;
+//
+//        GAPad copyPad = GAPad::deepCopy(myPad);
+//        GAPad copyPad3 = GAPad::deepCopy(myPad);
+//        cout<< "copy"<< endl;
+//        for (auto &item : copyPad.board) {
+//            for (auto &i : item) {
+//                cout << setw(3) << i << " - ";
+//            }
+//            cout << endl;
+//        }
+//        cout << endl;
+//
+//        List<string> gene;
+//        GAChromosome par = GAChromosome(myPad, gene);
+//        GASolver gSolver = GASolver(myPad, POPULATION_LEN, MUTATION_CHANCE, CROSS_OVER_RATE, par);
+//        GAChromosome res = gSolver.solve(MAX_ITERATION, 0.000001);
+//        myPad.apply_chain(res.gene);
+//
+//        for (auto &item : myPad.board) {
+//            for (auto &i : item) {
+//
+//                cout << setw(3)<< i << " | ";
+//            }
+//            cout << endl;
+//        }
+//        cout << endl;
+//
+//        cout<< "**************************"<< endl;
+//
+//        for (auto &item : copyPad.board) {
+//            for (auto &i : item) {
+//
+//
+//                cout << setw(3) << i << " - ";
+//            }
+//            cout << endl;
+//        }
+//        cout << endl;
+//
+//        cout<< "**************************"<< endl;
+//
+//        for (int i = 0; i < gSolver.resultPath.getSize(); i++) {
+//
+//            GAPad copyPad2 = GAPad::deepCopy(copyPad3);
+//            string tmp = copyPad2.apply_chain_client(copyPad3, gSolver.resultPath.find(i)->getValue());
+//            cout << tmp << endl;
+//
+//            gSolver.resultPath.find(i)->getValue().printList();
+//        }
+//        //cout << gSolver.getResultPath() << endl;
+//
+//    }
+//
+//
+//    catch (const std::exception &exc){
+//        cout<<"Ha ocurrido un error\n";
+//        std::cerr << exc.what();
 //    }
 
 
+
+    StartListenign();
 
     return 0;
 }

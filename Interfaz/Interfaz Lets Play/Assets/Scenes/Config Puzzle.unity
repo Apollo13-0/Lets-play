@@ -683,7 +683,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -103, y: 62}
+  m_AnchoredPosition: {x: -116, y: 39}
   m_SizeDelta: {x: 273.3924, y: 234.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1485359458
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.99607843, g: 0.9882353, b: 0.8980392, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1188,8 +1188,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -103, y: -99}
-  m_SizeDelta: {x: 729.971, y: 44.728}
+  m_AnchoredPosition: {x: -103, y: -120.80973}
+  m_SizeDelta: {x: 729.971, y: 88.3475}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2099956361
 MonoBehaviour:
@@ -1224,7 +1224,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cantidad de partes en que se va a dividir la imagen
+  m_Text: "Cantidad de partes en que se va a dividir la imagen\n\tSeleccionar 4,
+    8, 9, 16  o 25 divisiones"
 --- !u!222 &2099956362
 CanvasRenderer:
   m_ObjectHideFlags: 0

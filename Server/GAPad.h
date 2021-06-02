@@ -31,6 +31,18 @@ public:
     void apply_chain(List<string> chain);
     float cost ();
 
+
+    void swap(vector<int> a, vector<int> b, GAPad original);
+    bool move_left(const GAPad& original);
+    bool move_right(const GAPad& original);
+    bool move_up(const GAPad& original);
+    bool move_down(const GAPad& original);
+    vector<int> find_0(int num, const GAPad& original);
+    string apply_chain_client(const GAPad& original, List<string> chain);
+
+    static GAPad deepCopy(GAPad original);
+
+
 };
 
 #endif //SERVER_GAPAD_H
