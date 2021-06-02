@@ -42,6 +42,7 @@ public class geneticPuzzle : MonoBehaviour
     public Button ButtonPrev;
 
     public Slider mySlider;
+    
 
     // mensaje que recibe del server 
     string startMessage;
@@ -229,7 +230,6 @@ public class geneticPuzzle : MonoBehaviour
     void Start()
     {
         Slider slider = mySlider.GetComponent<Slider>();
-   
 
         // asigna la funcion a los botones 
         Button btnNext = ButtonNext.GetComponent<Button>();
@@ -248,83 +248,89 @@ public class geneticPuzzle : MonoBehaviour
         string[] posString = divString(startMessage, "&");
 
         // inicializa la matriz segun el numero de divisiones 
-
-        howMuchImg = Int32.Parse(posString[2]);
-
-        if (howMuchImg == 4){
-            globalRows = 2;
-            globalCol = 2;
-            matrix = new int[2,2];
-        } else if (howMuchImg == 8){
-            globalRows = 2;
-            globalCol = 4;
-            matrix = new int[2,4];
-        } else if (howMuchImg == 9){
-            globalRows = 3;
-            globalCol = 3;
-            matrix = new int[3,3];
-        } else if (howMuchImg == 16){
-            globalRows = 4;
-            globalCol = 4;
-            matrix = new int[4,4];
-        } else if (howMuchImg == 25){
-            globalRows = 5;
-            globalCol = 5;
-            matrix = new int[5,5];
-        }
-
-        // crea lista con las generaciones
-
-        geneticString = posString[1];
-        genList = divString(geneticString, "#");
+        if(posString.Length == 3){
+            howMuchImg = Int32.Parse(posString[2]);
 
 
-        // crea la matriz desordenada 
+            if (howMuchImg == 4){
+                globalRows = 2;
+                globalCol = 2;
+                matrix = new int[2,2];
+            } else if (howMuchImg == 8){
+                globalRows = 2;
+                globalCol = 4;
+                matrix = new int[2,4];
+            } else if (howMuchImg == 9){
+                globalRows = 3;
+                globalCol = 3;
+                matrix = new int[3,3];
+            } else if (howMuchImg == 16){
+                globalRows = 4;
+                globalCol = 4;
+                matrix = new int[4,4];
+            } else if (howMuchImg == 25){
+                globalRows = 5;
+                globalCol = 5;
+                matrix = new int[5,5];
+            }
 
-        string[] rows = divString(posString[0], "/");
+            // crea lista con las generaciones
 
-        for (int row = 0; row < matrix.GetLength(0); row++)
-        {
-            string rowString = rows[row];
-            string[] colString = divString(rowString, "-");
-            // leer columnas
-            for (int col = 0; col < matrix.GetLength(1); col++)
+            geneticString = posString[1];
+            genList = divString(geneticString, "#");
+
+
+            // crea la matriz desordenada 
+
+            string[] rows = divString(posString[0], "/");
+
+            for (int row = 0; row < matrix.GetLength(0); row++)
             {
-                string num = colString[col];
-                if (num != ""){
-                    matrix[row, col] = Int32.Parse(num);
+                string rowString = rows[row];
+                string[] colString = divString(rowString, "-");
+                // leer columnas
+                for (int col = 0; col < matrix.GetLength(1); col++)
+                {
+                    string num = colString[col];
+                    if (num != ""){
+                        matrix[row, col] = Int32.Parse(num);
+                    }
+                    
                 }
+            }
+
+            for (int k = 0; k < genList.Length-1; k++)
+            {
+                int[,] nextMatrix = DeepCopy(matrix);
+
+                if(currentGen < genList.Length-1){
+                    int[,] tmp = apply_chain(divString(genList[currentGen], "@") , nextMatrix);
+                    resultMatrices.Add(nextMatrix);
+                    currentGen++;
                 
+                } else{
+                    Debug.Log("FUERA DEL INDICE");
+                }
             }
+            currentGen = -1;
+
+            slider.minValue = 0;
+            slider.maxValue = resultMatrices.Count-1;
+            slider.wholeNumbers = true;
+
+            updateImages(howMuchImg, matrix);
         }
 
-        for (int k = 0; k < genList.Length-1; k++)
-        {
-            int[,] nextMatrix = DeepCopy(matrix);
-
-            if(currentGen < genList.Length-1){
-                int[,] tmp = apply_chain(divString(genList[currentGen], "@") , nextMatrix);
-                resultMatrices.Add(nextMatrix);
-                currentGen++;
-            
-            } else{
-                Debug.Log("FUERA DEL INDICE");
-            }
-        }
-        currentGen = -1;
-
-        slider.minValue = 0;
-        slider.maxValue = resultMatrices.Count-1;
-        slider.wholeNumbers = true;
-
-        updateImages(howMuchImg, matrix);
 
 
     }
 
     void Update()
     {
-        updateImages(howMuchImg, resultMatrices[(int)mySlider.value]);
+        if(resultMatrices.Count > (int)mySlider.value){
+            currentDispaly = (int)mySlider.value;
+             updateImages(howMuchImg, resultMatrices[currentDispaly]);
+        }
         
     }
 
